@@ -4,3 +4,4 @@ Connect Web Integration tests the integration of connect-web in various JS frame
 ## Tested frameworks
 
 - React
+- Vue
