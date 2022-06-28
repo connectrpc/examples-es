@@ -4,6 +4,9 @@ This project was bootstrapped with create-react-app using the command
 
 `npx create-react-app eliza-ts --template typescript`
 
+## Issues Found
+ - If using `opt: target=ts` in `buf.gen.yaml`, project must also be configured to use TypeScript or imports won't work
+
 
 ## Helpful Commands
 
