@@ -17,7 +17,7 @@
 /* eslint-disable */
 /* @ts-nocheck */
 
-import {ConverseRequest, ConverseResponse, SayRequest, SayResponse} from "./eliza_pb";
+import {ConverseRequest, ConverseResponse, SayRequest, SayResponse} from "./eliza_pb.js";
 import {MethodKind} from "@bufbuild/protobuf";
 
 /**
