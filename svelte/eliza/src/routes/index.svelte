@@ -1,12 +1,12 @@
 <script>
-	import { makePromiseClient, createConnectTransport } from '@bufbuild/connect-web';
+	import { createPromiseClient, createConnectTransport } from '@bufbuild/connect-web';
 	import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connectweb.js';
 
 	let sentence = '';
 	let answer = '';
 
 	// Make the Eliza Service client
-	const client = makePromiseClient(
+	const client = createPromiseClient(
 		ElizaService,
 		createConnectTransport({
 			baseUrl: 'https://demo.connect.build'

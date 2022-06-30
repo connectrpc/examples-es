@@ -3,7 +3,7 @@ import {
     createPromiseClient,
     createConnectTransport,
 } from '@bufbuild/connect-web'
-import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connectweb.js'
+import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connectweb'
 
 export default {
     data() {
@@ -36,7 +36,7 @@ export default {
 
 <template>
     <div class="about">
-        <h1>Eliza</h1>
+        <h1>Eliza Typescript</h1>
         <input type="text" v-model="sentence" />
         <button @click="send">Send</button>
         <p>{{ answer }}</p>

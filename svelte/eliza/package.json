@@ -1,5 +1,5 @@
 {
-	"name": "eliza",
+	"name": "eliza-svelte",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "svelte-kit dev",
@@ -12,10 +12,7 @@
 		"format": "prettier --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
-        "@bufbuild/connect-web": "^0.0.7",
-        "@bufbuild/protobuf": "^0.0.6",
-        "@bufbuild/protoc-gen-connect-web": "^0.0.7",
-        "@bufbuild/protoc-gen-es": "^0.0.6",
+        "@bufbuild/connect-web": "0.0.9",
 		"@playwright/test": "^1.22.2",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
