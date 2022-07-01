@@ -31,7 +31,7 @@ export function createObservableClient<T extends ServiceType>(
     service: T,
     transport: Transport
 ) {
-    const client = makeAnyClient(service, (method) => {
+    return makeAnyClient(service, (method) => {
         switch (method.kind) {
             case MethodKind.Unary:
                 return createUnaryFn(transport, service, method)
@@ -40,8 +40,7 @@ export function createObservableClient<T extends ServiceType>(
             default:
                 return null
         }
-    })
-    return client as ObservableClient<T>
+    }) as ObservableClient<T>
 }
 
 type UnaryFn<I extends Message<I>, O extends Message<O>> = (
