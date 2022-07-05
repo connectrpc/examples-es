@@ -11,6 +11,7 @@
     "@types/node": "^16.11.41",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
+    "is-promise": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -18,11 +19,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
   },
+  "type": "commonjs",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -44,6 +46,8 @@
   "devDependencies": {
     "@bufbuild/protoc-gen-connect-web": "^0.0.9",
     "@bufbuild/protoc-gen-es": "^0.0.7",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "react-app-rewired": "^2.2.1",
+    "resolve-typescript-plugin": "^1.2.0"
   }
 }

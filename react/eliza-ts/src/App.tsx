@@ -5,7 +5,7 @@ import {
     createPromiseClient,
     createConnectTransport,
 } from '@bufbuild/connect-web'
-import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connectweb'
+import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connectweb.js'
 
 function App() {
     const [question, setQuestion] = useState('')
