@@ -11,12 +11,14 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@bufbuild/connect-web": "0.0.9",
     "pinia": "^2.0.14",
     "vue": "^3.2.37",
-    "vue-router": "^4.0.16",
-    "@bufbuild/connect-web": "0.0.9"
+    "vue-router": "^4.0.16"
   },
   "devDependencies": {
+    "@bufbuild/protoc-gen-connect-web": "^0.0.9",
+    "@bufbuild/protoc-gen-es": "^0.0.7",
     "@rushstack/eslint-patch": "^1.1.0",
     "@vitejs/plugin-vue": "^2.3.3",
     "@vue/eslint-config-prettier": "^7.0.0",
