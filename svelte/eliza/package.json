@@ -12,7 +12,9 @@
 		"format": "prettier --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
-        "@bufbuild/connect-web": "0.0.9",
+		"@bufbuild/connect-web": "0.0.9",
+		"@bufbuild/protoc-gen-connect-web": "^0.0.9",
+		"@bufbuild/protoc-gen-es": "^0.0.7",
 		"@playwright/test": "^1.22.2",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",

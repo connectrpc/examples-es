@@ -17,7 +17,7 @@
 /* eslint-disable */
 /* @ts-nocheck */
 
-import {ConverseRequest, ConverseResponse, SayRequest, SayResponse} from "./eliza_pb.js";
+import {ConverseRequest, ConverseResponse, IntroduceRequest, IntroduceResponse, SayRequest, SayResponse} from "./eliza_pb.js";
 import {MethodKind} from "@bufbuild/protobuf";
 
 /**
@@ -46,7 +46,7 @@ export const ElizaService = {
       kind: MethodKind.Unary,
     },
     /**
-     * Converse is a bi-directional request demo. This method should allow for
+     * Converse is a bi-directional streaming request demo. This method should allow for
      * many requests and many responses.
      *
      * @generated from rpc buf.connect.demo.eliza.v1.ElizaService.Converse
@@ -56,6 +56,18 @@ export const ElizaService = {
       I: ConverseRequest,
       O: ConverseResponse,
       kind: MethodKind.BiDiStreaming,
+    },
+    /**
+     * Introduce is a server-streaming request demo.  This method allows for a single request that will return a series
+     * of responses
+     *
+     * @generated from rpc buf.connect.demo.eliza.v1.ElizaService.Introduce
+     */
+    introduce: {
+      name: "Introduce",
+      I: IntroduceRequest,
+      O: IntroduceResponse,
+      kind: MethodKind.ServerStreaming,
     },
   }
 } as const;

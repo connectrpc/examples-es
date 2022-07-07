@@ -71,7 +71,7 @@ export default {
 <template>
     <div class="App">
         <header class="App-header">
-            <div className="app-title">
+            <div class="app-title">
                 <img alt="Vue logo" class="App-logo" src="@/assets/logo.svg" />
                 <div>
                     <h1>Eliza</h1>
@@ -79,28 +79,24 @@ export default {
                 </div>
                 <img alt="Vue logo" class="App-logo" src="@/assets/logo.svg" />
             </div>
-            <p className="prompt-text">What is your name?</p>
+            <p class="prompt-text">What is your name?</p>
             <div>
-                <input type="text" className="text-input" v-model="name" />
+                <input type="text" class="text-input" v-model="name" />
                 <button @click="handleIntroduce">Introduce</button>
             </div>
-            <div className="intro-container">
-                <p v-for="intro in intros" className="resp-text">
+            <div class="intro-container">
+                <p v-for="intro in intros" class="resp-text">
                     {{ intro }}
                 </p>
             </div>
             <div v-if="showSayInput">
                 <div>
-                    <input
-                        type="text"
-                        className="text-input"
-                        v-model="statement"
-                    />
+                    <input type="text" class="text-input" v-model="statement" />
                     <button @click="handleSay">Say</button>
                 </div>
             </div>
-            <div className="intro-container">
-                <p v-for="answer in answers" className="resp-text">
+            <div class="intro-container">
+                <p v-for="answer in answers" class="resp-text">
                     {{ answer }}
                 </p>
             </div>

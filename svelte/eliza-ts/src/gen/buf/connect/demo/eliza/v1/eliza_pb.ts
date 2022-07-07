@@ -176,3 +176,81 @@ export class ConverseResponse extends Message<ConverseResponse> {
   }
 }
 
+/**
+ * IntroduceRequest describes a request for details from the ELIZA program.
+ *
+ * @generated from message buf.connect.demo.eliza.v1.IntroduceRequest
+ */
+export class IntroduceRequest extends Message<IntroduceRequest> {
+  /**
+   * @generated from field: string name = 1;
+   */
+  name = "";
+
+  constructor(data?: PartialMessage<IntroduceRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime = proto3;
+  static readonly typeName = "buf.connect.demo.eliza.v1.IntroduceRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): IntroduceRequest {
+    return new IntroduceRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): IntroduceRequest {
+    return new IntroduceRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): IntroduceRequest {
+    return new IntroduceRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: IntroduceRequest | PlainMessage<IntroduceRequest> | undefined, b: IntroduceRequest | PlainMessage<IntroduceRequest> | undefined): boolean {
+    return proto3.util.equals(IntroduceRequest, a, b);
+  }
+}
+
+/**
+ * IntroduceResponse describes the sentence responded by the ELIZA program.
+ *
+ * @generated from message buf.connect.demo.eliza.v1.IntroduceResponse
+ */
+export class IntroduceResponse extends Message<IntroduceResponse> {
+  /**
+   * @generated from field: string sentence = 1;
+   */
+  sentence = "";
+
+  constructor(data?: PartialMessage<IntroduceResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime = proto3;
+  static readonly typeName = "buf.connect.demo.eliza.v1.IntroduceResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): IntroduceResponse {
+    return new IntroduceResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): IntroduceResponse {
+    return new IntroduceResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): IntroduceResponse {
+    return new IntroduceResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: IntroduceResponse | PlainMessage<IntroduceResponse> | undefined, b: IntroduceResponse | PlainMessage<IntroduceResponse> | undefined): boolean {
+    return proto3.util.equals(IntroduceResponse, a, b);
+  }
+}
+
