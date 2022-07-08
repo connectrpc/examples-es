@@ -6,6 +6,9 @@ Each of the below main frameworks have three separate projects underneath all in
 - eliza     (plain JavaScript)
 - eliza-ts  (TypeScript)
 
+In addition to the above, the `react` directory contains a  `bespoke` project which was pieced together with different
+technologies.  Technologies used for each are specified in the directory's README.
+
 ## Frameworks
 
 ### React
@@ -46,8 +49,6 @@ The Vue applications were created with `npm init vue@latest` and all suggested d
     - Package Manager:  npm
     - Testing:  Cypress
 
-In addition to the above, there is a  `bespoke` directory which contains various projects pieced together with different
-technologies.  Technologies used for each are specified in the directory's README.
 
 ## Overall Notes
 - When using a TypeScript project, the `buf.gen.yaml` file should be configured with `opt: target=ts`
