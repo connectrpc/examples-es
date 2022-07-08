@@ -4,17 +4,20 @@ Connect Web Integration tests the integration of connect-web in various JS frame
 ## Tested frameworks and associated technologies
 
 - React
--- Bundler: Webpack
--- Package Manager:  npm
+    - Bundler: Webpack
+    - Package Manager:  npm
+    - Testing:  Jest
 
 - Remix
--- Bundler: Remix Compiler (ESBuild)
--- Package Manager:  pnpm
+    - Bundler: Remix Compiler (ESBuild)
+    - Package Manager:  pnpm
 
 - Svelte
--- Bundler: Vite
--- Package Manager:  npm
+    - Bundler: Vite
+    - Package Manager:  npm
+    - Testing:  Playwright
 
 - Vue
--- Bundler: Vite
--- Package Manager:  npm
+    - Bundler: Vite
+    - Package Manager:  npm
+    - Testing:  Cypress
