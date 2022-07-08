@@ -10,7 +10,7 @@ Connect Web Integration tests the integration of connect-web in various JS frame
     - Testing:  Jest
 
 - Issues
-    - When using TypeScript with Webpack, you will need the resolve-typescript plugin 
+    - When using TypeScript with Webpack, you will need the [resolve-typescript-plugin](https://github.com/softwareventures/resolve-typescript-plugin) 
 
 ### Remix
 - Technologies used
@@ -29,5 +29,5 @@ Connect Web Integration tests the integration of connect-web in various JS frame
     - Package Manager:  npm
     - Testing:  Cypress
 
-### Overall Notes
+## Overall Notes
 - When using a TypeScript project, the `buf.gen.yaml` file should be configured with `opt: target=ts`
