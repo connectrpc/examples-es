@@ -1,0 +1,21 @@
+{
+  "name": "yarn2-unplugged",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@bufbuild/connect-web": "^0.0.9",
+    "@bufbuild/protobuf": "^0.0.8",
+    "@bufbuild/protoc-gen-connect-web": "^0.0.9",
+    "@bufbuild/protoc-gen-es": "^0.0.8",
+    "esbuild": "^0.14.49",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsc": "^2.0.4",
+    "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "build": "esbuild src/index.tsx --bundle --outfile=dist/out.js"
+  },
+  "packageManager": "yarn@3.2.1"
+}
