@@ -1,9 +1,25 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import {
+    createPromiseClient,
+    createConnectTransport,
+} from '@bufbuild/connect-web'
+import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connectweb.js'
+import { IntroduceRequest } from './gen/buf/connect/demo/eliza/v1/eliza_pb.js'
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test('imports eliza correctly', () => {
+    expect(ElizaService).toBeDefined()
+})
+
+test('imports messages correctly', () => {
+    expect(IntroduceRequest).toBeDefined()
+})
+
+test('creates a promise client', () => {
+    const client = createPromiseClient(
+        ElizaService,
+        createConnectTransport({
+            baseUrl: 'https://demo.connect.build',
+        })
+    )
+    expect(client.say).toBeDefined()
+    expect(client.introduce).toBeDefined()
+})
