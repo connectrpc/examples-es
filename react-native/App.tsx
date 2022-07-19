@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
-import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, Dimensions, StyleSheet, Text, TextInput, View } from 'react-native';
 import {
     createPromiseClient,
-    createGrpcWebTransport,
     createConnectTransport,
 } from '@bufbuild/connect-web'
 import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connectweb.js'
 import { IntroduceRequest } from './gen/buf/connect/demo/eliza/v1/eliza_pb.js'
 import "fast-text-encoding";
-import Joi from "joi";
-// import { polyfill } from 'react-native-polyfill-globals';
-import 'react-native-polyfill-globals/auto';
+import { Platform } from 'react-native';
 
-// polyfill();
+// Import polyfills if not running on web.  Attempting to import these in web mode will result in numerous errors
+// trying to access react-native APIs
+if (Platform.OS !== 'web') {
+    import('react-native-polyfill-globals');
+}
 
 function App() {
     const [name, setName] = useState<string>('')
@@ -27,7 +27,7 @@ function App() {
     // Make the Eliza Service client
     const client = createPromiseClient(
         ElizaService,
-        createGrpcWebTransport({
+        createConnectTransport({
             baseUrl: 'https://demo.connect.build',
         })
     )
@@ -41,6 +41,7 @@ function App() {
     }
 
     const introduce = async (name: string) => {
+        if (Platform.OS === 'web') {
         const request = new IntroduceRequest({
             name,
         })
@@ -50,15 +51,6 @@ function App() {
         for await (const response of stream) {
             resps.push(response.sentence)
         }
-
-        // let channel = await client.introduce(request);
-        // const iterator = channel[Symbol.asyncIterator]();
-        // const result = [];
-        // while (result.length < Infinity) {
-        //     const { value, done } = await iterator.next();
-        //     if (done) break;
-        //     resps.push(value.sentence)
-        // }
 
         setTimeout(() => {
             setShowSayInput(true)
@@ -71,16 +63,9 @@ function App() {
                 }, INTRO_DELAY_MS * (i + 1))
             })(i)
         }
-    }
-
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setName(event.target.value)
-    }
-
-    const handleStatementChange = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
-        setStatement(event.target.value)
+        } else {
+            setIntros([`Hi, ${name}.  You seem to be running on mobile and streaming is not supported.`]);
+        }
     }
 
     const handleSay = () => {
@@ -92,60 +77,43 @@ function App() {
     }
 
     return (
-        <View className="App">
-            <View className="App-header">
-                <View className="app-title">
-                    <Text>React Native</Text>
+        <View style={styles.app}>
+            <View style={styles.appHeader}>
+                <View style={styles.appTitle}>
                     <View>
-                        <Text>Eliza</Text>
-                        <Text>TypeScript</Text>
+                        <Text style={styles.h1}>Eliza</Text>
                     </View>
-                    <Text>React Native</Text>
+                    <Text style={styles.promptText}>What is your name?</Text>
                 </View>
-                    <View>
-                        <TextInput
-                            type="text"
-                            className="text-input"
-                            value={statement}
-                            onChange={handleStatementChange}
-                        />
-                        <Button title="Say" onPress={handleSay}></Button>
-                    </View>
-                <Text className="prompt-text">What is your name?</Text>
-                <View>
+                <View style={styles.container}>
                     <TextInput
-                        type="text"
-                        className="text-input"
+                        style={styles.textInput}
                         value={name}
-                        onChange={handleNameChange}
+                        onChangeText={setName}
                     />
                     <Button onPress={handleIntroduce} title="Introduce"></Button>
                 </View>
-                <View className="intro-container">
+                <View style={styles.introContainer}>
                     {intros.map((intro, i) => {
                         return (
-                            <Text className="resp-text" key={`resp${i}`}>
+                            <Text style={styles.respText} key={`resp${i}`}>
                                 {intro}
                             </Text>
                         )
                     })}
                 </View>
-                {showSayInput ? (
-                    <View>
+                {(showSayInput || Platform.OS !== 'web') ? (
+                    <View style={styles.container}>
                         <TextInput
-                            type="text"
-                            className="text-input"
+                            style={styles.textInput}
                             value={statement}
-                            onChange={handleStatementChange}
+                            onChangeText={setStatement}
                         />
                         <Button title="Say" onPress={handleSay}></Button>
-                    </View>
-                ) : (
-                    <React.Fragment />
-                )}
-                <View className="intro-container">
-                    {answers.map((answer: string) => {
-                        return <Text className="resp-text">{answer}</Text>
+                </View>) : <React.Fragment />}
+                <View style={styles.introContainer}>
+                    {answers.map((answer: string, i:number) => {
+                        return <Text key={i} style={styles.respText}>{answer}</Text>
                     })}
                 </View>
             </View>
@@ -156,10 +124,55 @@ function App() {
 export default App
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    h1: {
+        display: 'flex',
+        fontSize: 50,
+        fontWeight: 'bold',
+        color: 'white',
+        marginTop: 50,
+    },
+    app: {
+    },
+    appHeader: {
+        backgroundColor: '#282c34',
+        minHeight: Dimensions.get('window').height,
+    },
+    appTitle: {
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+    },
+    container: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: Dimensions.get('window').width,
+    },
+    promptText: {
+        marginVertical: 0,
+        marginHorizontal: 15,
+        color: 'white',
+        fontSize: 20,
+    },
+    introContainer: {
+        margin: 15,
+        justifyContent: 'center',
+    },
+    respText: {
+        fontSize: 18,
+        margin: 5,
+        color: 'white',
+        textAlign: 'center',
+    },
+    textInput: {
+        width: 200,
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        backgroundColor: 'white',
+        borderBottomColor: '#000000',
+    }
 });
+
+

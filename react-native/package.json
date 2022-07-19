@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
+    "start": "npm run buf:generate && expo start",
+    "web": "npm run buf:generate && expo start --web",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "dependencies": {
