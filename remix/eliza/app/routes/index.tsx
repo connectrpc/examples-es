@@ -5,7 +5,6 @@ import {
 } from '@bufbuild/connect-web'
 import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connectweb.js'
 import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb.js'
-import logo from '../assets/logo.png'
 
 export default function Index() {
     const [name, setName] = useState<string>('')
@@ -74,12 +73,9 @@ export default function Index() {
         <div className="App">
             <header className="App-header">
                 <div className="app-title">
-                    <img alt="Remix logo" className="App-logo" src={logo} />
                     <div>
                         <h1>Eliza</h1>
-                        <h5>TypeScript</h5>
                     </div>
-                    <img alt="Remix logo" className="App-logo" src={logo} />
                 </div>
                 <p className="prompt-text">What is your name?</p>
                 <div>
