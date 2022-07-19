@@ -5,9 +5,9 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "start": "npm run buf:generate && remix dev",
+    "start": "pnpm run buf:generate && remix dev",
     "start:production": "remix-serve dist",
-    "build": "npm run buf:generate && remix build",
+    "build": "pnpm run buf:generate && remix build",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "dependencies": {

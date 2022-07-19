@@ -4,23 +4,27 @@ This project was bootstrapped with the command:
 
 `npx create-remix@latest`
 
+The above command scaffolds a Remix project with Rollup as its default module loader.
+
+In addition, this project uses [pnpm](https://pnpm.io/) as its package manager.
+
 ## Getting Started
 
-### `npm start`
+### `pnpm start`
 
 This starts your app in development mode, rebuilding assets on file changes.
 
 ## Helpful Commands
 
-### `npm run buf:generate`
+### `pnpm run buf:generate`
 
 Use `buf` to generate the compiled protos via protobuf-es
 
-### `npm run build`
+### `pnpm run build`
 
 Build the app using Rollup.
 
-### `npm run start:production`
+### `pnpm run start:production`
 
 Run the app in production mode.
 
