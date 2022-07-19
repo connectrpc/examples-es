@@ -17,6 +17,8 @@ function App() {
 
     const INTRO_DELAY_MS = 500
 
+    const steve: string = 'test'
+
     // Make the Eliza Service client
     const client = createPromiseClient(
         ElizaService,

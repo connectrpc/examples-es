@@ -23,5 +23,16 @@ describe('My First Test', () => {
 
         expect(client.say).to.not.be.undefined
         expect(client.introduce).to.not.be.undefined
+
+        cy.get('#name-input').type('Steve')
+        cy.get('button.intro-button').click()
+        cy.contains('p.resp-text', "Hi Steve. I'm Eliza.")
+
+        cy.get('#statement-input').type('Happy')
+        cy.get('button.say-button').click()
+        cy.wait(500)
+        cy.get('#statement-input').clear()
+        cy.get('#statement-input').type('Goodbye')
+        cy.get('button.say-button').click()
     })
 })

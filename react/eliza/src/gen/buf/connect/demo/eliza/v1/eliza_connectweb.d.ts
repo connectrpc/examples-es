@@ -46,7 +46,7 @@ export declare const ElizaService: {
       readonly kind: MethodKind.Unary,
     },
     /**
-     * Converse is a bi-directional request demo. This method should allow for
+     * Converse is a bi-directional streaming request demo. This method should allow for
      * many requests and many responses.
      *
      * @generated from rpc buf.connect.demo.eliza.v1.ElizaService.Converse

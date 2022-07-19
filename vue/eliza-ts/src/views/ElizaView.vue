@@ -81,8 +81,15 @@ export default {
             </div>
             <p className="prompt-text">What is your name?</p>
             <div>
-                <input type="text" className="text-input" v-model="name" />
-                <button @click="handleIntroduce">Introduce</button>
+                <input
+                    id="name-input"
+                    type="text"
+                    className="text-input"
+                    v-model="name"
+                />
+                <button className="intro-button" @click="handleIntroduce">
+                    Introduce
+                </button>
             </div>
             <div className="intro-container">
                 <p v-for="intro in intros" className="resp-text">
@@ -92,11 +99,14 @@ export default {
             <div v-if="showSayInput">
                 <div>
                     <input
+                        id="statement-input"
                         type="text"
                         className="text-input"
                         v-model="statement"
                     />
-                    <button @click="handleSay">Say</button>
+                    <button className="say-button" @click="handleSay">
+                        Say
+                    </button>
                 </div>
             </div>
             <div className="intro-container">

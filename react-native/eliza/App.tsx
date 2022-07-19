@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import {
     createPromiseClient,
+    createGrpcWebTransport,
     createConnectTransport,
 } from '@bufbuild/connect-web'
 import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connectweb.js'
@@ -26,7 +27,7 @@ function App() {
     // Make the Eliza Service client
     const client = createPromiseClient(
         ElizaService,
-        createConnectTransport({
+        createGrpcWebTransport({
             baseUrl: 'https://demo.connect.build',
         })
     )
