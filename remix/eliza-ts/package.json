@@ -1,4 +1,7 @@
 {
+  "name": "buf-remix",
+  "version": "1.0.0",
+  "description": "",
   "private": true,
   "sideEffects": false,
   "scripts": {
