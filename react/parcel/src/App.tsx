@@ -77,12 +77,9 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <div className="app-title">
-                    <p>Parcel</p>
                     <div>
                         <h1>Eliza</h1>
-                        <h5>TypeScript</h5>
                     </div>
-                    <p>Parcel</p>
                 </div>
                 <p className="prompt-text">What is your name?</p>
                 <div>

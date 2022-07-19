@@ -7,4 +7,3 @@ plugins:
   - name: connect-web
     path: ./node_modules/.bin/protoc-gen-connect-web
     out: src/gen
-    opt: target=js
