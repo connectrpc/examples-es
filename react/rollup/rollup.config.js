@@ -25,7 +25,6 @@ const plugins = [
 ];
 
 if (process.env.NODE_ENV === 'development') {
-  console.log('barshy');
     plugins.push(serve({
         open: true,
         verbose: true,

@@ -6,9 +6,7 @@ This project was bootstrapped with the command:
 
 ## Getting Started
 
-```sh
-npm start
-```
+### `npm start`
 
 This starts your app in development mode, rebuilding assets on file changes.
 
@@ -22,9 +20,7 @@ Use `buf` to generate the compiled protos via protobuf-es
 
 Build the app using Rollup.
 
-```sh
-npm run start:production
-```
+### `npm run start:production`
 
 Run the app in production mode.
 
