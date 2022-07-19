@@ -1,0 +1,27 @@
+{
+  "name": "parcel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@bufbuild/connect-web": "^0.0.9",
+    "@bufbuild/protobuf": "^0.0.7",
+    "@bufbuild/protoc-gen-connect-web": "^0.0.9",
+    "@bufbuild/protoc-gen-es": "^0.0.7",
+    "parcel": "^2.6.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "alias": {
+    "@": "."
+   }
+}
