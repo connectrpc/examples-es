@@ -5,9 +5,10 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev",
-    "start": "remix-serve build"
+    "start": "npm run buf:generate && remix dev",
+    "start:production": "remix-serve dist",
+    "build": "npm run buf:generate && remix build",
+    "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "dependencies": {
     "@remix-run/node": "^1.6.4",

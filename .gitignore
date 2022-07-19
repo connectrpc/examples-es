@@ -6,3 +6,6 @@
 **/.parcel-cache
 .pnpm-debug.log
 **/.expo
+**/.cache
+**/public/build
+**/.env

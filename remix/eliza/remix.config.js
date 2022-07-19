@@ -2,5 +2,5 @@
 module.exports = {
     ignoredRouteFiles: ['**/.*'],
     serverBuildPath: 'dist/index.js',
-    publicPath: '/dist/',
+    publicPath: '/build/',
 }

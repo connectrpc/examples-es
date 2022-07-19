@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../assets/app.css'
 import {
     createPromiseClient,
     createConnectTransport,
@@ -70,8 +71,8 @@ export default function Index() {
     }
 
     return (
-        <div className="App">
-            <header className="App-header">
+        <div className="app">
+            <header className="app-header">
                 <div className="app-title">
                     <div>
                         <h1>Eliza</h1>

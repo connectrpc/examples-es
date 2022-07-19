@@ -1,28 +1,31 @@
-# Welcome to Remix!
+# Eliza
 
-- [Remix Docs](https://remix.run/docs)
+This project was bootstrapped with the command:
 
-## Development
+`npx create-remix@latest`
 
-From your terminal:
-
-```sh
-npm run dev
-```
-
-This starts your app in development mode, rebuilding assets on file changes.
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
+## Getting Started
 
 ```sh
 npm start
 ```
+
+This starts your app in development mode, rebuilding assets on file changes.
+
+## Helpful Commands
+
+### `npm run buf:generate`
+
+Use `buf` to generate the compiled protos via protobuf-es
+
+### `npm run build`
+
+Build the app using Rollup.
+
+```sh
+npm run start:production
+```
+
+Run the app in production mode.
+
 
