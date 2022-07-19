@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import {
     createPromiseClient,
@@ -16,8 +15,6 @@ function App() {
     const [showSayInput, setShowSayInput] = useState<boolean>(false)
 
     const INTRO_DELAY_MS = 500
-
-    const steve: string = 'test'
 
     // Make the Eliza Service client
     const client = createPromiseClient(
@@ -77,15 +74,12 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <header className="App-header">
+        <div className="app">
+            <header className="app-header">
                 <div className="app-title">
-                    <img src={logo} className="App-logo" alt="logo" />
                     <div>
                         <h1>Eliza</h1>
-                        <h5>TypeScript</h5>
                     </div>
-                    <img src={logo} className="App-logo" alt="logo" />
                 </div>
                 <p className="prompt-text">What is your name?</p>
                 <div>
