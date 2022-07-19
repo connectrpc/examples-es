@@ -22,7 +22,6 @@
     "start": "npm run buf:generate && react-app-rewired start",
     "build": "BUILD_PATH='./dist' react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "type": "commonjs",

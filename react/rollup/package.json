@@ -1,10 +1,13 @@
 {
-  "name": "react-rollup",
+  "name": "buf-rollup",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run buf:generate && npx rollup -c rollup.config.js -w --environment NODE_ENV:development --silent",
+    "build": "npm run buf:generate && npx rollup -c rollup.config.js --silent",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +22,7 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-replace": "^4.0.0",
     "@rollup/plugin-typescript": "^8.3.3",
+    "@types/react": "^18.0.15",
     "rollup": "^2.76.0",
     "rollup-plugin-import-css": "^3.0.3",
     "rollup-plugin-livereload": "^2.0.5",
