@@ -1,5 +1,5 @@
 {
-  "name": "yarn2-unplugged",
+  "name": "buf-yarn3-unplugged",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -15,7 +15,9 @@
     "typescript": "^4.7.4"
   },
   "scripts": {
-    "build": "esbuild src/index.tsx --bundle --outfile=dist/out.js"
+    "start": "yarn run build && open index.html",
+    "build": "esbuild src/index.tsx --bundle --outfile=dist/out.js",
+    "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "packageManager": "yarn@3.2.1"
 }

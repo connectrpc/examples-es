@@ -29,7 +29,7 @@ function App() {
             sentence,
         })
 
-        setAnswers((answers) => [...answers, response.sentence])
+        setAnswers((answers: string) => [...answers, response.sentence])
     }
 
     const introduce = async (name: string) => {
@@ -49,7 +49,7 @@ function App() {
         for (var i = 0; i < resps.length; i++) {
             ;(function (i) {
                 setTimeout(function () {
-                    setIntros((intro) => [...intro, resps[i]])
+                    setIntros((intro: string) => [...intro, resps[i]])
                 }, INTRO_DELAY_MS * (i + 1))
             })(i)
         }
@@ -74,15 +74,12 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <header className="App-header">
+        <div className="app">
+            <header className="app-header">
                 <div className="app-title">
-                    <p>Yarn 2 Unplugged</p>
                     <div>
                         <h1>Eliza</h1>
-                        <h5>TypeScript</h5>
                     </div>
-                    <p>Yarn 2 Unplugged</p>
                 </div>
                 <p className="prompt-text">What is your name?</p>
                 <div>

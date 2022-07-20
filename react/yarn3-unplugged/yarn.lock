@@ -485,6 +485,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"buf-yarn3-unplugged@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "buf-yarn3-unplugged@workspace:."
+  dependencies:
+    "@bufbuild/connect-web": ^0.0.9
+    "@bufbuild/protobuf": ^0.0.8
+    "@bufbuild/protoc-gen-connect-web": ^0.0.9
+    "@bufbuild/protoc-gen-es": ^0.0.8
+    esbuild: ^0.14.49
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    tsc: ^2.0.4
+    typescript: ^4.7.4
+  languageName: unknown
+  linkType: soft
+
 "esbuild-android-64@npm:0.14.49":
   version: 0.14.49
   resolution: "esbuild-android-64@npm:0.14.49"
@@ -772,19 +788,3 @@ __metadata:
   checksum: 9096d8f6c16cb80ef3bf96fcbbd055bf1c4a43bd14f3b7be45a9fbe7ada46ec977f604d5feed3263b4f2aa7d4c7477ce5f9cd87de0d6feedec69a983f3a4f93e
   languageName: node
   linkType: hard
-
-"yarn2-unplugged@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "yarn2-unplugged@workspace:."
-  dependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protobuf": ^0.0.8
-    "@bufbuild/protoc-gen-connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.8
-    esbuild: ^0.14.49
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    tsc: ^2.0.4
-    typescript: ^4.7.4
-  languageName: unknown
-  linkType: soft
