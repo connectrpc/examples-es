@@ -1,54 +1,39 @@
 # connect-web-integration
-Connect Web Integration tests the integration of connect-web in various JS frameworks and tooling
+Connect Web Integration tests the integration of Connect-Web in various JS frameworks and tooling
 
-Each of the below main frameworks have three separate projects underneath all integrating with the ELIZA Connect demo.
+All projects test Connect-Web against the Eliza demo running at demo.connect.build. 
 
-- eliza     (plain JavaScript)
-- eliza-ts  (TypeScript)
+## Pre-requisites
 
-In addition to the above, the `react` directory contains a  `bespoke` project which was pieced together with different
-technologies.  Technologies used for each are specified in the directory's README.
+Before running any example project, make sure you have [Buf](https://docs.buf.build/installation) installed.
 
-## Frameworks
+## Projects
 
 ### React
 
-The React applications were created with `create-react-app` and all suggested defaults.
+All sample projects underneath the `React` directory use React as the framework.  Each is divided by the various
+tooling differences the related projects were constructed with:
 
-- Technologies used
-    - Bundler: Webpack
-    - Package Manager:  npm
-    - Testing:  Jest
+* cra - Built with Create React App and all associated defaults.
+* parcel - Built from scratch with Parcel as the bundler
+* rollup - Built from scratch with Rollup as the bundler.
+* yarn3-unplugged - Built from scratch with Yarn 3 in unplugged mode.
+* yarn3 - Built from scratch with Yarn 3 and PnP mode.
 
-- Issues
-    - When using TypeScript with Webpack, you will need the [resolve-typescript-plugin](https://github.com/softwareventures/resolve-typescript-plugin) 
+Each project also uses various tools for testing, linting, etc.  These variances are noted in each project README.
+
+### React Native
+
+The React Native application was built with the Expo CLI and all suggested defaults.
 
 ### Remix
 
-The Remix applications were created with `npx create-remix@latest` and all suggested defaults.
-
-- Technologies used
-    - Bundler: Remix Compiler (ESBuild)
-    - Package Manager:  pnpm
+The Remix application was created with `npx create-remix@latest` and all suggested defaults.
 
 ### Svelte
 
-The Svelte applications were created with `npm create svelte <app name>` and all suggested defaults.
+The Svelte application was created with `npm create svelte <app name>` and all suggested defaults.
 
-- Technologies used
-    - Bundler: Vite
-    - Package Manager:  npm
-    - Testing:  Playwright
+### Vue
 
-###  Vue
-
-The Vue applications were created with `npm init vue@latest` and all suggested defaults.
-
-- Technologies used
-    - Bundler: Vite
-    - Package Manager:  npm
-    - Testing:  Cypress
-
-
-## Overall Notes
-- When using a TypeScript project, the `buf.gen.yaml` file should be configured with `opt: target=ts`
+The Vue application was created with `npm init vue@latest` and all suggested defaults.
