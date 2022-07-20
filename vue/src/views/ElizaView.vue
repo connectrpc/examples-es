@@ -19,7 +19,7 @@ interface ElizaData {
     client: PromiseClient<typeof ElizaService> | undefined
 }
 
-export const ElizaView = defineComponent({
+export default defineComponent({
     name: 'ElizaView',
     data(): ElizaData {
         return {
@@ -42,31 +42,35 @@ export const ElizaView = defineComponent({
     },
     methods: {
         async say(sentence: string) {
-            const response = await this.client!.say({
-                sentence,
-            })
+            if (this.client) {
+                const response = await this.client.say({
+                    sentence,
+                })
 
-            this.answers.push(response.sentence)
+                this.answers.push(response.sentence)
+            }
         },
         async introduce(name: string) {
-            const request = new IntroduceRequest({
-                name,
-            })
+            if (this.client) {
+                const request = new IntroduceRequest({
+                    name,
+                })
 
-            const resps: string[] = []
-            for await (const response of this.client!.introduce(request)) {
-                resps.push(response.sentence)
-            }
-            setTimeout(() => {
-                this.showSayInput = true
-            }, resps.length * INTRO_DELAY_MS)
+                const resps: string[] = []
+                for await (const response of this.client.introduce(request)) {
+                    resps.push(response.sentence)
+                }
+                setTimeout(() => {
+                    this.showSayInput = true
+                }, resps.length * INTRO_DELAY_MS)
 
-            for (let i = 0; i < resps.length; i++) {
-                ;((i) => {
-                    setTimeout(() => {
-                        this.intros.push(resps[i])
-                    }, INTRO_DELAY_MS * (i + 1))
-                })(i)
+                for (let i = 0; i < resps.length; i++) {
+                    ;((i) => {
+                        setTimeout(() => {
+                            this.intros.push(resps[i])
+                        }, INTRO_DELAY_MS * (i + 1))
+                    })(i)
+                }
             }
         },
         handleIntroduce() {
