@@ -32,7 +32,7 @@ Type-check using vue-tsc and build the app using Vite.
 Run unit tests via the Vitest framework.
 
 **Note that if you ran `export NODE_OPTIONS=--openssl-legacy-provider` prior to this while working with the 
-[React Native project](../react-native/README.md), you will need to run `unset NODE_OPTIONS` to before running tests.  Otherwise, you will see an 
+[React Native project](../react-native/), you will need to run `unset NODE_OPTIONS` to before running tests.  Otherwise, you will see an 
 error similar to the following:**
 
 `Error: Initiated Worker with invalid NODE_OPTIONS env variable: --openssl-legacy-provider is not allowed in NODE_OPTIONS`
