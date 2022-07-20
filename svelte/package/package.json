@@ -1,0 +1,31 @@
+{
+    "name": "buf-svelte",
+    "version": "0.0.1",
+    "devDependencies": {
+        "@bufbuild/connect-web": "^0.0.9",
+        "@bufbuild/protoc-gen-connect-web": "^0.0.9",
+        "@bufbuild/protoc-gen-es": "^0.0.7",
+        "@playwright/test": "^1.22.2",
+        "@sveltejs/adapter-auto": "next",
+        "@sveltejs/kit": "next",
+        "@typescript-eslint/eslint-plugin": "^5.27.0",
+        "@typescript-eslint/parser": "^5.27.0",
+        "eslint": "^8.16.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-svelte3": "^4.0.0",
+        "prettier": "^2.6.2",
+        "prettier-plugin-svelte": "^2.7.0",
+        "svelte": "^3.44.0",
+        "svelte-check": "^2.7.1",
+        "svelte-preprocess": "^4.10.6",
+        "tslib": "^2.3.1",
+        "typescript": "^4.7.2"
+    },
+    "type": "module",
+    "dependencies": {
+        "svelte2tsx": "^0.5.12"
+    },
+    "exports": {
+        "./package.json": "./package.json"
+    }
+}
