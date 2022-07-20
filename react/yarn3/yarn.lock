@@ -899,7 +899,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.0.0":
+"@types/react@npm:*, @types/react@npm:^18.0.15":
   version: 18.0.15
   resolution: "@types/react@npm:18.0.15"
   dependencies:
@@ -1042,6 +1042,24 @@ __metadata:
   checksum: 4904a9ded0702381adc495e003e7f77970abb7f8c8b8edd9e54f026354b5a96b1bddc26e6d9a7df9f043e468ecd2fcff2c8f40fc489909a042880117c2aca8ff
   languageName: node
   linkType: hard
+
+"buf-yarn3@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "buf-yarn3@workspace:."
+  dependencies:
+    "@bufbuild/connect-web": ^0.0.9
+    "@bufbuild/protobuf": ^0.0.8
+    "@bufbuild/protoc-gen-connect-web": ^0.0.9
+    "@bufbuild/protoc-gen-es": ^0.0.7
+    "@types/react": ^18.0.15
+    "@types/react-dom": ^18.0.0
+    "@vitejs/plugin-react": ^1.3.0
+    react: ^18.0.0
+    react-dom: ^18.0.0
+    typescript: ^4.6.3
+    vite: ^2.9.9
+  languageName: unknown
+  linkType: soft
 
 "cacache@npm:^16.1.0":
   version: 16.1.1
@@ -2046,24 +2064,6 @@ __metadata:
   checksum: 1cf2b87ed99e1d388aa3923078bc30cd3ce43ee86e8936944e961d3643c6e85da41ebed6a0996e8bdad75a0d2ce3b7e10638b45018231380d4a174f63a451f75
   languageName: node
   linkType: hard
-
-"react-yarn2@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "react-yarn2@workspace:."
-  dependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protobuf": ^0.0.8
-    "@bufbuild/protoc-gen-connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-    "@types/react": ^18.0.0
-    "@types/react-dom": ^18.0.0
-    "@vitejs/plugin-react": ^1.3.0
-    react: ^18.0.0
-    react-dom: ^18.0.0
-    typescript: ^4.6.3
-    vite: ^2.9.9
-  languageName: unknown
-  linkType: soft
 
 "react@npm:^18.0.0":
   version: 18.2.0

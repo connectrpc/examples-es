@@ -1,10 +1,11 @@
 {
-  "name": "react-yarn2",
+  "name": "buf-yarn3",
   "packageManager": "yarn@3.2.1",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "dependencies": {
     "@bufbuild/connect-web": "^0.0.9",
@@ -15,7 +16,7 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.0",
+    "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.0",
     "@vitejs/plugin-react": "^1.3.0",
     "typescript": "^4.6.3",

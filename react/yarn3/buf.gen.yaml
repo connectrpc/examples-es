@@ -4,6 +4,8 @@ plugins:
   - name: es
     path: .yarn/unplugged/@bufbuild-protoc-gen-es-darwin-arm64-virtual-532032a44a/node_modules/@bufbuild/protoc-gen-es-darwin-arm64/bin/protoc-gen-es
     out: src/gen
+    opt: target=ts
   - name: connect-web
     path: .yarn/unplugged/@bufbuild-protoc-gen-connect-web-darwin-arm64-virtual-ae5b3edc44/node_modules/@bufbuild/protoc-gen-connect-web-darwin-arm64/bin/protoc-gen-connect-web
     out: src/gen
+    opt: target=ts
