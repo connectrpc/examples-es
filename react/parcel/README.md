@@ -1,6 +1,6 @@
 # Eliza
 
-This project was created from scrach using React and Parcel as the underlying bundler/module loader.
+This project was created from scratch using React and Parcel as the underlying bundler/module loader.
 
 To begin:
 
