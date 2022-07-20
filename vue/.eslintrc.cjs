@@ -15,4 +15,5 @@ module.exports = {
             extends: ['plugin:cypress/recommended'],
         },
     ],
+    ignorePatterns: ['cypress.config.ts', 'cypress/support'],
 }

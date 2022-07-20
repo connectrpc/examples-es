@@ -1,4 +1,3 @@
-// https://docs.cypress.io/api/introduction/api.html
 import {
     createPromiseClient,
     createConnectTransport,
@@ -6,14 +5,12 @@ import {
 import { ElizaService } from '../../src/gen/buf/connect/demo/eliza/v1/eliza_connectweb.js'
 import { IntroduceRequest } from '../../src/gen/buf/connect/demo/eliza/v1/eliza_pb.js'
 
-describe('My First Test', () => {
-    it('visits the app root url', () => {
-        cy.visit('/')
-        cy.contains('h1', 'Eliza')
-
+describe('Eliza Testing', () => {
+    it('imports properly', () => {
         expect(ElizaService).to.not.be.undefined
         expect(IntroduceRequest).to.not.be.undefined
-
+    })
+    it('creates a promise client', () => {
         const client = createPromiseClient(
             ElizaService,
             createConnectTransport({
@@ -23,6 +20,10 @@ describe('My First Test', () => {
 
         expect(client.say).to.not.be.undefined
         expect(client.introduce).to.not.be.undefined
+    })
+    it('visits the app root url', () => {
+        cy.visit('/')
+        cy.contains('h1', 'Eliza')
 
         cy.get('#name-input').type('Steve')
         cy.get('button.intro-button').click()
@@ -30,7 +31,6 @@ describe('My First Test', () => {
 
         cy.get('#statement-input').type('Happy')
         cy.get('button.say-button').click()
-        cy.wait(500)
         cy.get('#statement-input').clear()
         cy.get('#statement-input').type('Goodbye')
         cy.get('button.say-button').click()

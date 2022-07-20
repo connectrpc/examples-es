@@ -1,15 +1,27 @@
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import {
     createPromiseClient,
     createConnectTransport,
 } from '@bufbuild/connect-web'
+import type { PromiseClient } from '@bufbuild/connect-web'
 import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connectweb'
 import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb'
 
 const INTRO_DELAY_MS = 500
 
-export default {
-    data() {
+interface ElizaData {
+    name: string
+    statement: string
+    intros: string[]
+    answers: string[]
+    showSayInput: boolean
+    client: PromiseClient<typeof ElizaService> | undefined
+}
+
+export const ElizaView = defineComponent({
+    name: 'ElizaView',
+    data(): ElizaData {
         return {
             name: '',
             statement: '',
@@ -29,22 +41,21 @@ export default {
         )
     },
     methods: {
-        async say(sentence) {
-            const response = await this.client.say({
+        async say(sentence: string) {
+            const response = await this.client!.say({
                 sentence,
             })
 
             this.answers.push(response.sentence)
         },
-        async introduce(name) {
+        async introduce(name: string) {
             const request = new IntroduceRequest({
                 name,
             })
 
-            const resps = []
-            for await (const response of this.client.introduce(request)) {
+            const resps: string[] = []
+            for await (const response of this.client!.introduce(request)) {
                 resps.push(response.sentence)
-                console.log(response.sentence)
             }
             setTimeout(() => {
                 this.showSayInput = true
@@ -61,23 +72,20 @@ export default {
         handleIntroduce() {
             this.introduce(this.name)
         },
-        handleSay() {
+        handleSay(): void {
             this.say(this.statement)
         },
     },
-}
+})
 </script>
 
 <template>
-    <div class="App">
-        <header class="App-header">
+    <div class="app">
+        <header class="app-header">
             <div className="app-title">
-                <img alt="Vue logo" class="App-logo" src="@/assets/logo.svg" />
                 <div>
                     <h1>Eliza</h1>
-                    <h5>TypeScript</h5>
                 </div>
-                <img alt="Vue logo" class="App-logo" src="@/assets/logo.svg" />
             </div>
             <p className="prompt-text">What is your name?</p>
             <div>
@@ -92,7 +100,11 @@ export default {
                 </button>
             </div>
             <div className="intro-container">
-                <p v-for="intro in intros" className="resp-text">
+                <p
+                    v-for="(intro, index) in intros"
+                    :key="`intro-${index}`"
+                    className="resp-text"
+                >
                     {{ intro }}
                 </p>
             </div>
@@ -110,7 +122,11 @@ export default {
                 </div>
             </div>
             <div className="intro-container">
-                <p v-for="answer in answers" className="resp-text">
+                <p
+                    v-for="(answer, index) in answers"
+                    :key="`answer-${index}`"
+                    className="resp-text"
+                >
                     {{ answer }}
                 </p>
             </div>
