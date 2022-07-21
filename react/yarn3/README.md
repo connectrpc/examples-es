@@ -1,6 +1,10 @@
 # Eliza
 
-This project was created from scratch using React and Yarn 3 with Vite as the bundler.
+This project was created from scratch using React and Yarn 3 in Plug'n'Play mode
+
+Other tools used:
+
+* [Vite](https://vitejs.dev/) (Bundler)
 
 To begin:
 

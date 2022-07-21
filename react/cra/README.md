@@ -6,8 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 All default tooling setup via Create React App is used, which includes:
 
-* Webpack
-* Jest
+* [Webpack](https://webpack.js.org/) (Bundler)
+* [Jest](https://jestjs.io/) (Test Framework)
 
 To begin:
 

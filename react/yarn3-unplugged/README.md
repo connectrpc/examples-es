@@ -1,9 +1,13 @@
 # Eliza
 
-This project was created from scratch using React and Yarn 3 with esbuild as the bundler.
+This project was created from scratch using React and [Yarn 3](https://yarnpkg.com) with [esbuild](https://esbuild.github.io/) as the bundler.
 
-Note that while this project is using Yarn 3, it is running in `unplugged` mode, which does not use the Plug'n'Play
-configuration in Yarn 3.  This means that it is still compatible with the traditional `node_modules` setup.
+Note that while this project is using Yarn 3, it is running in [unplugged mode](https://yarnpkg.com/getting-started/migration#step-by-step), 
+which does not use the Plug'n'Play configuration in Yarn 3.  This means that it is still compatible with the traditional `node_modules` setup.
+
+Other tools used:
+
+* [Vite](https://vitejs.dev/) (Bundler)
 
 To begin:
 

@@ -1,6 +1,6 @@
 # Eliza
 
-This project was created from scratch using React and Rollup as the underlying bundler/module loader.
+This project was created from scratch using React and [Rollup](https://rollupjs.org) as the underlying bundler/module loader.
 
 To begin:
 
@@ -17,10 +17,6 @@ You will also see any lint errors in the console.
 ### `npm run build`
 
 Build the app using Rollup.
-
-### `npm run test`
-
-Not implemented.  No test framework setup.
 
 ### `npm run buf:generate`
 
