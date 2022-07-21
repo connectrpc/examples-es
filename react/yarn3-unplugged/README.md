@@ -9,8 +9,9 @@ Other tools used:
 
 * [Vite](https://vitejs.dev/) (Bundler)
 
-To begin:
+## Getting Started
 
+### `yarn install`
 ### `yarn start`
 
 Opens the index.html file in a browser, pointed to the `dist` directory built by esbuild.

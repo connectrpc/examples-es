@@ -11,6 +11,7 @@ Other tools used:
 
 ## Getting Started
 
+### `pnpm install`
 ### `pnpm start`
 
 This starts your app in development mode, rebuilding assets on file changes.

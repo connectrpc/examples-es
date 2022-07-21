@@ -6,8 +6,9 @@ Other tools used:
 
 * [Vite](https://vitejs.dev/) (Bundler)
 
-To begin:
+## Getting Started
 
+### `yarn install`
 ### `yarn start`
 
 Runs the app in the development mode.\

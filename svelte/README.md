@@ -10,8 +10,9 @@ All default tooling setup via the above command is used, which includes:
 * [Playwright](https://playwright.dev) (Testing Framework)
 * [Svelte Kit](https://kit.svelte.dev/) (Application Framework)
 
-To begin:
+## Getting Started
 
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\

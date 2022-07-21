@@ -2,8 +2,9 @@
 
 This project was created from scratch using React and [Parcel](https://parceljs.org/) as the underlying bundler/module loader.
 
-To begin:
+## Getting Started
 
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\

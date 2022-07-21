@@ -9,8 +9,9 @@ All default tooling setup via Create React App is used, which includes:
 * [Webpack](https://webpack.js.org/) (Bundler)
 * [Jest](https://jestjs.io/) (Test Framework)
 
-To begin:
+## Getting Started
 
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\

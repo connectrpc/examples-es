@@ -15,6 +15,7 @@ phone while hitting a server running on your computer.
 
 ## Getting Started
 
+### `npm install`
 ### `npm start`
 
 Starts the server locally using Expo.  You should then be able to see it running on a phone provided you have the above

@@ -10,9 +10,9 @@ All default tooling setup via the above command is used, which includes:
 * [Vitest](https://vitest.dev) (Unit Test Framework)
 * [Cypress](https://www.cypress.io/) (e2e Test Framework)
 
+## Getting Started
 
-To begin:
-
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
