@@ -1,6 +1,6 @@
 # Eliza
 
-This project was created using the Expo CLI with the command:
+This project was created using the [Expo CLI](https://docs.expo.dev/workflow/expo-cli/) with the command:
 
 `expo init <project-name>`
 

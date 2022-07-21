@@ -1,14 +1,14 @@
 # Eliza
 
-The example projects in this directory were all bootstrapped with
+This project was bootstrapped as a [Svelte](https://svelte.dev/) project with the command:
 
 `npm create svelte eliza`
 
 All default tooling setup via the above command is used, which includes:
 
-* Vite
-* Playwright
-* Svelte Kit
+* [Vite](https://vitejs.dev) (Module Loader)
+* [Playwright](https://playwright.dev) (Testing Framework)
+* [Svelte Kit](https://kit.svelte.dev/) (Application Framework)
 
 To begin:
 

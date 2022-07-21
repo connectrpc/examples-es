@@ -1,12 +1,13 @@
 # Eliza
 
-This project was bootstrapped with the command:
+This project was bootstrapped as a [Remix](https://remix.run) project with the command:
 
 `npx create-remix@latest`
 
-The above command scaffolds a Remix project with Rollup as its default module loader.
+Other tools used:
 
-In addition, this project uses [pnpm](https://pnpm.io/) as its package manager.
+* [Rollup](https://rollupjs.org/) (Bundler)
+* [pnpm](https://pnpm.io/) (Package Manager)
 
 ## Getting Started
 

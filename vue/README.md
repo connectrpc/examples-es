@@ -1,14 +1,15 @@
 # Eliza
 
 The example project in this directory was bootstrapped with
+This project was bootstrapped as a [Vue](https://vuejs.org/) project with the command:
 
 `vue create eliza`
 
 All default tooling setup via the above command is used, which includes:
 
-* Vite
-* Vitest
-* Cypress
+* [Vite](https://vitejs.dev) (Module Loader)
+* [Vitest](https://vitest.dev) (Unit Test Framework)
+* [Cypress](https://www.cypress.io/) (e2e Test Framework)
 
 
 To begin:

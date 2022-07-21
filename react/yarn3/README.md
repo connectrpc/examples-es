@@ -1,6 +1,6 @@
 # Eliza
 
-This project was created from scratch using React and Yarn 3 in Plug'n'Play mode
+This project was created from scratch using React and [Yarn 3](https://yarnpkg.com) in [Plug'n'Play mode](https://yarnpkg.com/features/pnp).
 
 Other tools used:
 
