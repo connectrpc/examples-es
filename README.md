@@ -3,7 +3,8 @@
 Connect Web Integration is a repository of example projects using Connect-Web with various JS frameworks and tooling.
 It provides numerous examples for integrating Connect-Web into a project.
 
-All projects test Connect-Web against the Eliza demo running at demo.connect.build. 
+All projects test Connect-Web against the Eliza demo running at demo.connect.build.  Each project illustrates an example
+of unary and server-streaming with the exception of React Native (see [README](react-native) in that project for explanation).
 
 ## Pre-requisites
 
