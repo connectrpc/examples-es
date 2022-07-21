@@ -9,6 +9,7 @@
 **/public/build
 **/.env
 **/*.local
+**/.angular
 
 # Logs
 logs

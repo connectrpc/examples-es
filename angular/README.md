@@ -2,26 +2,40 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### `npm install`
+### `npm start`
 
-## Code scaffolding
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-## Build
+## Helpful Commands
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### `npm run build`
 
-## Running unit tests
+Runs `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### `npm run test`
 
-## Running end-to-end tests
+Runs `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### `npm run buf:generate`
 
-## Further help
+Use `buf` to generate the compiled protos via protobuf-es
+
+## Accessing the Angular CLI
+
+You can access the Angular CLI either by running `ng <command>` or by running the npm script `npm run ng <command>`
+
+For example: 
+
+### `ng generate component component-name` 
+### `npm run ng generate component component-name` 
+
+Generates a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
