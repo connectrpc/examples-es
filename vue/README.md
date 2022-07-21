@@ -1,6 +1,5 @@
 # Eliza
 
-The example project in this directory was bootstrapped with
 This project was bootstrapped as a [Vue](https://vuejs.org/) project with the command:
 
 `vue create eliza`
