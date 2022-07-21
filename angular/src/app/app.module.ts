@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core'
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser'
 import { provideClient } from 'src/connect/client.provider'
 import { ConnectModule } from 'src/connect/connect.module'
@@ -10,6 +11,7 @@ import { AppComponent } from './app.component'
     declarations: [AppComponent],
     imports: [
         BrowserModule,
+        FormsModule,
         ConnectModule.forRoot({
             baseUrl: 'https://demo.connect.build',
         }),

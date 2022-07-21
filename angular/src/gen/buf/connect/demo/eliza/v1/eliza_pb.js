@@ -67,3 +67,27 @@ export const ConverseResponse = proto3.makeMessageType(
   ],
 );
 
+/**
+ * IntroduceRequest describes a request for details from the ELIZA program.
+ *
+ * @generated from message buf.connect.demo.eliza.v1.IntroduceRequest
+ */
+export const IntroduceRequest = proto3.makeMessageType(
+  "buf.connect.demo.eliza.v1.IntroduceRequest",
+  () => [
+    { no: 1, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ],
+);
+
+/**
+ * IntroduceResponse describes the sentence responded by the ELIZA program.
+ *
+ * @generated from message buf.connect.demo.eliza.v1.IntroduceResponse
+ */
+export const IntroduceResponse = proto3.makeMessageType(
+  "buf.connect.demo.eliza.v1.IntroduceResponse",
+  () => [
+    { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ],
+);
+

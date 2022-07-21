@@ -124,3 +124,55 @@ export declare class ConverseResponse extends Message<ConverseResponse> {
   static equals(a: ConverseResponse | PlainMessage<ConverseResponse> | undefined, b: ConverseResponse | PlainMessage<ConverseResponse> | undefined): boolean;
 }
 
+/**
+ * IntroduceRequest describes a request for details from the ELIZA program.
+ *
+ * @generated from message buf.connect.demo.eliza.v1.IntroduceRequest
+ */
+export declare class IntroduceRequest extends Message<IntroduceRequest> {
+  /**
+   * @generated from field: string name = 1;
+   */
+  name: string;
+
+  constructor(data?: PartialMessage<IntroduceRequest>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "buf.connect.demo.eliza.v1.IntroduceRequest";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): IntroduceRequest;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): IntroduceRequest;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): IntroduceRequest;
+
+  static equals(a: IntroduceRequest | PlainMessage<IntroduceRequest> | undefined, b: IntroduceRequest | PlainMessage<IntroduceRequest> | undefined): boolean;
+}
+
+/**
+ * IntroduceResponse describes the sentence responded by the ELIZA program.
+ *
+ * @generated from message buf.connect.demo.eliza.v1.IntroduceResponse
+ */
+export declare class IntroduceResponse extends Message<IntroduceResponse> {
+  /**
+   * @generated from field: string sentence = 1;
+   */
+  sentence: string;
+
+  constructor(data?: PartialMessage<IntroduceResponse>);
+
+  static readonly runtime: typeof proto3;
+  static readonly typeName = "buf.connect.demo.eliza.v1.IntroduceResponse";
+  static readonly fields: FieldList;
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): IntroduceResponse;
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): IntroduceResponse;
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): IntroduceResponse;
+
+  static equals(a: IntroduceResponse | PlainMessage<IntroduceResponse> | undefined, b: IntroduceResponse | PlainMessage<IntroduceResponse> | undefined): boolean;
+}
+

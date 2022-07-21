@@ -1,0 +1,24 @@
+<div class="app">
+    <header class="app-header">
+        <div class="app-title">
+            <div>
+                <h1>{{ title }}</h1>
+            </div>
+        </div>
+        <p class="prompt-text">What is your name?</p>
+        <div>
+            <input type="text" class="text-input" [(ngModel)]="name" />
+            <button (click)="onIntroduce()">Introduce</button>
+        </div>
+        <div class="intro-container">
+            <p *ngFor="let intro of intros" class="resp-text">{{ intro }}</p>
+        </div>
+        <div *ngIf="showSayInput">
+            <input type="text" class="text-input" [(ngModel)]="statement"  />
+            <button (click)="onSay()">Say</button>
+        </div>
+        <div class="intro-container">
+            <p class="resp-text" *ngFor="let answer of answers">{{ answer }}</p>
+        </div>
+    </header>
+</div>
