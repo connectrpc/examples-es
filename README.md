@@ -12,9 +12,13 @@ Before running any example project, make sure you have [Buf](https://docs.buf.bu
 
 ## Projects
 
+### Angular
+
+The sample [Angular](https://angular.io) project was generated with [Angular CLI](https://github.com/angular/angular-cli).
+
 ### React
 
-All sample projects underneath the `React` directory use [React](https://reactjs.org) as the framework.  Each is divided by the various
+All sample projects underneath this directory use [React](https://reactjs.org) as the framework.  Each is divided by the various
 tooling differences the related projects were constructed with:
 
 * [cra](react/cra) - Built with [Create React App](https://github.com/facebook/create-react-app) and all associated defaults.
