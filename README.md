@@ -14,14 +14,14 @@ Before running any example project, make sure you have [Buf](https://docs.buf.bu
 
 ### Angular
 
-The sample [Angular](https://angular.io) project was generated with [Angular CLI](https://github.com/angular/angular-cli).
+The [Angular](https://angular.io) application was generated with the [Angular CLI](https://github.com/angular/angular-cli).
 
 ### React
 
-All sample projects underneath this directory use [React](https://reactjs.org) as the framework.  Each is divided by the various
+All applications underneath this directory use [React](https://reactjs.org) as the framework.  Each is divided by the various
 tooling differences the related projects were constructed with:
 
-* [cra](react/cra) - Built with [Create React App](https://github.com/facebook/create-react-app) and all associated defaults.
+* [cra](react/cra) - Generated with [Create React App](https://github.com/facebook/create-react-app) and all associated defaults.
 * [parcel](react/parcel) - Built from scratch with [Parcel](https://parceljs.org) as the bundler
 * [rollup](react/rollup) - Built from scratch with [Rollup](https://rollupjs.org) as the bundler.
 * [yarn3-unplugged](react/yarn3-unplugged) - Built from scratch with [Yarn 3](https://yarnpkg.com) in [unplugged mode](https://yarnpkg.com/getting-started/migration#step-by-step).
@@ -31,16 +31,16 @@ Each project also uses various tools for testing, linting, etc.  These variances
 
 ### React Native
 
-The [React Native](react-native) application was built with the [Expo CLI](https://docs.expo.dev/workflow/expo-cli/) and all suggested defaults.
+The [React Native](react-native) application was generated with the [Expo CLI](https://docs.expo.dev/workflow/expo-cli/) and all suggested defaults.
 
 ### Remix
 
-The [Remix](remix) application was created with `npx create-remix@latest` and all suggested defaults.
+The [Remix](remix) application was generated with `npx create-remix@latest` and all suggested defaults.
 
 ### Svelte
 
-The [Svelte](svelte) application was created with `npm create svelte <app name>` and all suggested defaults.
+The [Svelte](svelte) application was generated with `npm create svelte <app name>` and all suggested defaults.
 
 ### Vue
 
-The [Vue](vue) application was created with `npm init vue@latest` and all suggested defaults.
+The [Vue](vue) application was generated with `npm init vue@latest` and all suggested defaults.
