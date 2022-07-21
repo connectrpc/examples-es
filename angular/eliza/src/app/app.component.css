@@ -1,0 +1,49 @@
+h1 {
+    margin-bottom: 0;
+}
+h5 {
+    margin: 0 0 30px 0;
+}
+
+.app {
+    text-align: center;
+}
+
+.app-logo {
+    height: 6vmin;
+    pointer-events: none;
+}
+
+.app-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.app-link {
+    color: #61dafb;
+}
+
+.app-title {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.prompt-text {
+    margin: 0 0 15px 0;
+}
+.intro-container {
+    margin: 15px;
+}
+.resp-text {
+    font-size: 1rem;
+    margin: 5px;
+}
+.text-input {
+    width: 200px;
+}

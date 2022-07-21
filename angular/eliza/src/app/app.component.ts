@@ -8,7 +8,7 @@ import { ElizaService } from 'src/gen/buf/connect/demo/eliza/v1/eliza_connectweb
     styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-    title = 'eliza'
+    title = 'Eliza'
     constructor(
         @Inject(ElizaService)
         private client: ObservableClient<typeof ElizaService>
