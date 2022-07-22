@@ -18,10 +18,10 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@bufbuild/connect-web": "^0.0.9",
+    "@bufbuild/connect-web": "^0.0.10",
     "@bufbuild/protobuf": "^0.0.9",
-    "@bufbuild/protoc-gen-connect-web": "^0.0.9",
-    "@bufbuild/protoc-gen-es": "^0.0.7",
+    "@bufbuild/protoc-gen-connect-web": "^0.0.10",
+    "@bufbuild/protoc-gen-es": "^0.0.9",
     "@remix-run/dev": "^1.6.4",
     "@remix-run/eslint-config": "^1.6.4",
     "@types/react": "^17.0.45",

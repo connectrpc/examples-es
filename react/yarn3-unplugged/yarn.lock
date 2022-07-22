@@ -5,264 +5,30 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@bufbuild/connect-web@npm:^0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/connect-web@npm:0.0.9"
+"@bufbuild/connect-web@npm:^0.0.10":
+  version: 0.0.10
+  resolution: "@bufbuild/connect-web@npm:0.0.10"
   peerDependencies:
-    "@bufbuild/protobuf": ^0.0.7
-  checksum: ab5c680c4bb280113990887d4e6f891f7283d3ee32ef5f9281f62e420d36207256215b6a27ab635ab36ed1f9cc5b8926030ef0a9937a28efc2c1564cb96f9d4c
+    "@bufbuild/protobuf": ^0.0.9
+  checksum: 1d1c93435b999de5e325d637e11b67819f547b6f20009b4ca840c66d8ef25096dc40f6c226de6b3ec1a2a2bb0879a2fa76067883ec45795771c5ec0972bfb53e
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:^0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protobuf@npm:0.0.8"
-  checksum: 3588375058a59654708a20b0735e4d9445cceae1607269aca0e8c3fe5c1761a3055bbeb93236b01778cb47e6ca00cfe3b9bf4b6da5a00a0312ea5b573afae4be
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web-darwin-64@npm:0.0.9":
+"@bufbuild/protobuf@npm:^0.0.9":
   version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web-darwin-64@npm:0.0.9"
-  peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  peerDependenciesMeta:
-    "@bufbuild/connect-web":
-      optional: true
-    "@bufbuild/protoc-gen-es":
-      optional: true
-  conditions: os=darwin & cpu=x64
+  resolution: "@bufbuild/protobuf@npm:0.0.9"
+  checksum: 9abad6dcd94fa2dccdcea7bf6873d76b939bed1e522b8987aa340c03e69c00efbe436f659f5596da09f1381ba3a408816d5ce1320b08164eb9fa0c7500952c3d
   languageName: node
   linkType: hard
 
-"@bufbuild/protoc-gen-connect-web-darwin-arm64@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web-darwin-arm64@npm:0.0.9"
-  peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  peerDependenciesMeta:
-    "@bufbuild/connect-web":
-      optional: true
-    "@bufbuild/protoc-gen-es":
-      optional: true
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web-freebsd-64@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web-freebsd-64@npm:0.0.9"
-  peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  peerDependenciesMeta:
-    "@bufbuild/connect-web":
-      optional: true
-    "@bufbuild/protoc-gen-es":
-      optional: true
-  conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web-freebsd-arm64@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web-freebsd-arm64@npm:0.0.9"
-  peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  peerDependenciesMeta:
-    "@bufbuild/connect-web":
-      optional: true
-    "@bufbuild/protoc-gen-es":
-      optional: true
-  conditions: os=freebsd & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web-linux-32@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web-linux-32@npm:0.0.9"
-  peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  peerDependenciesMeta:
-    "@bufbuild/connect-web":
-      optional: true
-    "@bufbuild/protoc-gen-es":
-      optional: true
-  conditions: os=linux & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web-linux-64@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web-linux-64@npm:0.0.9"
-  peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  peerDependenciesMeta:
-    "@bufbuild/connect-web":
-      optional: true
-    "@bufbuild/protoc-gen-es":
-      optional: true
-  conditions: os=linux & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web-linux-arm64@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web-linux-arm64@npm:0.0.9"
-  peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  peerDependenciesMeta:
-    "@bufbuild/connect-web":
-      optional: true
-    "@bufbuild/protoc-gen-es":
-      optional: true
-  conditions: os=linux & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web-linux-arm@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web-linux-arm@npm:0.0.9"
-  peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  peerDependenciesMeta:
-    "@bufbuild/connect-web":
-      optional: true
-    "@bufbuild/protoc-gen-es":
-      optional: true
-  conditions: os=linux & cpu=arm
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web-netbsd-64@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web-netbsd-64@npm:0.0.9"
-  peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  peerDependenciesMeta:
-    "@bufbuild/connect-web":
-      optional: true
-    "@bufbuild/protoc-gen-es":
-      optional: true
-  conditions: os=netbsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web-openbsd-64@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web-openbsd-64@npm:0.0.9"
-  peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  peerDependenciesMeta:
-    "@bufbuild/connect-web":
-      optional: true
-    "@bufbuild/protoc-gen-es":
-      optional: true
-  conditions: os=openbsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web-windows-32@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web-windows-32@npm:0.0.9"
-  peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  peerDependenciesMeta:
-    "@bufbuild/connect-web":
-      optional: true
-    "@bufbuild/protoc-gen-es":
-      optional: true
-  conditions: os=win32 & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web-windows-64@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web-windows-64@npm:0.0.9"
-  peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  peerDependenciesMeta:
-    "@bufbuild/connect-web":
-      optional: true
-    "@bufbuild/protoc-gen-es":
-      optional: true
-  conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web-windows-arm64@npm:0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web-windows-arm64@npm:0.0.9"
-  peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  peerDependenciesMeta:
-    "@bufbuild/connect-web":
-      optional: true
-    "@bufbuild/protoc-gen-es":
-      optional: true
-  conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web@npm:^0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-connect-web@npm:0.0.9"
+"@bufbuild/protoc-gen-connect-web@npm:^0.0.10":
+  version: 0.0.10
+  resolution: "@bufbuild/protoc-gen-connect-web@npm:0.0.10"
   dependencies:
-    "@bufbuild/protoc-gen-connect-web-darwin-64": 0.0.9
-    "@bufbuild/protoc-gen-connect-web-darwin-arm64": 0.0.9
-    "@bufbuild/protoc-gen-connect-web-freebsd-64": 0.0.9
-    "@bufbuild/protoc-gen-connect-web-freebsd-arm64": 0.0.9
-    "@bufbuild/protoc-gen-connect-web-linux-32": 0.0.9
-    "@bufbuild/protoc-gen-connect-web-linux-64": 0.0.9
-    "@bufbuild/protoc-gen-connect-web-linux-arm": 0.0.9
-    "@bufbuild/protoc-gen-connect-web-linux-arm64": 0.0.9
-    "@bufbuild/protoc-gen-connect-web-netbsd-64": 0.0.9
-    "@bufbuild/protoc-gen-connect-web-openbsd-64": 0.0.9
-    "@bufbuild/protoc-gen-connect-web-windows-32": 0.0.9
-    "@bufbuild/protoc-gen-connect-web-windows-64": 0.0.9
-    "@bufbuild/protoc-gen-connect-web-windows-arm64": 0.0.9
+    "@bufbuild/protoplugin": ^0.0.9
   peerDependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.7
-  dependenciesMeta:
-    "@bufbuild/protoc-gen-connect-web-darwin-64":
-      optional: true
-    "@bufbuild/protoc-gen-connect-web-darwin-arm64":
-      optional: true
-    "@bufbuild/protoc-gen-connect-web-freebsd-64":
-      optional: true
-    "@bufbuild/protoc-gen-connect-web-freebsd-arm64":
-      optional: true
-    "@bufbuild/protoc-gen-connect-web-linux-32":
-      optional: true
-    "@bufbuild/protoc-gen-connect-web-linux-64":
-      optional: true
-    "@bufbuild/protoc-gen-connect-web-linux-arm":
-      optional: true
-    "@bufbuild/protoc-gen-connect-web-linux-arm64":
-      optional: true
-    "@bufbuild/protoc-gen-connect-web-netbsd-64":
-      optional: true
-    "@bufbuild/protoc-gen-connect-web-openbsd-64":
-      optional: true
-    "@bufbuild/protoc-gen-connect-web-windows-32":
-      optional: true
-    "@bufbuild/protoc-gen-connect-web-windows-64":
-      optional: true
-    "@bufbuild/protoc-gen-connect-web-windows-arm64":
-      optional: true
+    "@bufbuild/connect-web": ^0.0.10
+    "@bufbuild/protoc-gen-es": ^0.0.9
   peerDependenciesMeta:
     "@bufbuild/connect-web":
       optional: true
@@ -270,218 +36,32 @@ __metadata:
       optional: true
   bin:
     protoc-gen-connect-web: bin/protoc-gen-connect-web
-  checksum: 2cb0b7acf47d6c85dd1fb7932cb3e1cbc8066d0e2d70ef502244411eb19bf492c08c2be979e6de71d32e985359371dc39aff38dce350ef2dbfae009583b8b62a
+  checksum: fb4244598889b6f738bf9480310a8d21a19f8999639ef000283e2500da8c4b2960d755a41f8af4c2a6cd06702f5f012b1d1a0a6b978181ab067e1f66ac79e941
   languageName: node
   linkType: hard
 
-"@bufbuild/protoc-gen-es-darwin-64@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es-darwin-64@npm:0.0.8"
-  peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  peerDependenciesMeta:
-    "@bufbuild/protobuf":
-      optional: true
-  conditions: os=darwin & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-es-darwin-arm64@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es-darwin-arm64@npm:0.0.8"
-  peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  peerDependenciesMeta:
-    "@bufbuild/protobuf":
-      optional: true
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-es-freebsd-64@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es-freebsd-64@npm:0.0.8"
-  peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  peerDependenciesMeta:
-    "@bufbuild/protobuf":
-      optional: true
-  conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-es-freebsd-arm64@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es-freebsd-arm64@npm:0.0.8"
-  peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  peerDependenciesMeta:
-    "@bufbuild/protobuf":
-      optional: true
-  conditions: os=freebsd & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-es-linux-32@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es-linux-32@npm:0.0.8"
-  peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  peerDependenciesMeta:
-    "@bufbuild/protobuf":
-      optional: true
-  conditions: os=linux & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-es-linux-64@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es-linux-64@npm:0.0.8"
-  peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  peerDependenciesMeta:
-    "@bufbuild/protobuf":
-      optional: true
-  conditions: os=linux & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-es-linux-arm64@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es-linux-arm64@npm:0.0.8"
-  peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  peerDependenciesMeta:
-    "@bufbuild/protobuf":
-      optional: true
-  conditions: os=linux & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-es-linux-arm@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es-linux-arm@npm:0.0.8"
-  peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  peerDependenciesMeta:
-    "@bufbuild/protobuf":
-      optional: true
-  conditions: os=linux & cpu=arm
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-es-netbsd-64@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es-netbsd-64@npm:0.0.8"
-  peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  peerDependenciesMeta:
-    "@bufbuild/protobuf":
-      optional: true
-  conditions: os=netbsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-es-openbsd-64@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es-openbsd-64@npm:0.0.8"
-  peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  peerDependenciesMeta:
-    "@bufbuild/protobuf":
-      optional: true
-  conditions: os=openbsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-es-windows-32@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es-windows-32@npm:0.0.8"
-  peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  peerDependenciesMeta:
-    "@bufbuild/protobuf":
-      optional: true
-  conditions: os=win32 & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-es-windows-64@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es-windows-64@npm:0.0.8"
-  peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  peerDependenciesMeta:
-    "@bufbuild/protobuf":
-      optional: true
-  conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-es-windows-arm64@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es-windows-arm64@npm:0.0.8"
-  peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  peerDependenciesMeta:
-    "@bufbuild/protobuf":
-      optional: true
-  conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-es@npm:^0.0.8":
-  version: 0.0.8
-  resolution: "@bufbuild/protoc-gen-es@npm:0.0.8"
+"@bufbuild/protoc-gen-es@npm:^0.0.9":
+  version: 0.0.9
+  resolution: "@bufbuild/protoc-gen-es@npm:0.0.9"
   dependencies:
-    "@bufbuild/protoc-gen-es-darwin-64": 0.0.8
-    "@bufbuild/protoc-gen-es-darwin-arm64": 0.0.8
-    "@bufbuild/protoc-gen-es-freebsd-64": 0.0.8
-    "@bufbuild/protoc-gen-es-freebsd-arm64": 0.0.8
-    "@bufbuild/protoc-gen-es-linux-32": 0.0.8
-    "@bufbuild/protoc-gen-es-linux-64": 0.0.8
-    "@bufbuild/protoc-gen-es-linux-arm": 0.0.8
-    "@bufbuild/protoc-gen-es-linux-arm64": 0.0.8
-    "@bufbuild/protoc-gen-es-netbsd-64": 0.0.8
-    "@bufbuild/protoc-gen-es-openbsd-64": 0.0.8
-    "@bufbuild/protoc-gen-es-windows-32": 0.0.8
-    "@bufbuild/protoc-gen-es-windows-64": 0.0.8
-    "@bufbuild/protoc-gen-es-windows-arm64": 0.0.8
+    "@bufbuild/protoplugin": ^0.0.9
   peerDependencies:
-    "@bufbuild/protobuf": ^0.0.8
-  dependenciesMeta:
-    "@bufbuild/protoc-gen-es-darwin-64":
-      optional: true
-    "@bufbuild/protoc-gen-es-darwin-arm64":
-      optional: true
-    "@bufbuild/protoc-gen-es-freebsd-64":
-      optional: true
-    "@bufbuild/protoc-gen-es-freebsd-arm64":
-      optional: true
-    "@bufbuild/protoc-gen-es-linux-32":
-      optional: true
-    "@bufbuild/protoc-gen-es-linux-64":
-      optional: true
-    "@bufbuild/protoc-gen-es-linux-arm":
-      optional: true
-    "@bufbuild/protoc-gen-es-linux-arm64":
-      optional: true
-    "@bufbuild/protoc-gen-es-netbsd-64":
-      optional: true
-    "@bufbuild/protoc-gen-es-openbsd-64":
-      optional: true
-    "@bufbuild/protoc-gen-es-windows-32":
-      optional: true
-    "@bufbuild/protoc-gen-es-windows-64":
-      optional: true
-    "@bufbuild/protoc-gen-es-windows-arm64":
-      optional: true
+    "@bufbuild/protobuf": ^0.0.9
   peerDependenciesMeta:
     "@bufbuild/protobuf":
       optional: true
   bin:
     protoc-gen-es: bin/protoc-gen-es
-  checksum: 2fe2206749fc19a241f163b045ca107f4524c60a7d1c88906fc51a97330b87331d6ebbb1594aab73c9e0ce4c33b3f68bfbbe9fbd9f2e8a534a60f38b7f188ea0
+  checksum: 0e9eb3d59044c8e078d23fdb63cbc988d76ce57f24af3a20720d48695d49e976851742bc7363a73f84be2739d64d70431d6728c13da19fb47b06af2e81c6d413
+  languageName: node
+  linkType: hard
+
+"@bufbuild/protoplugin@npm:^0.0.9":
+  version: 0.0.9
+  resolution: "@bufbuild/protoplugin@npm:0.0.9"
+  dependencies:
+    "@bufbuild/protobuf": ^0.0.9
+  checksum: c67b0de26692b87e7278086f7060d0df573e1df0097cbbf2dcf50b9d449d2473d7739a77e6e9ab520ef55ac5817c2f10dc9a5bdccc1661074241c9d1df935af5
   languageName: node
   linkType: hard
 
@@ -489,10 +69,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "buf-yarn3-unplugged@workspace:."
   dependencies:
-    "@bufbuild/connect-web": ^0.0.9
-    "@bufbuild/protobuf": ^0.0.8
-    "@bufbuild/protoc-gen-connect-web": ^0.0.9
-    "@bufbuild/protoc-gen-es": ^0.0.8
+    "@bufbuild/connect-web": ^0.0.10
+    "@bufbuild/protobuf": ^0.0.9
+    "@bufbuild/protoc-gen-connect-web": ^0.0.10
+    "@bufbuild/protoc-gen-es": ^0.0.9
     esbuild: ^0.14.49
     react: ^18.2.0
     react-dom: ^18.2.0

@@ -18,10 +18,10 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@bufbuild/connect-web": "^0.0.9",
-    "@bufbuild/protobuf": "^0.0.7",
-    "@bufbuild/protoc-gen-connect-web": "^0.0.9",
-    "@bufbuild/protoc-gen-es": "^0.0.7"
+    "@bufbuild/connect-web": "^0.0.10",
+    "@bufbuild/protobuf": "^0.0.9",
+    "@bufbuild/protoc-gen-connect-web": "^0.0.10",
+    "@bufbuild/protoc-gen-es": "^0.0.9"
   },
   "alias": {
     "@": "."

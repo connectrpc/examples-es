@@ -33,10 +33,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@bufbuild/protoc-gen-connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
+            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
+            ["@bufbuild/protobuf", "npm:0.0.9"],\
+            ["@bufbuild/protoc-gen-connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
+            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
             ["@types/react", "npm:18.0.15"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@vitejs/plugin-react", "npm:1.3.2"],\
@@ -450,18 +450,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@bufbuild/connect-web", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/cache/@bufbuild-connect-web-npm-0.0.9-7c91674ad9-ab5c680c4b.zip/node_modules/@bufbuild/connect-web/",\
+        ["npm:0.0.10", {\
+          "packageLocation": "./.yarn/cache/@bufbuild-connect-web-npm-0.0.10-8e5190875d-1d1c93435b.zip/node_modules/@bufbuild/connect-web/",\
           "packageDependencies": [\
-            ["@bufbuild/connect-web", "npm:0.0.9"]\
+            ["@bufbuild/connect-web", "npm:0.0.10"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9", {\
-          "packageLocation": "./.yarn/__virtual__/@bufbuild-connect-web-virtual-13a9c6d4bf/0/cache/@bufbuild-connect-web-npm-0.0.9-7c91674ad9-ab5c680c4b.zip/node_modules/@bufbuild/connect-web/",\
+        ["virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10", {\
+          "packageLocation": "./.yarn/__virtual__/@bufbuild-connect-web-virtual-ac971539d2/0/cache/@bufbuild-connect-web-npm-0.0.10-8e5190875d-1d1c93435b.zip/node_modules/@bufbuild/connect-web/",\
           "packageDependencies": [\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
+            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
+            ["@bufbuild/protobuf", "npm:0.0.9"],\
             ["@types/bufbuild__protobuf", null]\
           ],\
           "packagePeers": [\
@@ -472,379 +472,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@bufbuild/protobuf", [\
-        ["npm:0.0.8", {\
-          "packageLocation": "./.yarn/cache/@bufbuild-protobuf-npm-0.0.8-795ecb482c-3588375058.zip/node_modules/@bufbuild/protobuf/",\
+        ["npm:0.0.9", {\
+          "packageLocation": "./.yarn/cache/@bufbuild-protobuf-npm-0.0.9-06df00c425-9abad6dcd9.zip/node_modules/@bufbuild/protobuf/",\
           "packageDependencies": [\
-            ["@bufbuild/protobuf", "npm:0.0.8"]\
+            ["@bufbuild/protobuf", "npm:0.0.9"]\
           ],\
           "linkType": "HARD"\
         }]\
       ]],\
       ["@bufbuild/protoc-gen-connect-web", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/cache/@bufbuild-protoc-gen-connect-web-npm-0.0.9-500ac3ffea-2cb0b7acf4.zip/node_modules/@bufbuild/protoc-gen-connect-web/",\
+        ["npm:0.0.10", {\
+          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-virtual-f39b89763c/node_modules/@bufbuild/protoc-gen-connect-web/",\
           "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web", "npm:0.0.9"]\
+            ["@bufbuild/protoc-gen-connect-web", "npm:0.0.10"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9", {\
-          "packageLocation": "./.yarn/__virtual__/@bufbuild-protoc-gen-connect-web-virtual-a8a7d8e9a3/0/cache/@bufbuild-protoc-gen-connect-web-npm-0.0.9-500ac3ffea-2cb0b7acf4.zip/node_modules/@bufbuild/protoc-gen-connect-web/",\
+        ["virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10", {\
+          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-virtual-f39b89763c/node_modules/@bufbuild/protoc-gen-connect-web/",\
           "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-connect-web-darwin-64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-connect-web-darwin-arm64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-connect-web-freebsd-64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-connect-web-freebsd-arm64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-connect-web-linux-32", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-connect-web-linux-64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-connect-web-linux-arm", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-connect-web-linux-arm64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-connect-web-netbsd-64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-connect-web-openbsd-64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-connect-web-windows-32", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-connect-web-windows-64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-connect-web-windows-arm64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@types/bufbuild__connect-web", null],\
-            ["@types/bufbuild__protoc-gen-es", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/connect-web",\
-            "@bufbuild/protoc-gen-es",\
-            "@types/bufbuild__connect-web",\
-            "@types/bufbuild__protoc-gen-es"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-connect-web-darwin-64", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-darwin-64-virtual-6b7695daa0/node_modules/@bufbuild/protoc-gen-connect-web-darwin-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-darwin-64", "npm:0.0.9"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-darwin-64-virtual-6b7695daa0/node_modules/@bufbuild/protoc-gen-connect-web-darwin-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-darwin-64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@types/bufbuild__connect-web", null],\
-            ["@types/bufbuild__protoc-gen-es", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/connect-web",\
-            "@bufbuild/protoc-gen-es",\
-            "@types/bufbuild__connect-web",\
-            "@types/bufbuild__protoc-gen-es"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-connect-web-darwin-arm64", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-darwin-arm64-virtual-181a8c4a18/node_modules/@bufbuild/protoc-gen-connect-web-darwin-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-darwin-arm64", "npm:0.0.9"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-darwin-arm64-virtual-181a8c4a18/node_modules/@bufbuild/protoc-gen-connect-web-darwin-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-darwin-arm64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@types/bufbuild__connect-web", null],\
-            ["@types/bufbuild__protoc-gen-es", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/connect-web",\
-            "@bufbuild/protoc-gen-es",\
-            "@types/bufbuild__connect-web",\
-            "@types/bufbuild__protoc-gen-es"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-connect-web-freebsd-64", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-freebsd-64-virtual-c687196db9/node_modules/@bufbuild/protoc-gen-connect-web-freebsd-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-freebsd-64", "npm:0.0.9"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-freebsd-64-virtual-c687196db9/node_modules/@bufbuild/protoc-gen-connect-web-freebsd-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-freebsd-64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@types/bufbuild__connect-web", null],\
-            ["@types/bufbuild__protoc-gen-es", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/connect-web",\
-            "@bufbuild/protoc-gen-es",\
-            "@types/bufbuild__connect-web",\
-            "@types/bufbuild__protoc-gen-es"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-connect-web-freebsd-arm64", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-freebsd-arm64-virtual-665cee9fa4/node_modules/@bufbuild/protoc-gen-connect-web-freebsd-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-freebsd-arm64", "npm:0.0.9"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-freebsd-arm64-virtual-665cee9fa4/node_modules/@bufbuild/protoc-gen-connect-web-freebsd-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-freebsd-arm64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@types/bufbuild__connect-web", null],\
-            ["@types/bufbuild__protoc-gen-es", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/connect-web",\
-            "@bufbuild/protoc-gen-es",\
-            "@types/bufbuild__connect-web",\
-            "@types/bufbuild__protoc-gen-es"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-connect-web-linux-32", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-linux-32-virtual-0dc1f07ea4/node_modules/@bufbuild/protoc-gen-connect-web-linux-32/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-linux-32", "npm:0.0.9"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-linux-32-virtual-0dc1f07ea4/node_modules/@bufbuild/protoc-gen-connect-web-linux-32/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-linux-32", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@types/bufbuild__connect-web", null],\
-            ["@types/bufbuild__protoc-gen-es", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/connect-web",\
-            "@bufbuild/protoc-gen-es",\
-            "@types/bufbuild__connect-web",\
-            "@types/bufbuild__protoc-gen-es"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-connect-web-linux-64", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-linux-64-virtual-755d1700b1/node_modules/@bufbuild/protoc-gen-connect-web-linux-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-linux-64", "npm:0.0.9"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-linux-64-virtual-755d1700b1/node_modules/@bufbuild/protoc-gen-connect-web-linux-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-linux-64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@types/bufbuild__connect-web", null],\
-            ["@types/bufbuild__protoc-gen-es", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/connect-web",\
-            "@bufbuild/protoc-gen-es",\
-            "@types/bufbuild__connect-web",\
-            "@types/bufbuild__protoc-gen-es"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-connect-web-linux-arm", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-linux-arm-virtual-b3ec84cd78/node_modules/@bufbuild/protoc-gen-connect-web-linux-arm/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-linux-arm", "npm:0.0.9"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-linux-arm-virtual-b3ec84cd78/node_modules/@bufbuild/protoc-gen-connect-web-linux-arm/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-linux-arm", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@types/bufbuild__connect-web", null],\
-            ["@types/bufbuild__protoc-gen-es", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/connect-web",\
-            "@bufbuild/protoc-gen-es",\
-            "@types/bufbuild__connect-web",\
-            "@types/bufbuild__protoc-gen-es"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-connect-web-linux-arm64", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-linux-arm64-virtual-9c461db6e2/node_modules/@bufbuild/protoc-gen-connect-web-linux-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-linux-arm64", "npm:0.0.9"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-linux-arm64-virtual-9c461db6e2/node_modules/@bufbuild/protoc-gen-connect-web-linux-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-linux-arm64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@types/bufbuild__connect-web", null],\
-            ["@types/bufbuild__protoc-gen-es", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/connect-web",\
-            "@bufbuild/protoc-gen-es",\
-            "@types/bufbuild__connect-web",\
-            "@types/bufbuild__protoc-gen-es"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-connect-web-netbsd-64", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-netbsd-64-virtual-fc00af4185/node_modules/@bufbuild/protoc-gen-connect-web-netbsd-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-netbsd-64", "npm:0.0.9"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-netbsd-64-virtual-fc00af4185/node_modules/@bufbuild/protoc-gen-connect-web-netbsd-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-netbsd-64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@types/bufbuild__connect-web", null],\
-            ["@types/bufbuild__protoc-gen-es", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/connect-web",\
-            "@bufbuild/protoc-gen-es",\
-            "@types/bufbuild__connect-web",\
-            "@types/bufbuild__protoc-gen-es"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-connect-web-openbsd-64", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-openbsd-64-virtual-8da76b4b65/node_modules/@bufbuild/protoc-gen-connect-web-openbsd-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-openbsd-64", "npm:0.0.9"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-openbsd-64-virtual-8da76b4b65/node_modules/@bufbuild/protoc-gen-connect-web-openbsd-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-openbsd-64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@types/bufbuild__connect-web", null],\
-            ["@types/bufbuild__protoc-gen-es", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/connect-web",\
-            "@bufbuild/protoc-gen-es",\
-            "@types/bufbuild__connect-web",\
-            "@types/bufbuild__protoc-gen-es"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-connect-web-windows-32", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-windows-32-virtual-76f6a406a1/node_modules/@bufbuild/protoc-gen-connect-web-windows-32/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-windows-32", "npm:0.0.9"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-windows-32-virtual-76f6a406a1/node_modules/@bufbuild/protoc-gen-connect-web-windows-32/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-windows-32", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@types/bufbuild__connect-web", null],\
-            ["@types/bufbuild__protoc-gen-es", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/connect-web",\
-            "@bufbuild/protoc-gen-es",\
-            "@types/bufbuild__connect-web",\
-            "@types/bufbuild__protoc-gen-es"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-connect-web-windows-64", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-windows-64-virtual-f99b273d73/node_modules/@bufbuild/protoc-gen-connect-web-windows-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-windows-64", "npm:0.0.9"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-windows-64-virtual-f99b273d73/node_modules/@bufbuild/protoc-gen-connect-web-windows-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-windows-64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@types/bufbuild__connect-web", null],\
-            ["@types/bufbuild__protoc-gen-es", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/connect-web",\
-            "@bufbuild/protoc-gen-es",\
-            "@types/bufbuild__connect-web",\
-            "@types/bufbuild__protoc-gen-es"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-connect-web-windows-arm64", [\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-windows-arm64-virtual-8c9ceaeb20/node_modules/@bufbuild/protoc-gen-connect-web-windows-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-windows-arm64", "npm:0.0.9"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-windows-arm64-virtual-8c9ceaeb20/node_modules/@bufbuild/protoc-gen-connect-web-windows-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web-windows-arm64", "virtual:a8a7d8e9a38513a872b5128e6b682ad5de97903b3c46dc50756b44d04022811b650be3bb3d826a21edd272d2923560a2fb227a81d322ac4818c996348bb788d8#npm:0.0.9"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
+            ["@bufbuild/protoc-gen-connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
+            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
+            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
+            ["@bufbuild/protoplugin", "npm:0.0.9"],\
             ["@types/bufbuild__connect-web", null],\
             ["@types/bufbuild__protoc-gen-es", null]\
           ],\
@@ -858,31 +508,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@bufbuild/protoc-gen-es", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-virtual-369b49cf14/node_modules/@bufbuild/protoc-gen-es/",\
+        ["npm:0.0.9", {\
+          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-virtual-93de4bd14c/node_modules/@bufbuild/protoc-gen-es/",\
           "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es", "npm:0.0.7"]\
+            ["@bufbuild/protoc-gen-es", "npm:0.0.9"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-virtual-369b49cf14/node_modules/@bufbuild/protoc-gen-es/",\
+        ["virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9", {\
+          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-virtual-93de4bd14c/node_modules/@bufbuild/protoc-gen-es/",\
           "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@bufbuild/protoc-gen-es-darwin-64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protoc-gen-es-darwin-arm64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protoc-gen-es-freebsd-64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protoc-gen-es-freebsd-arm64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protoc-gen-es-linux-32", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protoc-gen-es-linux-64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protoc-gen-es-linux-arm", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protoc-gen-es-linux-arm64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protoc-gen-es-netbsd-64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protoc-gen-es-openbsd-64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protoc-gen-es-windows-32", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protoc-gen-es-windows-64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protoc-gen-es-windows-arm64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
+            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
+            ["@bufbuild/protobuf", "npm:0.0.9"],\
+            ["@bufbuild/protoplugin", "npm:0.0.9"],\
             ["@types/bufbuild__protobuf", null]\
           ],\
           "packagePeers": [\
@@ -892,288 +530,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@bufbuild/protoc-gen-es-darwin-64", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-darwin-64-virtual-d90b674e7d/node_modules/@bufbuild/protoc-gen-es-darwin-64/",\
+      ["@bufbuild/protoplugin", [\
+        ["npm:0.0.9", {\
+          "packageLocation": "./.yarn/cache/@bufbuild-protoplugin-npm-0.0.9-cefdc92571-c67b0de266.zip/node_modules/@bufbuild/protoplugin/",\
           "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-darwin-64", "npm:0.0.7"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-darwin-64-virtual-d90b674e7d/node_modules/@bufbuild/protoc-gen-es-darwin-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-darwin-64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@types/bufbuild__protobuf", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/protobuf",\
-            "@types/bufbuild__protobuf"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-es-darwin-arm64", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-darwin-arm64-virtual-a5c93973e2/node_modules/@bufbuild/protoc-gen-es-darwin-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-darwin-arm64", "npm:0.0.7"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-darwin-arm64-virtual-a5c93973e2/node_modules/@bufbuild/protoc-gen-es-darwin-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-darwin-arm64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@types/bufbuild__protobuf", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/protobuf",\
-            "@types/bufbuild__protobuf"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-es-freebsd-64", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-freebsd-64-virtual-15b209c80b/node_modules/@bufbuild/protoc-gen-es-freebsd-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-freebsd-64", "npm:0.0.7"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-freebsd-64-virtual-15b209c80b/node_modules/@bufbuild/protoc-gen-es-freebsd-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-freebsd-64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@types/bufbuild__protobuf", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/protobuf",\
-            "@types/bufbuild__protobuf"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-es-freebsd-arm64", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-freebsd-arm64-virtual-3b7d635b9e/node_modules/@bufbuild/protoc-gen-es-freebsd-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-freebsd-arm64", "npm:0.0.7"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-freebsd-arm64-virtual-3b7d635b9e/node_modules/@bufbuild/protoc-gen-es-freebsd-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-freebsd-arm64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@types/bufbuild__protobuf", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/protobuf",\
-            "@types/bufbuild__protobuf"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-es-linux-32", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-linux-32-virtual-085b968ca1/node_modules/@bufbuild/protoc-gen-es-linux-32/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-linux-32", "npm:0.0.7"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-linux-32-virtual-085b968ca1/node_modules/@bufbuild/protoc-gen-es-linux-32/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-linux-32", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@types/bufbuild__protobuf", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/protobuf",\
-            "@types/bufbuild__protobuf"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-es-linux-64", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-linux-64-virtual-ad7e1bdd8f/node_modules/@bufbuild/protoc-gen-es-linux-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-linux-64", "npm:0.0.7"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-linux-64-virtual-ad7e1bdd8f/node_modules/@bufbuild/protoc-gen-es-linux-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-linux-64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@types/bufbuild__protobuf", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/protobuf",\
-            "@types/bufbuild__protobuf"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-es-linux-arm", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-linux-arm-virtual-cb9276a6fa/node_modules/@bufbuild/protoc-gen-es-linux-arm/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-linux-arm", "npm:0.0.7"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-linux-arm-virtual-cb9276a6fa/node_modules/@bufbuild/protoc-gen-es-linux-arm/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-linux-arm", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@types/bufbuild__protobuf", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/protobuf",\
-            "@types/bufbuild__protobuf"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-es-linux-arm64", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-linux-arm64-virtual-c06c2cc5c6/node_modules/@bufbuild/protoc-gen-es-linux-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-linux-arm64", "npm:0.0.7"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-linux-arm64-virtual-c06c2cc5c6/node_modules/@bufbuild/protoc-gen-es-linux-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-linux-arm64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@types/bufbuild__protobuf", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/protobuf",\
-            "@types/bufbuild__protobuf"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-es-netbsd-64", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-netbsd-64-virtual-40472efdd7/node_modules/@bufbuild/protoc-gen-es-netbsd-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-netbsd-64", "npm:0.0.7"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-netbsd-64-virtual-40472efdd7/node_modules/@bufbuild/protoc-gen-es-netbsd-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-netbsd-64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@types/bufbuild__protobuf", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/protobuf",\
-            "@types/bufbuild__protobuf"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-es-openbsd-64", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-openbsd-64-virtual-daa2363a14/node_modules/@bufbuild/protoc-gen-es-openbsd-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-openbsd-64", "npm:0.0.7"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-openbsd-64-virtual-daa2363a14/node_modules/@bufbuild/protoc-gen-es-openbsd-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-openbsd-64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@types/bufbuild__protobuf", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/protobuf",\
-            "@types/bufbuild__protobuf"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-es-windows-32", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-windows-32-virtual-e402aec5e0/node_modules/@bufbuild/protoc-gen-es-windows-32/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-windows-32", "npm:0.0.7"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-windows-32-virtual-e402aec5e0/node_modules/@bufbuild/protoc-gen-es-windows-32/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-windows-32", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@types/bufbuild__protobuf", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/protobuf",\
-            "@types/bufbuild__protobuf"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-es-windows-64", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-windows-64-virtual-700f468920/node_modules/@bufbuild/protoc-gen-es-windows-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-windows-64", "npm:0.0.7"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-windows-64-virtual-700f468920/node_modules/@bufbuild/protoc-gen-es-windows-64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-windows-64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@types/bufbuild__protobuf", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/protobuf",\
-            "@types/bufbuild__protobuf"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@bufbuild/protoc-gen-es-windows-arm64", [\
-        ["npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-windows-arm64-virtual-1cf1136560/node_modules/@bufbuild/protoc-gen-es-windows-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-windows-arm64", "npm:0.0.7"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-es-windows-arm64-virtual-1cf1136560/node_modules/@bufbuild/protoc-gen-es-windows-arm64/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoc-gen-es-windows-arm64", "virtual:369b49cf14d9e82f1fb7fcd2762fb1588ccf586b81675ddebe091db4968a69d263cecea829f09aa80deaa971365cb253aac4eda8371e30e49ea76990f215a1f5#npm:0.0.7"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@types/bufbuild__protobuf", null]\
-          ],\
-          "packagePeers": [\
-            "@bufbuild/protobuf",\
-            "@types/bufbuild__protobuf"\
+            ["@bufbuild/protoplugin", "npm:0.0.9"],\
+            ["@bufbuild/protobuf", "npm:0.0.9"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1472,10 +834,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["buf-yarn3", "workspace:."],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protobuf", "npm:0.0.8"],\
-            ["@bufbuild/protoc-gen-connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
-            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.7"],\
+            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
+            ["@bufbuild/protobuf", "npm:0.0.9"],\
+            ["@bufbuild/protoc-gen-connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
+            ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.9"],\
             ["@types/react", "npm:18.0.15"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@vitejs/plugin-react", "npm:1.3.2"],\
