@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@bufbuild/connect-web": "^0.0.9",
+    "@bufbuild/protobuf": "^0.0.9",
     "@bufbuild/protoc-gen-connect-web": "^0.0.9",
     "@bufbuild/protoc-gen-es": "^0.0.7",
     "@remix-run/dev": "^1.6.4",

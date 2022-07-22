@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@bufbuild/connect-web': ^0.0.9
+  '@bufbuild/protobuf': ^0.0.9
   '@bufbuild/protoc-gen-connect-web': ^0.0.9
   '@bufbuild/protoc-gen-es': ^0.0.7
   '@remix-run/dev': ^1.6.4
@@ -24,9 +25,10 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
 
 devDependencies:
-  '@bufbuild/connect-web': 0.0.9
+  '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+  '@bufbuild/protobuf': 0.0.9
   '@bufbuild/protoc-gen-connect-web': 0.0.9_54d9b70450c0fd7289521f6564148e24
-  '@bufbuild/protoc-gen-es': 0.0.7
+  '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
   '@remix-run/dev': 1.6.4_4d5f52b82072271c97d4e2dc9d9909b4
   '@remix-run/eslint-config': 1.6.4_bb5d35c4a7da28303e40a6d821470b1e
   '@types/react': 17.0.47
@@ -1353,10 +1355,16 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@bufbuild/connect-web/0.0.9:
+  /@bufbuild/connect-web/0.0.9_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-31+T9LlvMAfrORaqiSJclZAU9XDNZdXenf+yA6eZCUWPIlAOlDUhru1mYFu1VGxymDPA9PLJikXeirkY2iKfXQ==}
     peerDependencies:
       '@bufbuild/protobuf': ^0.0.7
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
+    dev: true
+
+  /@bufbuild/protobuf/0.0.9:
+    resolution: {integrity: sha512-sn7Ha93wmew/9mljh70HWRMIT4syxxM0doBPPRxznraV/IQ60bTn+MVfx+t6fIkJIeKt/ReyUSxsQR5XdZZzdw==}
     dev: true
 
   /@bufbuild/protoc-gen-connect-web-darwin-64/0.0.9_54d9b70450c0fd7289521f6564148e24:
@@ -1371,8 +1379,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
     optional: true
 
@@ -1388,8 +1396,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
     optional: true
 
@@ -1405,8 +1413,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
     optional: true
 
@@ -1422,8 +1430,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
     optional: true
 
@@ -1439,8 +1447,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
     optional: true
 
@@ -1456,8 +1464,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
     optional: true
 
@@ -1473,8 +1481,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
     optional: true
 
@@ -1490,8 +1498,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
     optional: true
 
@@ -1507,8 +1515,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
     optional: true
 
@@ -1524,8 +1532,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
     optional: true
 
@@ -1541,8 +1549,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
     optional: true
 
@@ -1558,8 +1566,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
     optional: true
 
@@ -1575,8 +1583,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
     optional: true
 
@@ -1592,8 +1600,8 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.7
+      '@bufbuild/connect-web': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es': 0.0.7_@bufbuild+protobuf@0.0.9
     optionalDependencies:
       '@bufbuild/protoc-gen-connect-web-darwin-64': 0.0.9_54d9b70450c0fd7289521f6564148e24
       '@bufbuild/protoc-gen-connect-web-darwin-arm64': 0.0.9_54d9b70450c0fd7289521f6564148e24
@@ -1610,7 +1618,7 @@ packages:
       '@bufbuild/protoc-gen-connect-web-windows-arm64': 0.0.9_54d9b70450c0fd7289521f6564148e24
     dev: true
 
-  /@bufbuild/protoc-gen-es-darwin-64/0.0.7:
+  /@bufbuild/protoc-gen-es-darwin-64/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-w54y7fvbVt5QrdlCQHicN0zsK9rjw9AlC3FZbs2OVOGvg9O+e1VkUnEEKsgm4ontCo09rNz91BNxZ932Xv0K3Q==}
     os: [darwin]
     peerDependencies:
@@ -1618,10 +1626,12 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     dev: true
     optional: true
 
-  /@bufbuild/protoc-gen-es-darwin-arm64/0.0.7:
+  /@bufbuild/protoc-gen-es-darwin-arm64/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-66z+iWGh1M49NQ1ummx5qz8MrVLSnl+dHt7G/CKD6CbIkPk24+uaVJuaBbL6lheur3UED9OoqO7861BvbtwkbA==}
     os: [darwin]
     peerDependencies:
@@ -1629,10 +1639,12 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     dev: true
     optional: true
 
-  /@bufbuild/protoc-gen-es-freebsd-64/0.0.7:
+  /@bufbuild/protoc-gen-es-freebsd-64/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-t3q2uJv96TN1SBxyshfslujyeB/ERhM0NqevwPJauPOcS/5AZHtGxYIIK9wBGjlPUT5tDdYU0xoeTwSOS5PptQ==}
     os: [freebsd]
     peerDependencies:
@@ -1640,10 +1652,12 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     dev: true
     optional: true
 
-  /@bufbuild/protoc-gen-es-freebsd-arm64/0.0.7:
+  /@bufbuild/protoc-gen-es-freebsd-arm64/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-BmUxTXxrfTDMZ2Whj7kUpxzbaKQp26L5K0oxmBxwr2PT3qM4fq0N2ZktSR9K7l+7cJsF30O30ZMrJsuLatIHlg==}
     os: [freebsd]
     peerDependencies:
@@ -1651,10 +1665,12 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     dev: true
     optional: true
 
-  /@bufbuild/protoc-gen-es-linux-32/0.0.7:
+  /@bufbuild/protoc-gen-es-linux-32/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-fICwwEa+DcJi3W6EFasmg6XHJ/Gc47Qp5tGppmnNJZVU1PknTHfnRWijR+su3CTs1esFGVJtGgZv/9PApmQyUQ==}
     os: [linux]
     peerDependencies:
@@ -1662,10 +1678,12 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     dev: true
     optional: true
 
-  /@bufbuild/protoc-gen-es-linux-64/0.0.7:
+  /@bufbuild/protoc-gen-es-linux-64/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-Yamw+uVTuFmzFuf5gYMQ4IOVWBkSoZ/XsV/qm3A2J9VKerpn2ubucpqRIcBAtvMexUkpCzPpZyW18FVkuYrIyg==}
     os: [linux]
     peerDependencies:
@@ -1673,10 +1691,12 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     dev: true
     optional: true
 
-  /@bufbuild/protoc-gen-es-linux-arm/0.0.7:
+  /@bufbuild/protoc-gen-es-linux-arm/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-BjIt0nQGTsi5hscIRMYnOURnht2AOtWOxaXPLlqNFI4oGJJi/uYPu0QdANijwzi3IYtx0Z2Y1t/J7dZKeTQi9g==}
     os: [linux]
     peerDependencies:
@@ -1684,10 +1704,12 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     dev: true
     optional: true
 
-  /@bufbuild/protoc-gen-es-linux-arm64/0.0.7:
+  /@bufbuild/protoc-gen-es-linux-arm64/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-ZtYCpU9k0MYZ6qGRgMQVySCuZF6JOyZiYjCc0D6w+wUCkttoehueY2YWRlXvrRoBc/8t8QqM/SA6T+AETxo/LA==}
     os: [linux]
     peerDependencies:
@@ -1695,10 +1717,12 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     dev: true
     optional: true
 
-  /@bufbuild/protoc-gen-es-netbsd-64/0.0.7:
+  /@bufbuild/protoc-gen-es-netbsd-64/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-grubnHxx1R6/Vu+Yxd1ypgI7tyxS0kQj3Fi5UxppBx3dQJuHkNly8go6XbWT7VdsA7IigjifK81EMvOPPA3uVQ==}
     os: [netbsd]
     peerDependencies:
@@ -1706,10 +1730,12 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     dev: true
     optional: true
 
-  /@bufbuild/protoc-gen-es-openbsd-64/0.0.7:
+  /@bufbuild/protoc-gen-es-openbsd-64/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-n9901+2Ra1H1OZwe0XHrxfw53ThzCRbO/6KxYZorVSwoQfRFXK7/pO8QW7uNIACbvROfgthnW0Q6IijYNFiI7Q==}
     os: [openbsd]
     peerDependencies:
@@ -1717,10 +1743,12 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     dev: true
     optional: true
 
-  /@bufbuild/protoc-gen-es-windows-32/0.0.7:
+  /@bufbuild/protoc-gen-es-windows-32/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-41JXy58dLk5fXdyW6athCJRCnUzi/bnnNScS+eTkogZE1CJRWVSotesimr/cp3g1RqstrSq1bIKPoPOGsCJJeQ==}
     os: [win32]
     peerDependencies:
@@ -1728,10 +1756,12 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     dev: true
     optional: true
 
-  /@bufbuild/protoc-gen-es-windows-64/0.0.7:
+  /@bufbuild/protoc-gen-es-windows-64/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-W2cNMdL4cR7+ZrUsJ8Y1DZc8fhdN4sQs0NPj1XM/li3THQAEJF+KzLBmvBj9CbERes0RZVbVV8fMT3uYCl1F5w==}
     os: [win32]
     peerDependencies:
@@ -1739,10 +1769,12 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     dev: true
     optional: true
 
-  /@bufbuild/protoc-gen-es-windows-arm64/0.0.7:
+  /@bufbuild/protoc-gen-es-windows-arm64/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-NypWH/R5qEq7iX8DgkFjnUixJiOCy3KqrL4+lxGb0NyTUBcznFRE4VrH2aObWnqHLEl7cLc/1dWiPM4LQ1dWTQ==}
     os: [win32]
     peerDependencies:
@@ -1750,10 +1782,12 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     dev: true
     optional: true
 
-  /@bufbuild/protoc-gen-es/0.0.7:
+  /@bufbuild/protoc-gen-es/0.0.7_@bufbuild+protobuf@0.0.9:
     resolution: {integrity: sha512-D/NRH8lg4UX9NC1NIZKJExKfRp9iykRpmEE7nHa6KFyo01Ukos5EgE0Dntlks381/h9fMxJnOrEdGhXqh/dtmA==}
     hasBin: true
     peerDependencies:
@@ -1761,20 +1795,22 @@ packages:
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
+    dependencies:
+      '@bufbuild/protobuf': 0.0.9
     optionalDependencies:
-      '@bufbuild/protoc-gen-es-darwin-64': 0.0.7
-      '@bufbuild/protoc-gen-es-darwin-arm64': 0.0.7
-      '@bufbuild/protoc-gen-es-freebsd-64': 0.0.7
-      '@bufbuild/protoc-gen-es-freebsd-arm64': 0.0.7
-      '@bufbuild/protoc-gen-es-linux-32': 0.0.7
-      '@bufbuild/protoc-gen-es-linux-64': 0.0.7
-      '@bufbuild/protoc-gen-es-linux-arm': 0.0.7
-      '@bufbuild/protoc-gen-es-linux-arm64': 0.0.7
-      '@bufbuild/protoc-gen-es-netbsd-64': 0.0.7
-      '@bufbuild/protoc-gen-es-openbsd-64': 0.0.7
-      '@bufbuild/protoc-gen-es-windows-32': 0.0.7
-      '@bufbuild/protoc-gen-es-windows-64': 0.0.7
-      '@bufbuild/protoc-gen-es-windows-arm64': 0.0.7
+      '@bufbuild/protoc-gen-es-darwin-64': 0.0.7_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es-darwin-arm64': 0.0.7_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es-freebsd-64': 0.0.7_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es-freebsd-arm64': 0.0.7_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es-linux-32': 0.0.7_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es-linux-64': 0.0.7_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es-linux-arm': 0.0.7_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es-linux-arm64': 0.0.7_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es-netbsd-64': 0.0.7_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es-openbsd-64': 0.0.7_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es-windows-32': 0.0.7_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es-windows-64': 0.0.7_@bufbuild+protobuf@0.0.9
+      '@bufbuild/protoc-gen-es-windows-arm64': 0.0.7_@bufbuild+protobuf@0.0.9
     dev: true
 
   /@esbuild-plugins/node-modules-polyfill/0.1.4_esbuild@0.14.22:

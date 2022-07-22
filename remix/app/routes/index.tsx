@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import '../assets/app.css'
 import {
     createPromiseClient,
     createConnectTransport,
