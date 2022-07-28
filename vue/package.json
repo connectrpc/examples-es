@@ -20,9 +20,9 @@
   },
   "devDependencies": {
     "@bufbuild/connect-web": "^0.0.10",
-    "@bufbuild/protobuf": "^0.0.9",
+    "@bufbuild/protobuf": "^0.0.10",
     "@bufbuild/protoc-gen-connect-web": "^0.0.10",
-    "@bufbuild/protoc-gen-es": "^0.0.9",
+    "@bufbuild/protoc-gen-es": "^0.0.10",
     "@cypress/webpack-preprocessor": "^5.12.0",
     "@rushstack/eslint-patch": "^1.1.0",
     "@types/jsdom": "^16.2.14",

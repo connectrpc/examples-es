@@ -316,6 +316,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bufbuild/protobuf@npm:0.0.10, @bufbuild/protobuf@npm:^0.0.10":
+  version: 0.0.10
+  resolution: "@bufbuild/protobuf@npm:0.0.10"
+  checksum: 69fac24324e7b6172734a8fcf1858f78d76dae28723d5e9660884068de7c6283eb29aad119300655485c6c7303d36ecc4c58555061d7b9f247f4fdeec227a1e6
+  languageName: node
+  linkType: hard
+
 "@bufbuild/protobuf@npm:^0.0.9":
   version: 0.0.9
   resolution: "@bufbuild/protobuf@npm:0.0.9"
@@ -342,19 +349,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protoc-gen-es@npm:^0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoc-gen-es@npm:0.0.9"
+"@bufbuild/protoc-gen-es@npm:^0.0.10":
+  version: 0.0.10
+  resolution: "@bufbuild/protoc-gen-es@npm:0.0.10"
   dependencies:
-    "@bufbuild/protoplugin": ^0.0.9
+    "@bufbuild/protoplugin": 0.0.10
   peerDependencies:
-    "@bufbuild/protobuf": ^0.0.9
+    "@bufbuild/protobuf": 0.0.10
   peerDependenciesMeta:
     "@bufbuild/protobuf":
       optional: true
   bin:
     protoc-gen-es: bin/protoc-gen-es
-  checksum: 0e9eb3d59044c8e078d23fdb63cbc988d76ce57f24af3a20720d48695d49e976851742bc7363a73f84be2739d64d70431d6728c13da19fb47b06af2e81c6d413
+  checksum: 3bad697434048025579bd6f119939eef0538853918f21ef8106985e3a9e0d0bf5f9148817ca1aede3653b82ab954f5e7e1c0058a16c96e64d344b64bfe02cf7f
+  languageName: node
+  linkType: hard
+
+"@bufbuild/protoplugin@npm:0.0.10":
+  version: 0.0.10
+  resolution: "@bufbuild/protoplugin@npm:0.0.10"
+  dependencies:
+    "@bufbuild/protobuf": 0.0.10
+  checksum: 5be156e37938cf7fd5848573305ae09c23db451e6df1155794c62c9fc3fbdd6497b2aa4eb7411dd556a13ac1ae255aeb793025bd98f53dab76095caef7bad7a3
   languageName: node
   linkType: hard
 
@@ -628,9 +644,9 @@ __metadata:
   resolution: "buf-yarn3@workspace:."
   dependencies:
     "@bufbuild/connect-web": ^0.0.10
-    "@bufbuild/protobuf": ^0.0.9
+    "@bufbuild/protobuf": ^0.0.10
     "@bufbuild/protoc-gen-connect-web": ^0.0.10
-    "@bufbuild/protoc-gen-es": ^0.0.9
+    "@bufbuild/protoc-gen-es": ^0.0.10
     "@types/react": ^18.0.15
     "@types/react-dom": ^18.0.0
     "@vitejs/plugin-react": ^1.3.0

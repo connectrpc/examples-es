@@ -2,9 +2,9 @@ lockfileVersion: 5.3
 
 specifiers:
   '@bufbuild/connect-web': ^0.0.10
-  '@bufbuild/protobuf': ^0.0.9
+  '@bufbuild/protobuf': ^0.0.10
   '@bufbuild/protoc-gen-connect-web': ^0.0.10
-  '@bufbuild/protoc-gen-es': ^0.0.9
+  '@bufbuild/protoc-gen-es': ^0.0.10
   '@remix-run/dev': ^1.6.4
   '@remix-run/eslint-config': ^1.6.4
   '@remix-run/node': ^1.6.4
@@ -25,10 +25,10 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
 
 devDependencies:
-  '@bufbuild/connect-web': 0.0.10_@bufbuild+protobuf@0.0.9
-  '@bufbuild/protobuf': 0.0.9
-  '@bufbuild/protoc-gen-connect-web': 0.0.10_5c1e2e18cb44a103a67b85656cb17ff5
-  '@bufbuild/protoc-gen-es': 0.0.9_@bufbuild+protobuf@0.0.9
+  '@bufbuild/connect-web': 0.0.10_@bufbuild+protobuf@0.0.10
+  '@bufbuild/protobuf': 0.0.10
+  '@bufbuild/protoc-gen-connect-web': 0.0.10_f5243604c23eac091b7aecacf0f4dd5b
+  '@bufbuild/protoc-gen-es': 0.0.10_@bufbuild+protobuf@0.0.10
   '@remix-run/dev': 1.6.4_4d5f52b82072271c97d4e2dc9d9909b4
   '@remix-run/eslint-config': 1.6.4_bb5d35c4a7da28303e40a6d821470b1e
   '@types/react': 17.0.47
@@ -1355,19 +1355,23 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@bufbuild/connect-web/0.0.10_@bufbuild+protobuf@0.0.9:
+  /@bufbuild/connect-web/0.0.10_@bufbuild+protobuf@0.0.10:
     resolution: {integrity: sha512-eeZi3vLEbNdLiN/ZKk52fUS7RsNSfSv0XlzxkA6UMQBYi88gHDdcId5IsMmcJMnDYOlNJtulWISthcFd0rgLow==}
     peerDependencies:
       '@bufbuild/protobuf': ^0.0.9
     dependencies:
-      '@bufbuild/protobuf': 0.0.9
+      '@bufbuild/protobuf': 0.0.10
+    dev: true
+
+  /@bufbuild/protobuf/0.0.10:
+    resolution: {integrity: sha512-KAIMq9+zgRms902o6Cwyv9q4+rf1cOlF41QpEPU8lWbyj+QViD7JjG4370Ev9JFJtJr1qO3ZMdjUhglH0gsDrg==}
     dev: true
 
   /@bufbuild/protobuf/0.0.9:
     resolution: {integrity: sha512-sn7Ha93wmew/9mljh70HWRMIT4syxxM0doBPPRxznraV/IQ60bTn+MVfx+t6fIkJIeKt/ReyUSxsQR5XdZZzdw==}
     dev: true
 
-  /@bufbuild/protoc-gen-connect-web/0.0.10_5c1e2e18cb44a103a67b85656cb17ff5:
+  /@bufbuild/protoc-gen-connect-web/0.0.10_f5243604c23eac091b7aecacf0f4dd5b:
     resolution: {integrity: sha512-yhUc1FfAieun7GNhAadPMNf41h9tvzoTylpfdeQhGhkOQJN+uont8SodXvBdEZg2cvxvA5VH3dqxFmdEwyy5lw==}
     engines: {node: '>=14'}
     hasBin: true
@@ -1380,23 +1384,29 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.0.10_@bufbuild+protobuf@0.0.9
-      '@bufbuild/protoc-gen-es': 0.0.9_@bufbuild+protobuf@0.0.9
+      '@bufbuild/connect-web': 0.0.10_@bufbuild+protobuf@0.0.10
+      '@bufbuild/protoc-gen-es': 0.0.10_@bufbuild+protobuf@0.0.10
       '@bufbuild/protoplugin': 0.0.9
     dev: true
 
-  /@bufbuild/protoc-gen-es/0.0.9_@bufbuild+protobuf@0.0.9:
-    resolution: {integrity: sha512-A4nlwaoS6dCNDf8ohvLOfIm6NJPWUzpjJc46UgzVlmeHLOjZOdSaHLmhMVSnN3kx8WX55rl9ULqtGLG0Ks7PJg==}
+  /@bufbuild/protoc-gen-es/0.0.10_@bufbuild+protobuf@0.0.10:
+    resolution: {integrity: sha512-RhIEinP4eKyZH7Zr0IkZU8Jhp9kxeiuSHh71K0cAlsp0HR1YdBNJ56GW+1e9nJUV/gmFkbQ3L72X1TaWdZ548A==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
-      '@bufbuild/protobuf': ^0.0.9
+      '@bufbuild/protobuf': 0.0.10
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
     dependencies:
-      '@bufbuild/protobuf': 0.0.9
-      '@bufbuild/protoplugin': 0.0.9
+      '@bufbuild/protobuf': 0.0.10
+      '@bufbuild/protoplugin': 0.0.10
+    dev: true
+
+  /@bufbuild/protoplugin/0.0.10:
+    resolution: {integrity: sha512-cfC5ODqmkVpNNU8zXhZNSwXQgPZcG6Sqbe4d/UqiOyDh1kH6hYVEuqNKXNBRDzQXjwRAeBEi2m4Zp8MpCoP5Ug==}
+    dependencies:
+      '@bufbuild/protobuf': 0.0.10
     dev: true
 
   /@bufbuild/protoplugin/0.0.9:

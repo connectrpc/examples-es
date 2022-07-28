@@ -44,9 +44,9 @@
   },
   "devDependencies": {
     "@bufbuild/connect-web": "^0.0.10",
-    "@bufbuild/protobuf": "^0.0.9",
+    "@bufbuild/protobuf": "^0.0.10",
     "@bufbuild/protoc-gen-connect-web": "^0.0.10",
-    "@bufbuild/protoc-gen-es": "^0.0.9",
+    "@bufbuild/protoc-gen-es": "^0.0.10",
     "prettier": "^2.7.1",
     "react-app-rewired": "^2.2.1",
     "resolve-typescript-plugin": "^1.2.0",

@@ -16,9 +16,9 @@
     },
     "devDependencies": {
         "@bufbuild/connect-web": "^0.0.10",
-        "@bufbuild/protobuf": "^0.0.9",
+        "@bufbuild/protobuf": "^0.0.10",
         "@bufbuild/protoc-gen-connect-web": "^0.0.10",
-        "@bufbuild/protoc-gen-es": "^0.0.9",
+        "@bufbuild/protoc-gen-es": "^0.0.10",
         "@playwright/test": "^1.22.2",
         "@sveltejs/adapter-auto": "next",
         "@sveltejs/kit": "next",

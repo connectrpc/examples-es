@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "@bufbuild/connect-web": "^0.0.10",
-    "@bufbuild/protobuf": "^0.0.9",
+    "@bufbuild/protobuf": "^0.0.10",
     "@bufbuild/protoc-gen-connect-web": "^0.0.10",
-    "@bufbuild/protoc-gen-es": "^0.0.9",
+    "@bufbuild/protoc-gen-es": "^0.0.10",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
