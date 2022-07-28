@@ -6,8 +6,6 @@
     import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connectweb.js'
     import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb.js'
 
-    const INTRO_DELAY_MS = 500
-
     let name = ''
     let statement = ''
     let intros: string[] = []
@@ -35,21 +33,10 @@
             name,
         })
 
-        let resps: string[] = []
         for await (const response of client.introduce(request)) {
-            resps.push(response.sentence)
+            intros = [...intros, response.sentence]
         }
-        setTimeout(() => {
-            showSayInput = true
-        }, resps.length * INTRO_DELAY_MS)
-
-        for (var i = 0; i < resps.length; i++) {
-            ;((i) => {
-                setTimeout(() => {
-                    intros = [...intros, resps[i]]
-                }, INTRO_DELAY_MS * (i + 1))
-            })(i)
-        }
+        showSayInput = true
     }
 </script>
 

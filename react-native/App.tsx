@@ -22,8 +22,6 @@ function App() {
     const [answers, setAnswers] = useState<string[]>([])
     const [showSayInput, setShowSayInput] = useState<boolean>(false)
 
-    const INTRO_DELAY_MS = 500
-
     // Make the Eliza Service client
     const client = createPromiseClient(
         ElizaService,
@@ -46,23 +44,12 @@ function App() {
             name,
         })
 
-        let resps: string[] = []
         let stream = client.introduce(request);
         for await (const response of stream) {
-            resps.push(response.sentence)
+            setIntros((intro) => [...intro, response.sentence])
         }
+        setShowSayInput(true)
 
-        setTimeout(() => {
-            setShowSayInput(true)
-        }, resps.length * INTRO_DELAY_MS)
-
-        for (var i = 0; i < resps.length; i++) {
-            ;(function (i) {
-                setTimeout(function () {
-                    setIntros((intro) => [...intro, resps[i]])
-                }, INTRO_DELAY_MS * (i + 1))
-            })(i)
-        }
         } else {
             setIntros([`Hi, ${name}.  You seem to be running on mobile and streaming is not supported.`]);
         }

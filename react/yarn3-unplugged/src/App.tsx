@@ -14,8 +14,6 @@ function App() {
     const [answers, setAnswers] = useState<string[]>([])
     const [showSayInput, setShowSayInput] = useState<boolean>(false)
 
-    const INTRO_DELAY_MS = 500
-
     // Make the Eliza Service client
     const client = createPromiseClient(
         ElizaService,
@@ -37,22 +35,11 @@ function App() {
             name,
         })
 
-        let resps: string[] = []
         for await (const response of client.introduce(request)) {
-            resps.push(response.sentence)
+            setIntros((intro) => [...intro, response.sentence])
         }
 
-        setTimeout(() => {
-            setShowSayInput(true)
-        }, resps.length * INTRO_DELAY_MS)
-
-        for (var i = 0; i < resps.length; i++) {
-            ;(function (i) {
-                setTimeout(function () {
-                    setIntros((intro: string) => [...intro, resps[i]])
-                }, INTRO_DELAY_MS * (i + 1))
-            })(i)
-        }
+        setShowSayInput(true)
     }
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {

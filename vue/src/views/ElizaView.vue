@@ -8,8 +8,6 @@ import type { PromiseClient } from '@bufbuild/connect-web'
 import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connectweb'
 import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb'
 
-const INTRO_DELAY_MS = 500
-
 interface ElizaData {
     name: string
     statement: string
@@ -56,21 +54,10 @@ export default defineComponent({
                     name,
                 })
 
-                const resps: string[] = []
                 for await (const response of this.client.introduce(request)) {
-                    resps.push(response.sentence)
+                    this.intros.push(response.sentence)
                 }
-                setTimeout(() => {
-                    this.showSayInput = true
-                }, resps.length * INTRO_DELAY_MS)
-
-                for (let i = 0; i < resps.length; i++) {
-                    ;((i) => {
-                        setTimeout(() => {
-                            this.intros.push(resps[i])
-                        }, INTRO_DELAY_MS * (i + 1))
-                    })(i)
-                }
+                this.showSayInput = true
             }
         },
         handleIntroduce() {
