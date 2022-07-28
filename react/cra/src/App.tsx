@@ -11,6 +11,7 @@ function App() {
     const [name, setName] = useState<string>('')
     const [statement, setStatement] = useState<string>('')
     const [intros, setIntros] = useState<string[]>([])
+    const [yous, setYous] = useState<string[]>([])
     const [answers, setAnswers] = useState<string[]>([])
     const [showSayInput, setShowSayInput] = useState<boolean>(false)
 
@@ -25,6 +26,7 @@ function App() {
     )
 
     const say = async (sentence: string) => {
+        setYous((you) => [...yous, sentence])
         const response = await client.say({
             sentence,
         })
@@ -94,8 +96,17 @@ function App() {
                 <div className="intro-container">
                     {intros.map((intro, i) => {
                         return (
-                            <p className="resp-text" key={`resp${i}`}>
+                            <p className="intro-text" key={`resp${i}`}>
                                 {intro}
+                            </p>
+                        )
+                    })}
+                </div>
+                <div className="you-container">
+                    {yous.map((you, i) => {
+                        return (
+                            <p className="intro-text" key={`you${i}`}>
+                                {you}
                             </p>
                         )
                     })}
@@ -113,7 +124,7 @@ function App() {
                 ) : (
                     <React.Fragment />
                 )}
-                <div className="intro-container">
+                <div className="answer-container">
                     {answers.map((answer: string) => {
                         return <p className="resp-text">{answer}</p>
                     })}

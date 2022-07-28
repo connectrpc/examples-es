@@ -19,7 +19,7 @@ h5 {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     font-size: calc(10px + 2vmin);
     color: white;
 }
@@ -37,12 +37,33 @@ h5 {
 .prompt-text {
     margin: 0 0 15px 0;
 }
-.intro-container {
+.intro-container,
+.answer-container {
     margin: 15px;
 }
-.resp-text {
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 25%;
+}
+.you-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 25%;
+}
+.resp-text,
+.intro-text {
     font-size: 1rem;
     margin: 5px;
+}
+.intro-text {
+    background: rgba(255, 255, 255, 1);
+    border: 2px solid #ebebeb;
+    padding: 16px 20px;
+    border-radius: 28px;
+    color: #09083a;
 }
 .text-input {
     width: 200px;
