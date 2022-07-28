@@ -24,6 +24,7 @@ tooling differences the related projects were constructed with:
 * [cra](react/cra) - Generated with [Create React App](https://github.com/facebook/create-react-app) and all associated defaults.
 * [parcel](react/parcel) - Built from scratch with [Parcel](https://parceljs.org) as the bundler
 * [rollup](react/rollup) - Built from scratch with [Rollup](https://rollupjs.org) as the bundler.
+* [webpack](react/webpack) - Built from scratch with [Webpack](https://webpack.js.org) as the bundler.
 * [yarn3-unplugged](react/yarn3-unplugged) - Built from scratch with [Yarn 3](https://yarnpkg.com) in [unplugged mode](https://yarnpkg.com/getting-started/migration#step-by-step).
 * [yarn3](react/yarn3) - Built from scratch with [Yarn 3](https://yarnpkg.com) and [PnP mode](https://yarnpkg.com/features/pnp).
 

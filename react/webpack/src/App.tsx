@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './index.css'
 import './App.css'
 import {
     createPromiseClient,
@@ -70,16 +71,11 @@ function App() {
                 </div>
                 <p className="prompt-text">What is your name?</p>
                 <div>
-                    <input
-                        type="text"
-                        className="text-input"
-                        value={name}
-                        onChange={handleNameChange}
-                    />
+                    <input type="text" className="text-input" value={name} onChange={handleNameChange}/>
                     <button onClick={handleIntroduce}>Introduce</button>
                 </div>
                 <div className="intro-container">
-                    {intros.map((intro, i) => {
+                    {intros.map((intro: string, i:number) => {
                         return (
                             <p className="resp-text" key={`resp${i}`}>
                                 {intro}
@@ -89,8 +85,7 @@ function App() {
                 </div>
                 {showSayInput ? (
                     <div>
-                        <input
-                            type="text"
+                        <input type="text"
                             className="text-input"
                             value={statement}
                             onChange={handleStatementChange}
