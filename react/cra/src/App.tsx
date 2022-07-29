@@ -76,25 +76,22 @@ function App() {
     }
 
     return (
-        <div className="app">
+        <div>
             <header className="app-header">
-                <div className="app-title">
-                    <div>
-                        <h1>Eliza</h1>
-                    </div>
-                </div>
+                <h1>Eliza</h1>
+            </header>
+            <div className="container">
                 {responses.map((resp, i) => {
                     return (
                         <div
+                            key={`resp${i}`}
                             className={
                                 resp.sender === 'eliza'
                                     ? 'eliza-resp-container'
                                     : 'user-resp-container'
                             }
                         >
-                            <p className="resp-text" key={`resp${i}`}>
-                                {resp.text}
-                            </p>
+                            <p className="resp-text">{resp.text}</p>
                         </div>
                     )
                 })}
@@ -108,7 +105,7 @@ function App() {
                     />
                     <button onClick={handleSend}>Send</button>
                 </div>
-            </header>
+            </div>
         </div>
     )
 }

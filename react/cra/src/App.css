@@ -1,37 +1,53 @@
 h1 {
-    margin-bottom: 0;
+    margin: 15px 0;
+    font-size: 3.5rem;
 }
 h5 {
     margin: 0 0 30px 0;
 }
-
-.app {
-    text-align: center;
+button {
+    background-color: rgb(22, 30, 222);
+    color: #fff;
+    padding: 11px 16px;
+    border: none;
+    font-weight: 400;
+}
+button:hover {
+    cursor: pointer;
+}
+input {
+    border: 1px solid rgb(235, 235, 235);
+    padding: 10px;
+}
+input:focus {
+    border-color: rgb(22, 30, 222);
+    background-color: rgb(248, 248, 255);
+}
+input:focus-visible {
+    outline: none;
 }
 
-.app-logo {
-    height: 6vmin;
-    pointer-events: none;
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-size: calc(10px + 2vmin);
+    padding: 15px;
+    margin: 0 auto;
+    max-width: 1320px;
+    background-color: #fff;
+    min-height: 100vh;
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
 }
 
 .app-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.app-link {
-    color: #61dafb;
-}
-
-.app-title {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    color: #000;
+    background-color: #fff;
+    border-bottom: 1px solid #ebebeb;
 }
 
 .prompt-text {
@@ -41,22 +57,13 @@ h5 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 25%;
     text-align: left;
 }
 .user-resp-container {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin-right: 25%;
     text-align: right;
-}
-@media only screen and (max-device-width: 1180px) {
-    .user-resp-container,
-    .eliza-resp-container {
-        margin-left: 5%;
-        margin-right: 5%;
-    }
 }
 .resp-text {
     font-size: 1rem;
@@ -77,4 +84,5 @@ h5 {
 }
 .text-input {
     width: 200px;
+    margin-right: 5px;
 }
