@@ -19,9 +19,9 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/plugin-proposal-async-generator-functions": "^7.18.6",
-    "@bufbuild/connect-web": "^0.0.10",
+    "@bufbuild/connect-web": "^0.1.0",
     "@bufbuild/protobuf": "^0.0.10",
-    "@bufbuild/protoc-gen-connect-web": "^0.0.10",
+    "@bufbuild/protoc-gen-connect-web": "^0.1.0",
     "@bufbuild/protoc-gen-es": "^0.0.10",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.66.13",
