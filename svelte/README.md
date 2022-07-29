@@ -6,13 +6,14 @@ This project was bootstrapped as a [Svelte](https://svelte.dev/) project with th
 
 All default tooling setup via the above command is used, which includes:
 
-* [Vite](https://vitejs.dev) (Module Loader)
-* [Playwright](https://playwright.dev) (Testing Framework)
-* [Svelte Kit](https://kit.svelte.dev/) (Application Framework)
+-   [Vite](https://vitejs.dev) (Module Loader)
+-   [Playwright](https://playwright.dev) (Testing Framework)
+-   [Svelte Kit](https://kit.svelte.dev/) (Application Framework)
 
 ## Getting Started
 
 ### `npm install`
+
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -45,7 +46,7 @@ Creates a package for publishing to `npm`.
 
 ### `npm run preview`
 
-Previews a built application on port 3000.  Note that `npm run build` must be run initially or an error will occur.
+Previews a built application on port 3000. Note that `npm run build` must be run initially or an error will occur.
 
 ### `npm run prepare`
 
@@ -66,14 +67,3 @@ Runs various lint tools (Prettier, eslint) against codebase.
 ## `npm run format`
 
 Formats code via Prettier.
-
-
-
-
-
-
-
-
-
-
-

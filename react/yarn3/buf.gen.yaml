@@ -2,10 +2,8 @@
 version: v1
 plugins:
   - name: es
-    path: .yarn/unplugged/@bufbuild-protoc-gen-es-virtual-93de4bd14c/node_modules/@bufbuild/protoc-gen-es/bin/protoc-gen-es
     out: src/gen
     opt: target=ts
   - name: connect-web
-    path: .yarn/unplugged/@bufbuild-protoc-gen-connect-web-virtual-f39b89763c/node_modules/@bufbuild/protoc-gen-connect-web/bin/protoc-gen-connect-web
     out: src/gen
     opt: target=ts
