@@ -33,9 +33,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
+            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.1.0"],\
             ["@bufbuild/protobuf", "npm:0.0.10"],\
-            ["@bufbuild/protoc-gen-connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
+            ["@bufbuild/protoc-gen-connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.1.0"],\
             ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
             ["@types/react", "npm:18.0.15"],\
             ["@types/react-dom", "npm:18.0.6"],\
@@ -450,17 +450,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@bufbuild/connect-web", [\
-        ["npm:0.0.10", {\
-          "packageLocation": "./.yarn/cache/@bufbuild-connect-web-npm-0.0.10-8e5190875d-1d1c93435b.zip/node_modules/@bufbuild/connect-web/",\
+        ["npm:0.1.0", {\
+          "packageLocation": "./.yarn/cache/@bufbuild-connect-web-npm-0.1.0-cfacb4e8af-cf0d24cf3e.zip/node_modules/@bufbuild/connect-web/",\
           "packageDependencies": [\
-            ["@bufbuild/connect-web", "npm:0.0.10"]\
+            ["@bufbuild/connect-web", "npm:0.1.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10", {\
-          "packageLocation": "./.yarn/__virtual__/@bufbuild-connect-web-virtual-ac971539d2/0/cache/@bufbuild-connect-web-npm-0.0.10-8e5190875d-1d1c93435b.zip/node_modules/@bufbuild/connect-web/",\
+        ["virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@bufbuild-connect-web-virtual-3780bb9731/0/cache/@bufbuild-connect-web-npm-0.1.0-cfacb4e8af-cf0d24cf3e.zip/node_modules/@bufbuild/connect-web/",\
           "packageDependencies": [\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
+            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.1.0"],\
             ["@bufbuild/protobuf", "npm:0.0.10"],\
             ["@types/bufbuild__protobuf", null]\
           ],\
@@ -478,30 +478,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@bufbuild/protobuf", "npm:0.0.10"]\
           ],\
           "linkType": "HARD"\
-        }],\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/cache/@bufbuild-protobuf-npm-0.0.9-06df00c425-9abad6dcd9.zip/node_modules/@bufbuild/protobuf/",\
-          "packageDependencies": [\
-            ["@bufbuild/protobuf", "npm:0.0.9"]\
-          ],\
-          "linkType": "HARD"\
         }]\
       ]],\
       ["@bufbuild/protoc-gen-connect-web", [\
-        ["npm:0.0.10", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-virtual-f39b89763c/node_modules/@bufbuild/protoc-gen-connect-web/",\
+        ["npm:0.1.0", {\
+          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-virtual-5fcbce884d/node_modules/@bufbuild/protoc-gen-connect-web/",\
           "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web", "npm:0.0.10"]\
+            ["@bufbuild/protoc-gen-connect-web", "npm:0.1.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10", {\
-          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-virtual-f39b89763c/node_modules/@bufbuild/protoc-gen-connect-web/",\
+        ["virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.1.0", {\
+          "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-web-virtual-5fcbce884d/node_modules/@bufbuild/protoc-gen-connect-web/",\
           "packageDependencies": [\
-            ["@bufbuild/protoc-gen-connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
+            ["@bufbuild/protoc-gen-connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.1.0"],\
+            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.1.0"],\
             ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
-            ["@bufbuild/protoplugin", "npm:0.0.9"],\
+            ["@bufbuild/protoplugin", "npm:0.0.10"],\
             ["@types/bufbuild__connect-web", null],\
             ["@types/bufbuild__protoc-gen-es", null]\
           ],\
@@ -543,14 +536,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@bufbuild/protoplugin", "npm:0.0.10"],\
             ["@bufbuild/protobuf", "npm:0.0.10"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["npm:0.0.9", {\
-          "packageLocation": "./.yarn/cache/@bufbuild-protoplugin-npm-0.0.9-cefdc92571-c67b0de266.zip/node_modules/@bufbuild/protoplugin/",\
-          "packageDependencies": [\
-            ["@bufbuild/protoplugin", "npm:0.0.9"],\
-            ["@bufbuild/protobuf", "npm:0.0.9"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -849,9 +834,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["buf-yarn3", "workspace:."],\
-            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
+            ["@bufbuild/connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.1.0"],\
             ["@bufbuild/protobuf", "npm:0.0.10"],\
-            ["@bufbuild/protoc-gen-connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
+            ["@bufbuild/protoc-gen-connect-web", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.1.0"],\
             ["@bufbuild/protoc-gen-es", "virtual:7f8be59fbee8e0e46e25d4e0f50710d80d84cec7ef50ea23326339b388b929c5c94d8c7eda996f03f5cefe0cf5acb662ca93e5bfee0a7b08043877b0453530c2#npm:0.0.10"],\
             ["@types/react", "npm:18.0.15"],\
             ["@types/react-dom", "npm:18.0.6"],\

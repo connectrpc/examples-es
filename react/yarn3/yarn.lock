@@ -307,37 +307,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/connect-web@npm:^0.0.10":
-  version: 0.0.10
-  resolution: "@bufbuild/connect-web@npm:0.0.10"
+"@bufbuild/connect-web@npm:latest":
+  version: 0.1.0
+  resolution: "@bufbuild/connect-web@npm:0.1.0"
   peerDependencies:
-    "@bufbuild/protobuf": ^0.0.9
-  checksum: 1d1c93435b999de5e325d637e11b67819f547b6f20009b4ca840c66d8ef25096dc40f6c226de6b3ec1a2a2bb0879a2fa76067883ec45795771c5ec0972bfb53e
+    "@bufbuild/protobuf": 0.0.10
+  checksum: cf0d24cf3eccb66b55521e1af3e77a6d050166bd1e21cec6de752628a1732cb6d51957ba80af68d859efb0b1618079db891bc8c031db15e529108e305d1e2311
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:0.0.10, @bufbuild/protobuf@npm:^0.0.10":
+"@bufbuild/protobuf@npm:0.0.10, @bufbuild/protobuf@npm:latest":
   version: 0.0.10
   resolution: "@bufbuild/protobuf@npm:0.0.10"
   checksum: 69fac24324e7b6172734a8fcf1858f78d76dae28723d5e9660884068de7c6283eb29aad119300655485c6c7303d36ecc4c58555061d7b9f247f4fdeec227a1e6
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:^0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protobuf@npm:0.0.9"
-  checksum: 9abad6dcd94fa2dccdcea7bf6873d76b939bed1e522b8987aa340c03e69c00efbe436f659f5596da09f1381ba3a408816d5ce1320b08164eb9fa0c7500952c3d
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web@npm:^0.0.10":
-  version: 0.0.10
-  resolution: "@bufbuild/protoc-gen-connect-web@npm:0.0.10"
+"@bufbuild/protoc-gen-connect-web@npm:latest":
+  version: 0.1.0
+  resolution: "@bufbuild/protoc-gen-connect-web@npm:0.1.0"
   dependencies:
-    "@bufbuild/protoplugin": ^0.0.9
+    "@bufbuild/protoplugin": 0.0.10
   peerDependencies:
-    "@bufbuild/connect-web": ^0.0.10
-    "@bufbuild/protoc-gen-es": ^0.0.9
+    "@bufbuild/connect-web": 0.1.0
+    "@bufbuild/protoc-gen-es": 0.0.10
   peerDependenciesMeta:
     "@bufbuild/connect-web":
       optional: true
@@ -345,11 +338,11 @@ __metadata:
       optional: true
   bin:
     protoc-gen-connect-web: bin/protoc-gen-connect-web
-  checksum: fb4244598889b6f738bf9480310a8d21a19f8999639ef000283e2500da8c4b2960d755a41f8af4c2a6cd06702f5f012b1d1a0a6b978181ab067e1f66ac79e941
+  checksum: 56c3252314c237d4850741b064879651e4720987cae6384a5f001b7a62865a2a346e8ea4a9f41fbf8e48fec72467b180bfd5f1566f4362cfb7554dc3f8bf907f
   languageName: node
   linkType: hard
 
-"@bufbuild/protoc-gen-es@npm:^0.0.10":
+"@bufbuild/protoc-gen-es@npm:latest":
   version: 0.0.10
   resolution: "@bufbuild/protoc-gen-es@npm:0.0.10"
   dependencies:
@@ -371,15 +364,6 @@ __metadata:
   dependencies:
     "@bufbuild/protobuf": 0.0.10
   checksum: 5be156e37938cf7fd5848573305ae09c23db451e6df1155794c62c9fc3fbdd6497b2aa4eb7411dd556a13ac1ae255aeb793025bd98f53dab76095caef7bad7a3
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoplugin@npm:^0.0.9":
-  version: 0.0.9
-  resolution: "@bufbuild/protoplugin@npm:0.0.9"
-  dependencies:
-    "@bufbuild/protobuf": ^0.0.9
-  checksum: c67b0de26692b87e7278086f7060d0df573e1df0097cbbf2dcf50b9d449d2473d7739a77e6e9ab520ef55ac5817c2f10dc9a5bdccc1661074241c9d1df935af5
   languageName: node
   linkType: hard
 
@@ -643,10 +627,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "buf-yarn3@workspace:."
   dependencies:
-    "@bufbuild/connect-web": ^0.0.10
-    "@bufbuild/protobuf": ^0.0.10
-    "@bufbuild/protoc-gen-connect-web": ^0.0.10
-    "@bufbuild/protoc-gen-es": ^0.0.10
+    "@bufbuild/connect-web": latest
+    "@bufbuild/protobuf": latest
+    "@bufbuild/protoc-gen-connect-web": latest
+    "@bufbuild/protoc-gen-es": latest
     "@types/react": ^18.0.15
     "@types/react-dom": ^18.0.0
     "@vitejs/plugin-react": ^1.3.0

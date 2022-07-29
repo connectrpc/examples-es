@@ -43,9 +43,9 @@
     ]
   },
   "devDependencies": {
-    "@bufbuild/connect-web": "^0.0.10",
+    "@bufbuild/connect-web": "^0.1.0",
     "@bufbuild/protobuf": "^0.0.10",
-    "@bufbuild/protoc-gen-connect-web": "^0.0.10",
+    "@bufbuild/protoc-gen-connect-web": "^0.1.0",
     "@bufbuild/protoc-gen-es": "^0.0.10",
     "prettier": "^2.7.1",
     "react-app-rewired": "^2.2.1",
