@@ -8,12 +8,15 @@ import type { PromiseClient } from '@bufbuild/connect-web'
 import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connectweb'
 import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb'
 
+interface Response {
+    text: string
+    sender: 'eliza' | 'user'
+}
+
 interface ElizaData {
-    name: string
     statement: string
-    intros: string[]
-    answers: string[]
-    showSayInput: boolean
+    responses: Response[]
+    introFinished: boolean
     client: PromiseClient<typeof ElizaService> | undefined
 }
 
@@ -21,11 +24,14 @@ export default defineComponent({
     name: 'ElizaView',
     data(): ElizaData {
         return {
-            name: '',
             statement: '',
-            intros: [],
-            answers: [],
-            showSayInput: false,
+            responses: [
+                {
+                    text: 'What is your name?',
+                    sender: 'eliza',
+                },
+            ],
+            introFinished: false,
             client: undefined,
         }
     },
@@ -39,89 +45,74 @@ export default defineComponent({
         )
     },
     methods: {
-        async say(sentence: string) {
+        async send() {
             if (this.client) {
-                const response = await this.client.say({
-                    sentence,
+                this.responses.push({
+                    text: this.statement,
+                    sender: 'user',
                 })
+                if (this.introFinished) {
+                    const response = await this.client.say({
+                        sentence: this.statement,
+                    })
 
-                this.answers.push(response.sentence)
-            }
-        },
-        async introduce(name: string) {
-            if (this.client) {
-                const request = new IntroduceRequest({
-                    name,
-                })
+                    this.responses.push({
+                        text: response.sentence,
+                        sender: 'eliza',
+                    })
+                } else {
+                    const request = new IntroduceRequest({
+                        name: this.statement,
+                    })
 
-                for await (const response of this.client.introduce(request)) {
-                    this.intros.push(response.sentence)
+                    for await (const response of this.client.introduce(
+                        request
+                    )) {
+                        this.responses.push({
+                            text: response.sentence,
+                            sender: 'eliza',
+                        })
+                    }
+                    this.introFinished = true
                 }
-                this.showSayInput = true
+                this.statement = ''
             }
         },
-        handleIntroduce() {
-            this.introduce(this.name)
-        },
-        handleSay(): void {
-            this.say(this.statement)
+        handleSend() {
+            this.send()
         },
     },
 })
 </script>
 
 <template>
-    <div class="app">
-        <header class="app-header">
-            <div className="app-title">
-                <div>
-                    <h1>Eliza</h1>
-                </div>
-            </div>
-            <p className="prompt-text">What is your name?</p>
-            <div>
-                <input
-                    id="name-input"
-                    type="text"
-                    className="text-input"
-                    v-model="name"
-                />
-                <button className="intro-button" @click="handleIntroduce">
-                    Introduce
-                </button>
-            </div>
-            <div className="intro-container">
-                <p
-                    v-for="(intro, index) in intros"
-                    :key="`intro-${index}`"
-                    className="resp-text"
-                >
-                    {{ intro }}
-                </p>
-            </div>
-            <div v-if="showSayInput">
-                <div>
-                    <input
-                        id="statement-input"
-                        type="text"
-                        className="text-input"
-                        v-model="statement"
-                    />
-                    <button className="say-button" @click="handleSay">
-                        Say
-                    </button>
-                </div>
-            </div>
-            <div className="intro-container">
-                <p
-                    v-for="(answer, index) in answers"
-                    :key="`answer-${index}`"
-                    className="resp-text"
-                >
-                    {{ answer }}
-                </p>
-            </div>
-        </header>
+    <header class="app-header">
+        <h1>Eliza</h1>
+    </header>
+    <div class="container">
+        <div
+            v-for="(resp, index) in responses"
+            :key="`resp-${index}`"
+            :class="
+                resp.sender === 'eliza'
+                    ? 'eliza-resp-container'
+                    : 'user-resp-container'
+            "
+        >
+            <p className="resp-text">
+                {{ resp.text }}
+            </p>
+        </div>
+        <div>
+            <input
+                id="statement-input"
+                type="text"
+                className="text-input"
+                v-model="statement"
+                v-on:keyup.enter="handleSend"
+            />
+            <button id="send-button" @click="handleSend">Send</button>
+        </div>
     </div>
 </template>
 
