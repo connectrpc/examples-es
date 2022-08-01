@@ -14,7 +14,7 @@ h1 {
     font-size: 3.5rem;
 }
 button {
-    background-color: rgb(22, 30, 222);
+    background-color: #161ede;
     color: #fff;
     padding: 11px 16px;
     border: none;
@@ -24,17 +24,16 @@ button:hover {
     cursor: pointer;
 }
 input {
-    border: 1px solid rgb(235, 235, 235);
+    border: 1px solid #ebebeb;
     padding: 10px;
 }
 input:focus {
-    border-color: rgb(22, 30, 222);
-    background-color: rgb(248, 248, 255);
+    border-color: #161ede;
+    background-color: #f8f8ff;
 }
 input:focus-visible {
     outline: none;
 }
-
 .container {
     text-align: center;
     display: flex;
@@ -48,7 +47,6 @@ input:focus-visible {
     border-left: 1px solid #ebebeb;
     border-right: 1px solid #ebebeb;
 }
-
 .app-header {
     display: flex;
     justify-content: space-evenly;
@@ -57,7 +55,6 @@ input:focus-visible {
     background-color: #fff;
     border-bottom: 1px solid #ebebeb;
 }
-
 .eliza-resp-container {
     display: flex;
     flex-direction: column;
@@ -73,7 +70,7 @@ input:focus-visible {
 .resp-text {
     font-size: 1rem;
     margin: 5px;
-    background: rgba(255, 255, 255, 1);
+    background: #fff;
     border: 2px solid #ebebeb;
     padding: 16px 20px;
     border-radius: 28px;
@@ -91,4 +88,4 @@ input:focus-visible {
     width: 200px;
     margin-right: 5px;
 }
-</style>
+</style.

@@ -143,6 +143,16 @@ const styles = StyleSheet.create({
         borderRadius: 28,
         marginVertical: 5,
     },
+    respText: {
+        fontSize: 18,
+        margin: 5,
+        backgroundColor: '#fff',
+        paddingVertical: 16,
+        paddingHorizontal: 20,
+        color: '#09083a',
+        borderRadius: 28,
+        overflow: 'hidden'
+    },
     elizaRespText: {
         color: '#090a3a',
     },
@@ -158,19 +168,9 @@ const styles = StyleSheet.create({
         color: '#165fed',
         backgroundColor: '#e0edff',
     },
-    respText: {
-        fontSize: 18,
-        margin: 5,
-        backgroundColor: 'rgba(255, 255, 255, 1)',
-        paddingVertical: 16,
-        paddingHorizontal: 20,
-        color: '#09083a',
-        borderRadius: 28,
-        overflow: 'hidden'
-    },
     textInput: {
         borderWidth: 1,
-        borderColor: 'rgb(235, 235, 235)',
+        borderColor: '#ebebeb',
         padding: 10,
         marginVertical: 5,
     }
