@@ -2,9 +2,6 @@ h1 {
     margin: 15px 0;
     font-size: 3.5rem;
 }
-h5 {
-    margin: 0 0 30px 0;
-}
 button {
     background-color: rgb(22, 30, 222);
     color: #fff;
@@ -50,9 +47,6 @@ input:focus-visible {
     border-bottom: 1px solid #ebebeb;
 }
 
-.prompt-text {
-    margin: 0 0 15px 0;
-}
 .eliza-resp-container {
     display: flex;
     flex-direction: column;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Dimensions, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, Dimensions, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import {
     createPromiseClient,
     createConnectTransport,
@@ -15,12 +15,20 @@ if (Platform.OS !== 'web') {
     import('react-native-polyfill-globals');
 }
 
+interface Response {
+    text: string
+    sender: 'eliza' | 'user'
+}
+
 function App() {
-    const [name, setName] = useState<string>('')
     const [statement, setStatement] = useState<string>('')
-    const [intros, setIntros] = useState<string[]>([])
-    const [answers, setAnswers] = useState<string[]>([])
-    const [showSayInput, setShowSayInput] = useState<boolean>(false)
+    const [introFinished, setIntroFinished] = useState<boolean>(false)
+    const [responses, setResponses] = useState<Response[]>([
+        {
+            text: 'What is your name?',
+            sender: 'eliza',
+        },
+    ])
 
     // Make the Eliza Service client
     const client = createPromiseClient(
@@ -30,81 +38,61 @@ function App() {
         })
     )
 
-    const say = async (sentence: string) => {
-        const response = await client.say({
-            sentence,
-        })
+    const send = async () => {
+        setResponses((resp) => [...resp, { text: statement, sender: 'user' }])
+        setStatement('')
 
-        setAnswers((answers) => [...answers, response.sentence])
-    }
+        if (introFinished) {
+            const response = await client.say({
+                sentence: statement,
+            })
 
-    const introduce = async (name: string) => {
-        if (Platform.OS === 'web') {
-        const request = new IntroduceRequest({
-            name,
-        })
-
-        let stream = client.introduce(request);
-        for await (const response of stream) {
-            setIntros((intro) => [...intro, response.sentence])
-        }
-        setShowSayInput(true)
-
+            setResponses((resps) => [...resps, {text: response.sentence, sender: 'eliza'}])
         } else {
-            setIntros([`Hi, ${name}.  You seem to be running on mobile and streaming is not supported.`]);
+            if (Platform.OS === 'web') {
+                const request = new IntroduceRequest({
+                    name: statement,
+                })
+
+                let stream = client.introduce(request);
+                for await (const response of stream) {
+                    setResponses((resps) => [...resps, {text: response.sentence, sender: 'eliza'}])
+                }
+
+            } else {
+                setResponses((resps) => [...resps, {
+                    text: `Hi, ${statement}.  You seem to be running on mobile and streaming is not supported.`, 
+                    sender: 'eliza'
+                }])
+            }
+            setIntroFinished(true)
         }
-    }
-
-    const handleSay = () => {
-        say(statement)
-    }
-
-    const handleIntroduce = () => {
-        introduce(name)
     }
 
     return (
-        <View style={styles.app}>
+        <ScrollView style={styles.app}>
             <View style={styles.appHeader}>
-                <View style={styles.appTitle}>
-                    <View>
                         <Text style={styles.h1}>Eliza</Text>
-                    </View>
-                    <Text style={styles.promptText}>What is your name?</Text>
-                </View>
+            </View>
                 <View style={styles.container}>
-                    <TextInput
-                        style={styles.textInput}
-                        value={name}
-                        onChangeText={setName}
-                    />
-                    <Button onPress={handleIntroduce} title="Introduce"></Button>
-                </View>
-                <View style={styles.introContainer}>
-                    {intros.map((intro, i) => {
-                        return (
-                            <Text style={styles.respText} key={`resp${i}`}>
-                                {intro}
-                            </Text>
-                        )
-                    })}
-                </View>
-                {(showSayInput || Platform.OS !== 'web') ? (
-                    <View style={styles.container}>
+                {responses.map((resp, i) => {
+                    return (
+                        <View
+                            key={`resp${i}`}
+                            style={resp.sender === 'eliza' ? styles.elizaRespContainer : styles.userRespContainer}
+                        >
+                            <Text style={[styles.respText, resp.sender === 'eliza' ? styles.elizaRespText : styles.userRespText]}>{resp.text}</Text>
+                        </View>
+                    )
+                })}
                         <TextInput
                             style={styles.textInput}
                             value={statement}
                             onChangeText={setStatement}
                         />
-                        <Button title="Say" onPress={handleSay}></Button>
-                </View>) : <React.Fragment />}
-                <View style={styles.introContainer}>
-                    {answers.map((answer: string, i:number) => {
-                        return <Text key={i} style={styles.respText}>{answer}</Text>
-                    })}
+                        <Button title="Send" onPress={send}></Button>
                 </View>
-            </View>
-        </View>
+        </ScrollView>
     )
 }
 
@@ -112,53 +100,79 @@ export default App
 
 const styles = StyleSheet.create({
     h1: {
-        display: 'flex',
         fontSize: 50,
         fontWeight: 'bold',
-        color: 'white',
-        marginTop: 50,
+        marginTop: 30,
+        marginBottom: 15,
     },
     app: {
+        backgroundColor: '#fafafa',
     },
-    appHeader: {
-        backgroundColor: '#282c34',
+    container: {
+        textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        padding: 15,
+        marginVertical: 0,
+        marginHorizontal: 'auto',
+        maxWidth: 1320,
+        width: Dimensions.get('window').width,
+        backgroundColor: '#fff',
+        borderLeftColor: '#ebebeb',
+        borderRightColor: '#ebebeb',
+        borderLeftWidth: 1,
+        borderRightWidth: 1,
         minHeight: Dimensions.get('window').height,
     },
-    appTitle: {
+    appHeader: {
         display: 'flex',
         justifyContent: 'space-evenly',
         alignItems: 'center',
+        color: '#000',
+        backgroundColor: '#fff',
+        borderBottomColor: '#ebebeb',
+        borderBottomWidth: 1,
     },
-    container: {
+    elizaRespContainer: {
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: Dimensions.get('window').width,
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        textAlign: 'left',
+        borderWidth: 2,
+        borderColor: '#ebebeb',
+        borderRadius: 28,
+        marginVertical: 5,
     },
-    promptText: {
-        marginVertical: 0,
-        marginHorizontal: 15,
-        color: 'white',
-        fontSize: 20,
+    elizaRespText: {
+        color: '#090a3a',
     },
-    introContainer: {
-        margin: 15,
-        justifyContent: 'center',
+    userRespContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        textAlign: 'right',
+        borderRadius: 28,
+        border: 'none',
+    },
+    userRespText: {
+        color: '#165fed',
+        backgroundColor: '#e0edff',
     },
     respText: {
         fontSize: 18,
         margin: 5,
-        color: 'white',
-        textAlign: 'center',
+        backgroundColor: 'rgba(255, 255, 255, 1)',
+        paddingVertical: 16,
+        paddingHorizontal: 20,
+        color: '#09083a',
+        borderRadius: 28,
+        overflow: 'hidden'
     },
     textInput: {
-        width: 200,
-        height: 40,
-        margin: 12,
         borderWidth: 1,
+        borderColor: 'rgb(235, 235, 235)',
         padding: 10,
-        backgroundColor: 'white',
-        borderBottomColor: '#000000',
+        marginVertical: 5,
     }
 });
 
