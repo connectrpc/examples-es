@@ -25,14 +25,14 @@ describe('Eliza Testing', () => {
         cy.visit('/')
         cy.contains('h1', 'Eliza')
 
-        cy.get('#name-input').type('Steve')
-        cy.get('button.intro-button').click()
+        cy.get('#statement-input').type('Steve')
+        cy.get('#send-button').click()
         cy.contains('p.resp-text', "Hi Steve. I'm Eliza.")
 
         cy.get('#statement-input').type('Happy')
-        cy.get('button.say-button').click()
+        cy.get('#send-button').click()
         cy.get('#statement-input').clear()
         cy.get('#statement-input').type('Goodbye')
-        cy.get('button.say-button').click()
+        cy.get('#send-button').click()
     })
 })

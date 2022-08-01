@@ -9,53 +9,86 @@ import { RouterView } from 'vue-router'
 <style>
 @import '@/assets/base.css';
 
-.app {
-    text-align: center;
+h1 {
+    margin: 15px 0;
+    font-size: 3.5rem;
+}
+button {
+    background-color: rgb(22, 30, 222);
+    color: #fff;
+    padding: 11px 16px;
+    border: none;
+    font-weight: 400;
+}
+button:hover {
+    cursor: pointer;
+}
+input {
+    border: 1px solid rgb(235, 235, 235);
+    padding: 10px;
+}
+input:focus {
+    border-color: rgb(22, 30, 222);
+    background-color: rgb(248, 248, 255);
+}
+input:focus-visible {
+    outline: none;
 }
 
-.app-logo {
-    height: 6vmin;
-    pointer-events: none;
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-size: calc(10px + 2vmin);
+    padding: 15px;
+    margin: 0 auto;
+    max-width: 1320px;
+    background-color: #fff;
+    min-height: 100vh;
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
 }
 
 .app-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.app-link {
-    color: #61dafb;
-}
-
-.app-title {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    color: #000;
+    background-color: #fff;
+    border-bottom: 1px solid #ebebeb;
 }
 
-.prompt-text {
-    margin: 0 0 15px 0;
+.eliza-resp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
-.intro-container {
-    margin: 15px;
+.user-resp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
 }
 .resp-text {
     font-size: 1rem;
     margin: 5px;
+    background: rgba(255, 255, 255, 1);
+    border: 2px solid #ebebeb;
+    padding: 16px 20px;
+    border-radius: 28px;
+    color: #09083a;
+}
+.eliza-resp-container .resp-text {
+    color: #090a3a;
+}
+.user-resp-container .resp-text {
+    color: #165fed;
+    background-color: #e0edff;
+    border: none;
 }
 .text-input {
     width: 200px;
-}
-
-h1 {
-    margin-bottom: 0;
-}
-h5 {
-    margin: 0 0 30px 0;
+    margin-right: 5px;
 }
 </style>

@@ -8,12 +8,20 @@ import {
 import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connectweb.js'
 import { IntroduceRequest } from './gen/buf/connect/demo/eliza/v1/eliza_pb.js'
 
+interface Response {
+    text: string
+    sender: 'eliza' | 'user'
+}
+
 function App() {
-    const [name, setName] = useState<string>('')
     const [statement, setStatement] = useState<string>('')
-    const [intros, setIntros] = useState<string[]>([])
-    const [answers, setAnswers] = useState<string[]>([])
-    const [showSayInput, setShowSayInput] = useState<boolean>(false)
+    const [introFinished, setIntroFinished] = useState<boolean>(false)
+    const [responses, setResponses] = useState<Response[]>([
+        {
+            text: 'What is your name?',
+            sender: 'eliza',
+        },
+    ])
 
     // Make the Eliza Service client
     const client = createPromiseClient(
@@ -23,28 +31,33 @@ function App() {
         })
     )
 
-    const say = async (sentence: string) => {
-        const response = await client.say({
-            sentence,
-        })
+    const send = async (sentence: string) => {
+        setResponses((resp) => [...resp, { text: sentence, sender: 'user' }])
+        setStatement('')
 
-        setAnswers((answers) => [...answers, response.sentence])
-    }
+        if (introFinished) {
+            const response = await client.say({
+                sentence,
+            })
 
-    const introduce = async (name: string) => {
-        const request = new IntroduceRequest({
-            name,
-        })
+            setResponses((resp) => [
+                ...resp,
+                { text: response.sentence, sender: 'eliza' },
+            ])
+        } else {
+            const request = new IntroduceRequest({
+                name: sentence,
+            })
 
-        for await (const response of client.introduce(request)) {
-            setIntros((intro) => [...intro, response.sentence])
+            for await (const response of client.introduce(request)) {
+                setResponses((resp) => [
+                    ...resp,
+                    { text: response.sentence, sender: 'eliza' },
+                ])
+            }
+
+            setIntroFinished(true)
         }
-
-        setShowSayInput(true)
-    }
-
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setName(event.target.value)
     }
 
     const handleStatementChange = (
@@ -53,54 +66,47 @@ function App() {
         setStatement(event.target.value)
     }
 
-    const handleSay = () => {
-        say(statement)
+    const handleSend = () => {
+        send(statement)
     }
 
-    const handleIntroduce = () => {
-        introduce(name)
+    const handleKeyPress = (event: any) => {
+        if (event.key === 'Enter') {
+            handleSend()
+        }
     }
 
     return (
-        <div className="app">
+        <div>
             <header className="app-header">
-                <div className="app-title">
-                    <div>
-                        <h1>Eliza</h1>
-                    </div>
-                </div>
-                <p className="prompt-text">What is your name?</p>
-                <div>
-                    <input type="text" className="text-input" value={name} onChange={handleNameChange}/>
-                    <button onClick={handleIntroduce}>Introduce</button>
-                </div>
-                <div className="intro-container">
-                    {intros.map((intro: string, i:number) => {
-                        return (
-                            <p className="resp-text" key={`resp${i}`}>
-                                {intro}
-                            </p>
-                        )
-                    })}
-                </div>
-                {showSayInput ? (
-                    <div>
-                        <input type="text"
-                            className="text-input"
-                            value={statement}
-                            onChange={handleStatementChange}
-                        />
-                        <button onClick={handleSay}>Say</button>
-                    </div>
-                ) : (
-                    <React.Fragment />
-                )}
-                <div className="intro-container">
-                    {answers.map((answer: string) => {
-                        return <p className="resp-text">{answer}</p>
-                    })}
-                </div>
+                <h1>Eliza</h1>
             </header>
+            <div className="container">
+                {responses.map((resp, i) => {
+                    return (
+                        <div
+                            key={`resp${i}`}
+                            className={
+                                resp.sender === 'eliza'
+                                    ? 'eliza-resp-container'
+                                    : 'user-resp-container'
+                            }
+                        >
+                            <p className="resp-text">{resp.text}</p>
+                        </div>
+                    )
+                })}
+                <div>
+                    <input
+                        type="text"
+                        className="text-input"
+                        value={statement}
+                        onChange={handleStatementChange}
+                        onKeyPress={handleKeyPress}
+                    />
+                    <button onClick={handleSend}>Send</button>
+                </div>
+            </div>
         </div>
     )
 }

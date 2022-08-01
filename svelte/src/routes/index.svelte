@@ -6,11 +6,19 @@
     import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connectweb.js'
     import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb.js'
 
-    let name = ''
+    interface Response {
+        text: string
+        sender: 'eliza' | 'user'
+    }
+
     let statement = ''
-    let intros: string[] = []
-    let answers: string[] = []
-    let showSayInput = false
+    let responses: Response[] = [
+        {
+            text: 'What is your name?',
+            sender: 'eliza',
+        },
+    ]
+    let introFinished = false
 
     // Make the Eliza Service client
     const client = createPromiseClient(
@@ -20,93 +28,147 @@
         })
     )
 
-    const say = async () => {
-        const response = await client.say({
-            sentence: statement,
-        })
+    const send = async () => {
+        responses = [...responses, { text: statement, sender: 'user' }]
+        if (introFinished) {
+            const response = await client.say({
+                sentence: statement,
+            })
 
-        answers = [...answers, response.sentence]
+            responses = [
+                ...responses,
+                { text: response.sentence, sender: 'eliza' },
+            ]
+        } else {
+            const request = new IntroduceRequest({
+                name: statement,
+            })
+
+            for await (const response of client.introduce(request)) {
+                responses = [
+                    ...responses,
+                    { text: response.sentence, sender: 'eliza' },
+                ]
+            }
+
+            introFinished = true
+        }
+        statement = ''
     }
 
-    const introduce = async () => {
-        const request = new IntroduceRequest({
-            name,
-        })
-
-        for await (const response of client.introduce(request)) {
-            intros = [...intros, response.sentence]
+    const handleKeyup = () => {
+        if (event.code === 'Enter') {
+            send()
         }
-        showSayInput = true
     }
 </script>
 
-<div class="app">
+<div>
     <header class="app-header">
-        <div class="app-title">
-            <div>
-                <h1>Eliza</h1>
-            </div>
-        </div>
-        <p class="prompt-text">What is your name?</p>
-        <div>
-            <input type="text" class="text-input" bind:value={name} />
-            <button on:click={introduce}>Introduce</button>
-        </div>
-        <div class="intro-container">
-            {#each intros as intro}
-                <p class="resp-text">{intro}</p>
-            {/each}
-        </div>
-        {#if showSayInput}
-            <div>
-                <input type="text" class="text-input" bind:value={statement} />
-                <button on:click={say}>Say</button>
-            </div>
-        {/if}
-        <div class="intro-container">
-            {#each answers as answer}
-                <p class="resp-text">{answer}</p>
-            {/each}
-        </div>
+        <h1>Eliza</h1>
     </header>
+    <div class="container">
+        {#each responses as resp}
+            <div
+                class={resp.sender === 'eliza'
+                    ? 'eliza-resp-container'
+                    : 'user-resp-container'}
+            >
+                <p class="resp-text">{resp.text}</p>
+            </div>
+        {/each}
+        <div>
+            <input
+                type="text"
+                class="text-input"
+                on:keyup|preventDefault={handleKeyup}
+                bind:value={statement}
+            />
+            <button on:click={send}>Send</button>
+        </div>
+    </div>
 </div>
 
 <style>
-    .app {
+    h1 {
+        margin: 15px 0;
+        font-size: 3.5rem;
+    }
+    button {
+        background-color: rgb(22, 30, 222);
+        color: #fff;
+        padding: 11px 16px;
+        border: none;
+        font-weight: 400;
+    }
+    button:hover {
+        cursor: pointer;
+    }
+    input {
+        border: 1px solid rgb(235, 235, 235);
+        padding: 10px;
+    }
+    input:focus {
+        border-color: rgb(22, 30, 222);
+        background-color: rgb(248, 248, 255);
+    }
+    input:focus-visible {
+        outline: none;
+    }
+
+    .container {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        font-size: calc(10px + 2vmin);
+        padding: 15px;
+        margin: 0 auto;
+        max-width: 1320px;
+        background-color: #fff;
+        min-height: 100vh;
+        border-left: 1px solid #ebebeb;
+        border-right: 1px solid #ebebeb;
     }
 
     .app-header {
-        background-color: #282c34;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: calc(10px + 2vmin);
-        color: white;
-    }
-
-    .app-title {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+        color: #000;
+        background-color: #fff;
+        border-bottom: 1px solid #ebebeb;
     }
-
-    .prompt-text {
-        margin: 0 0 15px 0;
+    .eliza-resp-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
     }
-    .intro-container {
-        margin: 15px;
+    .user-resp-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
     }
     .resp-text {
         font-size: 1rem;
         margin: 5px;
+        background: rgba(255, 255, 255, 1);
+        border: 2px solid #ebebeb;
+        padding: 16px 20px;
+        border-radius: 28px;
+        color: #09083a;
+    }
+    .eliza-resp-container .resp-text {
+        color: #090a3a;
+    }
+    .user-resp-container .resp-text {
+        color: #165fed;
+        background-color: #e0edff;
+        border: none;
     }
     .text-input {
         width: 200px;
-    }
-
-    h1 {
-        margin-bottom: 0;
+        margin-right: 5px;
     }
 </style>

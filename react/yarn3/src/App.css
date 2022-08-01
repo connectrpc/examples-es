@@ -1,64 +1,88 @@
-.App {
+h1 {
+    margin: 15px 0;
+    font-size: 3.5rem;
+}
+h5 {
+    margin: 0 0 30px 0;
+}
+button {
+    background-color: rgb(22, 30, 222);
+    color: #fff;
+    padding: 11px 16px;
+    border: none;
+    font-weight: 400;
+}
+button:hover {
+    cursor: pointer;
+}
+input {
+    border: 1px solid rgb(235, 235, 235);
+    padding: 10px;
+}
+input:focus {
+    border-color: rgb(22, 30, 222);
+    background-color: rgb(248, 248, 255);
+}
+input:focus-visible {
+    outline: none;
+}
+
+.container {
     text-align: center;
-}
-
-.App-logo {
-    height: 6vmin;
-    pointer-events: none;
-}
-
-/* @media (prefers-reduced-motion: no-preference) { */
-/*   .App-logo { */
-/*     animation: App-logo-spin infinite 20s linear; */
-/*   } */
-/* } */
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    padding: 15px;
+    margin: 0 auto;
+    max-width: 1320px;
+    background-color: #fff;
+    min-height: 100vh;
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
 }
 
-.App-link {
-    color: #61dafb;
-}
-
-.app-title {
+.app-header {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    color: #000;
+    background-color: #fff;
+    border-bottom: 1px solid #ebebeb;
 }
 
 .prompt-text {
     margin: 0 0 15px 0;
 }
-.intro-container {
-    margin: 15px;
+.eliza-resp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+.user-resp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
 }
 .resp-text {
     font-size: 1rem;
     margin: 5px;
+    background: rgba(255, 255, 255, 1);
+    border: 2px solid #ebebeb;
+    padding: 16px 20px;
+    border-radius: 28px;
+    color: #09083a;
+}
+.eliza-resp-container .resp-text {
+    color: #090a3a;
+}
+.user-resp-container .resp-text {
+    color: #165fed;
+    background-color: #e0edff;
+    border: none;
 }
 .text-input {
     width: 200px;
+    margin-right: 5px;
 }
-
-h1 {
-    margin-bottom: 0;
-}
-h5 {
-    margin: 0 0 30px 0;
-}
-
-/* @keyframes App-logo-spin { */
-/*   from { */
-/*     transform: rotate(0deg); */
-/*   } */
-/*   to { */
-/*     transform: rotate(360deg); */
-/*   } */
-/* } */
