@@ -55,6 +55,7 @@ export default defineComponent({
                     const response = await this.client.say({
                         sentence: this.statement,
                     })
+                    this.statement = ''
 
                     this.responses.push({
                         text: response.sentence,
@@ -64,6 +65,7 @@ export default defineComponent({
                     const request = new IntroduceRequest({
                         name: this.statement,
                     })
+                    this.statement = ''
 
                     for await (const response of this.client.introduce(
                         request
@@ -75,7 +77,6 @@ export default defineComponent({
                     }
                     this.introFinished = true
                 }
-                this.statement = ''
             }
         },
         handleSend() {
