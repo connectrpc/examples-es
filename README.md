@@ -30,6 +30,10 @@ tooling differences the related projects were constructed with:
 
 Each project also uses various tools for testing, linting, etc.  These variances are noted in each project README.
 
+### Next.js
+
+The [Next.js](nextjs) application was generated with `npx create-next-app buf-nextjs --use-npm --ts` and all suggested defaults.
+
 ### React Native
 
 The [React Native](react-native) application was generated with the [Expo CLI](https://docs.expo.dev/workflow/expo-cli/) and all suggested defaults.

@@ -11,6 +11,9 @@
 **/*.local
 **/.angular
 **/.svelte-kit
+**/.pnp
+**/.pnp.js
+**/.next/
 
 # Logs
 logs
@@ -35,3 +38,7 @@ lerna-debug.log*
 **/*.njsproj
 **/*.sln
 **/*.sw?
+
+
+
+
