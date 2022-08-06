@@ -100,7 +100,6 @@ import {
     method: MethodInfo<I, O>;
     transport: Transport;
   }): UnaryHooks<I, O> {
-    console.log("Create", service, method);
     function getQueryKey(
       input: PartialMessage<I>
     ): [string, string, PartialMessage<I>] {
@@ -124,9 +123,7 @@ import {
       useQuery: (input, options) => {
         return useQuery(
           input === disableQuery ? [] : getQueryKey(input),
-          ({ signal, ...args }) => {
-            console.log("useQury", { args, signal });
-            
+          ({ signal, ...args }) => {            
             assert(input !== disableQuery);
             return fetch(input, { signal });
           },
@@ -175,7 +172,6 @@ import {
     transport: Transport
   ): QueryClient<T> {
     const client: Record<string, UnaryHooks<AnyMessage, AnyMessage>> = {};
-    console.log("Make", service);
     
     for (const [localName, methodInfo] of Object.entries(service.methods)) {
       if (methodInfo.kind === MethodKind.Unary) {

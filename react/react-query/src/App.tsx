@@ -30,7 +30,6 @@ function App() {
     const isFetching = useIsFetching()
     
     const [selectedRepo, setSelectedRepo] = useState<null | string>(null)
-    console.log({ intervalFilter })
 
     const topQueries = getTopRepositories.useQuery(
         {

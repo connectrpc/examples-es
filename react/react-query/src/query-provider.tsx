@@ -18,10 +18,9 @@ const transport = createConnectTransport({
 })
 
 export const QueryProvider: React.FC<PropsWithChildren> = ({ children }) => {
-    
+
     const client = useMemo(
         () => {
-            console.log("heybody")
             return new RQClient({
                 defaultOptions: {
                     queries: {
