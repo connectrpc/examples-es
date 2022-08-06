@@ -6,7 +6,6 @@ This project was bootstrapped with [Vite](https://github.com/vitejs/vite) using 
 
 All default tooling setup via Vite is used, which includes:
 
--   [Vite](https://ja.vitejs.dev/) (Build Tool)
 -   [Vitest](https://vitest.dev/) (Test Framework)
 
 ## Getting Started
@@ -16,7 +15,7 @@ All default tooling setup via Vite is used, which includes:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.
 
