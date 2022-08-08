@@ -80,12 +80,13 @@
         {/each}
         <div>
             <input
+                id="statement-input"
                 type="text"
                 class="text-input"
                 on:keyup|preventDefault={handleKeyup}
                 bind:value={statement}
             />
-            <button on:click={send}>Send</button>
+            <button id="send-button" on:click={send}>Send</button>
         </div>
     </div>
 </div>

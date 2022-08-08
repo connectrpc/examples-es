@@ -1,22 +1,23 @@
 import { expect, test } from '@playwright/test'
-import {
-    createPromiseClient,
-    createConnectTransport,
-} from '@bufbuild/connect-web'
-import { ElizaService } from '../src/gen/buf/connect/demo/eliza/v1/eliza_connectweb.js'
-import { IntroduceRequest } from '../src/gen/buf/connect/demo/eliza/v1/eliza_pb.js'
 
-test('imports correctly', async () => {
-    expect(ElizaService).toBeDefined()
-    expect(IntroduceRequest).toBeDefined()
+test('visits the app root url', async ({ page }) => {
+    await page.goto('http://localhost:3000')
 
-    const client = createPromiseClient(
-        ElizaService,
-        createConnectTransport({
-            baseUrl: 'https://demo.connect.build',
-        })
-    )
+    const title = page.locator('h1')
+    await expect(title).toHaveText('Eliza')
 
-    expect(client.say).toBeDefined()
-    expect(client.introduce).toBeDefined()
+    const prompt = page.locator('p.resp-text').first()
+    await expect(prompt).toHaveText('What is your name?')
+
+    const statementInput = page.locator('#statement-input')
+    await statementInput.type('Steve')
+
+    const sendButton = page.locator('#send-button')
+    await sendButton.click()
+
+    const name = page.locator('p.resp-text').nth(1)
+    await expect(name).toHaveText('Steve')
+
+    const response = page.locator('p.resp-text').nth(2)
+    await expect(response).toHaveText("Hi Steve. I'm Eliza.")
 })
