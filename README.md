@@ -16,6 +16,10 @@ Before running any example project, make sure you have [Buf](https://docs.buf.bu
 
 The [Angular](https://angular.io) application was generated with the [Angular CLI](https://github.com/angular/angular-cli).
 
+### Next.js
+
+The [Next.js](nextjs) application was generated with `npx create-next-app buf-nextjs --use-npm --ts` and all suggested defaults.
+
 ### React
 
 All applications underneath this directory use [React](https://reactjs.org) as the framework.  Each is divided by the various
@@ -29,10 +33,6 @@ tooling differences the related projects were constructed with:
 * [yarn3](react/yarn3) - Built from scratch with [Yarn 3](https://yarnpkg.com) and [PnP mode](https://yarnpkg.com/features/pnp).
 
 Each project also uses various tools for testing, linting, etc.  These variances are noted in each project README.
-
-### Next.js
-
-The [Next.js](nextjs) application was generated with `npx create-next-app buf-nextjs --use-npm --ts` and all suggested defaults.
 
 ### React Native
 
