@@ -26,6 +26,7 @@ import {
     useQuery,
     useQueryClient,
 } from '@tanstack/react-query'
+import { Timestamp } from '@bufbuild/protobuf'
 
 function App() {
     const { getTopRepositories } = useQueryHooks(APIService)
@@ -148,47 +149,55 @@ const Details: React.FC<{ selectedRepoName: string }> = ({
         ...getRepoSummary.useMutationOptions(),
         onSuccess: () => {
             // This is where linking between queries would be useful
-            queryClient.setQueryData(...getRepoSummary.createQueryUpdater({
-                id: {
-                    id: {
-                        case: 'repoFullName',
-                        value: selectedRepoName,
+            queryClient.setQueryData(
+                ...getRepoSummary.createQueryUpdater(
+                    {
+                        id: {
+                            id: {
+                                case: 'repoFullName',
+                                value: selectedRepoName,
+                            },
+                        },
                     },
-                }
-            }, (prev) => {
-                if (!prev || !prev.repo) {
-                    return prev;
-                }
-                return {
-                    ...prev,
-                    repo: {
-                        ...prev.repo,
-                        repoStargazersCount: (prev.repo?.repoStargazersCount ?? 0) + 1,
-                    }
-                } as any
-            }))
-            queryClient.setQueriesData(...getTopRepositories.createQueriesUpdater((old) => {
-                const oldRepo = old?.topRepos.find((r) => r.repoFullName === selectedRepoName);
-                if (!oldRepo || !old?.topRepos) {
-                    return old;
-                }
-                return {
-                    ...old,
-                    topRepos: old.topRepos.map((r) => {
-                        if (r.repoFullName === selectedRepoName) {
-                            return {
-                                ...r,
-                                count: r.count + 1,
-                            }
+                    (prev) => {
+                        if (!prev || !prev.repo) {
+                            return prev
                         }
-                        return r;
-                    })
-                    // I think there is a better type safe way to do this
-                } as any
-            }))
-
-        }
-    });
+                        return {
+                            ...prev,
+                            repo: {
+                                ...prev.repo,
+                                repoStargazersCount:
+                                    (prev.repo?.repoStargazersCount ?? 0) + 1,
+                            },
+                        }
+                    }
+                )
+            )
+            queryClient.setQueriesData(
+                ...getTopRepositories.createQueriesUpdater((old) => {
+                    const oldRepo = old?.topRepos.find(
+                        (r) => r.repoFullName === selectedRepoName
+                    )
+                    if (!oldRepo || !old?.topRepos) {
+                        return old
+                    }
+                    return {
+                        ...old,
+                        topRepos: old.topRepos.map((r) => {
+                            if (r.repoFullName === selectedRepoName) {
+                                return {
+                                    ...r,
+                                    count: r.count + 1,
+                                }
+                            }
+                            return r
+                        }),
+                    }
+                })
+            )
+        },
+    })
 
     if (repoDetails.data === undefined) {
         // suspense should cover this but we need to guard anyways
@@ -218,7 +227,9 @@ const Details: React.FC<{ selectedRepoName: string }> = ({
                         <td>
                             {repoDetails.data.repo.repoUpdatedAt !== undefined
                                 ? Intl.DateTimeFormat().format(
-                                      repoDetails.data.repo.repoUpdatedAt.toDate()
+                                      new Timestamp(
+                                          repoDetails.data.repo.repoUpdatedAt
+                                      ).toDate()
                                   )
                                 : 'Never'}
                         </td>
@@ -243,14 +254,20 @@ const Details: React.FC<{ selectedRepoName: string }> = ({
                     </tr>
                 </tbody>
             </Table>
-            <Button onClick={() => addStar.mutate({
-                id: {
-                    id: {
-                        case: 'repoFullName',
-                        value: selectedRepoName,
-                    }
+            <Button
+                onClick={() =>
+                    addStar.mutate({
+                        id: {
+                            id: {
+                                case: 'repoFullName',
+                                value: selectedRepoName,
+                            },
+                        },
+                    })
                 }
-            })}>Add a star</Button>
+            >
+                Add a star
+            </Button>
         </Container>
     )
 }
