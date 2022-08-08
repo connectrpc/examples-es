@@ -17,4 +17,4 @@ updates:
       interval: "weekly"
       timezone: UTC
       time: "07:00"
-      open-pull-requests-limit: 50
+    open-pull-requests-limit: 50
