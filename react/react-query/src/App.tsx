@@ -20,7 +20,12 @@ import {
     Center,
     Loader,
 } from '@mantine/core'
-import { useIsFetching } from "@tanstack/react-query";
+import {
+    useIsFetching,
+    useMutation,
+    useQuery,
+    useQueryClient,
+} from '@tanstack/react-query'
 
 function App() {
     const { getTopRepositories } = useQueryHooks(APIService)
@@ -28,27 +33,23 @@ function App() {
         IntervalFilter.ALL
     )
     const isFetching = useIsFetching()
-    
+
     const [selectedRepo, setSelectedRepo] = useState<null | string>(null)
 
-    const topQueries = getTopRepositories.useQuery(
-        {
+    const topQueries = useQuery({
+        ...getTopRepositories.useQueryOptions({
             intervalFilter,
-        },
-        {
-            // disable suspense for top level and let us handle it in the component
-            suspense: false,
-        }
-    )
+        }),
+        suspense: false,
+    })
 
     return (
         <AppShell
             header={
                 <Header height={60} p="xs">
-                    
-                    <Group position='apart'>
-                    Best of Go
-                    {isFetching && <Loader />}
+                    <Group position="apart">
+                        Best of Go
+                        {isFetching && <Loader />}
                     </Group>
                 </Header>
             }
@@ -78,7 +79,7 @@ function App() {
                             {
                                 value: IntervalFilter.LAST_30_DAYS.toString(),
                                 label: 'Last 30 days',
-                            }
+                            },
                         ]}
                     />
                 </Center>
@@ -88,7 +89,7 @@ function App() {
                     <Skeleton animate />
                 ) : (
                     topQueries.data.topRepos.map((repo) => (
-                        <Center key={repo.repoFullName} >
+                        <Center key={repo.repoFullName}>
                             <Card p="xs" shadow="md">
                                 <Group position="center">
                                     <Text weight={500}>
@@ -130,15 +131,64 @@ function App() {
 const Details: React.FC<{ selectedRepoName: string }> = ({
     selectedRepoName,
 }) => {
-    const { getRepoSummary } = useQueryHooks(APIService)
-    const repoDetails = getRepoSummary.useQuery({
-        id: {
+    const { getRepoSummary, getTopRepositories } = useQueryHooks(APIService)
+    const queryClient = useQueryClient()
+    const repoDetails = useQuery(
+        getRepoSummary.useQueryOptions({
             id: {
-                case: 'repoFullName',
-                value: selectedRepoName,
+                id: {
+                    case: 'repoFullName',
+                    value: selectedRepoName,
+                },
             },
-        },
-    })
+        })
+    )
+    // not a real mutation, just a way to show mutating local state.
+    const addStar = useMutation({
+        ...getRepoSummary.useMutationOptions(),
+        onSuccess: () => {
+            // This is where linking between queries would be useful
+            queryClient.setQueryData(...getRepoSummary.createQueryUpdater({
+                id: {
+                    id: {
+                        case: 'repoFullName',
+                        value: selectedRepoName,
+                    },
+                }
+            }, (prev) => {
+                if (!prev || !prev.repo) {
+                    return prev;
+                }
+                return {
+                    ...prev,
+                    repo: {
+                        ...prev.repo,
+                        repoStargazersCount: (prev.repo?.repoStargazersCount ?? 0) + 1,
+                    }
+                } as any
+            }))
+            queryClient.setQueriesData(...getTopRepositories.createQueriesUpdater((old) => {
+                const oldRepo = old?.topRepos.find((r) => r.repoFullName === selectedRepoName);
+                if (!oldRepo || !old?.topRepos) {
+                    return old;
+                }
+                return {
+                    ...old,
+                    topRepos: old.topRepos.map((r) => {
+                        if (r.repoFullName === selectedRepoName) {
+                            return {
+                                ...r,
+                                count: r.count + 1,
+                            }
+                        }
+                        return r;
+                    })
+                    // I think there is a better type safe way to do this
+                } as any
+            }))
+
+        }
+    });
 
     if (repoDetails.data === undefined) {
         // suspense should cover this but we need to guard anyways
@@ -185,8 +235,22 @@ const Details: React.FC<{ selectedRepoName: string }> = ({
                             </a>
                         </td>
                     </tr>
+                    <tr>
+                        <th>Stars:</th>
+                        <td>
+                            {repoDetails.data.repo?.repoStargazersCount ?? 0}
+                        </td>
+                    </tr>
                 </tbody>
             </Table>
+            <Button onClick={() => addStar.mutate({
+                id: {
+                    id: {
+                        case: 'repoFullName',
+                        value: selectedRepoName,
+                    }
+                }
+            })}>Add a star</Button>
         </Container>
     )
 }

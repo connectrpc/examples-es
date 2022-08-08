@@ -5,27 +5,14 @@ import {
     MethodInfoUnary,
     MethodKind,
     PartialMessage,
+    PlainMessage,
     ServiceType,
   } from "@bufbuild/protobuf";
-  // Import service definition that you want to connect to.
   import {
     CallOptions,
-    ConnectError,
     Transport,
     createConnectTransport,
   } from "@bufbuild/connect-web";
-  import {
-    UseInfiniteQueryOptions,
-    UseInfiniteQueryResult,
-    UseMutationOptions,
-    UseMutationResult,
-    UseQueryOptions,
-    UseQueryResult,
-    useInfiniteQuery,
-    useMutation,
-    useQuery,
-    useQueryClient,
-  } from "@tanstack/react-query";
   
   import { createContext } from "react";
   
@@ -43,37 +30,37 @@ import {
     }
   }
   
-  type Updater<TData> = TData | ((oldData: TData | undefined) => TData);
+  type Updater<TData> = TData | ((oldData: TData | undefined) => TData | undefined);
   
   type UnaryHooks<I extends Message<I>, O extends Message<O>> = {
-    useFetch: () => (
-      input: PartialMessage<I>,
-      options?: CallOptions
-    ) => Promise<O>;
-    useQuery: (
+    useQueryOptions: (
+      input: typeof disableQuery | PartialMessage<I>
+    ) => {
+      enabled: boolean;
+      queryKey: [] | [string, string, PartialMessage<I>];
+      queryFn: () => Promise<PlainMessage<O>>;
+    };
+    useInfiniteQueryOptions: <ParamKey extends keyof PartialMessage<I>>(
       input: typeof disableQuery | PartialMessage<I>,
-      options?: Omit<UseQueryOptions<O, ConnectError>, "queryKey" | "queryFn">
-    ) => UseQueryResult<O, ConnectError>;
-    useInfinitQuery: (
-      input: typeof disableQuery | PartialMessage<I>,
-      options: Omit<
-        UseInfiniteQueryOptions<O, ConnectError>,
-        "queryKey" | "queryFn"
-      > & {
-        /* Set the input key that is associated to your page parameter. Will be set according to getNextPageParam */
-        pageParamKey: keyof PartialMessage<I>;
+      options: {
+        pageParamKey: ParamKey;
       }
-    ) => UseInfiniteQueryResult<O, ConnectError>;
-    useMutation: (
-      options?: UseMutationOptions<O, ConnectError, PartialMessage<I>>
-    ) => UseMutationResult<O, ConnectError, PartialMessage<I>>;
-    getQueryKey: (
-      input: PartialMessage<I>
-    ) => [string, string, PartialMessage<I>];
-    useSetQueryData: () => (
-      input: PartialMessage<I>,
-      updater: Updater<O>
-    ) => void;
+    ) => {
+      enabled: boolean;
+      queryKey: [] | [string, string, PartialMessage<I>];
+      queryFn: (option: { pageParam: PartialMessage<I>[ParamKey]; signal?: AbortSignal }) => Promise<PlainMessage<O>>;
+    };
+    useMutationOptions: () => {
+      mutationFn: (input: PartialMessage<I>) => Promise<PlainMessage<O>>;
+    };
+    createQueryUpdater: (input: PartialMessage<I>, updater: Updater<PlainMessage<O>>) => [
+      [string, string, PartialMessage<I>], Updater<PlainMessage<O>>
+    ];
+    createQueriesUpdater: (updater: Updater<PlainMessage<O>>) => [
+      [string, string], Updater<PlainMessage<O>>
+    ];
+    getQueryFullKey: (input: PartialMessage<I>) => [string, string, PartialMessage<I>];
+    getQueryPartialKey: () => [string, string];
   };
   
   // type ServerStreamingHooks<I extends Message<I>, O extends Message<O>> = {
@@ -114,56 +101,48 @@ import {
         undefined,
         input
       );
-      return response.message;
+      return response.message as PlainMessage<O>;
     }
     return {
-      useFetch: () => {
-        return fetch;
+      createQueryUpdater: (input, updater) => {
+        return [getQueryKey(input), updater];
       },
-      useQuery: (input, options) => {
-        return useQuery(
-          input === disableQuery ? [] : getQueryKey(input),
-          ({ signal, ...args }) => {            
+      createQueriesUpdater: (updater) => {
+        return [[service.typeName, method.name], updater];
+      },
+      useQueryOptions: (input) => {
+        return {
+          enabled: input !== disableQuery,
+          queryKey: input === disableQuery ? [] : getQueryKey(input),
+          queryFn: () => {
             assert(input !== disableQuery);
-            return fetch(input, { signal });
-          },
-          {
-            enabled: input !== disableQuery,
-            ...options,
-          } as any
-        );
+            return fetch(input);
+          }
+        };
       },
-      useInfinitQuery: (input, options) => {
-        return useInfiniteQuery(
-          input === disableQuery ? [] : getQueryKey(input),
-          ({ signal, pageParam }) => {
+      useInfiniteQueryOptions: (input, options) => {
+        return {
+          enabled: input !== disableQuery,
+          queryKey: input === disableQuery ? [] : getQueryKey(input),
+          queryFn: ({ pageParam, signal }) => {
             assert(input !== disableQuery);
             const inputWithPageParam = {
               ...input,
               [options.pageParamKey]: pageParam,
             };
             return fetch(inputWithPageParam, { signal });
-          },
-          {
-            enabled: input !== disableQuery,
-  
-            ...options,
-          } as any
-        );
+          }
+        }
       },
-      useMutation: (options) => {
-        // TODO: Add key invalidation and client side udate
-        return useMutation(async (input) => {
-          return fetch(input);
-        }, options);
-      },
-      getQueryKey,
-      useSetQueryData: () => {
-        const client = useQueryClient();
-        return (input, updater) => {
-          client.setQueryData(getQueryKey(input), updater);
+      useMutationOptions: () => {
+        return {
+          mutationFn: (input) => {
+            return fetch(input);
+          }
         };
       },
+      getQueryFullKey: getQueryKey,
+      getQueryPartialKey: () => [service.typeName, method.name],
     };
   }
   
