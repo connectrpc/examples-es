@@ -9,19 +9,21 @@ import {
 } from '@bufbuild/protobuf'
 import {
     CallOptions,
-    Transport,
-    createConnectTransport,
+    Transport
 } from '@bufbuild/connect-web'
 
-import { createContext } from 'react'
-
-export const transportContext = createContext<Transport>(
-    createConnectTransport({
-        baseUrl: '',
-    })
-)
+import stableHash from 'stable-hash'
 
 export const disableQuery = Symbol('disableQuery')
+
+/** These default options are required for proper query key hashing */
+export const createDefaultOptions = () => {
+    return {
+        queries: {
+            queryKeyHashFn: stableHash
+        },
+    }
+}
 
 function assert(value: boolean): asserts value {
     if (!value) {
@@ -29,57 +31,15 @@ function assert(value: boolean): asserts value {
     }
 }
 
-type Updater<TData> =
-    | TData
-    | ((oldData: TData | undefined) => TData | undefined)
-
-type OneofSelectedMessage<K extends string, M extends Message> = {
-    case: K
-    value: M
-}
-
-// Made a recursive version of PlainMessage which plays better with 
-type PlainMessage<T extends Message> = {
-  [P in keyof T as T[P] extends Function ? never : P]: PlainMessageField<T[P]>;
-};
-
-type PlainMessageField<F> = F extends
-    | Date
-    | Uint8Array
-    | bigint
-    | boolean
-    | string
-    | number
-    ? F
-    : F extends Array<infer U>
-    ? Array<PlainMessageField<U>>
-    : F extends ReadonlyArray<infer U>
-    ? ReadonlyArray<PlainMessageField<U>>
-    : F extends Message
-    ? Omit<PlainMessage<F>, keyof Message>
-    : F extends OneofSelectedMessage<infer C, infer V>
-    ? {
-          case: C
-          value: PlainMessage<V>
-      }
-    : F extends {
-          case: string | undefined
-          value?: unknown
-      }
-    ? F
-    : F extends {
-          [key: string | number]: Message<infer U>
-      }
-    ? {
-          [key: string | number]: PlainMessage<U>
-      }
-    : F
+type Updater<TData, TOutput = TData> =
+    | TOutput
+    | ((oldData: TData | undefined) => TOutput | undefined)
 
 type UnaryHooks<I extends Message<I>, O extends Message<O>> = {
     useQueryOptions: (input: typeof disableQuery | PartialMessage<I>) => {
         enabled: boolean
         queryKey: [] | [string, string, PartialMessage<I>]
-        queryFn: () => Promise<PlainMessage<O>>
+        queryFn: () => Promise<O>
     }
     useInfiniteQueryOptions: <ParamKey extends keyof PartialMessage<I>>(
         input: typeof disableQuery | PartialMessage<I>,
@@ -92,18 +52,18 @@ type UnaryHooks<I extends Message<I>, O extends Message<O>> = {
         queryFn: (option: {
             pageParam: PartialMessage<I>[ParamKey]
             signal?: AbortSignal
-        }) => Promise<PlainMessage<O>>
+        }) => Promise<O>
     }
     useMutationOptions: () => {
-        mutationFn: (input: PartialMessage<I>) => Promise<PlainMessage<O>>
+        mutationFn: (input: PartialMessage<I>) => Promise<O>
     }
     createQueryUpdater: (
         input: PartialMessage<I>,
-        updater: Updater<PlainMessage<O>>
-    ) => [[string, string, PartialMessage<I>], Updater<PlainMessage<O>>]
+        updater: Updater<O, PartialMessage<O>>
+    ) => [[string, string, PartialMessage<I>], Updater<O>]
     createQueriesUpdater: (
-        updater: Updater<PlainMessage<O>>
-    ) => [[string, string], Updater<PlainMessage<O>>]
+        updater: Updater<O, PartialMessage<O>>
+    ) => [[string, string], Updater<O>]
     getQueryFullKey: (
         input: PartialMessage<I>
     ) => [string, string, PartialMessage<I>]
@@ -148,14 +108,25 @@ function createUnaryHooks<I extends Message<I>, O extends Message<O>>({
             undefined,
             input
         )
-        return response.message as unknown as PlainMessage<O>
+        return response.message;
+    }
+    /** 
+     * This updater is used to convert any immutable changes back into their concrete
+     * types. This makes sure that all intrinsic fields maintain their expected output.
+     * eg, unspecified bigint defaults to 0.
+     */
+    function makeProtobufSafeUpdater(queryUpdater: Updater<O, PartialMessage<O>>): Updater<O> {
+      return (oldData) => {
+        const result = typeof queryUpdater === "function" ? queryUpdater(oldData) : queryUpdater;
+        return new method.O(result);
+      }
     }
     return {
         createQueryUpdater: (input, updater) => {
-            return [getQueryKey(input), updater]
+            return [getQueryKey(input), makeProtobufSafeUpdater(updater)]
         },
         createQueriesUpdater: (updater) => {
-            return [[service.typeName, method.name], updater]
+            return [[service.typeName, method.name], makeProtobufSafeUpdater(updater)]
         },
         useQueryOptions: (input) => {
             return {
@@ -178,7 +149,7 @@ function createUnaryHooks<I extends Message<I>, O extends Message<O>>({
                         [options.pageParamKey]: pageParam,
                     }
                     return fetch(inputWithPageParam, { signal })
-                },
+                }
             }
         },
         useMutationOptions: () => {
@@ -211,3 +182,4 @@ export function createQueryClient<T extends ServiceType>(
 
     return client as QueryClient<T>
 }
+

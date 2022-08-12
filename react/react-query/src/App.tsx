@@ -1,5 +1,5 @@
 import { APIService } from '@buf/bufbuild_connect-web_mf192_bestofgo/api/api_service_connectweb.js'
-import { useQueryHooks } from './query-provider'
+import { useQueryHooks } from './react-query-connect-web/use-query-hooks'
 import { IntervalFilter } from '@buf/bufbuild_connect-web_mf192_bestofgo/datapb/analytics_pb'
 import { Suspense, useState } from 'react'
 import {
@@ -26,7 +26,6 @@ import {
     useQuery,
     useQueryClient,
 } from '@tanstack/react-query'
-import { Timestamp } from '@bufbuild/protobuf'
 
 function App() {
     const { getTopRepositories } = useQueryHooks(APIService)
@@ -144,6 +143,7 @@ const Details: React.FC<{ selectedRepoName: string }> = ({
             },
         })
     )
+    
     // not a real mutation, just a way to show mutating local state.
     const addStar = useMutation({
         ...getRepoSummary.useMutationOptions(),
@@ -168,7 +168,7 @@ const Details: React.FC<{ selectedRepoName: string }> = ({
                             repo: {
                                 ...prev.repo,
                                 repoStargazersCount:
-                                    (prev.repo?.repoStargazersCount ?? 0) + 1,
+                                    (prev.repo.repoStargazersCount ?? 0) + 1,
                             },
                         }
                     }
@@ -227,9 +227,7 @@ const Details: React.FC<{ selectedRepoName: string }> = ({
                         <td>
                             {repoDetails.data.repo.repoUpdatedAt !== undefined
                                 ? Intl.DateTimeFormat().format(
-                                      new Timestamp(
-                                          repoDetails.data.repo.repoUpdatedAt
-                                      ).toDate()
+                                      repoDetails.data.repo.repoUpdatedAt.toDate()
                                   )
                                 : 'Never'}
                         </td>
