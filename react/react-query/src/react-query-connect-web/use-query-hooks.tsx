@@ -8,9 +8,8 @@ import {
 import { ServiceType } from '@bufbuild/protobuf'
 import { createConnectTransport, Transport } from '@bufbuild/connect-web'
 
-const hooksContext = createContext(
+const servicesMap = 
     new Map<ServiceType, QueryClient<ServiceType>>()
-)
 
 const transportContext = createContext<Transport>(
     createConnectTransport({
@@ -24,12 +23,11 @@ export function useQueryHooks<T extends ServiceType>(
     service: T
 ): QueryClient<T> {
     const transport = useTransport()
-    const cache = useContext(hooksContext)
-    let hooks = cache.get(service)
+    let hooks = servicesMap.get(service)
 
     if (hooks === undefined) {
         hooks = createQueryClient(service, transport)
-        cache.set(service, hooks)
+        servicesMap.set(service, hooks)
     }
     return hooks as QueryClient<T>
 }
