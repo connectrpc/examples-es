@@ -1,0 +1,21 @@
+{
+  "name": "buf-plain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@bufbuild/connect-web": "^0.1.0",
+    "@bufbuild/protobuf": "^0.0.10",
+    "@bufbuild/protoc-gen-connect-web": "^0.1.0",
+    "@bufbuild/protoc-gen-es": "^0.0.10",
+    "esbuild": "^0.14.49",
+    "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "start": "npm run buf:generate && npm run build",
+    "build": "npx tsc --noEmit && npx esbuild src/index.ts --serve=localhost:3000 --servedir=www --outdir=www --bundle --global-name=eliza",
+    "buf:generate": "buf generate buf.build/bufbuild/eliza"
+  },
+  "author": "",
+  "license": "ISC"
+}
