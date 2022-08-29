@@ -5,30 +5,30 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@bufbuild/connect-web@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@bufbuild/connect-web@npm:0.1.0"
+"@bufbuild/connect-web@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@bufbuild/connect-web@npm:0.2.0"
   peerDependencies:
-    "@bufbuild/protobuf": 0.0.10
-  checksum: cf0d24cf3eccb66b55521e1af3e77a6d050166bd1e21cec6de752628a1732cb6d51957ba80af68d859efb0b1618079db891bc8c031db15e529108e305d1e2311
+    "@bufbuild/protobuf": 0.1.0
+  checksum: be5f8f57a3d597fb31b5c9766b3ed005722321c40c4d9fa884278319dc81868e1a753c8565b57e5d719d516528d3bc2984375caec0a6fe3181c208d9cb20672d
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:0.0.10, @bufbuild/protobuf@npm:^0.0.10":
-  version: 0.0.10
-  resolution: "@bufbuild/protobuf@npm:0.0.10"
-  checksum: 69fac24324e7b6172734a8fcf1858f78d76dae28723d5e9660884068de7c6283eb29aad119300655485c6c7303d36ecc4c58555061d7b9f247f4fdeec227a1e6
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoc-gen-connect-web@npm:^0.1.0":
+"@bufbuild/protobuf@npm:0.1.0, @bufbuild/protobuf@npm:^0.1.0":
   version: 0.1.0
-  resolution: "@bufbuild/protoc-gen-connect-web@npm:0.1.0"
+  resolution: "@bufbuild/protobuf@npm:0.1.0"
+  checksum: d863b51bb7a3255ae9647f61ebb8e074632972d55edd471273a42b5c57e33a924f3cc468a8a9c84573d257996b25ef6ba349d30f144fbe6859f4154ea0f92d7f
+  languageName: node
+  linkType: hard
+
+"@bufbuild/protoc-gen-connect-web@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@bufbuild/protoc-gen-connect-web@npm:0.2.0"
   dependencies:
-    "@bufbuild/protoplugin": 0.0.10
+    "@bufbuild/protoplugin": 0.1.0
   peerDependencies:
-    "@bufbuild/connect-web": 0.1.0
-    "@bufbuild/protoc-gen-es": 0.0.10
+    "@bufbuild/connect-web": 0.2.0
+    "@bufbuild/protoc-gen-es": 0.1.0
   peerDependenciesMeta:
     "@bufbuild/connect-web":
       optional: true
@@ -36,32 +36,32 @@ __metadata:
       optional: true
   bin:
     protoc-gen-connect-web: bin/protoc-gen-connect-web
-  checksum: 56c3252314c237d4850741b064879651e4720987cae6384a5f001b7a62865a2a346e8ea4a9f41fbf8e48fec72467b180bfd5f1566f4362cfb7554dc3f8bf907f
+  checksum: 02b9e045c7bda27f68bca9cb6477f0bbd0b4d009089387902740a9f661c56fe07a431c1d7f47a15d9fae4a1bf6316d1b61fc32138cdb81c4734af49ef4ddfa4c
   languageName: node
   linkType: hard
 
-"@bufbuild/protoc-gen-es@npm:^0.0.10":
-  version: 0.0.10
-  resolution: "@bufbuild/protoc-gen-es@npm:0.0.10"
+"@bufbuild/protoc-gen-es@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@bufbuild/protoc-gen-es@npm:0.1.0"
   dependencies:
-    "@bufbuild/protoplugin": 0.0.10
+    "@bufbuild/protoplugin": 0.1.0
   peerDependencies:
-    "@bufbuild/protobuf": 0.0.10
+    "@bufbuild/protobuf": 0.1.0
   peerDependenciesMeta:
     "@bufbuild/protobuf":
       optional: true
   bin:
     protoc-gen-es: bin/protoc-gen-es
-  checksum: 3bad697434048025579bd6f119939eef0538853918f21ef8106985e3a9e0d0bf5f9148817ca1aede3653b82ab954f5e7e1c0058a16c96e64d344b64bfe02cf7f
+  checksum: 088d7b772dd92efabe6b6e1ac04750e5bd9a04f84fb01a2e84f5e9fe90a7f5afe50dc47f0d63ed5742c998c2bc13892261b28d6d93ac389f7febedd554f82d2a
   languageName: node
   linkType: hard
 
-"@bufbuild/protoplugin@npm:0.0.10":
-  version: 0.0.10
-  resolution: "@bufbuild/protoplugin@npm:0.0.10"
+"@bufbuild/protoplugin@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@bufbuild/protoplugin@npm:0.1.0"
   dependencies:
-    "@bufbuild/protobuf": 0.0.10
-  checksum: 5be156e37938cf7fd5848573305ae09c23db451e6df1155794c62c9fc3fbdd6497b2aa4eb7411dd556a13ac1ae255aeb793025bd98f53dab76095caef7bad7a3
+    "@bufbuild/protobuf": 0.1.0
+  checksum: 80fe66839c875b1478526d6e3b3b757ff3a64fed2197ea514a7e979de62b4385ec11959071743c2a26da8495c23ab17589764c7eb2aae3f10c5626191eb791e2
   languageName: node
   linkType: hard
 
@@ -69,10 +69,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "buf-yarn3-unplugged@workspace:."
   dependencies:
-    "@bufbuild/connect-web": ^0.1.0
-    "@bufbuild/protobuf": ^0.0.10
-    "@bufbuild/protoc-gen-connect-web": ^0.1.0
-    "@bufbuild/protoc-gen-es": ^0.0.10
+    "@bufbuild/connect-web": ^0.2.0
+    "@bufbuild/protobuf": ^0.1.0
+    "@bufbuild/protoc-gen-connect-web": ^0.2.0
+    "@bufbuild/protoc-gen-es": ^0.1.0
     esbuild: ^0.14.49
     react: ^18.2.0
     react-dom: ^18.2.0

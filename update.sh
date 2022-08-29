@@ -18,6 +18,9 @@ npm --prefix react/parcel run buf:generate
 npm --prefix react/rollup i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
 npm --prefix react/rollup run buf:generate
 
+npm --prefix react/vite i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
+npm --prefix react/vite run buf:generate
+
 npm --prefix react/webpack i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
 npm --prefix react/webpack run buf:generate
 
