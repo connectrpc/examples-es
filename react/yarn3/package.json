@@ -8,10 +8,10 @@
     "buf:generate": "PATH=$(dirname $(yarn bin protoc-gen-es)):$(dirname $(yarn bin protoc-gen-connect-web)):$PATH buf generate buf.build/bufbuild/eliza"
   },
   "dependencies": {
-    "@bufbuild/connect-web": "latest",
-    "@bufbuild/protobuf": "latest",
-    "@bufbuild/protoc-gen-connect-web": "latest",
-    "@bufbuild/protoc-gen-es": "latest",
+    "@bufbuild/connect-web": "^0.2.0",
+    "@bufbuild/protobuf": "^0.1.0",
+    "@bufbuild/protoc-gen-connect-web": "^0.2.0",
+    "@bufbuild/protoc-gen-es": "^0.1.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
