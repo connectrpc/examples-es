@@ -20,6 +20,10 @@ The [Angular](https://angular.io) application was generated with the [Angular CL
 
 The [Next.js](nextjs) application was generated with `npx create-next-app buf-nextjs --use-npm --ts` and all suggested defaults.
 
+### Plain
+
+The [Plain](plain) application was generated from scratch with no frameworks at all using just vanilla JavaScript.
+
 ### React
 
 All applications underneath this directory use [React](https://reactjs.org) as the framework.  Each is divided by the various
