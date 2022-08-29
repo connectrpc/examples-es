@@ -29,11 +29,13 @@ document.getElementById("user-input")?.addEventListener("keyup", (event) => {
 
 // Adds a node to the DOM representing the conversation with Eliza
 function addNode(text: string, sender: string): void {
-    const respContainerEl = containerEl.appendChild(document.createElement('div'));
+    const divEl = document.createElement('div');
+    const pEl = document.createElement('p');
+
+    const respContainerEl = containerEl.appendChild(divEl);
     respContainerEl.className = `${sender}-resp-container`;
     
-    const respTextEl = respContainerEl.appendChild(document.createElement('p'));
-
+    const respTextEl = respContainerEl.appendChild(pEl);
     respTextEl.className = "resp-text";
     respTextEl.innerText = text;
 }
