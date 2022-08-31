@@ -5,7 +5,7 @@
     "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "buf:generate": "PATH=$(dirname $(yarn bin protoc-gen-es)):$(dirname $(yarn bin protoc-gen-connect-web)):$PATH buf generate buf.build/bufbuild/eliza"
+    "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "dependencies": {
     "@bufbuild/connect-web": "^0.2.0",
