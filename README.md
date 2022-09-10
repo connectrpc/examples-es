@@ -22,7 +22,7 @@ The [Next.js](nextjs) application was generated with `npx create-next-app buf-ne
 
 ### Plain
 
-The [Plain](plain) application was generated from scratch with no frameworks at all using just vanilla JavaScript.
+The [Plain](plain) application was built from scratch with no frameworks at all using just vanilla JavaScript.
 
 ### React
 
