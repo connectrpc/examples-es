@@ -13,10 +13,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Helpful Commands
 
-### `npm run build`
-
-Build the app using esbuild.
-
 ### `npm run test`
 
 Run unit tests via the Jest framework
