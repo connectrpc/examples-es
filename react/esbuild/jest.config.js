@@ -1,5 +1,4 @@
 export default {
-  extensionsToTreatAsEsm: ['.ts', '.tsx'],
   transform: {
     "^.+\\.(ts|tsx)$": [
       'ts-jest',
