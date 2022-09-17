@@ -6,21 +6,20 @@
         "build": "vite build",
         "test": "playwright test",
         "buf:generate": "buf generate buf.build/bufbuild/eliza",
-        "package": "svelte-kit package",
         "preview": "vite preview",
-        "check": "svelte-check --tsconfig ./tsconfig.json",
-        "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-        "lint": "prettier --check --plugin-search-dir=. . && eslint .",
-        "format": "prettier --write --plugin-search-dir=. ."
+        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+        "lint": "prettier --check . && eslint .",
+        "format": "prettier --write ."
     },
     "devDependencies": {
         "@bufbuild/connect-web": "^0.2.0",
         "@bufbuild/protobuf": "^0.1.0",
         "@bufbuild/protoc-gen-connect-web": "^0.2.0",
         "@bufbuild/protoc-gen-es": "^0.1.0",
-        "@playwright/test": "^1.22.2",
+        "@playwright/test": "^1.25.0",
         "@sveltejs/adapter-auto": "next",
-        "@sveltejs/kit": "^1.0.0-next.484",
+        "@sveltejs/kit": "next",
         "@typescript-eslint/eslint-plugin": "^5.27.0",
         "@typescript-eslint/parser": "^5.27.0",
         "eslint": "^8.16.0",
@@ -28,15 +27,12 @@
         "eslint-plugin-svelte3": "^4.0.0",
         "prettier": "^2.6.2",
         "prettier-plugin-svelte": "^2.7.0",
-        "svelte": "^3.49.0",
+        "svelte": "^3.44.0",
         "svelte-check": "^2.7.1",
         "svelte-preprocess": "^4.10.6",
         "tslib": "^2.3.1",
-        "typescript": "^4.7.2",
-        "vite": "^3.1.2"
+        "typescript": "^4.7.4",
+        "vite": "^3.1.0"
     },
-    "type": "module",
-    "dependencies": {
-        "svelte2tsx": "^0.5.12"
-    }
+    "type": "module"
 }
