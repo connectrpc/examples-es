@@ -38,19 +38,11 @@ Use `buf` to generate the compiled protos via protobuf-es.
 
 ## Bonus Commands
 
-The following commands are also available via the Svelte starter project and Svelte Kit integration:
-
-### `npm run package`
-
-Creates a package for publishing to `npm`.
+The following commands are also available via the Svelte starter project:
 
 ### `npm run preview`
 
 Previews a built application on port 3000. Note that `npm run build` must be run initially or an error will occur.
-
-### `npm run prepare`
-
-Runs `svelte-kit sync` to synchronise generated files.
 
 ### `npm run check`
 
