@@ -2,36 +2,36 @@
 # yarn lockfile v1
 
 
-"@bufbuild/connect-web@^0.3.0", "@bufbuild/connect-web@0.3.0":
-  "integrity" "sha512-2vu1WYk7j2uzCpxJEMK3bxwHGaWwG+GeObTon3Mf+vwpFjO+B+wm+wb4nWMcG23WVdAtIOkUD5aoRBNPYbSlbA=="
-  "resolved" "https://registry.npmjs.org/@bufbuild/connect-web/-/connect-web-0.3.0.tgz"
-  "version" "0.3.0"
+"@bufbuild/connect-web@^0.3.1", "@bufbuild/connect-web@0.3.1":
+  "integrity" "sha512-JLx/NPwUbiVDyKBK1sKLejcs6a3C3jvi3K9BaPjEu5mtfOl5F53Z1y4LK/Q2akIbcp9hT0ukpErUTK8WOoCqqQ=="
+  "resolved" "https://registry.npmjs.org/@bufbuild/connect-web/-/connect-web-0.3.1.tgz"
+  "version" "0.3.1"
 
-"@bufbuild/protobuf@^0.2.0", "@bufbuild/protobuf@0.2.0":
-  "integrity" "sha512-M5FUeiWNlAF/wkyGTDxba1cE0nFIgrtkxmFaqo9rituHp+EyIx+bk5L7BpKcvFljSmxPDCK4BacsXHiMyJhCZQ=="
-  "resolved" "https://registry.npmjs.org/@bufbuild/protobuf/-/protobuf-0.2.0.tgz"
-  "version" "0.2.0"
+"@bufbuild/protobuf@^0.2.1", "@bufbuild/protobuf@0.2.1":
+  "integrity" "sha512-7bsong0tlLQvkdq5K1U6qFFn35oggCwxaiOs1LHGsqkP/E1FvW4JmRHkxkjlyMNd01S5GbqCrnyHD5VW6l3Djg=="
+  "resolved" "https://registry.npmjs.org/@bufbuild/protobuf/-/protobuf-0.2.1.tgz"
+  "version" "0.2.1"
 
-"@bufbuild/protoc-gen-connect-web@^0.3.0":
-  "integrity" "sha512-9JukCQX2aN3WHSqCqlDdNnHb3EOUrPKIarcsLZpkJtTulVpQCHsJ7i/MtjRkvtleOAeAJG4PDxV5FvZL+LtNvw=="
-  "resolved" "https://registry.npmjs.org/@bufbuild/protoc-gen-connect-web/-/protoc-gen-connect-web-0.3.0.tgz"
-  "version" "0.3.0"
+"@bufbuild/protoc-gen-connect-web@^0.3.1":
+  "integrity" "sha512-p3rO9pMa1P4WU5VA7NQuPA+TbLm9xCxlusOxq3lKfF8vngUX2DpliFuAlwybDS5Osgfw+IQMskRrYPVe6g02qA=="
+  "resolved" "https://registry.npmjs.org/@bufbuild/protoc-gen-connect-web/-/protoc-gen-connect-web-0.3.1.tgz"
+  "version" "0.3.1"
   dependencies:
-    "@bufbuild/protoplugin" "0.2.0"
+    "@bufbuild/protoplugin" "0.2.1"
 
-"@bufbuild/protoc-gen-es@^0.2.0", "@bufbuild/protoc-gen-es@0.2.0":
-  "integrity" "sha512-VlsEY7B1saKQfFPVZryZEMOFr/50yg9yPOqbwYvSt10YnGC4ILJAOX4mA4uEX0jxKSZM/IaiHufdu4vEXR+2zA=="
-  "resolved" "https://registry.npmjs.org/@bufbuild/protoc-gen-es/-/protoc-gen-es-0.2.0.tgz"
-  "version" "0.2.0"
+"@bufbuild/protoc-gen-es@^0.2.1", "@bufbuild/protoc-gen-es@0.2.1":
+  "integrity" "sha512-8rfFyKjhuaXOm1mjkIPK8dWzzqAUFOZsFlWCbEXMccc4UWFsVkt/zbw+hHsKI4SUIf4eTzuY074/KMEwVImWMA=="
+  "resolved" "https://registry.npmjs.org/@bufbuild/protoc-gen-es/-/protoc-gen-es-0.2.1.tgz"
+  "version" "0.2.1"
   dependencies:
-    "@bufbuild/protoplugin" "0.2.0"
+    "@bufbuild/protoplugin" "0.2.1"
 
-"@bufbuild/protoplugin@0.2.0":
-  "integrity" "sha512-WkOZpFJub18cg03uBWPdruV4Ev1LzI1SnJBYkNz1VVtieAlgZqchx7cKjhwXTq0SeEUiunDNsOl6f3v0qSmPeA=="
-  "resolved" "https://registry.npmjs.org/@bufbuild/protoplugin/-/protoplugin-0.2.0.tgz"
-  "version" "0.2.0"
+"@bufbuild/protoplugin@0.2.1":
+  "integrity" "sha512-R26FyR5KtU5V5osf8xGraS0/3QdhB8aVnWt990zURFWTFsy7MerHM7dc+oL7H5XT/iD38zur44Cpvp9LeXb5Pg=="
+  "resolved" "https://registry.npmjs.org/@bufbuild/protoplugin/-/protoplugin-0.2.1.tgz"
+  "version" "0.2.1"
   dependencies:
-    "@bufbuild/protobuf" "0.2.0"
+    "@bufbuild/protobuf" "0.2.1"
     "@typescript/vfs" "^1.4.0"
     "typescript" "4.5.2"
 
