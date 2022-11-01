@@ -12,30 +12,6 @@ updates:
       timezone: UTC
       time: "07:00"
   - package-ecosystem: "npm"
-    directory: "svelte"
-    schedule:
-      internal: "monthly"
-      timezone: UTC
-      time: "07:00"
-  - package-ecosystem: "npm"
-    directory: "react-native"
-    schedule:
-      internal: "monthly"
-      timezone: UTC
-      time: "07:00"
-  - package-ecosystem: "npm"
-    directory: "plain"
-    schedule:
-      internal: "monthly"
-      timezone: UTC
-      time: "07:00"
-  - package-ecosystem: "npm"
-    directory: "vue"
-    schedule:
-      internal: "monthly"
-      timezone: UTC
-      time: "07:00"
-  - package-ecosystem: "npm"
     directory: "angular"
     schedule:
       internal: "monthly"
@@ -48,37 +24,13 @@ updates:
       timezone: UTC
       time: "07:00"
   - package-ecosystem: "npm"
-    directory: "remix"
+    directory: "plain"
     schedule:
       internal: "monthly"
       timezone: UTC
       time: "07:00"
   - package-ecosystem: "npm"
-    directory: "react/yarn3"
-    schedule:
-      internal: "monthly"
-      timezone: UTC
-      time: "07:00"
-  - package-ecosystem: "npm"
-    directory: "react/parcel"
-    schedule:
-      internal: "monthly"
-      timezone: UTC
-      time: "07:00"
-  - package-ecosystem: "npm"
-    directory: "react/webpack"
-    schedule:
-      internal: "monthly"
-      timezone: UTC
-      time: "07:00"
-  - package-ecosystem: "npm"
-    directory: "react/vite"
-    schedule:
-      internal: "monthly"
-      timezone: UTC
-      time: "07:00"
-  - package-ecosystem: "npm"
-    directory: "react/rollup"
+    directory: "react-native"
     schedule:
       internal: "monthly"
       timezone: UTC
@@ -96,7 +48,55 @@ updates:
       timezone: UTC
       time: "07:00"
   - package-ecosystem: "npm"
+    directory: "react/parcel"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/rollup"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/vite"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/webpack"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
     directory: "react/yarn3-unplugged"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/yarn3"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "remix"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "svelte"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "vue"
     schedule:
       internal: "monthly"
       timezone: UTC
