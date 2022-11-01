@@ -12,9 +12,93 @@ updates:
       timezone: UTC
       time: "07:00"
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "svelte"
     schedule:
-      interval: "monthly"
+      internal: "monthly"
       timezone: UTC
       time: "07:00"
-    open-pull-requests-limit: 50
+  - package-ecosystem: "npm"
+    directory: "react-native"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "plain"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "vue"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "angular"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "nextjs"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "remix"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/yarn3"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/parcel"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/webpack"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/vite"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/rollup"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/cra"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/esbuild"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/yarn3-unplugged"
+    schedule:
+      internal: "monthly"
+      timezone: UTC
+      time: "07:00"
+
