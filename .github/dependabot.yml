@@ -12,9 +12,92 @@ updates:
       timezone: UTC
       time: "07:00"
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "angular"
     schedule:
       interval: "monthly"
       timezone: UTC
       time: "07:00"
-    open-pull-requests-limit: 50
+  - package-ecosystem: "npm"
+    directory: "nextjs"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "plain"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react-native"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/cra"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/esbuild"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/parcel"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/rollup"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/vite"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/webpack"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/yarn3-unplugged"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/yarn3"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "remix"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "svelte"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "vue"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
