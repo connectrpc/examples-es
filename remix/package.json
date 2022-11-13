@@ -11,7 +11,7 @@
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "dependencies": {
-    "@remix-run/node": "^1.6.4",
+    "@remix-run/node": "^1.7.5",
     "@remix-run/react": "^1.6.4",
     "@remix-run/serve": "^1.6.4",
     "react": "^17.0.2",
