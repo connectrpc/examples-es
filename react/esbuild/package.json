@@ -16,7 +16,7 @@
     "@bufbuild/protobuf": "^0.1.0",
     "@bufbuild/protoc-gen-connect-web": "^0.2.0",
     "@bufbuild/protoc-gen-es": "^0.1.0",
-    "@types/jest": "^29.2.2",
+    "@types/jest": "^29.2.3",
     "@types/react": "^18.0.19",
     "@types/react-dom": "^18.0.8",
     "esbuild": "^0.15.13",
