@@ -22,7 +22,7 @@
     "@bufbuild/connect-web": "^0.3.1",
     "@bufbuild/protobuf": "^0.2.1",
     "@bufbuild/protoc-gen-connect-web": "^0.3.1",
-    "@bufbuild/protoc-gen-es": "^0.2.1",
+    "@bufbuild/protoc-gen-es": "^0.3.0",
     "rxjs": "^7.5.7",
     "tslib": "^2.4.1",
     "zone.js": "^0.11.8"
