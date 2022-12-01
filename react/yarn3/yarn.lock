@@ -331,6 +331,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bufbuild/protobuf@npm:0.3.0":
+  version: 0.3.0
+  resolution: "@bufbuild/protobuf@npm:0.3.0"
+  checksum: df68879658016aacdd68d95b7f1f8f1ec3ade9966e72b74812b4d858ccd843042aa4daf49a93e482dccd0c12b2b5ec3b606b17e3be27b3c04209518cb8033a9d
+  languageName: node
+  linkType: hard
+
 "@bufbuild/protoc-gen-connect-web@npm:^0.3.1":
   version: 0.3.1
   resolution: "@bufbuild/protoc-gen-connect-web@npm:0.3.1"
@@ -350,19 +357,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protoc-gen-es@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "@bufbuild/protoc-gen-es@npm:0.2.1"
+"@bufbuild/protoc-gen-es@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@bufbuild/protoc-gen-es@npm:0.3.0"
   dependencies:
-    "@bufbuild/protoplugin": 0.2.1
+    "@bufbuild/protoplugin": 0.3.0
   peerDependencies:
-    "@bufbuild/protobuf": 0.2.1
+    "@bufbuild/protobuf": 0.3.0
   peerDependenciesMeta:
     "@bufbuild/protobuf":
       optional: true
   bin:
     protoc-gen-es: bin/protoc-gen-es
-  checksum: 4f5eb5c9e7c2bae7bd7e62f3f840c35e0ffacd3b92b08954315bc448726fc0a4d0a9a2eacdd2c57f15e92d1c937498b1d1402d80015b1a1f8fbe897c063f5dc7
+  checksum: 70ee3cd18805da8d4dec6deecdffdb3b9f034998d8ea67ee5c97c3b41fb142038ff1ef7256347e518cc01d2c8b2814d3cabdebb009d6b2e63f95a080d12803cc
   languageName: node
   linkType: hard
 
@@ -374,6 +381,17 @@ __metadata:
     "@typescript/vfs": ^1.4.0
     typescript: 4.5.2
   checksum: daf77fe300e0293eabcd4dabae6e2f98522ae7f30c0672c744b92a591c671b0bddf73cb75da546bd6886f5ef22741202f766f39ce563459bd74d27df6d52b5a4
+  languageName: node
+  linkType: hard
+
+"@bufbuild/protoplugin@npm:0.3.0":
+  version: 0.3.0
+  resolution: "@bufbuild/protoplugin@npm:0.3.0"
+  dependencies:
+    "@bufbuild/protobuf": 0.3.0
+    "@typescript/vfs": ^1.4.0
+    typescript: 4.5.2
+  checksum: d7cb43d604ecb46cf091ef535ee78f60abb29d82357300b4a6c6c2a45669b02a487c7e52295a2821c63995e95bbebecdd53139b54999ee020049546aa80f8fc7
   languageName: node
   linkType: hard
 
@@ -663,7 +681,7 @@ __metadata:
     "@bufbuild/connect-web": ^0.3.1
     "@bufbuild/protobuf": ^0.2.1
     "@bufbuild/protoc-gen-connect-web": ^0.3.1
-    "@bufbuild/protoc-gen-es": ^0.2.1
+    "@bufbuild/protoc-gen-es": ^0.3.0
     "@types/react": ^18.0.25
     "@types/react-dom": ^18.0.8
     "@vitejs/plugin-react": ^1.3.0
