@@ -9,13 +9,13 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.41",
     "@types/react": "^18.0.24",
-    "@types/react-dom": "^18.0.5",
+    "@types/react-dom": "^18.0.9",
     "is-promise": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "typescript": "^4.1.6",
-    "web-vitals": "^3.0.4"
+    "typescript": "^4.9.3",
+    "web-vitals": "^3.1.0"
   },
   "scripts": {
     "start": "npm run buf:generate && react-app-rewired start",
@@ -43,10 +43,10 @@
     ]
   },
   "devDependencies": {
-    "@bufbuild/connect-web": "^0.3.1",
-    "@bufbuild/protobuf": "^0.2.1",
-    "@bufbuild/protoc-gen-connect-web": "^0.3.1",
-    "@bufbuild/protoc-gen-es": "^0.2.1",
+    "@bufbuild/connect-web": "^0.3.3",
+    "@bufbuild/protobuf": "^0.4.0",
+    "@bufbuild/protoc-gen-connect-web": "^0.3.3",
+    "@bufbuild/protoc-gen-es": "^0.4.0",
     "prettier": "^2.7.1",
     "react-app-rewired": "^2.2.1",
     "resolve-typescript-plugin": "^1.2.0",
