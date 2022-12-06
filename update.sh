@@ -12,6 +12,9 @@ npm --prefix plain run buf:generate
 npm --prefix react/cra i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
 npm --prefix react/cra run buf:generate
 
+npm --prefix react/esbuild i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
+npm --prefix react/esbuild run buf:generate
+
 npm --prefix react/parcel i @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
 npm --prefix react/parcel run buf:generate
 
