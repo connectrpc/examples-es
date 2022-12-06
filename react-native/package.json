@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "expo": "~45.0.0",
-    "expo-status-bar": "~1.3.0",
+    "expo-status-bar": "~1.4.2",
     "fast-text-encoding": "^1.0.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -27,7 +27,7 @@
     "@types/react-native": "~0.66.13",
     "patch-package": "^6.5.0",
     "react-native-polyfill-globals": "^3.1.0",
-    "typescript": "~4.3.5"
+    "typescript": "~4.9.3"
   },
   "private": true
 }
