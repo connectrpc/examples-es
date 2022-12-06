@@ -8,7 +8,7 @@
     "@bufbuild/protobuf": "^0.4.0",
     "@bufbuild/protoc-gen-connect-web": "^0.3.3",
     "@bufbuild/protoc-gen-es": "^0.4.0",
-    "esbuild": "^0.15.13",
+    "esbuild": "^0.15.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tsc": "^2.0.4",
