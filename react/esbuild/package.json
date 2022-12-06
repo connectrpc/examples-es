@@ -14,7 +14,7 @@
   "devDependencies": {
     "@bufbuild/connect-web": "^0.2.0",
     "@bufbuild/protobuf": "^0.1.0",
-    "@bufbuild/protoc-gen-connect-web": "^0.2.0",
+    "@bufbuild/protoc-gen-connect-web": "^0.3.3",
     "@bufbuild/protoc-gen-es": "^0.1.0",
     "@types/jest": "^29.2.2",
     "@types/react": "^18.0.19",
