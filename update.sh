@@ -36,8 +36,8 @@ npm --prefix react/yarn3-unplugged run buf:generate
 npm --prefix react-native i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
 npm --prefix react-native run buf:generate
 
-npm --prefix remix i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
-npm --prefix remix run buf:generate
+pnpm --prefix remix i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
+pnpm --prefix remix run buf:generate
 
 npm --prefix svelte i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
 npm --prefix svelte run buf:generate
