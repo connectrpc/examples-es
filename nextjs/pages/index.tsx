@@ -79,6 +79,7 @@ function App() {
         <div>
             <header className={styles.appHeader}>
                 <h1 className={styles.headline}>Eliza</h1>
+                <h4 className={styles.subtitle}>Next.js</h4>
             </header>
             <div className={styles.container}>
                 {responses.map((resp, i) => {

@@ -89,6 +89,7 @@ export default defineComponent({
 <template>
     <header class="app-header">
         <h1>Eliza</h1>
+        <h4>Vue</h4>
     </header>
     <div class="container">
         <div

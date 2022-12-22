@@ -67,6 +67,7 @@
 <div>
     <header class="app-header">
         <h1>Eliza</h1>
+        <h4>Svelte</h4>
     </header>
     <div class="container">
         {#each responses as resp}
@@ -95,6 +96,10 @@
     h1 {
         margin: 15px 0;
         font-size: 3.5rem;
+    }
+    h4 {
+        margin: 0 0 15px 0;
+        color: #161ede;
     }
     button {
         background-color: #161ede;
@@ -133,6 +138,7 @@
     .app-header {
         display: flex;
         justify-content: space-evenly;
+        flex-direction: column;
         align-items: center;
         color: #000;
         background-color: #fff;

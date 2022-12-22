@@ -79,6 +79,7 @@ function App() {
         <div>
             <header className="app-header">
                 <h1>Eliza</h1>
+                <h4>React/CRA</h4>
             </header>
             <div className="container">
                 {responses.map((resp, i) => {

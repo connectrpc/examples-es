@@ -1,6 +1,7 @@
 <div>
     <header class="app-header">
         <h1>{{ title }}</h1>
+        <h4>{{ project }}</h4>
     </header>
     <div class="container">
         <div *ngFor="let resp of responses" [ngClass]="resp.sender == 'eliza' ? 'eliza-resp-container' : 'user-resp-container'">

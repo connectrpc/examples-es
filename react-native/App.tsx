@@ -73,6 +73,7 @@ function App() {
         <ScrollView style={styles.app}>
             <View style={styles.appHeader}>
                         <Text style={styles.h1}>Eliza</Text>
+                        <Text style={styles.h4}>React Native</Text>
             </View>
                 <View style={styles.container}>
                 {responses.map((resp, i) => {
@@ -105,6 +106,12 @@ const styles = StyleSheet.create({
         marginTop: 30,
         marginBottom: 15,
     },
+    h4: {
+        marginTop: 0,
+        marginHorizontal: 0,
+        marginBottom: 15,
+        color: '#161ede',
+    },
     app: {
         backgroundColor: '#fafafa',
     },
@@ -127,6 +134,7 @@ const styles = StyleSheet.create({
     appHeader: {
         display: 'flex',
         justifyContent: 'space-evenly',
+        flexDirection: 'column',
         alignItems: 'center',
         color: '#000',
         backgroundColor: '#fff',
