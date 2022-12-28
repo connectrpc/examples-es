@@ -2,12 +2,15 @@
 
 npm --prefix angular i @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
 npm --prefix angular run buf:generate
+npm --prefix angular run test
 
 npm --prefix nextjs i @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
 npm --prefix nextjs run buf:generate
+npm --prefix nextjs run test
 
 npm --prefix plain i @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
 npm --prefix plain run buf:generate
+npm --prefix plain run test
 
 npm --prefix react/cra i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
 npm --prefix react/cra run buf:generate
