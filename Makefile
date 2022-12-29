@@ -16,6 +16,7 @@ NPM_PROJS = angular \
 	   nextjs \
 	   plain \
 	   react/cra \
+	   react/esbuild \
 	   react/parcel \
 	   react/rollup \
 	   react/vite \

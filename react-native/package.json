@@ -4,6 +4,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "npm run buf:generate && expo start",
+    "build": "expo config",
     "web": "npm run buf:generate && expo start --web",
     "test": "echo \"Error: no test specified\" && exit 0",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"

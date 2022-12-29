@@ -2,10 +2,11 @@
 
 This project was created from scratch using no frameworks at all.  Its only dependencies are:
 
-- Connect Web
-- Protobuf ES
+- Connect-Web
+- Protobuf-ES
 - esbuild
-- TypeScript
+- TypeScript (and ts-node)
+- Jasmine (unit tests)
 
 ## Getting Started
 

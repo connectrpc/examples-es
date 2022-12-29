@@ -8,17 +8,22 @@
     "typescript": "^4.9.3"
   },
   "scripts": {
-    "start": "npm run buf:generate && npm run build",
-    "build": "npx tsc --noEmit && npx esbuild src/index.ts --serve=localhost:3000 --servedir=www --outdir=www --bundle --global-name=eliza",
+    "start": "npm run buf:generate && npm run serve",
+    "serve": "npx tsc --noEmit && npx esbuild src/index.ts --serve=localhost:3000 --servedir=www --outdir=www --bundle --global-name=eliza",
+    "build": "npx esbuild src/index.ts --bundle --outfile=dist/out.js",
     "buf:generate": "buf generate buf.build/bufbuild/eliza",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "NODE_OPTIONS=--experimental-vm-modules ts-node --esm node_modules/.bin/jasmine --config=spec/support/jasmine.json"
   },
   "author": "",
   "license": "ISC",
+  "type": "module",
   "devDependencies": {
     "@bufbuild/connect-web": "^0.5.0",
     "@bufbuild/protobuf": "^1.0.0",
     "@bufbuild/protoc-gen-connect-web": "^0.5.0",
-    "@bufbuild/protoc-gen-es": "^1.0.0"
+    "@bufbuild/protoc-gen-es": "^1.0.0",
+    "@types/jasmine": "^4.3.1",
+    "jasmine": "^4.5.0",
+    "ts-node": "^10.9.1"
   }
 }
