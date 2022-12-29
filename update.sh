@@ -27,6 +27,9 @@ npm --prefix react/vite run buf:generate
 npm --prefix react/webpack i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
 npm --prefix react/webpack run buf:generate
 
+npm --prefix react/webpack-cjs i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
+npm --prefix react/webpack-cjs run buf:generate
+
 yarn --cwd react/yarn3 add @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest
 yarn --cwd react/yarn3 run buf:generate
 
