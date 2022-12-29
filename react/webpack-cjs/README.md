@@ -1,6 +1,6 @@
 # Eliza
 
-This project was created from scratch using React and [Webpack](https://webpack.js.org) as the underlying bundler/module loader.
+This project was created from scratch using React and [Webpack](https://webpack.js.org) as the underlying bundler/module loader and CommonJS import syntax.
 
 ## Getting Started
 
@@ -15,6 +15,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### `npm run build`
 
 Build the app using Webpack.
+
+### `npm run test`
+
+Run unit tests.
 
 ### `npm run buf:generate`
 

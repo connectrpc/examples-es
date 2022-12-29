@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run build && webpack serve --mode development",
     "build": "npm run buf:generate && webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "author": "",
