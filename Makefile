@@ -30,13 +30,13 @@ all: test
 .PHONY: test
 test:
 	@for dirname in $(NPM_PROJS) ; do \
-		npm --prefix $${dirname} run test; \
+		npm --prefix $${dirname} run test || exit 1 ;\
 	done
 	@for dirname in $(YARN_PROJS) ; do \
-		yarn --cwd $${dirname} test; \
+		yarn --cwd $${dirname} test || exit 1 ;\
 	done
 	@for dirname in $(PNPM_PROJS) ; do \
-		pnpm --prefix $${dirname} run test; \
+		pnpm --prefix $${dirname} run test || exit 1 ;\
 	done	
 
 .PHONY: build

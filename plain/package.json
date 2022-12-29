@@ -14,7 +14,8 @@
   "scripts": {
     "start": "npm run buf:generate && npm run build",
     "build": "npx tsc --noEmit && npx esbuild src/index.ts --serve=localhost:3000 --servedir=www --outdir=www --bundle --global-name=eliza",
-    "buf:generate": "buf generate buf.build/bufbuild/eliza"
+    "buf:generate": "buf generate buf.build/bufbuild/eliza",
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "author": "",
   "license": "ISC"

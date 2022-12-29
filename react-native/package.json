@@ -5,6 +5,7 @@
   "scripts": {
     "start": "npm run buf:generate && expo start",
     "web": "npm run buf:generate && expo start --web",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "dependencies": {

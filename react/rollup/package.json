@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run buf:generate && npx rollup -c rollup.config.js -w --environment NODE_ENV:development --silent",
     "build": "npm run buf:generate && npx rollup -c rollup.config.js --silent",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "author": "",

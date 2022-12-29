@@ -5,6 +5,7 @@
     "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "dependencies": {
