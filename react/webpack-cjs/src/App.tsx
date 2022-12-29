@@ -6,12 +6,6 @@ const {createPromiseClient, createConnectTransport} = require('@bufbuild/connect
 const { ElizaService } = require('./gen/buf/connect/demo/eliza/v1/eliza_connectweb.js');
 const { IntroduceRequest } = require('./gen/buf/connect/demo/eliza/v1/eliza_pb.js');
 
-const { connectCodeFromHttpStatus } = require('@bufbuild/connect-core/protocol-connect');
-const { grpcCodeFromHttpStatus } = require('@bufbuild/connect-core/protocol-grpc');
-
-console.log(connectCodeFromHttpStatus(431)); // should print 8
-console.log(grpcCodeFromHttpStatus(200)); // should print null
-
 interface Response {
     text: string
     sender: 'eliza' | 'user'
