@@ -27,6 +27,22 @@ PNPM_PROJS = remix
 .PHONY: all
 all: test
 
+.PHONY: update
+update:
+	@for dirname in $(NPM_PROJS) ; do \
+		echo $${dirname} ;\
+        npm --prefix $${dirname} i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest ;\
+		npm --prefix $${dirname} run buf:generate || exit 1 ;\
+	done
+	@for dirname in $(YARN_PROJS) ; do \
+        yarn --cwd $${dirname} add @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest ;\
+		yarn --cwd $${dirname} buf:generate || exit 1 ;\
+	done
+	@for dirname in $(PNPM_PROJS) ; do \
+        pnpm --prefix $${dirname} i -D @bufbuild/connect-web@latest @bufbuild/protoc-gen-connect-web@latest @bufbuild/protobuf@latest @bufbuild/protoc-gen-es@latest ;\
+		pnpm --prefix $${dirname} run buf:generate || exit 1 ;\
+	done	
+	
 .PHONY: test
 test:
 	@for dirname in $(NPM_PROJS) ; do \

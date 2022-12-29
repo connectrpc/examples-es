@@ -1,6 +1,7 @@
 {
   "name": "buf-yarn3",
   "packageManager": "yarn@3.2.1",
+  "license": "MIT",
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
