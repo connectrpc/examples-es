@@ -1,6 +1,10 @@
-const path = require('path');
+// const path = require('path');
 
-module.exports = {
+import path from 'path';
+
+const __dirname = path.resolve();
+
+export default {
   mode: 'development',
   entry: './src/index.tsx',
   output: {
