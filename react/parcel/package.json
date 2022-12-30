@@ -4,22 +4,27 @@
   "description": "",
   "source": "src/index.html",
   "scripts": {
-    "start": "npm run buf:generate && npx parcel src/index.html -p 3000",
-    "build": "unset NODE_OPTIONS && npm run buf:generate && npx parcel build src/index.html",
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "unset NODE_OPTIONS && npm run buf:generate && npx parcel src/index.html -p 3000 --log-level error",
+    "build": "unset NODE_OPTIONS && npm run buf:generate && npx parcel build src/index.html --log-level error",
+    "test": "npx jest",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "author": "",
   "license": "ISC",
+  "type": "module",
   "devDependencies": {
     "@bufbuild/connect-web": "^0.5.0",
     "@bufbuild/protobuf": "^1.0.0",
     "@bufbuild/protoc-gen-connect-web": "^0.5.0",
     "@bufbuild/protoc-gen-es": "^1.0.0",
+    "babel-jest": "^29.3.1",
+    "jest": "^29.3.1",
     "parcel": "^2.8.0",
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "ts-jest": "^29.0.3"
   },
   "dependencies": {
+    "@parcel/babel-preset-env": "^2.8.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
