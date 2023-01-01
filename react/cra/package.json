@@ -49,7 +49,7 @@
     "@bufbuild/protoc-gen-es": "^1.0.0",
     "prettier": "^2.7.1",
     "react-app-rewired": "^2.2.1",
-    "resolve-typescript-plugin": "^1.2.0",
+    "resolve-typescript-plugin": "^2.0.0",
     "ts-jest": "^28.0.5"
   },
   "jest": {
