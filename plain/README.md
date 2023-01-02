@@ -1,6 +1,6 @@
 # Eliza
 
-This project was created from scratch using no frameworks at all.  Its only dependencies are:
+This project was created from scratch using no UI frameworks at all.  Its only dependencies are:
 
 - Connect-Web
 - Protobuf-ES
