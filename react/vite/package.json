@@ -13,7 +13,7 @@
     "dependencies": {
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "web-vitals": "^3.0.4"
+        "web-vitals": "^3.1.0"
     },
     "devDependencies": {
         "@bufbuild/connect-web": "^0.5.0",
@@ -21,11 +21,11 @@
         "@bufbuild/protoc-gen-connect-web": "^0.5.0",
         "@bufbuild/protoc-gen-es": "^1.0.0",
         "@types/react": "^18.0.26",
-        "@types/react-dom": "^18.0.8",
+        "@types/react-dom": "^18.0.10",
         "@vitejs/plugin-react": "^2.2.0",
-        "@vitest/coverage-c8": "^0.25.3",
+        "@vitest/coverage-c8": "^0.26.2",
         "c8": "^7.12.0",
-        "jsdom": "^20.0.2",
+        "jsdom": "^20.0.3",
         "typescript": "^4.9.3",
         "vite": "^3.0.0",
         "vitest": "^0.26.3"
