@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "npm run buf:generate && npx rollup -c rollup.config.js -w --environment NODE_ENV:development --silent",
     "build": "npm run buf:generate && npx rollup -c rollup.config.js --silent",
@@ -17,10 +18,10 @@
     "@bufbuild/protobuf": "^1.0.0",
     "@bufbuild/protoc-gen-connect-web": "^0.5.0",
     "@bufbuild/protoc-gen-es": "^1.0.0",
-    "@rollup/plugin-babel": "^6.0.2",
-    "@rollup/plugin-commonjs": "^23.0.3",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-replace": "^5.0.1",
+    "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-typescript": "^10.0.1",
     "@types/react": "^18.0.15",
     "rollup": "^3.9.1",
@@ -28,7 +29,7 @@
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-serve": "^2.0.0",
     "tslib": "^2.4.1",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.4"
   },
   "dependencies": {
     "react": "^18.2.0",
