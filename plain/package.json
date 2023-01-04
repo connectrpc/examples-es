@@ -14,7 +14,7 @@
     "serve": "npx tsc --noEmit && npx esbuild src/index.ts --serve=localhost:3000 --servedir=www --outdir=www --bundle --global-name=eliza",
     "build": "npx esbuild src/index.ts --bundle --outfile=dist/out.js",
     "buf:generate": "buf generate buf.build/bufbuild/eliza",
-    "test": "NODE_OPTIONS=--experimental-vm-modules ts-node --esm node_modules/.bin/jasmine --config=spec/support/jasmine.json"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx ts-node --esm node_modules/.bin/jasmine --config=spec/support/jasmine.json"
   },
   "author": "",
   "license": "ISC",
