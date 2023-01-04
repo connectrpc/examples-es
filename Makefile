@@ -21,6 +21,7 @@ NPM_PROJS = angular \
 	   react/rollup \
 	   react/vite \
 	   react/webpack \
+	   react/webpack-cjs \
 	   react-native \
 	   svelte \
 	   vue
