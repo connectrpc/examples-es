@@ -7,7 +7,7 @@
         "start": "npm run buf:generate && vite --port 3000",
         "build": "tsc && vite build",
         "buf:generate": "buf generate buf.build/bufbuild/eliza",
-        "test": "unset NODE_OPTIONS && vitest run",
+        "test": "vitest run",
         "coverage": "vitest run --coverage"
     },
     "dependencies": {

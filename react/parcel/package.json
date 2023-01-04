@@ -4,8 +4,8 @@
   "description": "",
   "source": "src/index.html",
   "scripts": {
-    "start": "unset NODE_OPTIONS && npm run buf:generate && parcel src/index.html -p 3000 --log-level error",
-    "build": "unset NODE_OPTIONS && npm run buf:generate && parcel build src/index.html --log-level error",
+    "start": "npm run buf:generate && parcel src/index.html -p 3000 --log-level error",
+    "build": "npm run buf:generate && parcel build src/index.html --log-level error",
     "test": "jest",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
