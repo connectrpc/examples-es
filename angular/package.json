@@ -5,7 +5,7 @@
     "start": "npx ng serve --port 3000",
     "build": "npx ng build",
     "watch": "npx ng build --watch --configuration development",
-    "test": "npx ng test --watch=false",
+    "test": "npx ng test --browsers=ChromeHeadless --watch=false",
     "buf:generate": "buf generate buf.build/bufbuild/eliza",
     "ng": "npx ng"
   },
