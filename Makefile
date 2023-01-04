@@ -47,6 +47,7 @@ define testnpmfunc
 .PHONY: test$(notdir $(1))
 test$(notdir $(1)):
 	@echo $(1) ---------- ;\
+	npm --prefix $(1) install || exit 1 ;\
 	npm --prefix $(1) run build || exit 1 ;\
 	npm --prefix $(1) run buf:generate || exit 1 ;\
 	npm --prefix $(1) run test || exit 1 ;\
@@ -67,6 +68,7 @@ define testyarnfunc
 .PHONY: test$(notdir $(1))
 test$(notdir $(1)):
 	@echo $(1) ---------- ;\
+	yarn --cwd $(1) install || exit 1 ;\
 	yarn --cwd $(1) build || exit 1 ;\
 	yarn --cwd $(1) buf:generate || exit 1 ;\
 	yarn --cwd $(1) test || exit 1 ;\
@@ -87,6 +89,7 @@ define testpnpmfunc
 .PHONY: test$(notdir $(1))
 test$(notdir $(1)):
 	@echo $(1) ---------- ;\
+	pnpm --prefix $(1) install || exit 1 ;\
 	pnpm --prefix $(1) run build || exit 1 ;\
 	pnpm --prefix $(1) run buf:generate || exit 1 ;\
 	pnpm --prefix $(1) run test || exit 1 ;\
