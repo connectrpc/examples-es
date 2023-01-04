@@ -6,12 +6,14 @@ jobs:
   ci:
     runs-on: ubuntu-20.04
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v3
-      - name: setup-node
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Install Playwright
+        run: npx playwright install --with-deps
       - uses: bufbuild/buf-setup-action@v1.9.0
         with:
           github_token: ${{ github.token }}
@@ -24,5 +26,5 @@ jobs:
           key: ${{ runner.os }}-connect-web-integration-ci-${{ hashFiles('Makefile') }}
           restore-keys: |
             ${{ runner.os }}-connect-web-integration-ci-
-      - name: make
+      - name: Run Make
         run: make test
