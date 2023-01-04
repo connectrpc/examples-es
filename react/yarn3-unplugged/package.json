@@ -20,7 +20,7 @@
   "scripts": {
     "start": "yarn run build && open index.html",
     "build": "esbuild src/index.tsx --bundle --outfile=dist/out.js",
-    "test": "npx jest",
+    "test": "jest",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "packageManager": "yarn@3.2.1"

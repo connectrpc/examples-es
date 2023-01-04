@@ -8,7 +8,7 @@
     "buf:generate": "buf generate buf.build/bufbuild/eliza",
     "start:production": "next start",
     "lint": "next lint",
-    "test": "npx jest"
+    "test": "jest"
   },
   "dependencies": {
     "next": "13.0.5",

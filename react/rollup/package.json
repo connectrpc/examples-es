@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npm run buf:generate && npx rollup -c rollup.config.js -w --environment NODE_ENV:development --silent",
-    "build": "npm run buf:generate && npx rollup -c rollup.config.js --silent",
-    "test": "npx jest",
+    "start": "npm run buf:generate && rollup -c rollup.config.js -w --environment NODE_ENV:development --silent",
+    "build": "npm run buf:generate && rollup -c rollup.config.js --silent",
+    "test": "jest",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "author": "",

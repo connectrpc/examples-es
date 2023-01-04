@@ -9,7 +9,7 @@
     "start": "pnpm run buf:generate && remix dev",
     "start:production": "remix-serve dist",
     "build": "pnpm run buf:generate && remix build",
-    "test": "npx jest",
+    "test": "jest",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "dependencies": {

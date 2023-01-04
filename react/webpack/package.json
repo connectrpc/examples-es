@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && webpack serve --mode development",
     "build": "npm run buf:generate && webpack",
-    "test": "npx jest",
+    "test": "jest",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "author": "",
