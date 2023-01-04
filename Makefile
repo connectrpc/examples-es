@@ -73,7 +73,7 @@ test$(notdir $(1)):
 	yarn --cwd $(1) buf:generate || exit 1 ;\
 	yarn --cwd $(1) test || exit 1 ;\
 
-update:: update$(notdir $(1))
+test:: test$(notdir $(1))
 endef
 
 define updatepnpmfunc
