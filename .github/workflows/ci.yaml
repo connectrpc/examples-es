@@ -12,12 +12,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - uses: pnpm/action-setup@v2
+      - name: Setup pnpm 
+        uses: pnpm/action-setup@v2
         with:
           version: 7
       - name: Install Playwright
         run: npx playwright install --with-deps
-      - uses: bufbuild/buf-setup-action@v1.9.0
+      - name: Setup Buf
+        uses: bufbuild/buf-setup-action@v1.9.0
         with:
           github_token: ${{ github.token }}
       - name: Cache
