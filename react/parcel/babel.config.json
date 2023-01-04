@@ -1,0 +1,7 @@
+{
+  "presets": ["@parcel/babel-preset-env"],
+  "ignore": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
+}

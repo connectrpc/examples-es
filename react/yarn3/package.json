@@ -1,10 +1,12 @@
 {
   "name": "buf-yarn3",
   "packageManager": "yarn@3.2.1",
+  "license": "MIT",
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "test": "vitest run",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "dependencies": {
@@ -12,8 +14,11 @@
     "@bufbuild/protobuf": "^1.0.0",
     "@bufbuild/protoc-gen-connect-web": "^0.5.0",
     "@bufbuild/protoc-gen-es": "^1.0.0",
+    "jest": "^29.3.1",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "ts-jest": "^29.0.3",
+    "vitest": "^0.26.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

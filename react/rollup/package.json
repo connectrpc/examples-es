@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npm run buf:generate && npx rollup -c rollup.config.js -w --environment NODE_ENV:development --silent",
-    "build": "npm run buf:generate && npx rollup -c rollup.config.js --silent",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run buf:generate && rollup -c rollup.config.js -w --environment NODE_ENV:development --silent",
+    "build": "npm run buf:generate && rollup -c rollup.config.js --silent",
+    "test": "jest",
     "buf:generate": "buf generate buf.build/bufbuild/eliza"
   },
   "author": "",
@@ -24,10 +24,12 @@
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-typescript": "^10.0.1",
     "@types/react": "^18.0.15",
+    "jest": "^29.3.1",
     "rollup": "^3.9.1",
     "rollup-plugin-import-css": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-serve": "^2.0.0",
+    "ts-jest": "^29.0.3",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4"
   },
