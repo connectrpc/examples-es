@@ -4,7 +4,8 @@
     "scripts": {
         "start": "npm run buf:generate && vite dev --port 3000",
         "build": "vite build",
-        "test": "playwright test",
+        "test": "npm run playwright:install && playwright test",
+        "playwright:install": "playwright install",
         "buf:generate": "buf generate buf.build/bufbuild/eliza",
         "preview": "vite preview",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
