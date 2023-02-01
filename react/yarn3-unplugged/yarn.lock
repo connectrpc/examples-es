@@ -298,10 +298,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bufbuild/connect-web@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@bufbuild/connect-web/-/connect-web-0.5.0.tgz#f3301f7e22069403326b86fd74689413402bbda7"
-  integrity sha512-vuPKp6p16g6uRSXzEtLdvrUfWFYPXCCGta8BHOo1G67TI0IZXn3/BewgnKsHb/j+a1vA01kqCRhRZnNjbR3RLg==
+"@bufbuild/connect-web@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@bufbuild/connect-web/-/connect-web-0.6.0.tgz#1b09dd4347722f8eb2fa892c8f3031591a1aeac1"
+  integrity sha512-dfiXt7ye/sC1MwBtCyR1XYZHjKvVpCxLP/HcnHYoa6POi+Ey1t058bCc14HdT2EpYEZYN7SW1M2tuZ5SnabmhA==
 
 "@bufbuild/protobuf@1.0.0", "@bufbuild/protobuf@^1.0.0":
   version "1.0.0"
