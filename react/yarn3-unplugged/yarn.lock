@@ -308,10 +308,10 @@
   resolved "https://registry.yarnpkg.com/@bufbuild/protobuf/-/protobuf-1.0.0.tgz#b25c045f8554f92c3723d5bb28e3a2538662f51b"
   integrity sha512-oH3jHBrZ6to8Qf4zLg7O8KqSY42kQZNBRXJRMp5uSi0mqE4L8NbyMnZHeOsbXmTb0xpptRyH11LfS+KeVhXzAA==
 
-"@bufbuild/protoc-gen-connect-web@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@bufbuild/protoc-gen-connect-web/-/protoc-gen-connect-web-0.5.0.tgz#1ca1640c29bf3fa446a1aaeabaa2cd91060040bc"
-  integrity sha512-sAgx5E6v8ciqRCaMSJZkuvByKyXz7GJi2qs456hru3aQjieBURdPmVkCnQ1IG/kNd10/NHQMF9saOwR6g8eFNQ==
+"@bufbuild/protoc-gen-connect-web@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@bufbuild/protoc-gen-connect-web/-/protoc-gen-connect-web-0.6.0.tgz#70c3f1a329c10ee1937ba31bfb6a4ad705fca0de"
+  integrity sha512-R2iuvUCRTRvBVyvx3U/ph9hjciwizy4EScQvqdASFCC3QimtXBf+pV2QU6KzNzhI9RqlKh18A7Egfw++4B9I7Q==
   dependencies:
     "@bufbuild/protoplugin" "^1.0.0"
 
