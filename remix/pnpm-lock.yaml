@@ -1,9 +1,9 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@bufbuild/connect-web': ^0.5.0
+  '@bufbuild/connect-web': ^0.6.0
   '@bufbuild/protobuf': ^1.0.0
-  '@bufbuild/protoc-gen-connect-web': ^0.5.0
+  '@bufbuild/protoc-gen-connect-web': ^0.6.0
   '@bufbuild/protoc-gen-es': ^1.0.0
   '@remix-run/dev': ^1.8.1
   '@remix-run/eslint-config': ^1.6.4
@@ -29,9 +29,9 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
 
 devDependencies:
-  '@bufbuild/connect-web': 0.5.0_@bufbuild+protobuf@1.0.0
+  '@bufbuild/connect-web': 0.6.0_@bufbuild+protobuf@1.0.0
   '@bufbuild/protobuf': 1.0.0
-  '@bufbuild/protoc-gen-connect-web': 0.5.0_nrphyhjernzbr5ptydz4yuvvke
+  '@bufbuild/protoc-gen-connect-web': 0.6.0_gkvg6ike26ujuklp2adxeoq4u4
   '@bufbuild/protoc-gen-es': 1.0.0_@bufbuild+protobuf@1.0.0
   '@remix-run/dev': 1.8.1_2xci7q36jvzst7pajt5xfjg3gi
   '@remix-run/eslint-config': 1.8.1_sxgf5rsw3ukyekuystuolm2glq
@@ -1384,8 +1384,8 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@bufbuild/connect-web/0.5.0_@bufbuild+protobuf@1.0.0:
-    resolution: {integrity: sha512-vuPKp6p16g6uRSXzEtLdvrUfWFYPXCCGta8BHOo1G67TI0IZXn3/BewgnKsHb/j+a1vA01kqCRhRZnNjbR3RLg==}
+  /@bufbuild/connect-web/0.6.0_@bufbuild+protobuf@1.0.0:
+    resolution: {integrity: sha512-dfiXt7ye/sC1MwBtCyR1XYZHjKvVpCxLP/HcnHYoa6POi+Ey1t058bCc14HdT2EpYEZYN7SW1M2tuZ5SnabmhA==}
     peerDependencies:
       '@bufbuild/protobuf': ^1.0.0
     dependencies:
@@ -1396,12 +1396,12 @@ packages:
     resolution: {integrity: sha512-oH3jHBrZ6to8Qf4zLg7O8KqSY42kQZNBRXJRMp5uSi0mqE4L8NbyMnZHeOsbXmTb0xpptRyH11LfS+KeVhXzAA==}
     dev: true
 
-  /@bufbuild/protoc-gen-connect-web/0.5.0_nrphyhjernzbr5ptydz4yuvvke:
-    resolution: {integrity: sha512-sAgx5E6v8ciqRCaMSJZkuvByKyXz7GJi2qs456hru3aQjieBURdPmVkCnQ1IG/kNd10/NHQMF9saOwR6g8eFNQ==}
+  /@bufbuild/protoc-gen-connect-web/0.6.0_gkvg6ike26ujuklp2adxeoq4u4:
+    resolution: {integrity: sha512-R2iuvUCRTRvBVyvx3U/ph9hjciwizy4EScQvqdASFCC3QimtXBf+pV2QU6KzNzhI9RqlKh18A7Egfw++4B9I7Q==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
-      '@bufbuild/connect-web': 0.5.0
+      '@bufbuild/connect-web': 0.6.0
       '@bufbuild/protoc-gen-es': ^1.0.0
     peerDependenciesMeta:
       '@bufbuild/connect-web':
@@ -1409,7 +1409,7 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
-      '@bufbuild/connect-web': 0.5.0_@bufbuild+protobuf@1.0.0
+      '@bufbuild/connect-web': 0.6.0_@bufbuild+protobuf@1.0.0
       '@bufbuild/protoc-gen-es': 1.0.0_@bufbuild+protobuf@1.0.0
       '@bufbuild/protoplugin': 1.0.0
     transitivePeerDependencies:
