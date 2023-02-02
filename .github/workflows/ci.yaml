@@ -16,8 +16,6 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 7
-      - name: Install Playwright
-        run: npx playwright install --with-deps
       - name: Setup Buf
         uses: bufbuild/buf-setup-action@v1.9.0
         with:
