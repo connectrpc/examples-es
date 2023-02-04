@@ -13,9 +13,9 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "@bufbuild/connect-web": "^0.6.0",
+    "@bufbuild/connect-web": "^0.7.0",
     "@bufbuild/protobuf": "^1.0.0",
-    "@bufbuild/protoc-gen-connect-web": "^0.6.0",
+    "@bufbuild/protoc-gen-connect-web": "^0.7.0",
     "@bufbuild/protoc-gen-es": "^1.0.0",
     "babel-jest": "^29.4.1",
     "jest": "^29.3.1",
