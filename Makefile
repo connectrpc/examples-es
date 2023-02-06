@@ -39,6 +39,7 @@ define updatenpmfunc
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
 	npm --prefix $(1) i -D $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_WEB) $(PROTOBUF) $(PROTOC_GEN_ES) ;\
+	npm --prefix $(1) run buf:generate || exit 1 ;\
 
 update:: update$(notdir $(1))
 endef
@@ -60,6 +61,7 @@ define updateyarnfunc
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
 	yarn --cwd $(1) add $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_WEB) $(PROTOBUF) $(PROTOC_GEN_ES) ;\
+	yarn --cwd $(1) buf:generate || exit 1 ;\
 
 update:: update$(notdir $(1))
 endef
@@ -81,6 +83,7 @@ define updatepnpmfunc
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
 	pnpm --prefix $(1) i -D $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_WEB) $(PROTOBUF) $(PROTOC_GEN_ES) ;\
+	pnpm --prefix $(1) run buf:generate || exit 1 ;\
 
 update:: update$(notdir $(1))
 endef
