@@ -17,7 +17,7 @@ jobs:
         with:
           version: 7
       - name: Setup Buf
-        uses: bufbuild/buf-setup-action@v1.9.0
+        uses: bufbuild/buf-setup-action@v1.13.1
         with:
           github_token: ${{ github.token }}
       - name: Cache
