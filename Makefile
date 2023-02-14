@@ -24,7 +24,9 @@ NPM_PROJS = angular \
 	   react/webpack-cjs \
 	   react-native \
 	   svelte \
-	   vue
+	   vue \
+	   astro
+
 # All project directories that use yarn
 YARN_PROJS = react/yarn3 \
 			 react/yarn3-unplugged

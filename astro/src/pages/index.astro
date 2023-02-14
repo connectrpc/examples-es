@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Intro from '../components/Intro.astro'
+import Chat from '../components/Chat'
+import Form from '../components/Form.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout title="Astro with connect-web">
+  <main>
+    <Intro />
+
+    <Chat client:load>
+      <Form name="statement" method="POST" />
+    </Chat>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+</style>
+
+<style is:global>
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+</style>
