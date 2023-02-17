@@ -6,7 +6,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --browsers=ChromeHeadless --watch=false",
-    "buf:generate": "buf generate buf.build/bufbuild/eliza",
+    "buf:generate": "npx buf generate buf.build/bufbuild/eliza",
     "ng": "ng"
   },
   "private": true,
@@ -29,7 +29,6 @@
     "@angular/compiler-cli": "^14.2.8",
     "@bufbuild/connect-web": "^0.7.0",
     "@bufbuild/protobuf": "^1.0.0",
-    "@bufbuild/protoc-gen-connect-web": "^0.7.0",
     "@bufbuild/protoc-gen-es": "^1.0.0",
     "@types/jasmine": "~4.3.1",
     "jasmine-core": "^4.5.0",

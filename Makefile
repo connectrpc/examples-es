@@ -7,9 +7,10 @@ MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 MAKEFLAGS += --no-print-directory
 CONNECT_WEB := @bufbuild/connect-web@latest
-PROTOC_GEN_CONNECT_WEB := @bufbuild/protoc-gen-connect-web@latest
+PROTOC_GEN_CONNECT_ES := @bufbuild/protoc-gen-connect-es@latest
 PROTOBUF := @bufbuild/protobuf@latest
 PROTOC_GEN_ES := @bufbuild/protoc-gen-es@latest
+BUF := @bufbuild/buf@latest
 
 # All project directories that use npm
 NPM_PROJS = angular \
@@ -38,7 +39,7 @@ define updatenpmfunc
 .PHONY: update$(notdir $(1))
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
-	npm --prefix $(1) i -D $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_WEB) $(PROTOBUF) $(PROTOC_GEN_ES) ;\
+	npm --prefix $(1) i -D $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
 	npm --prefix $(1) run buf:generate || exit 1 ;\
 
 update:: update$(notdir $(1))
@@ -60,7 +61,7 @@ define updateyarnfunc
 .PHONY: update$(notdir $(1))
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
-	yarn --cwd $(1) add $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_WEB) $(PROTOBUF) $(PROTOC_GEN_ES) ;\
+	yarn --cwd $(1) add $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
 	yarn --cwd $(1) buf:generate || exit 1 ;\
 
 update:: update$(notdir $(1))
@@ -82,7 +83,7 @@ define updatepnpmfunc
 .PHONY: update$(notdir $(1))
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
-	pnpm --prefix $(1) i -D $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_WEB) $(PROTOBUF) $(PROTOC_GEN_ES) ;\
+	pnpm --prefix $(1) i -D $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
 	pnpm --prefix $(1) run buf:generate || exit 1 ;\
 
 update:: update$(notdir $(1))

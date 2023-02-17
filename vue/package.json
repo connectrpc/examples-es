@@ -19,9 +19,10 @@
     "vue-router": "^4.0.16"
   },
   "devDependencies": {
+    "@bufbuild/buf": "^1.14.0",
     "@bufbuild/connect-web": "^0.7.0",
     "@bufbuild/protobuf": "^1.0.0",
-    "@bufbuild/protoc-gen-connect-web": "^0.7.0",
+    "@bufbuild/protoc-gen-connect-es": "^0.7.0",
     "@bufbuild/protoc-gen-es": "^1.0.0",
     "@cypress/webpack-preprocessor": "^5.15.2",
     "@rushstack/eslint-patch": "^1.2.0",

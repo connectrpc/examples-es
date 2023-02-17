@@ -14,9 +14,10 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@bufbuild/buf": "^1.14.0",
     "@bufbuild/connect-web": "^0.7.0",
     "@bufbuild/protobuf": "^1.0.0",
-    "@bufbuild/protoc-gen-connect-web": "^0.7.0",
+    "@bufbuild/protoc-gen-connect-es": "^0.7.0",
     "@bufbuild/protoc-gen-es": "^1.0.0",
     "@types/jasmine": "^4.3.1",
     "esbuild": "^0.17.5",
