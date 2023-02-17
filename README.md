@@ -6,10 +6,6 @@ It provides numerous examples for integrating Connect-ES into a project.
 All projects test Connect-ES against the Eliza demo running at https://demo.connect.build.  Each project illustrates an example
 of unary and server-streaming with the exception of React Native (see [Connect-Web docs](https://connect.build/docs/web/supported-browsers-and-frameworks) for an explanation why).
 
-## Pre-requisites
-
-Before running any example project, make sure you have [Buf](https://docs.buf.build/installation) installed.
-
 ## Projects
 
 ### Angular
