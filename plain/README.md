@@ -2,7 +2,7 @@
 
 This project was created from scratch using no UI frameworks at all.  Its only dependencies are:
 
-- Connect-Web
+- Connect-ES
 - Protobuf-ES
 - esbuild
 - TypeScript (and ts-node)
