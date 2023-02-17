@@ -3,7 +3,7 @@ require('./App.css');
 
 const React = require('react');
 const {createPromiseClient, createConnectTransport} = require('@bufbuild/connect-web');
-const { ElizaService } = require('./gen/buf/connect/demo/eliza/v1/eliza_connectweb.js');
+const { ElizaService } = require('./gen/buf/connect/demo/eliza/v1/eliza_connect.js');
 const { IntroduceRequest } = require('./gen/buf/connect/demo/eliza/v1/eliza_pb.js');
 
 interface Response {

@@ -2,7 +2,7 @@ import {
     createPromiseClient,
     createConnectTransport,
 } from '@bufbuild/connect-web'
-import { ElizaService } from '../src/gen/buf/connect/demo/eliza/v1/eliza_connectweb.js'
+import { ElizaService } from '../src/gen/buf/connect/demo/eliza/v1/eliza_connect.js'
 import { IntroduceRequest } from '../src/gen/buf/connect/demo/eliza/v1/eliza_pb.js'
 
 it('imports ElizaService correctly', () => {
