@@ -1,6 +1,6 @@
 # Connect-ES Integration
 
-Connect-ES Integration is a repository of example projects using Connect-ES with various JS frameworks and tooling.
+Connect-ES Integration is a repository of example projects using Connect with various TypeScript web frameworks and tooling.
 It provides numerous examples for integrating Connect-ES into a project.
 
 All projects test Connect-ES against the Eliza demo running at https://demo.connect.build.  Each project illustrates an example
