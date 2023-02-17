@@ -1,7 +1,7 @@
 const { expect, test } = require("@jest/globals");
 
 const {createPromiseClient, createConnectTransport} = require('@bufbuild/connect-web');
-const { ElizaService } = require('./gen/buf/connect/demo/eliza/v1/eliza_connectweb.js');
+const { ElizaService } = require('./gen/buf/connect/demo/eliza/v1/eliza_connect.js');
 const { IntroduceRequest } = require('./gen/buf/connect/demo/eliza/v1/eliza_pb.js');
 
 test('imports ElizaService correctly', () => {

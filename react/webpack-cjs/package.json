@@ -7,15 +7,16 @@
     "start": "npm run build && webpack serve --mode development",
     "build": "npm run buf:generate && webpack",
     "test": "jest",
-    "buf:generate": "buf generate buf.build/bufbuild/eliza"
+    "buf:generate": "npx buf generate buf.build/bufbuild/eliza"
   },
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@bufbuild/buf": "^1.14.0",
     "@bufbuild/connect-web": "^0.7.0",
     "@bufbuild/protobuf": "^1.0.0",
-    "@bufbuild/protoc-gen-connect-web": "^0.7.0",
+    "@bufbuild/protoc-gen-connect-es": "^0.7.0",
     "@bufbuild/protoc-gen-es": "^1.0.0",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.25",

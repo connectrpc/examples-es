@@ -5,9 +5,10 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "@bufbuild/buf": "^1.14.0",
     "@bufbuild/connect-web": "^0.7.0",
     "@bufbuild/protobuf": "^1.0.0",
-    "@bufbuild/protoc-gen-connect-web": "^0.7.0",
+    "@bufbuild/protoc-gen-connect-es": "^0.7.0",
     "@bufbuild/protoc-gen-es": "^1.0.0",
     "esbuild": "^0.17.5",
     "jest": "^29.4.1",
@@ -21,7 +22,7 @@
     "start": "yarn run build && open index.html",
     "build": "esbuild src/index.tsx --bundle --outfile=dist/out.js",
     "test": "jest",
-    "buf:generate": "buf generate buf.build/bufbuild/eliza"
+    "buf:generate": "npx buf generate buf.build/bufbuild/eliza"
   },
   "packageManager": "yarn@3.2.1"
 }

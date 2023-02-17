@@ -6,7 +6,7 @@
         "build": "vite build",
         "test": "npm run playwright:install && playwright test",
         "playwright:install": "playwright install",
-        "buf:generate": "buf generate buf.build/bufbuild/eliza",
+        "buf:generate": "npx buf generate buf.build/bufbuild/eliza",
         "preview": "vite preview",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -14,9 +14,10 @@
         "format": "prettier --write --ignore-path ../.prettierignore ."
     },
     "devDependencies": {
+        "@bufbuild/buf": "^1.14.0",
         "@bufbuild/connect-web": "^0.7.0",
         "@bufbuild/protobuf": "^1.0.0",
-        "@bufbuild/protoc-gen-connect-web": "^0.7.0",
+        "@bufbuild/protoc-gen-connect-es": "^0.7.0",
         "@bufbuild/protoc-gen-es": "^1.0.0",
         "@playwright/test": "^1.30.0",
         "@sveltejs/adapter-auto": "next",

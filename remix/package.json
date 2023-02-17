@@ -10,7 +10,7 @@
     "start:production": "remix-serve dist",
     "build": "pnpm run buf:generate && remix build",
     "test": "jest",
-    "buf:generate": "buf generate buf.build/bufbuild/eliza"
+    "buf:generate": "npx buf generate buf.build/bufbuild/eliza"
   },
   "dependencies": {
     "@remix-run/node": "^1.7.5",
@@ -21,9 +21,10 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@bufbuild/buf": "^1.14.0",
     "@bufbuild/connect-web": "^0.7.0",
     "@bufbuild/protobuf": "^1.0.0",
-    "@bufbuild/protoc-gen-connect-web": "^0.7.0",
+    "@bufbuild/protoc-gen-connect-es": "^0.7.0",
     "@bufbuild/protoc-gen-es": "^1.0.0",
     "@remix-run/dev": "^1.8.1",
     "@remix-run/eslint-config": "^1.6.4",

@@ -8,14 +8,15 @@
     "start": "npm run buf:generate && esbuild src/index.tsx --serve=localhost:3000 --servedir=www --outdir=www --bundle",
     "build": "esbuild src/index.tsx --bundle --outfile=dist/out.js",
     "test": "jest",
-    "buf:generate": "buf generate buf.build/bufbuild/eliza"
+    "buf:generate": "npx buf generate buf.build/bufbuild/eliza"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@bufbuild/buf": "^1.14.0",
     "@bufbuild/connect-web": "^0.7.0",
     "@bufbuild/protobuf": "^1.0.0",
-    "@bufbuild/protoc-gen-connect-web": "^0.7.0",
+    "@bufbuild/protoc-gen-connect-es": "^0.7.0",
     "@bufbuild/protoc-gen-es": "^1.0.0",
     "@types/react": "^18.0.19",
     "@types/react-dom": "^18.0.10",
