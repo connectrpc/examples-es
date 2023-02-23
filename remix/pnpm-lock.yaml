@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@bufbuild/buf': 1.14.0-1
+  '@bufbuild/connect': ^0.8.0
   '@bufbuild/connect-web': ^0.8.0
   '@bufbuild/protobuf': ^1.0.0
   '@bufbuild/protoc-gen-connect-es': ^0.8.0
@@ -31,9 +32,10 @@ dependencies:
 
 devDependencies:
   '@bufbuild/buf': 1.14.0-1
+  '@bufbuild/connect': 0.8.0_@bufbuild+protobuf@1.0.0
   '@bufbuild/connect-web': 0.8.0_@bufbuild+protobuf@1.0.0
   '@bufbuild/protobuf': 1.0.0
-  '@bufbuild/protoc-gen-connect-es': 0.8.0_qxjgbyg5ehaueid3ccsm3gvobi
+  '@bufbuild/protoc-gen-connect-es': 0.8.0_qlfqsnpag3bvmy6tcrrgajs5qm
   '@bufbuild/protoc-gen-es': 1.0.0_@bufbuild+protobuf@1.0.0
   '@remix-run/dev': 1.8.1_2xci7q36jvzst7pajt5xfjg3gi
   '@remix-run/eslint-config': 1.8.1_sxgf5rsw3ukyekuystuolm2glq
@@ -1475,7 +1477,7 @@ packages:
     resolution: {integrity: sha512-oH3jHBrZ6to8Qf4zLg7O8KqSY42kQZNBRXJRMp5uSi0mqE4L8NbyMnZHeOsbXmTb0xpptRyH11LfS+KeVhXzAA==}
     dev: true
 
-  /@bufbuild/protoc-gen-connect-es/0.8.0_qxjgbyg5ehaueid3ccsm3gvobi:
+  /@bufbuild/protoc-gen-connect-es/0.8.0_qlfqsnpag3bvmy6tcrrgajs5qm:
     resolution: {integrity: sha512-twJx4WKt+pktsq59l70OZSu8RLTxIAxf5bIWbcHsC0Cyg7FVGTUFG8J54psCAa3+WxXpPZAQZ6/3VlQx4WQx3w==}
     engines: {node: '>=14'}
     hasBin: true
@@ -1488,6 +1490,7 @@ packages:
       '@bufbuild/protoc-gen-es':
         optional: true
     dependencies:
+      '@bufbuild/connect': 0.8.0_@bufbuild+protobuf@1.0.0
       '@bufbuild/protoc-gen-es': 1.0.0_@bufbuild+protobuf@1.0.0
       '@bufbuild/protoplugin': 1.0.0
     transitivePeerDependencies:
