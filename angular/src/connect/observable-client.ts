@@ -1,10 +1,9 @@
 import {
-    AnyClient,
-    CallOptions,
     makeAnyClient,
+    CallOptions,
     Transport,
     StreamResponse,
-} from '@bufbuild/connect-web'
+} from '@bufbuild/connect';
 import {
     ServiceType,
     PartialMessage,
