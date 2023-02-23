@@ -1,9 +1,5 @@
-import {
-    makeAnyClient,
-    CallOptions,
-    Transport,
-    StreamResponse,
-} from '@bufbuild/connect';
+import { makeAnyClient, CallOptions, Transport } from '@bufbuild/connect'
+import { createAsyncIterable } from '@bufbuild/connect/protocol'
 import {
     ServiceType,
     PartialMessage,
@@ -13,7 +9,7 @@ import {
     MethodKind,
     Message,
 } from '@bufbuild/protobuf'
-import { Observable, Subscriber } from 'rxjs'
+import { Observable } from 'rxjs'
 
 export type ObservableClient<T extends ServiceType> = {
     [P in keyof T['methods']]: T['methods'][P] extends MethodInfoUnary<
@@ -85,52 +81,42 @@ type ServerStreamingFn<I extends Message<I>, O extends Message<O>> = (
     options?: CallOptions
 ) => Observable<O>
 
-function createServerStreamingFn<I extends Message<I>, O extends Message<O>>(
+export function createServerStreamingFn<
+    I extends Message<I>,
+    O extends Message<O>
+>(
     transport: Transport,
     service: ServiceType,
     method: MethodInfo<I, O>
 ): ServerStreamingFn<I, O> {
-    return function (requestMessage, options) {
+    return function (input, options) {
         return new Observable<O>((subscriber) => {
+            const inputMessage =
+                input instanceof method.I ? input : new method.I(input)
             transport
-                .serverStream(
+                .stream<I, O>(
                     service,
                     method,
                     options?.signal,
                     options?.timeoutMs,
                     options?.headers,
-                    requestMessage
+                    createAsyncIterable([inputMessage])
                 )
                 .then(
-                    (streamResponse) => {
+                    async (streamResponse) => {
                         options?.onHeader?.(streamResponse.header)
-                        readStreamResponse(streamResponse, subscriber, options)
+                        for await (const response of streamResponse.message) {
+                            subscriber.next(response)
+                        }
+                        options?.onTrailer?.(streamResponse.trailer)
                     },
                     (err) => {
                         subscriber.error(err)
                     }
                 )
+                .finally(() => {
+                    subscriber.complete()
+                })
         })
     }
-}
-
-function readStreamResponse<T extends Message<T>>(
-    streamResponse: StreamResponse<T>,
-    subscriber: Subscriber<T>,
-    options?: CallOptions
-) {
-    streamResponse.read().then(
-        (result) => {
-            if (result.done) {
-                options?.onTrailer?.(streamResponse.trailer)
-                subscriber.complete()
-                return
-            }
-            subscriber.next(result.value)
-            readStreamResponse(streamResponse, subscriber, options)
-        },
-        (err) => {
-            subscriber.error(err)
-        }
-    )
 }
