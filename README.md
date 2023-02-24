@@ -1,10 +1,7 @@
 # Connect-ES Integration
 
 Connect-ES Integration is a repository of example projects using Connect with various TypeScript web frameworks and tooling.
-It provides numerous examples for integrating Connect into a project.
-
-All projects test Connect against the Eliza demo running at https://demo.connect.build.  Each project illustrates an example
-of unary and server-streaming with the exception of React Native (see [Connect-ES docs](https://connect.build/docs/web/supported-browsers-and-frameworks) for an explanation why).
+It provides numerous examples for integrating Connect into a project, using both Connect for Web and Connect for Node.
 
 ## Projects
 
@@ -15,6 +12,10 @@ The [Angular](https://angular.io) application was generated with the [Angular CL
 ### Next.js
 
 The [Next.js](nextjs) application was generated with `npx create-next-app buf-nextjs --use-npm --ts` and all suggested defaults.
+
+### Node.js
+
+The [Node.js](node.js) shows an example of Connect for Node.js using a vanilla `http` server working in concert with Connect for Web.
 
 ### Plain
 
