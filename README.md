@@ -15,7 +15,11 @@ The [Next.js](nextjs) application was generated with `npx create-next-app buf-ne
 
 ### Node.js
 
-The [Node.js](node.js) shows an example of Connect for Node.js using a vanilla `http` server working in concert with Connect for Web.
+The [Node.js](node.js) directory contains examples involving Connect for Node. There are various server implementations
+that will serve both Connect endpoints and the Eliza frontend interface. There are server examples showing vanilla
+Node.js (using the `http` package) and [Fastify](https://fastify.io).
+
+In addition, there is a terminal client that can be run to interact with the servers.
 
 ### Plain
 

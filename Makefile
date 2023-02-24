@@ -109,5 +109,9 @@ $(foreach yarnproj,$(sort $(YARN_PROJS)),$(eval $(call testyarnfunc,$(yarnproj))
 $(foreach pnpmproj,$(sort $(PNPM_PROJS)),$(eval $(call updatepnpmfunc,$(pnpmproj))))
 $(foreach pnpmproj,$(sort $(PNPM_PROJS)),$(eval $(call testpnpmfunc,$(pnpmproj))))
 
-.PHONY: all
-all: test
+.PHONY: updatenode
+updatenode: 
+	npm --prefix node.js i -D $(CONNECT_NODE) $(CONNECT_WEB) $(CONNECT) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
+	npm --prefix node.js/vanilla i -D $(CONNECT_NODE) ;\
+	npm --prefix node.js/fastify i -D $(CONNECT_NODE) $(CONNECT_FASTIFY) ;\
+	npm --prefix node.js run buf:generate || exit 1 ;\
