@@ -104,7 +104,6 @@ test$(notdir $(1)):
 test:: test$(notdir $(1))
 endef
 
-
 $(foreach npmproj,$(sort $(NPM_PROJS)),$(eval $(call updatenpmfunc,$(npmproj))))
 $(foreach npmproj,$(sort $(NPM_PROJS)),$(eval $(call testnpmfunc,$(npmproj))))
 $(foreach yarnproj,$(sort $(YARN_PROJS)),$(eval $(call updateyarnfunc,$(yarnproj))))
@@ -118,3 +117,10 @@ updatenode:
 	npm --prefix node.js/vanilla i $(CONNECT_NODE) ;\
 	npm --prefix node.js/fastify i $(CONNECT_NODE) $(CONNECT_FASTIFY) ;\
 	npm --prefix node.js run buf:generate || exit 1 ;\
+
+.PHONY: testnode
+testnode:
+	npm --prefix node.js install || exit 1 ;\
+	npm --prefix node.js run build || exit 1 ;\
+	npm --prefix node.js run buf:generate || exit 1 ;\
+	npm --prefix node.js run test || exit 1 ;\
