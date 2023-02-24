@@ -29,5 +29,3 @@ Build the app using Rollup.
 ### `pnpm run start:production`
 
 Run the app in production mode.
-
-
