@@ -3,24 +3,21 @@
 Connect-ES Integration is a repository of example projects using Connect with various TypeScript web frameworks and tooling.
 It provides numerous examples for integrating Connect into a project, using both Connect for Web and Connect for Node.
 
-## Projects
+## Web
 
-### Web
-
-#### Angular
+### Angular
 
 The [Angular](https://angular.io) application was generated with the [Angular CLI](https://github.com/angular/angular-cli).
 
-#### Next.js
+### Next.js
 
 The [Next.js](nextjs) application was generated with `npx create-next-app buf-nextjs --use-npm --ts` and all suggested defaults.
 
-
-#### Plain
+### Plain
 
 The [Plain](plain) application was built from scratch with no frameworks at all using just vanilla JavaScript.
 
-#### React
+### React
 
 All applications underneath this directory use [React](https://reactjs.org) as the framework.  Each is divided by the various
 tooling differences the related projects were constructed with:
@@ -37,27 +34,27 @@ tooling differences the related projects were constructed with:
 
 Each project also uses various tools for testing, linting, etc.  These variances are noted in each project README.
 
-#### Remix
+### Remix
 
 The [Remix](remix) application was generated with `npx create-remix@latest` and all suggested defaults.
 
-#### Svelte
+### Svelte
 
 The [Svelte](svelte) application was generated with `npm create svelte <app name>` and all suggested defaults.
 
-#### Vue
+### Vue
 
 The [Vue](vue) application was generated with `npm init vue@latest` and all suggested defaults.
 
-### Mobile
+## Mobile
 
-#### React Native
+### React Native
 
 The [React Native](react-native) application was generated with the [Expo CLI](https://docs.expo.dev/workflow/expo-cli/) and all suggested defaults.
 
-### Servers
+## Servers
 
-#### Node.js
+### Node.js
 
 The [Node.js](node.js) directory contains examples involving Connect for Node. There are various server implementations
 that will serve both Connect endpoints and the Eliza frontend interface. There are server examples showing vanilla
