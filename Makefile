@@ -36,7 +36,10 @@ YARN_PROJS = react/yarn3 \
 PNPM_PROJS = remix
 
 .PHONY: update
-update:: ## Update all projects
+update:: updatenode ## Update all projects
+	
+.PHONY: test
+test:: testnode ## Test all projects
 
 define updatenpmfunc
 .PHONY: update$(notdir $(1))
@@ -110,6 +113,9 @@ $(foreach yarnproj,$(sort $(YARN_PROJS)),$(eval $(call updateyarnfunc,$(yarnproj
 $(foreach yarnproj,$(sort $(YARN_PROJS)),$(eval $(call testyarnfunc,$(yarnproj))))
 $(foreach pnpmproj,$(sort $(PNPM_PROJS)),$(eval $(call updatepnpmfunc,$(pnpmproj))))
 $(foreach pnpmproj,$(sort $(PNPM_PROJS)),$(eval $(call testpnpmfunc,$(pnpmproj))))
+
+.PHONY: all
+all: test
 
 .PHONY: updatenode
 updatenode: 
