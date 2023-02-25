@@ -1,0 +1,12 @@
+{
+  "name": "buf-vanilla",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "tsx server.ts"
+  },
+  "devDependencies": {
+    "@bufbuild/connect-node": "^0.8.0",
+    "tsx": "^3.12.3"
+  }
+}

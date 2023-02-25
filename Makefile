@@ -6,7 +6,10 @@ SHELL := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 MAKEFLAGS += --no-print-directory
+CONNECT := @bufbuild/connect@latest
 CONNECT_WEB := @bufbuild/connect-web@latest
+CONNECT_NODE := @bufbuild/connect-node@latest
+CONNECT_FASTIFY := @bufbuild/connect-fastify@latest
 PROTOC_GEN_CONNECT_ES := @bufbuild/protoc-gen-connect-es@latest
 PROTOBUF := @bufbuild/protobuf@latest
 PROTOC_GEN_ES := @bufbuild/protoc-gen-es@latest
@@ -33,7 +36,10 @@ YARN_PROJS = react/yarn3 \
 PNPM_PROJS = remix
 
 .PHONY: update
-update:: ## Update all projects
+update:: updatenode ## Update all projects
+	
+.PHONY: test
+test:: testnode ## Test all projects
 
 define updatenpmfunc
 .PHONY: update$(notdir $(1))
@@ -101,7 +107,6 @@ test$(notdir $(1)):
 test:: test$(notdir $(1))
 endef
 
-
 $(foreach npmproj,$(sort $(NPM_PROJS)),$(eval $(call updatenpmfunc,$(npmproj))))
 $(foreach npmproj,$(sort $(NPM_PROJS)),$(eval $(call testnpmfunc,$(npmproj))))
 $(foreach yarnproj,$(sort $(YARN_PROJS)),$(eval $(call updateyarnfunc,$(yarnproj))))
@@ -111,3 +116,19 @@ $(foreach pnpmproj,$(sort $(PNPM_PROJS)),$(eval $(call testpnpmfunc,$(pnpmproj))
 
 .PHONY: all
 all: test
+
+.PHONY: updatenode
+updatenode: 
+	npm --prefix node.js i $(CONNECT_NODE) $(CONNECT_WEB) $(CONNECT) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
+	npm --prefix node.js/vanilla i $(CONNECT_NODE) ;\
+	npm --prefix node.js/fastify i $(CONNECT_NODE) $(CONNECT_FASTIFY) ;\
+	npm --prefix node.js run buf:generate || exit 1 ;\
+
+.PHONY: testnode
+testnode:
+	npm --prefix node.js install || exit 1 ;\
+	npm --prefix node.js/fastify install || exit 1 ;\
+	npm --prefix node.js/vanilla install || exit 1 ;\
+	npm --prefix node.js run build || exit 1 ;\
+	npm --prefix node.js run buf:generate || exit 1 ;\
+	npm --prefix node.js run test || exit 1 ;\

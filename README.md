@@ -1,12 +1,9 @@
 # Connect-ES Integration
 
 Connect-ES Integration is a repository of example projects using Connect with various TypeScript web frameworks and tooling.
-It provides numerous examples for integrating Connect into a project.
+It provides numerous examples for integrating Connect into a project, using both Connect for Web and Connect for Node.
 
-All projects test Connect against the Eliza demo running at https://demo.connect.build.  Each project illustrates an example
-of unary and server-streaming with the exception of React Native (see [Connect-ES docs](https://connect.build/docs/web/supported-browsers-and-frameworks) for an explanation why).
-
-## Projects
+## Web
 
 ### Angular
 
@@ -35,12 +32,7 @@ tooling differences the related projects were constructed with:
 * [yarn3-unplugged](react/yarn3-unplugged) - Built from scratch with [Yarn 3](https://yarnpkg.com) in [unplugged mode](https://yarnpkg.com/getting-started/migration#step-by-step).
 * [yarn3](react/yarn3) - Built from scratch with [Yarn 3](https://yarnpkg.com) and [PnP mode](https://yarnpkg.com/features/pnp).
 
-
 Each project also uses various tools for testing, linting, etc.  These variances are noted in each project README.
-
-### React Native
-
-The [React Native](react-native) application was generated with the [Expo CLI](https://docs.expo.dev/workflow/expo-cli/) and all suggested defaults.
 
 ### Remix
 
@@ -53,3 +45,19 @@ The [Svelte](svelte) application was generated with `npm create svelte <app name
 ### Vue
 
 The [Vue](vue) application was generated with `npm init vue@latest` and all suggested defaults.
+
+## Mobile
+
+### React Native
+
+The [React Native](react-native) application was generated with the [Expo CLI](https://docs.expo.dev/workflow/expo-cli/) and all suggested defaults.
+
+## Servers
+
+### Node.js
+
+The [Node.js](node.js) directory contains examples involving Connect for Node. There are various server implementations
+that will serve both Connect endpoints and the Eliza frontend interface. There are server examples showing vanilla
+Node.js (using the `http` package) and [Fastify](https://fastify.io).
+
+In addition, there is a terminal client that can be run to interact with the servers.
