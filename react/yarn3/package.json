@@ -13,6 +13,7 @@
     "@bufbuild/buf": "^1.14.0-1",
     "@bufbuild/connect": "^0.8.1",
     "@bufbuild/connect-web": "^0.8.1",
+    "@bufbuild/protobuf": "^1.0.0",
     "@bufbuild/protoc-gen-connect-es": "^0.8.1",
     "@bufbuild/protoc-gen-es": "^1.0.0",
     "@types/react": "^18.0.28",
