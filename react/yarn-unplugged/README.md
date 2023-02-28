@@ -26,3 +26,11 @@ Build the app using Vite.
 
 Use `buf` to generate the compiled protos via protobuf-es
 
+### `yarn set version canary`
+
+Use the latest dev channel of Yarn to test bleeding edge changes
+
+### `yarn set version berry`
+
+Use the Berry release (3.x) of Yarn
+
