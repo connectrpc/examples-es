@@ -30,8 +30,8 @@ NPM_PROJS = angular \
 	   svelte \
 	   vue
 # All project directories that use yarn
-YARN_PROJS = react/yarn3 \
-			 react/yarn3-unplugged
+YARN_PROJS = react/yarn-pnp \
+			 react/yarn-unplugged
 # All project directories that use pnpm
 PNPM_PROJS = remix
 

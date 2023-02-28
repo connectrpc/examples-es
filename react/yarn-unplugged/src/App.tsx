@@ -77,7 +77,7 @@ function App() {
         <div>
             <header className="app-header">
                 <h1>Eliza</h1>
-                <h4>Yarn3/Vite</h4>
+                <h4>Yarn Unplugged/esbuild</h4>
             </header>
             <div className="container">
                 {responses.map((resp, i) => {

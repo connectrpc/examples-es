@@ -1,5 +1,5 @@
 {
-  "name": "yarn",
+  "name": "buf-yarn-pnp",
   "packageManager": "yarn@3.4.1",
   "private": true,
   "scripts": {
