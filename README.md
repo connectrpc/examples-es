@@ -29,8 +29,8 @@ tooling differences the related projects were constructed with:
 * [vite](react/vite) - Generated with [Vite](https://github.com/vitejs/vite) and all associated defaults.
 * [webpack](react/webpack) - Built from scratch with [Webpack](https://webpack.js.org) as the bundler.
 * [webpack-cjs](react/webpack-cjs) - Built from scratch with [Webpack](https://webpack.js.org) as the bundler, using CommonJS import syntax.
-* [yarn3-unplugged](react/yarn3-unplugged) - Built from scratch with [Yarn 3](https://yarnpkg.com) in [unplugged mode](https://yarnpkg.com/getting-started/migration#step-by-step).
-* [yarn3](react/yarn3) - Built from scratch with [Yarn 3](https://yarnpkg.com) and [PnP mode](https://yarnpkg.com/features/pnp).
+* [yarn-unplugged](react/yarn-unplugged) - Built from scratch with [Yarn 3](https://yarnpkg.com) in [unplugged mode](https://yarnpkg.com/getting-started/migration#step-by-step).
+* [yarn](react/yarn) - Built from scratch with [Yarn 3](https://yarnpkg.com) and [PnP mode](https://yarnpkg.com/features/pnp).
 
 Each project also uses various tools for testing, linting, etc.  These variances are noted in each project README.
 
