@@ -21,8 +21,12 @@ To start the Fastify server, run `npm run start:fastify`.
 
 ## Clients
 
+### Browser
+
 Once a server is started, visit [http://localhost:3000](http://localhost:3000) to view the Eliza demo in a browser 
 using Connect for Web.
+
+### Terminal
 
 Additionally, run `npm run client` to start a terminal client using Connect for Node.js.
 
