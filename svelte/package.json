@@ -23,7 +23,7 @@
         "@sveltejs/adapter-auto": "next",
         "@sveltejs/kit": "next",
         "@typescript-eslint/eslint-plugin": "^5.47.1",
-        "@typescript-eslint/parser": "^5.27.0",
+        "@typescript-eslint/parser": "^5.54.0",
         "eslint": "^8.27.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-svelte3": "^4.0.0",
