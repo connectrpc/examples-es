@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "@bufbuild/buf": "^1.14.0",
+    "@bufbuild/buf": "^1.15.0",
     "@bufbuild/connect-web": "^0.8.0",
     "@bufbuild/protobuf": "^1.0.0",
     "@bufbuild/protoc-gen-connect-es": "^0.8.0",
