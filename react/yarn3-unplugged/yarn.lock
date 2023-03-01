@@ -520,13 +520,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protoc-gen-connect-es@npm:^0.8.0":
-  version: 0.8.0
-  resolution: "@bufbuild/protoc-gen-connect-es@npm:0.8.0"
+"@bufbuild/protoc-gen-connect-es@npm:^0.8.1":
+  version: 0.8.1
+  resolution: "@bufbuild/protoc-gen-connect-es@npm:0.8.1"
   dependencies:
     "@bufbuild/protoplugin": ^1.0.0
   peerDependencies:
-    "@bufbuild/connect": 0.8.0
+    "@bufbuild/connect": 0.8.1
     "@bufbuild/protoc-gen-es": ^1.0.0
   peerDependenciesMeta:
     "@bufbuild/connect":
@@ -535,7 +535,7 @@ __metadata:
       optional: true
   bin:
     protoc-gen-connect-es: bin/protoc-gen-connect-es
-  checksum: 3a6ec708790cd1f3d78f4a37daa0e23514bd63a6e0584b8b5cd91414d8a8e2b99706d876c495df2b59eb3726c25c444e1cf601c7515e7c1bc36594a3ea7eab23
+  checksum: e44a031c03a3e9d3b41ee7d2fb4221e4f6c16401a379c327c1a38b34c501363253a1004032adbe367f6d277ead6360924c955578bbac528101153a72e6ec659a
   languageName: node
   linkType: hard
 
@@ -1466,7 +1466,7 @@ __metadata:
     "@bufbuild/buf": ^1.14.0
     "@bufbuild/connect-web": ^0.8.0
     "@bufbuild/protobuf": ^1.0.0
-    "@bufbuild/protoc-gen-connect-es": ^0.8.0
+    "@bufbuild/protoc-gen-connect-es": ^0.8.1
     "@bufbuild/protoc-gen-es": ^1.0.0
     esbuild: ^0.17.5
     jest: ^29.4.1
