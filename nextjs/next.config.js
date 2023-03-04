@@ -1,18 +1,18 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  webpack: (config) => {
-     config.resolve = {
-        ...config.resolve,
-        extensionAlias: {
-              '.js': ['.ts', '.js'],
-        },
-     };
+export default {
+    reactStrictMode: true,
+    swcMinify: true,
+    webpack: (config) => {
+        config.resolve = {
+            ...config.resolve,
+            extensionAlias: {
+                '.js': ['.ts', '.js'],
+            },
+        }
 
-     return config
-   },
+        return config
+    },
+    experimental: {
+        appDir: true,
+    },
 }
-
-module.exports = nextConfig
-

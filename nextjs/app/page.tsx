@@ -1,20 +1,38 @@
-import React, { useState } from 'react'
+'use client'
+
+import React, { useEffect, useState } from 'react'
 import styles from '../styles/Eliza.module.css'
-import {
-    createPromiseClient
-} from '@bufbuild/connect'
-import {
-    createConnectTransport,
-} from '@bufbuild/connect-web'
+import { createPromiseClient } from '@bufbuild/connect'
+import { createGrpcWebTransport } from '@bufbuild/connect-web'
 import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connect.js'
-import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb.js'
+import {
+    IntroduceRequest,
+    SayResponse,
+} from '../gen/buf/connect/demo/eliza/v1/eliza_pb.js'
 
 interface Response {
     text: string
     sender: 'eliza' | 'user'
 }
 
+export interface AnswerViewWrapperProps {
+    readonly answer: SayResponse
+}
+
+export function AnswerViewWrapper({ answer }: AnswerViewWrapperProps) {
+    return <AnswerView answer={answer.sentence} />
+}
+
+export interface AnswerViewProps {
+    readonly answer: string
+}
+
+export function AnswerView({ answer }: AnswerViewProps) {
+    return <span>HIIIIII {answer}</span>
+}
+
 function App() {
+    const [answer, setAnswer] = useState<SayResponse>(new SayResponse())
     const [statement, setStatement] = useState<string>('')
     const [introFinished, setIntroFinished] = useState<boolean>(false)
     const [responses, setResponses] = useState<Response[]>([
@@ -27,10 +45,22 @@ function App() {
     // Make the Eliza Service client
     const client = createPromiseClient(
         ElizaService,
-        createConnectTransport({
+        createGrpcWebTransport({
             baseUrl: 'https://demo.connect.build',
         })
     )
+
+    useEffect(() => {
+        ;(async () => {
+            console.log('calling')
+            const answer = await client.say({ sentence: 'I feel happy.' })
+            setAnswer(answer)
+        })()
+
+        return () => {
+            // this now gets called when the component unmounts
+        }
+    }, [])
 
     const send = async (sentence: string) => {
         setResponses((resp) => [...resp, { text: sentence, sender: 'user' }])
@@ -79,6 +109,7 @@ function App() {
 
     return (
         <div>
+            <AnswerViewWrapper answer={answer} />
             <header className={styles.appHeader}>
                 <h1 className={styles.headline}>Eliza</h1>
                 <h4 className={styles.subtitle}>Next.js</h4>
@@ -106,7 +137,9 @@ function App() {
                         onChange={handleStatementChange}
                         onKeyPress={handleKeyPress}
                     />
-                    <button className={styles.button} onClick={handleSend}>Send</button>
+                    <button className={styles.button} onClick={handleSend}>
+                        Send
+                    </button>
                 </div>
             </div>
         </div>
