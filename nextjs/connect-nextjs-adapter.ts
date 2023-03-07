@@ -78,10 +78,18 @@ export function nextJsApiRouter(options: NextJsApiRouterOptions): ApiRoute {
             ;(options.fallback ?? fallback)(req, res)
             return
         }
+        console.log('calling uhandler')
         const uRes = await uHandler(
             universalRequestFromNodeRequest(req, req.body)
         )
-        await universalResponseToNodeResponse(uRes, res)
+        console.log('awaiting a universal response')
+        console.log(uRes)
+        console.log(res)
+        try {
+            await universalResponseToNodeResponse(uRes, res)
+        } catch (e) {
+            console.log('shit failed ', e)
+        }
     }
     return {
         handler,
