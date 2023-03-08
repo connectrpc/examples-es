@@ -21,12 +21,12 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@bufbuild/buf": "1.14.0-1",
-    "@bufbuild/connect": "^0.8.0",
-    "@bufbuild/connect-web": "^0.8.0",
-    "@bufbuild/protobuf": "^1.0.0",
-    "@bufbuild/protoc-gen-connect-es": "^0.8.0",
-    "@bufbuild/protoc-gen-es": "^1.0.0",
+    "@bufbuild/buf": "1.15.0",
+    "@bufbuild/connect": "^0.8.3",
+    "@bufbuild/connect-web": "^0.8.3",
+    "@bufbuild/protobuf": "^1.1.0",
+    "@bufbuild/protoc-gen-connect-es": "^0.8.3",
+    "@bufbuild/protoc-gen-es": "^1.1.0",
     "@remix-run/dev": "^1.8.1",
     "@remix-run/eslint-config": "^1.6.4",
     "@types/react": "^18.0.25",
