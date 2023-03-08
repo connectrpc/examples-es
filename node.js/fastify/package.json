@@ -7,8 +7,8 @@
     "start": "tsx server.ts"
   },
   "devDependencies": {
-    "@bufbuild/connect-fastify": "^0.8.0",
-    "@bufbuild/connect-node": "^0.8.0",
+    "@bufbuild/connect-fastify": "^0.8.3",
+    "@bufbuild/connect-node": "^0.8.3",
     "tsx": "^3.12.3"
   }
 }
