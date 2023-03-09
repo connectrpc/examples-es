@@ -1,10 +1,7 @@
-// server.js
 import { createServer } from 'http'
 import next from 'next'
 import { nextJsApiRouter } from './connect-nextjs-adapter.js'
-// const { nextJsApiRouter } = require('./connect-nextjs-adapter.js')
 import routes from './connect.js'
-// import router from './connect.js'
 
 const dev = process.env.NODE_ENV !== 'production'
 const hostname = 'localhost'
