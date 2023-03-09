@@ -49,6 +49,10 @@ interface NextJsApiRouterOptions extends ConnectRouterOptions {
      */
     routes: (router: ConnectRouter) => void
 
+    /**
+     * If none of the handler request paths match, a 404 is served. This option
+     * can provide a custom fallback for this case.
+     */
     fallback: (request: NextApiRequest, response: NextApiResponse) => void
 
     /**
@@ -57,7 +61,7 @@ interface NextJsApiRouterOptions extends ConnectRouterOptions {
      *
      * This is `/api` by default for Next.js.
      */
-    prefix?: string
+    requestPathPrefix?: string
 }
 
 export function nextJsApiRouter(options: NextJsApiRouterOptions): ApiRoute {
@@ -66,7 +70,7 @@ export function nextJsApiRouter(options: NextJsApiRouterOptions): ApiRoute {
     }
     const router = createConnectRouter(options)
     options.routes(router)
-    const prefix = options.prefix ?? '/api'
+    const prefix = options.requestPathPrefix ?? '/api'
     const paths = new Map<string, UniversalHandler>()
     for (const uHandler of router.handlers) {
         paths.set(prefix + uHandler.requestPath, uHandler)
