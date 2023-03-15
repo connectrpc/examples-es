@@ -18,13 +18,13 @@
     "tsx": "^3.12.2"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.15.0",
+    "@bufbuild/buf": "^1.15.0-1",
     "@bufbuild/connect": "^0.8.4",
     "@bufbuild/connect-node": "^0.8.4",
     "@bufbuild/connect-web": "^0.8.4",
-    "@bufbuild/protobuf": "^1.1.0",
+    "@bufbuild/protobuf": "^1.1.1",
     "@bufbuild/protoc-gen-connect-es": "^0.8.4",
-    "@bufbuild/protoc-gen-es": "^1.1.0",
+    "@bufbuild/protoc-gen-es": "^1.1.1",
     "@types/jasmine": "^4.3.1",
     "@types/node": "18.11.18",
     "eslint": "8.33.0",
