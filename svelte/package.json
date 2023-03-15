@@ -14,11 +14,11 @@
         "format": "prettier --write --ignore-path ../.prettierignore ."
     },
     "devDependencies": {
-        "@bufbuild/buf": "^1.15.0",
-        "@bufbuild/connect-web": "^0.8.3",
-        "@bufbuild/protobuf": "^1.1.0",
-        "@bufbuild/protoc-gen-connect-es": "^0.8.3",
-        "@bufbuild/protoc-gen-es": "^1.1.0",
+        "@bufbuild/buf": "^1.15.0-1",
+        "@bufbuild/connect-web": "^0.8.4",
+        "@bufbuild/protobuf": "^1.1.1",
+        "@bufbuild/protoc-gen-connect-es": "^0.8.4",
+        "@bufbuild/protoc-gen-es": "^1.1.1",
         "@playwright/test": "^1.30.0",
         "@sveltejs/adapter-auto": "next",
         "@sveltejs/kit": "next",
