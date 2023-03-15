@@ -12,45 +12,45 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import http from 'http'
-import express from 'express'
-import cors from 'cors'
-import { cors as connectCors } from '@bufbuild/connect'
-import { expressConnectMiddleware } from '@bufbuild/connect-express'
-import { readFileSync } from 'fs'
-import { stdout } from 'process'
-import * as esbuild from 'esbuild'
-import routes from '../connect'
+import http from 'http';
+import express from 'express';
+import cors from 'cors';
+import { cors as connectCors } from '@bufbuild/connect';
+import { expressConnectMiddleware } from '@bufbuild/connect-express';
+import { readFileSync } from 'fs';
+import { stdout } from 'process';
+import * as esbuild from 'esbuild';
+import routes from '../connect';
 
-const PORT = 3000
+const PORT = 3000;
 
 const corsOptions: cors.CorsOptions = {
     origin: 'http://localhost:8080',
     methods: [...connectCors.allowedMethods],
     allowedHeaders: [...connectCors.allowedHeaders],
     exposedHeaders: [...connectCors.exposedHeaders],
-}
+};
 
-const app = express()
+const app = express();
 
-app.use(cors(corsOptions))
+app.use(cors(corsOptions));
 app.use(
     expressConnectMiddleware({
         routes,
     })
-)
+);
 
 app.get('/', (_, res) => {
-    res.writeHead(200, { 'content-type': 'text/html' })
-    res.write(readFileSync('../www/index-express.html', 'utf8'), 'utf8')
-    res.end()
-})
+    res.writeHead(200, { 'content-type': 'text/html' });
+    res.write(readFileSync('../www/index-express.html', 'utf8'), 'utf8');
+    res.end();
+});
 
 app.get('/app.css', (_, res) => {
-    res.writeHead(200, { 'content-type': 'text/css' })
-    res.write(readFileSync('../www/app.css', 'utf8'), 'utf8')
-    res.end()
-})
+    res.writeHead(200, { 'content-type': 'text/css' });
+    res.write(readFileSync('../www/app.css', 'utf8'), 'utf8');
+    res.end();
+});
 
 app.get('/webclient.js', (_, res) => {
     void esbuild
@@ -63,14 +63,14 @@ app.get('/webclient.js', (_, res) => {
         .then((result) => {
             res.writeHead(200, {
                 'content-type': 'application/javascript',
-            })
-            res.write(result.outputFiles[0].text, 'utf8')
-            res.end()
-        })
-})
+            });
+            res.write(result.outputFiles[0].text, 'utf8');
+            res.end();
+        });
+});
 
 http.createServer(app).listen(PORT, () => {
-    stdout.write(`The app is running on http://localhost:${PORT}\n`)
-    stdout.write('Run `npm run client` for a terminal client.\n')
-    stdout.write('Run `npm run serve for a web client using CORS.\n')
-})
+    stdout.write(`The app is running on http://localhost:${PORT}\n`);
+    stdout.write('Run `npm run client` for a terminal client.\n');
+    stdout.write('Run `npm run serve for a web client using CORS.\n');
+});
