@@ -15,6 +15,7 @@
 import http from 'http'
 import express from 'express'
 import cors from 'cors'
+import { cors as connectCors } from '@bufbuild/connect'
 import { expressConnectMiddleware } from '@bufbuild/connect-express'
 import { readFileSync } from 'fs'
 import { stdout } from 'process'
@@ -25,8 +26,9 @@ const PORT = 3000
 
 const corsOptions: cors.CorsOptions = {
     origin: 'http://localhost:8080',
-    methods: ['POST'],
-    allowedHeaders: ['connect-protocol-version', 'content-type'],
+    methods: [...connectCors.allowedMethods],
+    allowedHeaders: [...connectCors.allowedHeaders],
+    exposedHeaders: [...connectCors.exposedHeaders],
 }
 
 const app = express()
