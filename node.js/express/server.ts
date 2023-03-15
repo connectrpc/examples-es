@@ -72,5 +72,5 @@ app.get('/webclient.js', (_, res) => {
 http.createServer(app).listen(PORT, () => {
     stdout.write(`The app is running on http://localhost:${PORT}\n`);
     stdout.write('Run `npm run client` for a terminal client.\n');
-    stdout.write('Run `npm run serve for a web client using CORS.\n');
+    stdout.write('Run `npm run serve` for a web client using CORS.\n');
 });
