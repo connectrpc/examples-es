@@ -516,7 +516,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/connect@npm:0.8.4, @bufbuild/connect@npm:^0.8.3":
+"@bufbuild/connect@npm:0.8.4, @bufbuild/connect@npm:^0.8.4":
   version: 0.8.4
   resolution: "@bufbuild/connect@npm:0.8.4"
   peerDependencies:
@@ -1777,7 +1777,7 @@ __metadata:
   resolution: "buf-yarn-pnp@workspace:."
   dependencies:
     "@bufbuild/buf": ^1.15.0-1
-    "@bufbuild/connect": ^0.8.3
+    "@bufbuild/connect": ^0.8.4
     "@bufbuild/connect-web": ^0.8.4
     "@bufbuild/protobuf": ^1.1.1
     "@bufbuild/protoc-gen-connect-es": ^0.8.4
