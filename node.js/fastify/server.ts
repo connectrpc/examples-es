@@ -47,5 +47,6 @@ server.get('/webclient.js', (_, reply) => {
 })
 
 await server.listen({ host: 'localhost', port: 3000 })
-console.log('server is listening at', server.addresses())
+console.log('The app is running at', server.addresses())
 console.log('Run `npm run client` for a terminal client.\n')
+console.log('Run `npm run serve` for a web client using CORS.\n')

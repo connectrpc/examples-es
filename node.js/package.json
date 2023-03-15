@@ -6,12 +6,15 @@
   "scripts": {
     "start:vanilla": "npm --prefix vanilla run start",
     "start:fastify": "npm --prefix fastify run start",
+    "start:express": "npm --prefix express run start",
+    "serve": "tsc --noEmit && esbuild webclient.ts --serve=localhost:8080 --servedir=www --outdir=www --bundle --global-name=eliza",
     "client": "tsx client.ts",
     "buf:generate": "npx buf generate buf.build/bufbuild/eliza",
     "build": "tsc --noEmit",
     "test": "NODE_OPTIONS=--experimental-vm-modules ts-node --esm node_modules/.bin/jasmine --config=spec/support/jasmine.json"
   },
   "dependencies": {
+    "esbuild": "^0.17.11",
     "tsx": "^3.12.2"
   },
   "devDependencies": {

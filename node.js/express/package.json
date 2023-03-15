@@ -1,0 +1,19 @@
+{
+  "name": "buf-express",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx server.ts"
+  },
+  "devDependencies": {
+    "@bufbuild/connect-express": "^0.8.3",
+    "@bufbuild/connect-node": "^0.8.3",
+    "@types/cors": "^2.8.13",
+    "tsx": "^3.12.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
