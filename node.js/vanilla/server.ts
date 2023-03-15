@@ -19,8 +19,6 @@ import http from 'http'
 import { readFileSync } from 'fs'
 import { stdout } from 'process'
 
-const PORT = 3000
-
 // The adapter turns our RPC routes into as Node.js request handler.
 const handler = connectNodeAdapter({
     routes,
@@ -64,8 +62,7 @@ const handler = connectNodeAdapter({
     },
 })
 
-http.createServer(handler).listen(PORT, () => {
-    stdout.write(`The app is running on http://localhost:${PORT}\n`)
+http.createServer(handler).listen(3000, () => {
+    stdout.write('The server is listening on http://localhost:3000\n')
     stdout.write('Run `npm run client` for a terminal client.\n')
-    stdout.write('Run `npm run serve for a web client using CORS.\n')
 })
