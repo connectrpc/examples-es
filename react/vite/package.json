@@ -22,7 +22,7 @@
         "@bufbuild/protoc-gen-connect-es": "^0.8.3",
         "@bufbuild/protoc-gen-es": "^1.1.0",
         "@types/react": "^18.0.27",
-        "@types/react-dom": "^18.0.10",
+        "@types/react-dom": "^18.0.11",
         "@vitejs/plugin-react": "^2.2.0",
         "@vitest/coverage-c8": "^0.28.3",
         "c8": "^7.12.0",
