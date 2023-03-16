@@ -10,23 +10,23 @@
     "buf:generate": "npx buf generate buf.build/bufbuild/eliza"
   },
   "dependencies": {
+    "@expo/webpack-config": "^18.0.1",
     "expo": "~48.0.7",
     "expo-status-bar": "~1.4.4",
     "fast-text-encoding": "^1.0.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.71.3",
-    "react-native-web": "0.18.10",
-    "@expo/webpack-config": "^18.0.1"
+    "react-native-web": "0.18.10"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
     "@babel/plugin-proposal-async-generator-functions": "^7.20.7",
-    "@bufbuild/buf": "^1.15.0",
-    "@bufbuild/connect-web": "^0.8.3",
-    "@bufbuild/protobuf": "^1.1.0",
-    "@bufbuild/protoc-gen-connect-es": "^0.8.3",
-    "@bufbuild/protoc-gen-es": "^1.1.0",
+    "@bufbuild/buf": "^1.15.0-1",
+    "@bufbuild/connect-web": "^0.8.4",
+    "@bufbuild/protobuf": "^1.1.1",
+    "@bufbuild/protoc-gen-connect-es": "^0.8.4",
+    "@bufbuild/protoc-gen-es": "^1.1.1",
     "@types/react": "~18.0.28",
     "@types/react-native": "~0.66.13",
     "babel-jest": "^29.4.1",
