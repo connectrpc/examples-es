@@ -25,7 +25,9 @@ import routes from '../connect';
 const PORT = 3000;
 
 const corsOptions: cors.CorsOptions = {
-    origin: 'http://localhost:8080',
+    // Reflects the request origin. This should only be used for development.
+    // Production should explicitly specify an origin
+    origin: true,
     methods: [...connectCors.allowedMethods],
     allowedHeaders: [...connectCors.allowedHeaders],
     exposedHeaders: [...connectCors.exposedHeaders],
@@ -42,20 +44,20 @@ app.use(
 
 app.get('/', (_, res) => {
     res.writeHead(200, { 'content-type': 'text/html' });
-    res.write(readFileSync('../www/index-express.html', 'utf8'), 'utf8');
+    res.write(readFileSync('./www/index-fullstack.html', 'utf8'), 'utf8');
     res.end();
 });
 
 app.get('/app.css', (_, res) => {
     res.writeHead(200, { 'content-type': 'text/css' });
-    res.write(readFileSync('../www/app.css', 'utf8'), 'utf8');
+    res.write(readFileSync('./www/app.css', 'utf8'), 'utf8');
     res.end();
 });
 
 app.get('/webclient.js', (_, res) => {
     void esbuild
         .build({
-            entryPoints: ['../webclient.ts'],
+            entryPoints: ['./webclient.ts'],
             bundle: true,
             write: false,
             globalName: 'eliza',
