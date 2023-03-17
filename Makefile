@@ -129,8 +129,9 @@ updatenode:
 .PHONY: testnode
 testnode:
 	npm --prefix node.js install || exit 1 ;\
-	npm --prefix node.js/fastify install || exit 1 ;\
 	npm --prefix node.js/vanilla install || exit 1 ;\
+	npm --prefix node.js/fastify install || exit 1 ;\
+	npm --prefix node.js/express install || exit 1 ;\
 	npm --prefix node.js run build || exit 1 ;\
 	npm --prefix node.js run buf:generate || exit 1 ;\
 	npm --prefix node.js run test || exit 1 ;\
