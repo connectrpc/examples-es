@@ -28,7 +28,7 @@ function App() {
     const client = createPromiseClient(
         ElizaService,
         createConnectTransport({
-            baseUrl: 'http://localhost:3000/api',
+            baseUrl: '/api',
         })
     )
 
