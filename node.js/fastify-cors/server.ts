@@ -14,19 +14,18 @@
 
 import { fastify } from 'fastify'
 import { fastifyConnectPlugin } from '@bufbuild/connect-fastify'
-import cors from '@fastify/cors'
+import { cors } from '@bufbuild/connect'
+import fastifyCors from '@fastify/cors'
 import { readFileSync } from 'fs'
 import routes from '../connect'
 
 const server = fastify()
 
-await server.register(cors, {
-    origin: "*",
-    allowedHeaders: [
-        "content-type",
-        "Connect-Protocol-Version",
-        "Access-Control-Allow-Origin",
-    ],
+await server.register(fastifyCors, {
+    origin: true,
+    methods: [...cors.allowedMethods],
+    allowedHeaders: [...cors.allowedHeaders],
+    exposedHeaders: [...cors.exposedHeaders],
 })
 await server.register(fastifyConnectPlugin, { routes })
 
