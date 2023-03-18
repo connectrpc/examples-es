@@ -23,7 +23,7 @@ const rl = readline.createInterface(stdin, stdout);
 // Alternatively, use createGrpcTransport or createGrpcWebTransport here
 // to use one of the other supported protocols.
 const transport = createConnectTransport({
-    httpVersion: '2',
+    httpVersion: '1.1',
     baseUrl: 'http://localhost:3000',
 });
 
