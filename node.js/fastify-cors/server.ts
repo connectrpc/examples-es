@@ -22,7 +22,7 @@ import routes from '../connect'
 const server = fastify()
 
 await server.register(fastifyCors, {
-    origin: true,
+    origin: true, // Only recommended for development
     methods: [...cors.allowedMethods],
     allowedHeaders: [...cors.allowedHeaders],
     exposedHeaders: [...cors.exposedHeaders],
