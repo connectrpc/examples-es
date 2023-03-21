@@ -20,7 +20,7 @@ import { expressConnectMiddleware } from '@bufbuild/connect-express';
 import { readFileSync } from 'fs';
 import { stdout } from 'process';
 import * as esbuild from 'esbuild';
-import routes from '../connect';
+import routes from './connect';
 
 const PORT = 3000;
 

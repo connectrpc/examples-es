@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { connectNodeAdapter } from '@bufbuild/connect-node'
-import routes from '../connect.js'
-import * as esbuild from 'esbuild'
-import http from 'http'
-import { readFileSync } from 'fs'
-import { stdout } from 'process'
+import { connectNodeAdapter } from '@bufbuild/connect-node';
+import routes from './connect.js';
+import * as esbuild from 'esbuild';
+import http from 'http';
+import { readFileSync } from 'fs';
+import { stdout } from 'process';
 
 // The adapter turns our RPC routes into as Node.js request handler.
 const handler = connectNodeAdapter({
@@ -27,18 +27,18 @@ const handler = connectNodeAdapter({
     fallback(req, res) {
         switch (req.url) {
             case '/':
-                res.writeHead(200, { 'content-type': 'text/html' })
+                res.writeHead(200, { 'content-type': 'text/html' });
                 res.write(
                     readFileSync('../www/index-node.html', 'utf8'),
                     'utf8'
-                )
-                res.end()
-                break
+                );
+                res.end();
+                break;
             case '/app.css':
-                res.writeHead(200, { 'content-type': 'text/css' })
-                res.write(readFileSync('../www/app.css', 'utf8'), 'utf8')
-                res.end()
-                break
+                res.writeHead(200, { 'content-type': 'text/css' });
+                res.write(readFileSync('../www/app.css', 'utf8'), 'utf8');
+                res.end();
+                break;
             case '/webclient.js':
                 void esbuild
                     .build({
@@ -50,19 +50,19 @@ const handler = connectNodeAdapter({
                     .then((result) => {
                         res.writeHead(200, {
                             'content-type': 'application/javascript',
-                        })
-                        res.write(result.outputFiles[0].text, 'utf8')
-                        res.end()
-                    })
-                break
+                        });
+                        res.write(result.outputFiles[0].text, 'utf8');
+                        res.end();
+                    });
+                break;
             default:
-                res.writeHead(404)
-                res.end()
+                res.writeHead(404);
+                res.end();
         }
     },
-})
+});
 
 http.createServer(handler).listen(3000, () => {
-    stdout.write('The server is listening on http://localhost:3000\n')
-    stdout.write('Run `npm run client` for a terminal client.\n')
-})
+    stdout.write('The server is listening on http://localhost:3000\n');
+    stdout.write('Run `npm run client` for a terminal client.\n');
+});

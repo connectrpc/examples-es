@@ -18,6 +18,8 @@ BUF := @bufbuild/buf@latest
 
 # All project directories that use npm
 NPM_PROJS = angular \
+	   express \
+	   fastify \
 	   nextjs \
 	   plain \
 	   react/cra \
@@ -29,6 +31,7 @@ NPM_PROJS = angular \
 	   react/webpack-cjs \
 	   react-native \
 	   svelte \
+	   vanilla-node \
 	   vue
 # All project directories that use yarn
 YARN_PROJS = react/yarn-pnp \
@@ -37,16 +40,23 @@ YARN_PROJS = react/yarn-pnp \
 PNPM_PROJS = remix
 
 .PHONY: update
-update:: updatenode ## Update all projects
+update:: ## Update all projects
 	
 .PHONY: test
-test:: testnode ## Test all projects
+test:: ## Test all projects
 
 define updatenpmfunc
 .PHONY: update$(notdir $(1))
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
 	npm --prefix $(1) i -D $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
+	if [ "$(1)" == "fastify" ]; then \
+	   npm --prefix $(1) i -D $(CONNECT_NODE) $(CONNECT_FASTIFY) ;\
+	elif [ "$(1)" == "express" ]; then \
+	   npm --prefix $(1) i -D $(CONNECT_NODE) $(CONNECT_EXPRESS) ;\
+	elif [ "$(1)" == "vanilla-node" ]; then \
+	   npm --prefix $(1) i -D $(CONNECT_NODE) ;\
+	fi ;\
 	npm --prefix $(1) run buf:generate || exit 1 ;\
 
 update:: update$(notdir $(1))
@@ -117,21 +127,3 @@ $(foreach pnpmproj,$(sort $(PNPM_PROJS)),$(eval $(call testpnpmfunc,$(pnpmproj))
 
 .PHONY: all
 all: test
-
-.PHONY: updatenode
-updatenode: 
-	npm --prefix node.js i $(CONNECT_NODE) $(CONNECT_WEB) $(CONNECT) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
-	npm --prefix node.js/vanilla i $(CONNECT_NODE) ;\
-	npm --prefix node.js/fastify i $(CONNECT_NODE) $(CONNECT_FASTIFY) ;\
-	npm --prefix node.js/express i $(CONNECT_NODE) $(CONNECT_EXPRESS) ;\
-	npm --prefix node.js run buf:generate || exit 1 ;\
-
-.PHONY: testnode
-testnode:
-	npm --prefix node.js install || exit 1 ;\
-	npm --prefix node.js/vanilla install || exit 1 ;\
-	npm --prefix node.js/fastify install || exit 1 ;\
-	npm --prefix node.js/express install || exit 1 ;\
-	npm --prefix node.js run build || exit 1 ;\
-	npm --prefix node.js run buf:generate || exit 1 ;\
-	npm --prefix node.js run test || exit 1 ;\

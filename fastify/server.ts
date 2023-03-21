@@ -16,7 +16,7 @@ import { fastify } from 'fastify'
 import { fastifyConnectPlugin } from '@bufbuild/connect-fastify'
 import { readFileSync } from 'fs'
 import * as esbuild from 'esbuild'
-import routes from '../connect'
+import routes from './connect'
 
 const server = fastify()
 

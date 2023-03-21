@@ -1,5 +1,5 @@
 {
-  "name": "buf-express",
+  "name": "buf-vanilla-node",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -11,6 +11,10 @@
     "build": "tsc --noEmit",
     "test": "NODE_OPTIONS=--experimental-vm-modules ts-node --esm node_modules/.bin/jasmine --config=spec/support/jasmine.json"
   },
+  "dependencies": {
+    "esbuild": "^0.17.11",
+    "tsx": "^3.12.2"
+  },
   "devDependencies": {
     "@bufbuild/buf": "^1.15.0-1",
     "@bufbuild/connect": "^0.8.4",
@@ -19,14 +23,10 @@
     "@bufbuild/protobuf": "^1.1.1",
     "@bufbuild/protoc-gen-connect-es": "^0.8.4",
     "@bufbuild/protoc-gen-es": "^1.1.1",
-    "@bufbuild/connect-express": "^0.8.4",
-    "@types/cors": "^2.8.13",
-    "tsx": "^3.12.3",
-    "esbuild": "^0.17.11",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
     "@types/jasmine": "^4.3.1",
     "@types/node": "18.11.18",
+    "eslint": "8.33.0",
+    "eslint-config-next": "13.1.1",
     "jasmine": "^4.5.0",
     "prettier": "^2.8.4",
     "ts-node": "^10.9.1",
