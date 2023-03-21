@@ -1,6 +1,6 @@
 # Eliza
 
-This directory shows examples of Connect for Node.js using the `http2` package from Node.js
+This directory shows examples of Connect for Node.js using the `http` package from Node.js
 
 ## Server
 
