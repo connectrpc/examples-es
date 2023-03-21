@@ -12,40 +12,50 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { fastify } from 'fastify'
-import { fastifyConnectPlugin } from '@bufbuild/connect-fastify'
-import { readFileSync } from 'fs'
-import * as esbuild from 'esbuild'
-import routes from './connect'
+import { fastify } from 'fastify';
+import { fastifyConnectPlugin } from '@bufbuild/connect-fastify';
+import { cors as connectCors } from '@bufbuild/connect';
+import fastifyCors from '@fastify/cors';
+import { readFileSync } from 'fs';
+import * as esbuild from 'esbuild';
+import routes from './connect';
 
-const server = fastify()
+const server = fastify();
 
-await server.register(fastifyConnectPlugin, { routes })
+await server.register(fastifyCors, {
+    origin: true, // Only recommended for development
+    methods: [...connectCors.allowedMethods],
+    allowedHeaders: [...connectCors.allowedHeaders],
+    exposedHeaders: [...connectCors.exposedHeaders],
+});
+
+await server.register(fastifyConnectPlugin, { routes });
 
 server.get('/', (_, reply) => {
-    reply.type('text/html')
-    reply.send(readFileSync('../www/index-fastify.html', 'utf8'))
-})
+    reply.type('text/html');
+    reply.send(readFileSync('./www/index-fullstack.html', 'utf8'));
+});
 
 server.get('/app.css', (_, reply) => {
-    reply.type('text/css')
-    reply.send(readFileSync('../www/app.css', 'utf8'))
-})
+    reply.type('text/css');
+    reply.send(readFileSync('./www/app.css', 'utf8'));
+});
 
 server.get('/webclient.js', (_, reply) => {
     void esbuild
         .build({
-            entryPoints: ['../webclient.ts'],
+            entryPoints: ['./webclient.ts'],
             bundle: true,
             write: false,
             globalName: 'eliza',
         })
         .then((result) => {
-            reply.type('application/javascript')
-            reply.send(result.outputFiles[0].text)
-        })
-})
+            reply.type('application/javascript');
+            reply.send(result.outputFiles[0].text);
+        });
+});
 
-await server.listen({ host: 'localhost', port: 3000 })
-console.log('server is listening at', server.addresses())
-console.log('Run `npm run client` for a terminal client.\n')
+await server.listen({ host: 'localhost', port: 3000 });
+console.log('The app is running on ', server.addresses());
+console.log('Run `npm run client` for a terminal client.');
+console.log('Run `npm run serve` for a web client using CORS.');

@@ -26,6 +26,7 @@
     "tsx": "^3.12.3"
   },
   "dependencies": {
+    "@fastify/cors": "^8.2.1",
     "jasmine": "^4.6.0",
     "ts-node": "^10.9.1"
   }

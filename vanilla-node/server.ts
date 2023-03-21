@@ -13,11 +13,15 @@
 // limitations under the License.
 
 import { connectNodeAdapter } from '@bufbuild/connect-node';
+import { cors as connectCors } from '@bufbuild/connect';
+import cors from 'cors';
 import routes from './connect.js';
 import * as esbuild from 'esbuild';
 import http from 'http';
 import { readFileSync } from 'fs';
 import { stdout } from 'process';
+
+const PORT = 3000;
 
 // The adapter turns our RPC routes into as Node.js request handler.
 const handler = connectNodeAdapter({
@@ -62,7 +66,18 @@ const handler = connectNodeAdapter({
     },
 });
 
-http.createServer(handler).listen(3000, () => {
-    stdout.write('The server is listening on http://localhost:3000\n');
+// CORS example using Express middleware with vanilla HTTP server
+const corsHandler = cors({
+    origin: true, // Only recommended for development
+    methods: [...connectCors.allowedMethods],
+    allowedHeaders: [...connectCors.allowedHeaders],
+    exposedHeaders: [...connectCors.exposedHeaders],
+});
+
+http.createServer((req, res) => {
+    corsHandler(req, res, () => handler(req, res));
+}).listen(PORT, () => {
+    stdout.write(`The app is running on http://localhost:${PORT}\n`);
     stdout.write('Run `npm run client` for a terminal client.\n');
+    stdout.write('Run `npm run serve` for a web client using CORS.\n');
 });
