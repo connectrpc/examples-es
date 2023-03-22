@@ -54,10 +54,21 @@ The [React Native](react-native) application was generated with the [Expo CLI](h
 
 ## Servers
 
-### Node.js
+The server examples make use of Connect for Node.js using various frameworks. All servers serve both Connect endpoints 
+and the Eliza frontend interface. There are multiple kinds of clients available that can be used to interact with the 
+server such as a terminal client and browser clients using both a full-stack setup as well as a CORS setup.
 
-The [Node.js](node.js) directory contains examples involving Connect for Node. There are various server implementations
-that will serve both Connect endpoints and the Eliza frontend interface. There are server examples showing vanilla
-Node.js (using the `http` package) and [Fastify](https://fastify.io).
+### Express
 
-In addition, there is a terminal client that can be run to interact with the servers.
+The [express](express) directory contains an example involving Connect for Node.js with the [Express](https://expressjs.com)
+framework. 
+
+### Fastify
+
+The [fastify](fastify) directory contains an example involving Connect for Node.js with the [Fastify](https://fastify.io)
+framework. 
+
+### Vanilla Node.js
+
+The [vanilla-node](vanilla-node) directory contains an example involving Connect for Node.js with vanilla Node.js using
+the `http` package. 
