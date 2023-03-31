@@ -6,13 +6,20 @@ SHELL := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 MAKEFLAGS += --no-print-directory
+CONNECT := @bufbuild/connect@latest
 CONNECT_WEB := @bufbuild/connect-web@latest
-PROTOC_GEN_CONNECT_WEB := @bufbuild/protoc-gen-connect-web@latest
+CONNECT_NODE := @bufbuild/connect-node@latest
+CONNECT_FASTIFY := @bufbuild/connect-fastify@latest
+CONNECT_EXPRESS := @bufbuild/connect-express@latest
+PROTOC_GEN_CONNECT_ES := @bufbuild/protoc-gen-connect-es@latest
 PROTOBUF := @bufbuild/protobuf@latest
 PROTOC_GEN_ES := @bufbuild/protoc-gen-es@latest
+BUF := @bufbuild/buf@latest
 
 # All project directories that use npm
 NPM_PROJS = angular \
+	   express \
+	   fastify \
 	   nextjs \
 	   plain \
 	   react/cra \
@@ -24,23 +31,34 @@ NPM_PROJS = angular \
 	   react/webpack-cjs \
 	   react-native \
 	   svelte \
+	   vanilla-node \
 	   vue \
-	   astro
+		 astro
 
 # All project directories that use yarn
-YARN_PROJS = react/yarn3 \
-			 react/yarn3-unplugged
+YARN_PROJS = react/yarn-pnp \
+			 react/yarn-unplugged
 # All project directories that use pnpm
 PNPM_PROJS = remix
 
 .PHONY: update
 update:: ## Update all projects
+	
+.PHONY: test
+test:: ## Test all projects
 
 define updatenpmfunc
 .PHONY: update$(notdir $(1))
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
-	npm --prefix $(1) i -D $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_WEB) $(PROTOBUF) $(PROTOC_GEN_ES) ;\
+	npm --prefix $(1) i -D $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
+	if [ "$(1)" == "fastify" ]; then \
+	   npm --prefix $(1) i -D $(CONNECT_NODE) $(CONNECT_FASTIFY) ;\
+	elif [ "$(1)" == "express" ]; then \
+	   npm --prefix $(1) i -D $(CONNECT_NODE) $(CONNECT_EXPRESS) ;\
+	elif [ "$(1)" == "vanilla-node" ]; then \
+	   npm --prefix $(1) i -D $(CONNECT_NODE) ;\
+	fi ;\
 	npm --prefix $(1) run buf:generate || exit 1 ;\
 
 update:: update$(notdir $(1))
@@ -62,7 +80,7 @@ define updateyarnfunc
 .PHONY: update$(notdir $(1))
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
-	yarn --cwd $(1) add $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_WEB) $(PROTOBUF) $(PROTOC_GEN_ES) ;\
+	yarn --cwd $(1) add $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
 	yarn --cwd $(1) buf:generate || exit 1 ;\
 
 update:: update$(notdir $(1))
@@ -84,7 +102,7 @@ define updatepnpmfunc
 .PHONY: update$(notdir $(1))
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
-	pnpm --prefix $(1) i -D $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_WEB) $(PROTOBUF) $(PROTOC_GEN_ES) ;\
+	pnpm --prefix $(1) i -D $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
 	pnpm --prefix $(1) run buf:generate || exit 1 ;\
 
 update:: update$(notdir $(1))
@@ -101,7 +119,6 @@ test$(notdir $(1)):
 
 test:: test$(notdir $(1))
 endef
-
 
 $(foreach npmproj,$(sort $(NPM_PROJS)),$(eval $(call updatenpmfunc,$(npmproj))))
 $(foreach npmproj,$(sort $(NPM_PROJS)),$(eval $(call testnpmfunc,$(npmproj))))

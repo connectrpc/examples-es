@@ -1,8 +1,10 @@
 import {
-    createPromiseClient,
+    createPromiseClient
+} from '@bufbuild/connect'
+import {
     createConnectTransport,
 } from '@bufbuild/connect-web'
-import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connectweb.js'
+import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connect.js'
 import { IntroduceRequest } from './gen/buf/connect/demo/eliza/v1/eliza_pb.js'
 
 let introFinished = false;

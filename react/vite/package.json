@@ -6,28 +6,29 @@
     "scripts": {
         "start": "npm run buf:generate && vite --port 3000",
         "build": "tsc && vite build",
-        "buf:generate": "buf generate buf.build/bufbuild/eliza",
+        "buf:generate": "npx buf generate buf.build/bufbuild/eliza",
         "test": "vitest run",
         "coverage": "vitest run --coverage"
     },
     "dependencies": {
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "web-vitals": "^3.1.0"
+        "web-vitals": "^3.1.1"
     },
     "devDependencies": {
-        "@bufbuild/connect-web": "^0.7.0",
-        "@bufbuild/protobuf": "^1.0.0",
-        "@bufbuild/protoc-gen-connect-web": "^0.7.0",
-        "@bufbuild/protoc-gen-es": "^1.0.0",
+        "@bufbuild/buf": "^1.15.0-1",
+        "@bufbuild/connect-web": "^0.8.4",
+        "@bufbuild/protobuf": "^1.1.1",
+        "@bufbuild/protoc-gen-connect-es": "^0.8.4",
+        "@bufbuild/protoc-gen-es": "^1.1.1",
         "@types/react": "^18.0.27",
-        "@types/react-dom": "^18.0.10",
+        "@types/react-dom": "^18.0.11",
         "@vitejs/plugin-react": "^2.2.0",
-        "@vitest/coverage-c8": "^0.28.3",
+        "@vitest/coverage-c8": "^0.29.2",
         "c8": "^7.12.0",
         "jsdom": "^21.1.0",
         "typescript": "^4.9.3",
         "vite": "^3.0.0",
-        "vitest": "^0.26.3"
+        "vitest": "^0.29.2"
     }
 }

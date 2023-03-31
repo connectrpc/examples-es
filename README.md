@@ -1,16 +1,9 @@
-# Connect Web Integration
+# Connect-ES Integration
 
-Connect Web Integration is a repository of example projects using Connect-Web with various JS frameworks and tooling.
-It provides numerous examples for integrating Connect-Web into a project.
+Connect-ES Integration is a repository of example projects using Connect with various TypeScript web frameworks and tooling.
+It provides numerous examples for integrating Connect into a project, using both Connect for Web and Connect for Node.
 
-All projects test Connect-Web against the Eliza demo running at https://demo.connect.build.  Each project illustrates an example
-of unary and server-streaming with the exception of React Native (see [Connect-Web docs](https://connect.build/docs/web/supported-browsers-and-frameworks) for an explanation why).
-
-## Pre-requisites
-
-Before running any example project, make sure you have [Buf](https://docs.buf.build/installation) installed.
-
-## Projects
+## Web
 
 ### Angular
 
@@ -36,15 +29,10 @@ tooling differences the related projects were constructed with:
 * [vite](react/vite) - Generated with [Vite](https://github.com/vitejs/vite) and all associated defaults.
 * [webpack](react/webpack) - Built from scratch with [Webpack](https://webpack.js.org) as the bundler.
 * [webpack-cjs](react/webpack-cjs) - Built from scratch with [Webpack](https://webpack.js.org) as the bundler, using CommonJS import syntax.
-* [yarn3-unplugged](react/yarn3-unplugged) - Built from scratch with [Yarn 3](https://yarnpkg.com) in [unplugged mode](https://yarnpkg.com/getting-started/migration#step-by-step).
-* [yarn3](react/yarn3) - Built from scratch with [Yarn 3](https://yarnpkg.com) and [PnP mode](https://yarnpkg.com/features/pnp).
-
+* [yarn-unplugged](react/yarn-unplugged) - Built from scratch with [Yarn 3](https://yarnpkg.com) in [unplugged mode](https://yarnpkg.com/getting-started/migration#step-by-step).
+* [yarn-pnp](react/yarn-pnp) - Built from scratch with [Yarn 3](https://yarnpkg.com) and [PnP mode](https://yarnpkg.com/features/pnp).
 
 Each project also uses various tools for testing, linting, etc.  These variances are noted in each project README.
-
-### React Native
-
-The [React Native](react-native) application was generated with the [Expo CLI](https://docs.expo.dev/workflow/expo-cli/) and all suggested defaults.
 
 ### Remix
 
@@ -57,3 +45,30 @@ The [Svelte](svelte) application was generated with `npm create svelte <app name
 ### Vue
 
 The [Vue](vue) application was generated with `npm init vue@latest` and all suggested defaults.
+
+## Mobile
+
+### React Native
+
+The [React Native](react-native) application was generated with the [Expo CLI](https://docs.expo.dev/workflow/expo-cli/) and all suggested defaults.
+
+## Servers
+
+The server examples make use of Connect for Node.js using various frameworks. All servers serve both Connect endpoints 
+and the Eliza frontend interface. There are multiple kinds of clients available that can be used to interact with the 
+server such as a terminal client and browser clients using both a full-stack setup as well as a CORS setup.
+
+### Express
+
+The [express](express) directory contains an example involving Connect for Node.js with the [Express](https://expressjs.com)
+framework. 
+
+### Fastify
+
+The [fastify](fastify) directory contains an example involving Connect for Node.js with the [Fastify](https://fastify.io)
+framework. 
+
+### Vanilla Node.js
+
+The [vanilla-node](vanilla-node) directory contains an example involving Connect for Node.js with vanilla Node.js using
+the `http` package. 
