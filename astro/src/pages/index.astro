@@ -1,37 +1,84 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Intro from '../components/Intro.astro'
-import Chat from '../components/Chat'
 import Form from '../components/Form.astro'
-import Footer from '../components/Footer.astro'
+import Chat from '../components/Chat'
 ---
 
-<Layout title="Astro with connect-web">
-  <main>
-    <Intro />
+<Layout title="Astro with connect-es">
+  <Intro />
 
-    <Chat client:load>
-      <Form name="statement" method="POST" />
-    </Chat>
-  </main>
-
-  <Footer />
+  <Chat client:load>
+    <Form name="statement" method="POST" />
+  </Chat>
 </Layout>
 
-<style>
-  main {
-    margin: auto;
-    padding: 1.5rem;
-    max-width: 60ch;
-  }
-</style>
-
 <style is:global>
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
+  button {
+    background-color: #161ede;
+    color: #fff;
+    padding: 11px 16px;
+    border: none;
+    font-weight: 400;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+  input {
+    border: 1px solid #ebebeb;
+    padding: 10px;
+  }
+  input:focus {
+    border-color: #161ede;
+    background-color: #f8f8ff;
+  }
+  input:focus-visible {
+    outline: none;
+  }
+  .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-size: calc(10px + 2vmin);
+    padding: 15px;
+    margin: 0 auto;
+    max-width: 1320px;
+    background-color: #fff;
+    min-height: 100vh;
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+  }
+  .eliza-resp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .user-resp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+  }
+  .resp-text {
+    font-size: 1rem;
+    margin: 5px;
+    background: #fff;
+    border: 2px solid #ebebeb;
+    padding: 16px 20px;
+    border-radius: 28px;
+    color: #09083a;
+  }
+  .eliza-resp-container .resp-text {
+    color: #090a3a;
+  }
+  .user-resp-container .resp-text {
+    color: #165fed;
+    background-color: #e0edff;
+    border: none;
+  }
+  .text-input {
+    width: 200px;
+    margin-right: 5px;
   }
 </style>

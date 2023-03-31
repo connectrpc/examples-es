@@ -1,26 +1,27 @@
 ---
 ---
 
-<h1 class="text-center">Chat to <span class="text-gradient">Eliza</span></h1>
+<header class="app-header">
+  <h1>Eliza</h1>
+  <h4>Astro</h4>
+</header>
 
-<p class="instructions">
-  To get started, say your name to <strong>Eliza</strong>, let the conversation flow, and see what happens!
-</p>
 <style>
   h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0;
+    margin: 15px 0;
+    font-size: 3.5rem;
   }
-  .instructions {
-    line-height: 1.6;
-    margin: 1rem 0;
-    border: 1px solid rgba(var(--accent), 25%);
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.4rem;
+  h4 {
+    margin: 0 0 15px 0;
+    color: #161ede;
   }
-  .instructions strong {
-    color: rgb(var(--accent));
+  .app-header {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    background-color: #fff;
+    border-bottom: 1px solid #ebebeb;
   }
 </style>

@@ -1,9 +1,10 @@
 /* external dependencies */
-import { createPromiseClient, createConnectTransport } from '@bufbuild/connect-web'
-import type { PromiseClient } from '@bufbuild/connect-web'
+import { createPromiseClient } from '@bufbuild/connect'
+import { createConnectTransport } from '@bufbuild/connect-web'
+import type { PromiseClient } from '@bufbuild/connect'
 
 /* local dependencies */
-import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connectweb'
+import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connect'
 import { IntroduceRequest } from './gen/buf/connect/demo/eliza/v1/eliza_pb'
 
 import { addMessage } from './chatStore'
