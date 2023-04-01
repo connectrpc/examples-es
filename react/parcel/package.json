@@ -15,7 +15,7 @@
   "devDependencies": {
     "@bufbuild/buf": "^1.15.0-1",
     "@bufbuild/connect-web": "^0.8.4",
-    "@bufbuild/protobuf": "^1.1.1",
+    "@bufbuild/protobuf": "^1.2.0",
     "@bufbuild/protoc-gen-connect-es": "^0.8.4",
     "@bufbuild/protoc-gen-es": "^1.1.1",
     "babel-jest": "^29.5.0",
