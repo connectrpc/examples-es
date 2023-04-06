@@ -12,8 +12,8 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "verbatimModuleSyntax": true
   },
   "include": ["src"]
 }
