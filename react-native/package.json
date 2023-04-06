@@ -27,7 +27,7 @@
     "@bufbuild/protobuf": "^1.2.0",
     "@bufbuild/protoc-gen-connect-es": "^0.8.5",
     "@bufbuild/protoc-gen-es": "^1.2.0",
-    "@types/react": "~18.0.28",
+    "@types/react": "~18.0.33",
     "@types/react-native": "~0.66.13",
     "babel-jest": "^29.4.1",
     "jest": "^29.3.1",
