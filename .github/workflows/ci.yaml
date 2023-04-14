@@ -1,9 +1,30 @@
 name: ci
 on:
-  push:
+  pull_request:
   workflow_dispatch:
 jobs:
+  changes:
+    runs-on: ubuntu-20.04
+    permissions:
+      pull-requests: read
+    outputs:
+      projects: ${{ steps.filter.outputs.changes }}
+    steps:
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            angular: angular/**
+            astro: astro/**
+            express: express/**
+            fastify: fastify/**
+            nextjs: nextjs/**
+            nextjs: nextjs/**
   ci:
+    needs: changes
+    strategy:
+      matrix:
+        project: ${{ fromJSON(needs.changes.outputs.projects) }}
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
