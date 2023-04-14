@@ -19,7 +19,23 @@ jobs:
             express: express/**
             fastify: fastify/**
             nextjs: nextjs/**
-            nextjs: nextjs/**
+            plain: plain/**
+            cra: react/cra/**
+            esbuild: react/esbuild/**
+            parcel: react/parcel/**
+            rollup: react/rollup/**
+            vite: react/vite/**
+            webpack: react/webpack/**
+            webpack-cjs: react/webpack-cjs/**
+            webpack4: react/webpack4/**
+            webpack4-cjs: react/webpack4-cjs/**
+            yarn-pnp: react/yarn-pnp/**
+            yarn-unplugged: react/yarn-unplugged/**
+            react-native: react-native/**
+            remix: remix/**
+            svelte: svelte/**
+            vanilla-node: vanilla-node/**
+            vue: vue/**
   ci:
     needs: changes
     strategy:
@@ -51,4 +67,4 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-connect-web-integration-ci-
       - name: Run Make
-        run: make test
+        run: make test${{ matrix.project }}
