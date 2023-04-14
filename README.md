@@ -9,6 +9,10 @@ It provides numerous examples for integrating Connect into a project, using both
 
 The [Angular](https://angular.io) application was generated with the [Angular CLI](https://github.com/angular/angular-cli).
 
+### Astro
+
+The [Astro](astro) application was generated with `npm create astro@latest -- --template basics` and all suggested defaults.
+
 ### Next.js
 
 The [Next.js](nextjs) application was generated with `npx create-next-app buf-nextjs --use-npm --ts` and all suggested defaults.

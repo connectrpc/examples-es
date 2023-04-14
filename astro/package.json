@@ -1,0 +1,30 @@
+{
+  "name": "buf-astro",
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "astro dev",
+    "build": "astro build",
+    "buf:generate": "buf generate buf.build/bufbuild/eliza",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@astrojs/react": "^2.0.2",
+    "@bufbuild/connect": "^0.8.4",
+    "@nanostores/react": "^0.4.1",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.10",
+    "astro": "^2.0.11",
+    "nanostores": "^0.7.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "^1.15.0-1",
+    "@bufbuild/connect-web": "^0.8.4",
+    "@bufbuild/protobuf": "^1.2.0",
+    "@bufbuild/protoc-gen-connect-es": "^0.8.4",
+    "@bufbuild/protoc-gen-es": "^1.2.0",
+    "@playwright/test": "^1.32.3"
+  }
+}

@@ -1,0 +1,77 @@
+---
+export interface Props {
+  name: string
+  method: string
+  action?: string
+}
+
+const { name, method, action } = Astro.props
+---
+
+<form name={name} method={method} action={action} id="statement-form">
+  <div>
+    <input
+      type="text"
+      id="statement-input"
+      autocomplete="off"
+      autofocus
+      class="text-input"
+    />
+    <button id="send-button" type="button">
+      <span id="send-button-label">Send</span>
+    </button>
+  </div>
+</form>
+
+<script>
+  import { send } from '../chat'
+
+  const button = document.getElementById('send-button') as HTMLButtonElement
+  const form = document.getElementById('statement-form') as HTMLFormElement
+
+  function changeSpanLabel(span: HTMLSpanElement, value = 'Send') {
+    span.innerText = value
+  }
+
+  function toggleDisableField(field: HTMLInputElement | HTMLButtonElement) {
+    field.disabled = !field.disabled
+  }
+
+  function clearInput(input: HTMLInputElement) {
+    input.value = ''
+  }
+
+  function setInputFocus(input: HTMLInputElement) {
+    input.focus()
+  }
+
+  async function handleClick() {
+    const input = document.getElementById('statement-input') as HTMLInputElement
+
+    if (!input.value) {
+      return
+    }
+
+    const buttonLabel = document.getElementById(
+      'send-button-label'
+    ) as HTMLSpanElement
+
+    changeSpanLabel(buttonLabel, 'Loading...')
+    toggleDisableField(button)
+    toggleDisableField(input)
+
+    await send(input.value)
+
+    changeSpanLabel(buttonLabel, 'Send')
+    toggleDisableField(button)
+    toggleDisableField(input)
+    clearInput(input)
+    setInputFocus(input)
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    handleClick()
+  })
+  button.addEventListener('click', handleClick)
+</script>
