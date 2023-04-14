@@ -7,6 +7,7 @@ This project was bootstrapped as an [Astro](https://astro.build/) project with t
 All default tooling setup via the above command is used, which includes:
 
 * [Nano Stores](https://github.com/nanostores/nanostores)
+* [Playwright](https://playwright.dev) (Testing Framework)
 * [React](https://reactjs.org/)
 
 ## Getting Started
@@ -29,3 +30,7 @@ Build the app using Astro.
 ### `npm run buf:generate`
 
 Use `buf` to generate the compiled protos via protobuf-es.
+
+### `npm run test`
+
+Run unit tests via the Playwright framework.

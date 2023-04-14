@@ -18,6 +18,7 @@ BUF := @bufbuild/buf@latest
 
 # All project directories that use npm
 NPM_PROJS = angular \
+		 astro \
 	   express \
 	   fastify \
 	   nextjs \
@@ -32,8 +33,7 @@ NPM_PROJS = angular \
 	   react-native \
 	   svelte \
 	   vanilla-node \
-	   vue \
-		 astro
+	   vue
 
 # All project directories that use yarn
 YARN_PROJS = react/yarn-pnp \

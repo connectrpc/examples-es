@@ -39,7 +39,6 @@ async function sendMessage(statement: string) {
   })
 
   addMessage({
-    // @ts-ignore
     text: response.sentence,
     author: 'Eliza',
   })
@@ -51,7 +50,6 @@ async function sendIntroductionMessage(statement: string) {
   })
   author = statement
 
-  // @ts-ignore
   for await (const response of client.introduce(request)) {
     addMessage({
       text: response.sentence,
