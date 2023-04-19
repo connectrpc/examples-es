@@ -1,9 +1,46 @@
 name: ci
 on:
-  push:
+  pull_request:
   workflow_dispatch:
 jobs:
+  changes:
+    runs-on: ubuntu-20.04
+    permissions:
+      pull-requests: read
+    outputs:
+      projects: ${{ steps.filter.outputs.changes }}
+    steps:
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            angular: angular/**
+            astro: astro/**
+            express: express/**
+            fastify: fastify/**
+            nextjs: nextjs/**
+            plain: plain/**
+            cra: react/cra/**
+            esbuild: react/esbuild/**
+            parcel: react/parcel/**
+            rollup: react/rollup/**
+            vite: react/vite/**
+            webpack: react/webpack/**
+            webpack-cjs: react/webpack-cjs/**
+            webpack4: react/webpack4/**
+            webpack4-cjs: react/webpack4-cjs/**
+            yarn-pnp: react/yarn-pnp/**
+            yarn-unplugged: react/yarn-unplugged/**
+            react-native: react-native/**
+            remix: remix/**
+            svelte: svelte/**
+            vanilla-node: vanilla-node/**
+            vue: vue/**
   ci:
+    needs: changes
+    strategy:
+      matrix:
+        project: ${{ fromJSON(needs.changes.outputs.projects) }}
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -30,4 +67,4 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-connect-web-integration-ci-
       - name: Run Make
-        run: make test
+        run: make test${{ matrix.project }}
