@@ -48,7 +48,7 @@
     "@bufbuild/protobuf": "^1.2.0",
     "@bufbuild/protoc-gen-connect-es": "^0.8.5",
     "@bufbuild/protoc-gen-es": "^1.2.0",
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.8",
     "react-app-rewired": "^2.2.1",
     "resolve-typescript-plugin": "^2.0.0",
     "ts-jest": "^29.0.5"
