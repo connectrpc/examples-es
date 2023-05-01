@@ -27,7 +27,7 @@
         "@vitest/coverage-c8": "^0.29.8",
         "c8": "^7.12.0",
         "jsdom": "^21.1.1",
-        "typescript": "^4.9.3",
+        "typescript": "^5.0.4",
         "vite": "^3.0.0",
         "vitest": "^0.29.8"
     }
