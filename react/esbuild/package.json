@@ -14,7 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "@bufbuild/buf": "^1.15.0-1",
-    "@bufbuild/connect-web": "^0.8.5",
+    "@bufbuild/connect-web": "^0.8.6",
     "@bufbuild/protobuf": "^1.2.0",
     "@bufbuild/protoc-gen-connect-es": "^0.8.5",
     "@bufbuild/protoc-gen-es": "^1.2.0",
