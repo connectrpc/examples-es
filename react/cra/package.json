@@ -9,7 +9,7 @@
     "@types/jest": "^29.5.0",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.33",
-    "@types/react-dom": "^18.0.11",
+    "@types/react-dom": "^18.2.1",
     "is-promise": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
