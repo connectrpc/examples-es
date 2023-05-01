@@ -26,7 +26,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.5",
     "@angular/cli": "^15.2.5",
-    "@angular/compiler-cli": "^15.2.5",
+    "@angular/compiler-cli": "^15.2.8",
     "@bufbuild/buf": "^1.15.0-1",
     "@bufbuild/connect-web": "^0.8.5",
     "@bufbuild/protobuf": "^1.2.0",
