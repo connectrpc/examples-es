@@ -3,6 +3,9 @@
     import { createConnectTransport } from '@bufbuild/connect-web'
     import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connect.js'
     import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb.js'
+    import { wrapFetch } from './wrap-fetch.js';
+
+    export let data: { fetch: typeof fetch }
 
     interface Response {
         text: string
@@ -23,7 +26,8 @@
         ElizaService,
         createConnectTransport({
             baseUrl: 'https://demo.connect.build',
-        })
+            fetch: wrapFetch('calling from connect', data.fetch),
+        }),
     )
 
     const send = async () => {
