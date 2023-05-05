@@ -1,12 +1,11 @@
 <script lang="ts">
-    import { createPromiseClient } from '@bufbuild/connect'
-    import { createConnectTransport } from '@bufbuild/connect-web'
-    import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connect.js'
+    import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connect.js';
     import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb.js'
+    import { createClient } from './utils.js';
     import { wrapFetch } from './wrap-fetch.js';
 
-    export let data: { fetch: typeof fetch }
-
+    export let data: { serverSentence: string };
+    
     interface Response {
         text: string
         sender: 'eliza' | 'user'
@@ -21,14 +20,7 @@
     ]
     let introFinished = false
 
-    // Make the Eliza Service client
-    const client = createPromiseClient(
-        ElizaService,
-        createConnectTransport({
-            baseUrl: 'https://demo.connect.build',
-            fetch: wrapFetch('calling from connect', data.fetch),
-        }),
-    )
+    let client = createClient(ElizaService, wrapFetch('+page.svelte', globalThis.fetch));
 
     const send = async () => {
         responses = [...responses, { text: statement, sender: 'user' }]
@@ -70,6 +62,7 @@
     <header class="app-header">
         <h1>Eliza</h1>
         <h4>Svelte</h4>
+        <h5>server response: {data.serverSentence}</h5>
     </header>
     <div class="container">
         {#each responses as resp}
