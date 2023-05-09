@@ -4,7 +4,7 @@
     import { createClient } from './utils.js';
     import { wrapFetch } from './wrap-fetch.js';
 
-    export let data: { serverSentence: string };
+    export let data: { universalSentence: string };
     
     interface Response {
         text: string
@@ -62,7 +62,7 @@
     <header class="app-header">
         <h1>Eliza</h1>
         <h4>Svelte</h4>
-        <h5>server response: {data.serverSentence}</h5>
+        <h5>server response: {data.universalSentence}</h5>
     </header>
     <div class="container">
         {#each responses as resp}

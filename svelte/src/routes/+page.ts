@@ -13,5 +13,5 @@ export const load: PageLoad = async ({ fetch }) => {
       sentence: "hi from the server",
   }))
 
-  return { serverSentence: sentence }
+  return { universalSentence: sentence }
 }
