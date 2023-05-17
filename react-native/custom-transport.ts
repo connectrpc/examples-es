@@ -1,0 +1,222 @@
+import { Message } from "@bufbuild/protobuf";
+
+import type {
+  AnyMessage,
+  MethodInfo,
+  PartialMessage,
+  ServiceType,
+} from "@bufbuild/protobuf";
+
+import type { UnaryRequest } from "@bufbuild/connect";
+import { Code, connectErrorFromReason, runUnary } from "@bufbuild/connect";
+import type {
+  StreamResponse,
+  Transport,
+  UnaryResponse,
+} from "@bufbuild/connect";
+import {
+  createClientMethodSerializers,
+  createMethodUrl,
+  encodeEnvelope,
+} from "@bufbuild/connect/protocol";
+import {
+  requestHeader,
+  trailerFlag,
+  trailerParse,
+  validateResponse,
+  validateTrailer,
+} from "@bufbuild/connect/protocol-grpc-web";
+import { GrpcWebTransportOptions } from "@bufbuild/connect-web";
+
+class AbortError extends Error {
+  name = "AbortError";
+}
+
+interface FetchXHRResponse {
+  status: number;
+  headers: Headers;
+  body: Uint8Array;
+}
+
+function parseHeaders(allHeaders: string): Headers {
+  return allHeaders
+    .trim()
+    .split(/[\r\n]+/)
+    .reduce((memo, header) => {
+      const [key, value] = header.split(": ");
+      memo.append(key, value);
+      return memo;
+    }, new Headers());
+}
+
+function extractDataChunks(initialData: Uint8Array) {
+  let buffer = initialData;
+  let dataChunks: { flags: number; data: Uint8Array }[] = [];
+
+  while (buffer.byteLength >= 5) {
+    let length = 0;
+    let flags = buffer[0];
+
+    for (let i = 1; i < 5; i++) {
+      length = (length << 8) + buffer[i]; // eslint-disable-line no-bitwise
+    }
+
+    const data = buffer.subarray(5, 5 + length);
+    buffer = buffer.subarray(5 + length);
+    dataChunks.push({ flags, data });
+  }
+
+  return dataChunks;
+}
+
+export function createXHRGrpcWebTransport(
+  options: GrpcWebTransportOptions
+): Transport {
+  const useBinaryFormat = options.useBinaryFormat ?? true;
+  return {
+    async unary<
+      I extends Message<I> = AnyMessage,
+      O extends Message<O> = AnyMessage
+    >(
+      service: ServiceType,
+      method: MethodInfo<I, O>,
+      signal: AbortSignal | undefined,
+      timeoutMs: number | undefined,
+      header: Headers,
+      message: PartialMessage<I>
+    ): Promise<UnaryResponse<I, O>> {
+      const { normalize, serialize, parse } = createClientMethodSerializers(
+        method,
+        useBinaryFormat,
+        options.jsonOptions,
+        options.binaryOptions
+      );
+
+      try {
+        return await runUnary<I, O>(
+          {
+            stream: false,
+            service,
+            method,
+            url: createMethodUrl(options.baseUrl, service, method),
+            init: {
+              method: "POST",
+              mode: "cors",
+            },
+            header: requestHeader(useBinaryFormat, timeoutMs, header),
+            message: normalize(message),
+            signal: signal ?? new AbortController().signal,
+          },
+          async (req: UnaryRequest<I, O>): Promise<UnaryResponse<I, O>> => {
+            function fetchXHR(): Promise<FetchXHRResponse> {
+              return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+
+                xhr.open(req.init.method ?? "POST", req.url);
+
+                function onAbort() {
+                  xhr.abort();
+                }
+
+                req.signal.addEventListener("abort", onAbort);
+
+                xhr.addEventListener("abort", () => {
+                  reject(new AbortError("Request aborted"));
+                });
+
+                xhr.addEventListener("load", () => {
+                  resolve({
+                    status: xhr.status,
+                    headers: parseHeaders(xhr.getAllResponseHeaders()),
+                    body: new Uint8Array(xhr.response),
+                  });
+                });
+
+                xhr.addEventListener("error", () => {
+                  reject(new Error("Network Error"));
+                });
+
+                xhr.addEventListener("loadend", () => {
+                  req.signal.removeEventListener("abort", onAbort);
+                });
+
+                xhr.responseType = "arraybuffer";
+
+                req.header.forEach((value: string, key: string) =>
+                  xhr.setRequestHeader(key, value)
+                );
+
+                xhr.send(encodeEnvelope(0, serialize(req.message)));
+              });
+            }
+            const response = await fetchXHR();
+
+            validateResponse(
+              useBinaryFormat,
+              response.status,
+              response.headers
+            );
+
+            const chunks = extractDataChunks(response.body);
+
+            let trailer: Headers | undefined;
+            let message: O | undefined;
+
+            chunks.forEach(({ flags, data }) => {
+              if (flags === trailerFlag) {
+                if (trailer !== undefined) {
+                  throw "extra trailer";
+                }
+
+                // Unary responses require exactly one response message, but in
+                // case of an error, it is perfectly valid to have a response body
+                // that only contains error trailers.
+                trailer = trailerParse(data);
+                return;
+              }
+
+              if (message !== undefined) {
+                throw "extra message";
+              }
+
+              message = parse(data);
+            });
+
+            if (trailer === undefined) {
+              throw "missing trailer";
+            }
+
+            validateTrailer(trailer);
+
+            if (message === undefined) {
+              throw "missing message";
+            }
+
+            return <UnaryResponse<I, O>>{
+              stream: false,
+              header: response.headers,
+              message,
+              trailer,
+            };
+          },
+          options.interceptors
+        );
+      } catch (e) {
+        throw connectErrorFromReason(e, Code.Internal);
+      }
+    },
+    async stream<
+      I extends Message<I> = AnyMessage,
+      O extends Message<O> = AnyMessage
+    >(
+      _service: ServiceType,
+      _method: MethodInfo<I, O>,
+      _signal: AbortSignal | undefined,
+      _timeoutMs: number | undefined,
+      _header: HeadersInit_ | undefined,
+      _input: AsyncIterable<I>
+    ): Promise<StreamResponse<I, O>> {
+      return Promise.reject(Error("NOT IMPLEMENTED"));
+    },
+  };
+}
