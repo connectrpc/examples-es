@@ -216,7 +216,7 @@ export function createXHRGrpcWebTransport(
       _header: HeadersInit_ | undefined,
       _input: AsyncIterable<I>
     ): Promise<StreamResponse<I, O>> {
-      return Promise.reject(Error("NOT IMPLEMENTED"));
+      return Promise.reject(new ConnectError("streaming is not implemented", Code.NotImplemented));
     },
   };
 }
