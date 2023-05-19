@@ -33,7 +33,8 @@ jobs:
             yarn-unplugged: react/yarn-unplugged/**
             react-native: react-native/**
             remix: remix/**
-            svelte: svelte/**
+            svelte-sveltekit: svelte/sveltekit/**
+            svelte-sveltekit-ssr: svelte/sveltekit-ssr/**
             vanilla-node: vanilla-node/**
             vue: vue/**
   ci:
@@ -49,7 +50,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Setup pnpm 
+      - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 7

@@ -90,7 +90,13 @@ updates:
       timezone: UTC
       time: "07:00"
   - package-ecosystem: "npm"
-    directory: "svelte"
+    directory: "svelte/sveltekit"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "svelte/sveltekit-ssr"
     schedule:
       interval: "monthly"
       timezone: UTC

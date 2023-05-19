@@ -31,7 +31,8 @@ NPM_PROJS = angular \
 			react/webpack \
 			react/webpack-cjs \
 			react-native \
-			svelte \
+            svelte/sveltekit \
+			svelte/sveltekit-ssr \
 			vanilla-node \
 			vue
 
