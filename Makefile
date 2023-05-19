@@ -18,22 +18,22 @@ BUF := @bufbuild/buf@latest
 
 # All project directories that use npm
 NPM_PROJS = angular \
-		 astro \
-	   express \
-	   fastify \
-	   nextjs \
-	   plain \
-	   react/cra \
-	   react/esbuild \
-	   react/parcel \
-	   react/rollup \
-	   react/vite \
-	   react/webpack \
-	   react/webpack-cjs \
-	   react-native \
-	   svelte \
-	   vanilla-node \
-	   vue
+			astro \
+			express \
+			fastify \
+			nextjs \
+			plain \
+			react/cra \
+			react/esbuild \
+			react/parcel \
+			react/rollup \
+			react/vite \
+			react/webpack \
+			react/webpack-cjs \
+			react-native \
+			svelte \
+			vanilla-node \
+			vue
 
 # All project directories that use yarn
 YARN_PROJS = react/yarn-pnp \
@@ -43,7 +43,7 @@ PNPM_PROJS = remix
 
 .PHONY: update
 update:: ## Update all projects
-	
+
 .PHONY: test
 test:: ## Test all projects
 
