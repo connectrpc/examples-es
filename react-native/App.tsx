@@ -8,7 +8,7 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { createPromiseClient } from "@bufbuild/connect";
+import { createPromiseClient, Code, ConnectError } from "@bufbuild/connect";
 import { createConnectTransport } from "@bufbuild/connect-web";
 import { createXHRGrpcWebTransport } from "./custom-transport";
 import { ElizaService } from "./gen/buf/connect/demo/eliza/v1/eliza_connect.js";
@@ -16,12 +16,17 @@ import { IntroduceRequest } from "./gen/buf/connect/demo/eliza/v1/eliza_pb.js";
 import "fast-text-encoding";
 import { Platform } from "react-native";
 
+// Polyfill async.Iterator. For some reason, the Babel presets and plugins are not doing the trick.
+// Code from here: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-3.html#caveats
+(Symbol as any).asyncIterator =
+  Symbol.asyncIterator || Symbol.for("Symbol.asyncIterator");
+
 let createTransport: any;
 
 // Import polyfills if not running on web.  Attempting to import these in web mode will result in numerous errors
 // trying to access react-native APIs
 if (Platform.OS !== "web") {
-  import("react-native-polyfill-globals");
+  require("react-native-polyfill-globals");
 
   // If running on mobile, use the custom XHR transport. The Connect transport uses the Fetch API and React-Native
   // has very scant support for it.
@@ -67,15 +72,35 @@ function App() {
         { text: response.sentence, sender: "eliza" },
       ]);
     } else {
-      const request = new IntroduceRequest({
-        name: statement,
-      });
+      try {
+        const request = new IntroduceRequest({
+          name: statement,
+        });
 
-      let stream = client.introduce(request);
-      for await (const response of stream) {
+        let stream = client.introduce(request);
+        for await (const response of stream) {
+          setResponses((resps) => [
+            ...resps,
+            { text: response.sentence, sender: "eliza" },
+          ]);
+        }
+      } catch (err) {
+        let text = "";
+        if (err instanceof ConnectError) {
+          if (err.code === Code.Unimplemented) {
+            text = `Hi, ${statement}.  You seem to be running on mobile and streaming is not supported.`;
+          } else {
+            text = `A Connect error has occurred: ${err.code} - ${err.message}`;
+          }
+        } else {
+          text = `An error has occurred: ${err}`;
+        }
         setResponses((resps) => [
           ...resps,
-          { text: response.sentence, sender: "eliza" },
+          {
+            text,
+            sender: "eliza",
+          },
         ]);
       }
       setIntroFinished(true);

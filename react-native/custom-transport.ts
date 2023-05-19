@@ -8,7 +8,12 @@ import type {
 } from "@bufbuild/protobuf";
 
 import type { UnaryRequest } from "@bufbuild/connect";
-import { Code, connectErrorFromReason, runUnary } from "@bufbuild/connect";
+import {
+  Code,
+  ConnectError,
+  connectErrorFromReason,
+  runUnary,
+} from "@bufbuild/connect";
 import type {
   StreamResponse,
   Transport,
@@ -216,7 +221,9 @@ export function createXHRGrpcWebTransport(
       _header: HeadersInit_ | undefined,
       _input: AsyncIterable<I>
     ): Promise<StreamResponse<I, O>> {
-      return Promise.reject(new ConnectError("streaming is not implemented", Code.NotImplemented));
+      return Promise.reject(
+        new ConnectError("streaming is not implemented", Code.Unimplemented)
+      );
     },
   };
 }
