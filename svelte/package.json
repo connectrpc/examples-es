@@ -14,10 +14,10 @@
         "format": "prettier --write --ignore-path ../.prettierignore ."
     },
     "devDependencies": {
-        "@bufbuild/buf": "^1.15.0-1",
-        "@bufbuild/connect-web": "^0.8.6",
+        "@bufbuild/buf": "^1.18.0-1",
+        "@bufbuild/connect-web": "^0.9.0",
         "@bufbuild/protobuf": "^1.2.0",
-        "@bufbuild/protoc-gen-connect-es": "^0.8.6",
+        "@bufbuild/protoc-gen-connect-es": "^0.9.0",
         "@bufbuild/protoc-gen-es": "^1.2.0",
         "@playwright/test": "^1.30.0",
         "@sveltejs/adapter-auto": "next",

@@ -1,7 +1,9 @@
 import {
     createConnectTransport,
-    createPromiseClient,
 } from '@bufbuild/connect-web'
+import {
+    createPromiseClient,
+} from '@bufbuild/connect'
 import React, { useState } from 'react'
 import './App.css'
 import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connect.js'
