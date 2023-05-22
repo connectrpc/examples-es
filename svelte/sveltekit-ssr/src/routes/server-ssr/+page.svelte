@@ -2,8 +2,9 @@
     import { ElizaService } from '../../gen/buf/connect/demo/eliza/v1/eliza_connect.js';
     import { IntroduceRequest } from '../../gen/buf/connect/demo/eliza/v1/eliza_pb.js'
     import { createClient, wrapFetch } from '../../utils.js';
+    import type { PageData } from './$types.js';
 
-    export let data: { serverSentence: string } = {
+    export let data: PageData = {
         serverSentence: 'uninitialized server',
     };
     
