@@ -19,6 +19,7 @@ jobs:
             express: express/**
             fastify: fastify/**
             nextjs-basic: nextjs/basic/**
+            nextjs-ssr: nextjs/ssr/**
             plain: plain/**
             cra: react/cra/**
             esbuild: react/esbuild/**

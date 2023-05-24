@@ -24,6 +24,12 @@ updates:
       timezone: UTC
       time: "07:00"
   - package-ecosystem: "npm"
+    directory: "nextjs/ssr"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
     directory: "plain"
     schedule:
       interval: "monthly"
