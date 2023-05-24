@@ -18,7 +18,7 @@ updates:
       timezone: UTC
       time: "07:00"
   - package-ecosystem: "npm"
-    directory: "nextjs"
+    directory: "nextjs/basic"
     schedule:
       interval: "monthly"
       timezone: UTC
