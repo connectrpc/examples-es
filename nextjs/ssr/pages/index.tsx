@@ -1,20 +1,22 @@
 import React, { useState } from 'react'
 import styles from '../styles/Eliza.module.css'
-import {
-    createPromiseClient
-} from '@bufbuild/connect'
-import {
-    createConnectTransport,
-} from '@bufbuild/connect-web'
 import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connect.js'
 import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb.js'
+import { InferGetServerSidePropsType } from 'next'
+import { createClient, wrapFetch } from './utils'
 
 interface Response {
     text: string
     sender: 'eliza' | 'user'
 }
 
-function App() {
+export const getServerSideProps = async () => {
+    const client = createClient(ElizaService, wrapFetch('calling from getServerSideProps', fetch));
+    const { sentence } = await client.say({ sentence: "hi (from the server)" });
+    return { props: { sentence } };
+};
+
+export default function Page({ sentence }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const [statement, setStatement] = useState<string>('')
     const [introFinished, setIntroFinished] = useState<boolean>(false)
     const [responses, setResponses] = useState<Response[]>([
@@ -25,12 +27,7 @@ function App() {
     ])
 
     // Make the Eliza Service client
-    const client = createPromiseClient(
-        ElizaService,
-        createConnectTransport({
-            baseUrl: '/api',
-        })
-    )
+    const client = createClient(ElizaService, wrapFetch('calling from the Page component', fetch))
 
     const send = async (sentence: string) => {
         setResponses((resp) => [...resp, { text: sentence, sender: 'user' }])
@@ -81,8 +78,13 @@ function App() {
         <div>
             <header className={styles.appHeader}>
                 <h1 className={styles.headline}>Eliza</h1>
-                <h4 className={styles.subtitle}>Next.js</h4>
+                <h4 className={styles.subtitle}>Next.js + SSR</h4>
             </header>
+            <div className={styles.ssr}>
+                <h4>Server Rendered Data</h4>
+                <code>{JSON.stringify(sentence, null, 2)}</code>
+            </div>
+
             <div className={styles.container}>
                 {responses.map((resp, i) => {
                     return (
@@ -111,6 +113,4 @@ function App() {
             </div>
         </div>
     )
-}
-
-export default App
+};
