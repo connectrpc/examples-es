@@ -8,12 +8,7 @@ import type {
 } from "@bufbuild/protobuf";
 
 import type { UnaryRequest } from "@bufbuild/connect";
-import {
-  Code,
-  ConnectError,
-  connectErrorFromReason,
-  runUnary,
-} from "@bufbuild/connect";
+import { Code, ConnectError, connectErrorFromReason } from "@bufbuild/connect";
 import type {
   StreamResponse,
   Transport,
@@ -23,6 +18,7 @@ import {
   createClientMethodSerializers,
   createMethodUrl,
   encodeEnvelope,
+  runUnaryCall,
 } from "@bufbuild/connect/protocol";
 import {
   requestHeader,
@@ -98,8 +94,10 @@ export function createXHRGrpcWebTransport(
       );
 
       try {
-        return await runUnary<I, O>(
-          {
+        return await runUnaryCall<I, O>({
+          signal: signal ?? new AbortController().signal,
+          interceptors: options.interceptors,
+          req: {
             stream: false,
             service,
             method,
@@ -110,9 +108,10 @@ export function createXHRGrpcWebTransport(
             },
             header: requestHeader(useBinaryFormat, timeoutMs, header),
             message: normalize(message),
-            signal: signal ?? new AbortController().signal,
           },
-          async (req: UnaryRequest<I, O>): Promise<UnaryResponse<I, O>> => {
+          next: async (
+            req: UnaryRequest<I, O>
+          ): Promise<UnaryResponse<I, O>> => {
             function fetchXHR(): Promise<FetchXHRResponse> {
               return new Promise((resolve, reject) => {
                 const xhr = new XMLHttpRequest();
@@ -204,8 +203,7 @@ export function createXHRGrpcWebTransport(
               trailer,
             };
           },
-          options.interceptors
-        );
+        });
       } catch (e) {
         throw connectErrorFromReason(e, Code.Internal);
       }
