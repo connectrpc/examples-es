@@ -1,4 +1,4 @@
-import { InjectionToken } from '@angular/core'
-import type { Transport } from '@bufbuild/connect-web'
+import { InjectionToken } from "@angular/core";
+import type { Transport } from "@bufbuild/connect";
 
-export const TRANSPORT = new InjectionToken<Transport>('connect.transport')
+export const TRANSPORT = new InjectionToken<Transport>("connect.transport");
