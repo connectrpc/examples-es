@@ -5,7 +5,7 @@
   "scripts": {
     "start": "next dev",
     "build": "next build",
-    "buf:generate": "npx buf generate buf.build/bufbuild/eliza",
+    "buf:generate": "npx buf generate proto",
     "start:production": "next start",
     "lint": "next lint",
     "test": "jest"
@@ -14,7 +14,8 @@
     "@bufbuild/connect-next": "^0.8.4",
     "next": "13.2.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "superjson": "^1.12.3"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.18.0-1",

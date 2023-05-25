@@ -1,4 +1,4 @@
-import { createGrpcWebTransport } from "@bufbuild/connect-web";
+import { createConnectTransport } from "@bufbuild/connect-web";
 import { createPromiseClient } from "@bufbuild/connect";
 import type { ServiceType } from "@bufbuild/protobuf";
 
@@ -18,7 +18,7 @@ export const createClient = <T extends ServiceType>(
   service: T,
   fetch: typeof globalThis.fetch,
 ) => {
-  const transport = createGrpcWebTransport({
+  const transport = createConnectTransport({
     baseUrl: 'http://localhost:3000/api', // you cannot use a relative path like `/api` here because SSR will break.  SSR requires absolute URLs.
     fetch: wrapFetch('calling from gRPC-web', fetch),
   });

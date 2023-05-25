@@ -1,116 +1,144 @@
-import React, { useState } from 'react'
-import styles from '../styles/Eliza.module.css'
-import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connect.js'
-import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb.js'
-import { InferGetServerSidePropsType } from 'next'
-import { createClient, wrapFetch } from './utils'
+import React from "react";
+import { InferGetServerSidePropsType } from "next";
+import { createClient, wrapFetch } from "./utils";
+import { KitchenSinkService } from "../gen/kitchensink_connect";
+import { KitchenSinkRequest, KitchenSinkResponse } from "../gen/kitchensink_pb";
+import SuperJSON from "superjson";
+import { SuperJSONResult } from "superjson/dist/types";
 
-interface Response {
-    text: string
-    sender: 'eliza' | 'user'
-}
+const ssrInput: KitchenSinkRequest = new KitchenSinkRequest({
+  requestDouble: 1.1,
+  requestFloat: 2.2,
+  requestInt32: 3,
+  requestInt64: 4n,
+  requestUint32: 5,
+  requestUint64: 6n,
+  requestSint32: 7,
+  requestSint64: 8n,
+  requestFixed32: 9,
+  requestFixed64: 10n,
+  requestSfixed32: 11,
+  requestSfixed64: 12n,
+  requestBool: true,
+  requestString: 'some string',
+  requestBytes: new Uint8Array([1, 2, 3]),
+  requestMapStringBool: {
+    'some key': true,
+  },
+  requestRepeatedDouble: [1.1],
+  requestRepeatedFloat: [2.2],
+  requestRepeatedInt32: [3],
+  requestRepeatedInt64: [4n],
+  requestRepeatedUint32: [5],
+  requestRepeatedUint64: [6n],
+  requestRepeatedSint32: [7],
+  requestRepeatedSint64: [8n],
+  requestRepeatedFixed32: [9],
+  requestRepeatedFixed64: [10n],
+  requestRepeatedSfixed32: [11],
+  requestRepeatedSfixed64: [12n],
+  requestRepeatedBool: [true],
+  requestRepeatedString: ['some string'],
+  requestRepeatedBytes: [new Uint8Array([1, 2, 3])],
+});
 
 export const getServerSideProps = async () => {
-    const client = createClient(ElizaService, wrapFetch('calling from getServerSideProps', fetch));
-    const { sentence } = await client.say({ sentence: "hi (from the server)" });
-    return { props: { sentence } };
+  const client = createClient(
+    KitchenSinkService,
+    wrapFetch("calling from getServerSideProps", fetch)
+  );
+  const {
+    responseDouble,
+    responseFloat,
+    responseInt32,
+    responseInt64,
+    responseUint32,
+    responseUint64,
+    responseSint32,
+    responseSint64,
+    responseFixed32,
+    responseFixed64,
+    responseSfixed32,
+    responseSfixed64,
+    responseBool,
+    responseString,
+    responseBytes,
+    responseMapStringBool,
+    responseRepeatedDouble,
+    responseRepeatedFloat,
+    responseRepeatedInt32,
+    responseRepeatedInt64,
+    responseRepeatedUint32,
+    responseRepeatedUint64,
+    responseRepeatedSint32,
+    responseRepeatedSint64,
+    responseRepeatedFixed32,
+    responseRepeatedFixed64,
+    responseRepeatedSfixed32,
+    responseRepeatedSfixed64,
+    responseRepeatedBool,
+    responseRepeatedString,
+    responseRepeatedBytes,
+  } = await client.getKitchenSink(ssrInput);
+
+  const kitchenSinkResponse = {
+    responseDouble,
+    responseFloat,
+    responseInt32,
+    responseInt64,
+    responseUint32,
+    responseUint64,
+    responseSint32,
+    responseSint64,
+    responseFixed32,
+    responseFixed64,
+    responseSfixed32,
+    responseSfixed64,
+    responseBool,
+    responseString,
+    responseBytes,
+    responseMapStringBool,
+    responseRepeatedDouble,
+    responseRepeatedFloat,
+    responseRepeatedInt32,
+    responseRepeatedInt64,
+    responseRepeatedUint32,
+    responseRepeatedUint64,
+    responseRepeatedSint32,
+    responseRepeatedSint64,
+    responseRepeatedFixed32,
+    responseRepeatedFixed64,
+    responseRepeatedSfixed32,
+    responseRepeatedSfixed64,
+    responseRepeatedBool,
+    responseRepeatedString,
+    responseRepeatedBytes,
+  };
+  
+  return {
+    props: {
+      superjsonResult: SuperJSON.serialize(kitchenSinkResponse),
+    },
+  };
 };
 
-export default function Page({ sentence }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    const [statement, setStatement] = useState<string>('')
-    const [introFinished, setIntroFinished] = useState<boolean>(false)
-    const [responses, setResponses] = useState<Response[]>([
-        {
-            text: 'What is your name?',
-            sender: 'eliza',
-        },
-    ])
+const revive = <T extends new (...args: any[]) => any>(ResponseClass: T, superjsonResult: SuperJSONResult) => {
+  return new ResponseClass(SuperJSON.deserialize<T>(superjsonResult))
+}
 
-    // Make the Eliza Service client
-    const client = createClient(ElizaService, wrapFetch('calling from the Page component', fetch))
+export default function Page({
+  superjsonResult,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const ssrOutput = revive(KitchenSinkResponse, superjsonResult);
+  console.log({ ssrInput, ssrOutput, superjsonResult })
 
-    const send = async (sentence: string) => {
-        setResponses((resp) => [...resp, { text: sentence, sender: 'user' }])
-        setStatement('')
+  return (
+    <div>
+      <h1>
+        look at the console
+      </h1>
 
-        if (introFinished) {
-            const response = await client.say({
-                sentence,
-            })
-
-            setResponses((resp) => [
-                ...resp,
-                { text: response.sentence, sender: 'eliza' },
-            ])
-        } else {
-            const request = new IntroduceRequest({
-                name: sentence,
-            })
-
-            for await (const response of client.introduce(request)) {
-                setResponses((resp) => [
-                    ...resp,
-                    { text: response.sentence, sender: 'eliza' },
-                ])
-            }
-
-            setIntroFinished(true)
-        }
-    }
-
-    const handleStatementChange = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
-        setStatement(event.target.value)
-    }
-
-    const handleSend = () => {
-        send(statement)
-    }
-
-    const handleKeyPress = (event: any) => {
-        if (event.key === 'Enter') {
-            handleSend()
-        }
-    }
-
-    return (
-        <div>
-            <header className={styles.appHeader}>
-                <h1 className={styles.headline}>Eliza</h1>
-                <h4 className={styles.subtitle}>Next.js + SSR</h4>
-            </header>
-            <div className={styles.ssr}>
-                <h4>Server Rendered Data</h4>
-                <code>{JSON.stringify(sentence, null, 2)}</code>
-            </div>
-
-            <div className={styles.container}>
-                {responses.map((resp, i) => {
-                    return (
-                        <div
-                            key={`resp${i}`}
-                            className={
-                                resp.sender === 'eliza'
-                                    ? styles.elizaRespContainer
-                                    : styles.userRespContainer
-                            }
-                        >
-                            <p className={styles.respText}>{resp.text}</p>
-                        </div>
-                    )
-                })}
-                <div>
-                    <input
-                        type="text"
-                        className={`${styles.textInput} ${styles.statementInput}`}
-                        value={statement}
-                        onChange={handleStatementChange}
-                        onKeyPress={handleKeyPress}
-                    />
-                    <button className={styles.button} onClick={handleSend}>Send</button>
-                </div>
-            </div>
-        </div>
-    )
-};
+      <pre>{JSON.stringify({ superjsonResult }, null, 2)}</pre>
+    </div>
+  );
+}

@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+message KitchenSinkRequest {
+  double requestDouble = 1;
+  float requestFloat = 2;
+  int32 requestInt32 = 3;
+  int64 requestInt64 = 4;
+  uint32 requestUint32 = 5;
+  uint64 requestUint64 = 6;
+  sint32 requestSint32 = 7;
+  sint64 requestSint64 = 8;
+  fixed32 requestFixed32 = 9;
+  fixed64 requestFixed64 = 10;
+  sfixed32 requestSfixed32 = 11;
+  sfixed64 requestSfixed64 = 12;
+  bool requestBool = 13;
+  string requestString = 14;
+  bytes requestBytes = 15;
+
+  map<string, bool> requestMapStringBool = 16;
+
+  repeated double requestRepeatedDouble = 17;
+  repeated float requestRepeatedFloat = 18;
+  repeated int32 requestRepeatedInt32 = 19;
+  repeated int64 requestRepeatedInt64 = 20;
+  repeated uint32 requestRepeatedUint32 = 21;
+  repeated uint64 requestRepeatedUint64 = 22;
+  repeated sint32 requestRepeatedSint32 = 23;
+  repeated sint64 requestRepeatedSint64 = 24;
+  repeated fixed32 requestRepeatedFixed32 = 25;
+  repeated fixed64 requestRepeatedFixed64 = 26;
+  repeated sfixed32 requestRepeatedSfixed32 = 27;
+  repeated sfixed64 requestRepeatedSfixed64 = 28;
+  repeated bool requestRepeatedBool = 29;
+  repeated string requestRepeatedString = 30;
+  repeated bytes requestRepeatedBytes = 31;
+}
+
+message KitchenSinkResponse {
+  double responseDouble = 1;
+  float responseFloat = 2;
+  int32 responseInt32 = 3;
+  int64 responseInt64 = 4;
+  uint32 responseUint32 = 5;
+  uint64 responseUint64 = 6;
+  sint32 responseSint32 = 7;
+  sint64 responseSint64 = 8;
+  fixed32 responseFixed32 = 9;
+  fixed64 responseFixed64 = 10;
+  sfixed32 responseSfixed32 = 11;
+  sfixed64 responseSfixed64 = 12;
+  bool responseBool = 13;
+  string responseString = 14;
+  bytes responseBytes = 15;
+
+  map<string, bool> responseMapStringBool = 16;
+
+  repeated double responseRepeatedDouble = 17;
+  repeated float responseRepeatedFloat = 18;
+  repeated int32 responseRepeatedInt32 = 19;
+  repeated int64 responseRepeatedInt64 = 20;
+  repeated uint32 responseRepeatedUint32 = 21;
+  repeated uint64 responseRepeatedUint64 = 22;
+  repeated sint32 responseRepeatedSint32 = 23;
+  repeated sint64 responseRepeatedSint64 = 24;
+  repeated fixed32 responseRepeatedFixed32 = 25;
+  repeated fixed64 responseRepeatedFixed64 = 26;
+  repeated sfixed32 responseRepeatedSfixed32 = 27;
+  repeated sfixed64 responseRepeatedSfixed64 = 28;
+  repeated bool responseRepeatedBool = 29;
+  repeated string responseRepeatedString = 30;
+  repeated bytes responseRepeatedBytes = 31;
+}
+
+service KitchenSinkService {
+  rpc GetKitchenSink(KitchenSinkRequest) returns (KitchenSinkResponse);
+}
