@@ -21,8 +21,8 @@ NPM_PROJS = angular \
 			astro \
 			express \
 			fastify \
-			nextjs/basic \
-			nextjs/ssr \
+			nextjs/nextjs-basic \
+			nextjs/nextjs-ssr \
 			plain \
 			react/cra \
 			react/esbuild \
