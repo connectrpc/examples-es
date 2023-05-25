@@ -18,8 +18,8 @@ jobs:
             astro: astro/**
             express: express/**
             fastify: fastify/**
-            nextjs-basic: nextjs/basic/**
-            nextjs-ssr: nextjs/ssr/**
+            nextjs-basic: nextjs/nextjs-basic/**
+            nextjs-ssr: nextjs/nextjs-ssr/**
             plain: plain/**
             cra: react/cra/**
             esbuild: react/esbuild/**
