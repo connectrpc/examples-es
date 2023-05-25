@@ -9,7 +9,6 @@ import {
   View,
 } from "react-native";
 import { createPromiseClient, Code, ConnectError } from "@bufbuild/connect";
-import { createConnectTransport } from "@bufbuild/connect-web";
 import { createXHRGrpcWebTransport } from "./custom-transport";
 import { ElizaService } from "./gen/buf/connect/demo/eliza/v1/eliza_connect.js";
 import { IntroduceRequest } from "./gen/buf/connect/demo/eliza/v1/eliza_pb.js";
@@ -21,18 +20,10 @@ import { Platform } from "react-native";
 (Symbol as any).asyncIterator =
   Symbol.asyncIterator || Symbol.for("Symbol.asyncIterator");
 
-let createTransport: any;
-
 // Import polyfills if not running on web.  Attempting to import these in web mode will result in numerous errors
 // trying to access react-native APIs
 if (Platform.OS !== "web") {
   require("react-native-polyfill-globals");
-
-  // If running on mobile, use the custom XHR transport. The Connect transport uses the Fetch API and React-Native
-  // has very scant support for it.
-  createTransport = createXHRGrpcWebTransport;
-} else {
-  createTransport = createConnectTransport;
 }
 
 interface Response {
@@ -53,7 +44,7 @@ function App() {
   // Make the Eliza Service client
   const client = createPromiseClient(
     ElizaService,
-    createTransport({
+    createXHRGrpcWebTransport({
       baseUrl: "https://demo.connect.build",
     })
   );
@@ -88,7 +79,7 @@ function App() {
         let text = "";
         if (err instanceof ConnectError) {
           if (err.code === Code.Unimplemented) {
-            text = `Hi, ${statement}.  You seem to be running on mobile and streaming is not supported.`;
+            text = `Hi, ${statement}.  Streaming is not supported in React Native currently.`;
           } else {
             text = `A Connect error has occurred: ${err.code} - ${err.message}`;
           }

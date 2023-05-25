@@ -8,7 +8,7 @@ import type {
 } from "@bufbuild/protobuf";
 
 import type { UnaryRequest } from "@bufbuild/connect";
-import { Code, ConnectError, connectErrorFromReason } from "@bufbuild/connect";
+import { Code, ConnectError } from "@bufbuild/connect";
 import type {
   StreamResponse,
   Transport,
@@ -93,9 +93,8 @@ export function createXHRGrpcWebTransport(
         options.binaryOptions
       );
 
-      try {
         return await runUnaryCall<I, O>({
-          signal: signal ?? new AbortController().signal,
+          signal,
           interceptors: options.interceptors,
           req: {
             stream: false,
@@ -204,9 +203,6 @@ export function createXHRGrpcWebTransport(
             };
           },
         });
-      } catch (e) {
-        throw connectErrorFromReason(e, Code.Internal);
-      }
     },
     async stream<
       I extends Message<I> = AnyMessage,
