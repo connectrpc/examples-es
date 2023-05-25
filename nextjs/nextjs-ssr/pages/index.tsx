@@ -3,7 +3,7 @@ import styles from '../styles/Eliza.module.css'
 import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connect.js'
 import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb.js'
 import { InferGetServerSidePropsType } from 'next'
-import { createClient, wrapFetch } from './utils'
+import { createClient, wrapFetch } from './api/utils'
 
 interface Response {
     text: string
