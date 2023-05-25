@@ -16,7 +16,7 @@ export const getServerSideProps = async () => {
     return { props: { sentence } };
 };
 
-export default function Page({ sentence }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+function App({ sentence }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const [statement, setStatement] = useState<string>('')
     const [introFinished, setIntroFinished] = useState<boolean>(false)
     const [responses, setResponses] = useState<Response[]>([
@@ -114,3 +114,5 @@ export default function Page({ sentence }: InferGetServerSidePropsType<typeof ge
         </div>
     )
 };
+
+export default App;
