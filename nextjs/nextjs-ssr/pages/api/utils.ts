@@ -2,7 +2,7 @@ import { createGrpcWebTransport } from "@bufbuild/connect-web";
 import { createPromiseClient } from "@bufbuild/connect";
 import type { ServiceType } from "@bufbuild/protobuf";
 
-/** This utility helps to demonstrate that a custom implementation for fetch (first supplied by sveltekit then passed to Connect) is actually being called. */
+/** This utility helps to demonstrate that a custom implementation for fetch is actually being called. */
 export const wrapFetch = (
   message: string,
   fetch: typeof globalThis.fetch,
