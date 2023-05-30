@@ -3,8 +3,6 @@ import { InferGetServerSidePropsType } from "next";
 import { createClient, wrapFetch } from "./utils";
 import { KitchenSinkService } from "../gen/kitchensink_connect";
 import { KitchenSinkRequest, KitchenSinkResponse } from "../gen/kitchensink_pb";
-import SuperJSON from "superjson";
-import { SuperJSONResult } from "superjson/dist/types";
 
 const ssrInput: KitchenSinkRequest = new KitchenSinkRequest({
   requestDouble: 1.1,
@@ -47,90 +45,20 @@ export const getServerSideProps = async () => {
     KitchenSinkService,
     wrapFetch("calling from getServerSideProps", fetch)
   );
-  const {
-    responseDouble,
-    responseFloat,
-    responseInt32,
-    responseInt64,
-    responseUint32,
-    responseUint64,
-    responseSint32,
-    responseSint64,
-    responseFixed32,
-    responseFixed64,
-    responseSfixed32,
-    responseSfixed64,
-    responseBool,
-    responseString,
-    responseBytes,
-    responseMapStringBool,
-    responseRepeatedDouble,
-    responseRepeatedFloat,
-    responseRepeatedInt32,
-    responseRepeatedInt64,
-    responseRepeatedUint32,
-    responseRepeatedUint64,
-    responseRepeatedSint32,
-    responseRepeatedSint64,
-    responseRepeatedFixed32,
-    responseRepeatedFixed64,
-    responseRepeatedSfixed32,
-    responseRepeatedSfixed64,
-    responseRepeatedBool,
-    responseRepeatedString,
-    responseRepeatedBytes,
-  } = await client.getKitchenSink(ssrInput);
-
-  const kitchenSinkResponse = {
-    responseDouble,
-    responseFloat,
-    responseInt32,
-    responseInt64,
-    responseUint32,
-    responseUint64,
-    responseSint32,
-    responseSint64,
-    responseFixed32,
-    responseFixed64,
-    responseSfixed32,
-    responseSfixed64,
-    responseBool,
-    responseString,
-    responseBytes,
-    responseMapStringBool,
-    responseRepeatedDouble,
-    responseRepeatedFloat,
-    responseRepeatedInt32,
-    responseRepeatedInt64,
-    responseRepeatedUint32,
-    responseRepeatedUint64,
-    responseRepeatedSint32,
-    responseRepeatedSint64,
-    responseRepeatedFixed32,
-    responseRepeatedFixed64,
-    responseRepeatedSfixed32,
-    responseRepeatedSfixed64,
-    responseRepeatedBool,
-    responseRepeatedString,
-    responseRepeatedBytes,
-  };
+  const kitchenSinkResponse = await client.getKitchenSink(ssrInput);
   
   return {
     props: {
-      superjsonResult: SuperJSON.serialize(kitchenSinkResponse),
+      response: kitchenSinkResponse.toJson(),
     },
   };
 };
 
-const revive = <T extends new (...args: any[]) => any>(ResponseClass: T, superjsonResult: SuperJSONResult) => {
-  return new ResponseClass(SuperJSON.deserialize<T>(superjsonResult))
-}
-
 export default function Page({
-  superjsonResult,
+  response,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const ssrOutput = revive(KitchenSinkResponse, superjsonResult);
-  console.log({ ssrInput, ssrOutput, superjsonResult })
+  const ssrOutput = KitchenSinkResponse.fromJson(response);
+  console.log({ ssrInput, ssrOutput })
 
   return (
     <div>
@@ -138,7 +66,7 @@ export default function Page({
         look at the console
       </h1>
 
-      <pre>{JSON.stringify({ superjsonResult }, null, 2)}</pre>
+      <pre>{JSON.stringify({ response }, null, 2)}</pre>
     </div>
   );
 }
