@@ -3,13 +3,11 @@ import { InferGetServerSidePropsType } from "next";
 import { ElizaService } from "../gen/buf/connect/demo/eliza/v1/eliza_connect";
 import { createConnectTransport } from "@bufbuild/connect-web";
 import styles from '../styles/Eliza.module.css';
-import { wrapFetch } from "../utils";
 
 export const getServerSideProps = async () => {
   const transport = createConnectTransport({
     // note: you cannot use a relative path like `/api` here because SSR will break.  SSR requires absolute URLs.
     baseUrl: "https://demo.connect.build",
-    fetch: wrapFetch("calling from getServerSideProps", fetch),
   });
   const client = createPromiseClient(ElizaService, transport);
   const request = { sentence: "hi (from the server)" };
