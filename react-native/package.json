@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@bufbuild/connect": "^0.9.0",
-    "@expo/webpack-config": "^18.0.4",
+    "@expo/webpack-config": "^18.1.0",
     "expo": "~48.0.10",
     "expo-status-bar": "~1.4.4",
     "fast-text-encoding": "^1.0.6",
