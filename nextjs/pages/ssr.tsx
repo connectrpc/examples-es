@@ -1,5 +1,6 @@
 import { createPromiseClient } from "@bufbuild/connect";
 import { InferGetServerSidePropsType } from "next";
+import Link from 'next/link'
 import { ElizaService } from "../gen/buf/connect/demo/eliza/v1/eliza_connect";
 import { createConnectTransport } from "@bufbuild/connect-web";
 import styles from "../styles/Eliza.module.css";
@@ -56,6 +57,7 @@ function Ssr({
       <header className={styles.appHeader}>
         <h1 className={styles.headline}>Eliza</h1>
         <h4 className={styles.subtitle}>Next.js + SSR</h4>
+        <Link href="/">View Client-side Fetching Example</Link>
       </header>
 
       <div className={styles.ssr}>
