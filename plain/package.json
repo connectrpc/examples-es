@@ -21,7 +21,7 @@
     "@bufbuild/protoc-gen-es": "^1.2.0",
     "@types/jasmine": "^4.3.1",
     "esbuild": "^0.17.18",
-    "jasmine": "^4.6.0",
+    "jasmine": "^5.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   }
