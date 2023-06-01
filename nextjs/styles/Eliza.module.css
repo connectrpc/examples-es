@@ -48,6 +48,7 @@
     color: #000;
     background-color: #fff;
     border-bottom: 1px solid #ebebeb;
+    padding-bottom: 15px;
 }
 .elizaRespContainer {
     display: flex;
@@ -81,4 +82,13 @@
 .textInput {
     width: 200px;
     margin-right: 5px;
+}
+.ssr {
+    display: flex;
+    flex-direction: column;
+    max-width: 1320px;
+    align-items: center;
+    background-color: #ebebeb;
+    margin: 15px auto;
+    padding: 0 15px 30px 15px;
 }
