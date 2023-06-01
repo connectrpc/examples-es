@@ -28,7 +28,7 @@
     "@angular/cli": "^15.2.5",
     "@angular/compiler-cli": "^15.2.8",
     "@bufbuild/buf": "^1.18.0-1",
-    "@bufbuild/connect": "^0.9.0",
+    "@bufbuild/connect": "^0.9.1",
     "@bufbuild/connect-web": "^0.9.0",
     "@bufbuild/protobuf": "^1.2.0",
     "@bufbuild/protoc-gen-connect-es": "^0.9.0",
