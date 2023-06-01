@@ -2,25 +2,55 @@ import { createPromiseClient } from "@bufbuild/connect";
 import { InferGetServerSidePropsType } from "next";
 import { ElizaService } from "../gen/buf/connect/demo/eliza/v1/eliza_connect";
 import { createConnectTransport } from "@bufbuild/connect-web";
-import styles from '../styles/Eliza.module.css';
+import styles from "../styles/Eliza.module.css";
+import { SayResponse } from "../gen/buf/connect/demo/eliza/v1/eliza_pb";
 
 export const getServerSideProps = async () => {
   const transport = createConnectTransport({
-    // note: you cannot use a relative path like `/api` here because SSR will break.  SSR requires absolute URLs.
+    // Note: you cannot use a relative path like `/api` here because SSR requires absolute URLs.
     baseUrl: "https://demo.connect.build",
   });
   const client = createPromiseClient(ElizaService, transport);
   const request = { sentence: "hi (from the server)" };
   const response = await client.say(request);
 
-  return { props: { request, response: { sentence: response.sentence } } };
-  //                         ^ note: you can use `response.toJson()` instead, but you will lose all type information.
+  return {
+    props: {
+      request,
+      // The values on `response` (such as `sentence`) are regular JavaScript values.
+      // This means that we can easily pass them below in `props` directly.
+      // The nice thing about doing this is that you retain full typing for `sentence: string`.
+      sentence: response.sentence,
+
+      // However, if we want to pass the entire response, we call `.toJson()` since what's passed through the SSR boundary must be plain JSON.
+      // The downside to this approach is that you lose all type information (but you can get it right back! see `SayResponse.fromJson` below).
+      response: response.toJson(),
+    },
+  };
 };
 
 function Ssr({
   request,
   response,
+  // ^?
+  // The type of `response` is `JsonValue`, so we need to revive it below.
+  sentence,
+  // ^?
+  // The type of `sentence` here is correctly inferred as `string` without any further work.
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const sayResponse = SayResponse.fromJson(response);
+  //    ^?
+  //    Now `sayResponse` is a full `SayResponse` class with all the normal `Message` methods.
+
+  const data = {
+    request,
+    response,
+    sentence,
+    sayResponse,
+  };
+
+  console.log(data);
+
   return (
     <div>
       <header className={styles.appHeader}>
@@ -30,7 +60,7 @@ function Ssr({
 
       <div className={styles.ssr}>
         <h4>Server Rendered Data</h4>
-        <pre>{JSON.stringify({ request, response }, null, 2)}</pre>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
       </div>
     </div>
   );
