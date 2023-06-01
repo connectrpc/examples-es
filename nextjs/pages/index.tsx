@@ -8,6 +8,7 @@ import {
 } from '@bufbuild/connect-web'
 import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connect.js'
 import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb.js'
+import Link from 'next/link'
 
 interface Response {
     text: string
@@ -82,6 +83,7 @@ function App() {
             <header className={styles.appHeader}>
                 <h1 className={styles.headline}>Eliza</h1>
                 <h4 className={styles.subtitle}>Next.js</h4>
+                <Link href="/ssr">SSR Example</Link>
             </header>
             <div className={styles.container}>
                 {responses.map((resp, i) => {
