@@ -11,7 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@bufbuild/connect-next": "^0.8.4",
+    "@bufbuild/connect-next": "^0.9.1",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
