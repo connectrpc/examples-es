@@ -1,13 +1,20 @@
 <script lang="ts">
-    import type { PageData } from "./$types";
-  
-    export let data: PageData = {
-      fullResponseJson: {},
-      plainProperty: 'uninitialized',
-      request: {
-        sentence: 'uninitialized'
-      }
+  import { SayResponse } from "../../gen/buf/connect/demo/eliza/v1/eliza_pb";
+  import type { PageData } from "./$types";
+
+  export let data: PageData = {
+    fullResponseJson: {},
+    plainProperty: 'uninitialized',
+    request: {
+      sentence: 'uninitialized'
     }
+  }
+
+  const sayResponse = SayResponse.fromJson(data.fullResponseJson);
+  //    ^?
+  //    If you wish to revive the response type, you can do so like this, by calling `.fromJson` on the Response class provided by protobuf-es.
+
+  console.log(data, sayResponse);
 </script>
 
 <div>
