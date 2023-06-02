@@ -14,7 +14,7 @@
   //    ^?
   //    If you wish to revive the response type, you can do so like this, by calling `.fromJson` on the Response class provided by protobuf-es.
 
-  console.log(data, sayResponse);
+  console.log("server-only-ssr +page.svelte", data, sayResponse);
 </script>
 
 <div>

@@ -20,6 +20,8 @@ export const load: PageLoad = async ({ fetch }) => {
   };
 
   const response = await client.say(new SayRequest(request));
+  //    ^?
+  //    Note that the universal handler doesn't need
 
   /**
    * The values on `response` (such as `sentence`) are regular JavaScript values.
@@ -29,18 +31,9 @@ export const load: PageLoad = async ({ fetch }) => {
   //    ^?
   //    The nice thing about doing this is that you retain full typing for `sentence: string`.
 
-  /**
-   * However, if we want to pass the entire response, we call `.toJson()` since what's passed through the SSR boundary must be plain JSON.
-   *
-   * You may also need to do this if you use BigInts or byte array (byte arrays use UInt8Array).
-   */
-  const fullResponseJson = response.toJson();
-  //    ^?
-  //    The downside to this approach is that you lose all type information (but you can get it right back! see `SayResponse.fromJson` in +page.svelte).
-
   return {
     request,
     plainProperty,
-    fullResponseJson,
+    response,
   };
 }

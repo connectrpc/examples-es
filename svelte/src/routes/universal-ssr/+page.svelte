@@ -3,18 +3,20 @@
   import type { PageData } from "./$types";
 
   export let data: PageData = {
-    fullResponseJson: {},
-    plainProperty: 'uninitialized',
     request: {
       sentence: 'uninitialized'
-    }
+    },
+    plainProperty: 'uninitialized',
+    response: new SayResponse({
+      sentence: 'uninitialized'
+    }),
   }
 
-  const sayResponse = SayResponse.fromJson(data.fullResponseJson);
-  //    ^?
-  //    If you wish to revive the response type, you can do so like this, by calling `.fromJson` on the Response class provided by protobuf-es.
+  console.log("universal-ssr +page.svelte", data);
 
-  console.log(data, sayResponse);
+  data.response;
+  //   ^?
+  //   note that the full SayResponse Message type was able to pass through the SSR boundary in universal-ssr mode
 </script>
 
 <div>
