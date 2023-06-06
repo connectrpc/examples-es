@@ -66,6 +66,8 @@
     <header class="app-header">
         <h1>Eliza</h1>
         <h4>Svelte</h4>
+        <a href="/universal-ssr">Universal SSR Example</a>
+        <a href="/server-only-ssr">Server Only SSR Example</a>
     </header>
     <div class="container">
         {#each responses as resp}
@@ -141,6 +143,7 @@
         color: #000;
         background-color: #fff;
         border-bottom: 1px solid #ebebeb;
+        padding-bottom: 15px;
     }
     .eliza-resp-container {
         display: flex;
