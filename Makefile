@@ -51,7 +51,7 @@ define updatenpmfunc
 .PHONY: update$(notdir $(1))
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
-	npm --prefix $(1) i -D $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
+	npm --prefix $(1) i -D $(CONNECT) $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
 	if [ "$(1)" == "fastify" ]; then \
 	   npm --prefix $(1) i -D $(CONNECT_NODE) $(CONNECT_FASTIFY) ;\
 	elif [ "$(1)" == "express" ]; then \
@@ -80,7 +80,7 @@ define updateyarnfunc
 .PHONY: update$(notdir $(1))
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
-	yarn --cwd $(1) add $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
+	yarn --cwd $(1) add $(CONNECT) $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
 	yarn --cwd $(1) buf:generate || exit 1 ;\
 
 update:: update$(notdir $(1))
@@ -102,7 +102,7 @@ define updatepnpmfunc
 .PHONY: update$(notdir $(1))
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
-	pnpm --prefix $(1) i -D $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
+	pnpm --prefix $(1) i -D $(CONNECT) $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
 	pnpm --prefix $(1) run buf:generate || exit 1 ;\
 
 update:: update$(notdir $(1))

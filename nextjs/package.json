@@ -17,10 +17,11 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.18.0-1",
-    "@bufbuild/connect-web": "^0.9.1",
+    "@bufbuild/buf": "^1.21.0-1",
+    "@bufbuild/connect": "^0.10.0",
+    "@bufbuild/connect-web": "^0.10.0",
     "@bufbuild/protobuf": "^1.2.1",
-    "@bufbuild/protoc-gen-connect-es": "^0.9.1",
+    "@bufbuild/protoc-gen-connect-es": "^0.10.0",
     "@bufbuild/protoc-gen-es": "^1.2.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",

@@ -13,10 +13,11 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "@bufbuild/buf": "^1.18.0-1",
-    "@bufbuild/connect-web": "^0.9.1",
+    "@bufbuild/buf": "^1.21.0-1",
+    "@bufbuild/connect": "^0.10.0",
+    "@bufbuild/connect-web": "^0.10.0",
     "@bufbuild/protobuf": "^1.2.1",
-    "@bufbuild/protoc-gen-connect-es": "^0.9.1",
+    "@bufbuild/protoc-gen-connect-es": "^0.10.0",
     "@bufbuild/protoc-gen-es": "^1.2.1",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.4",
@@ -35,7 +36,6 @@
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.22.3",
-    "@bufbuild/connect": "^0.9.1",
     "babel-loader": "^9.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
