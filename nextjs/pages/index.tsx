@@ -17,7 +17,7 @@ interface ChatMessage {
     sender: "eliza" | "user";
 }
 
-const NewPage: FC = () => {
+const UnaryExample: FC = () => {
     const [inputValue, setInputValue] = useState<string>("");
     const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
 
@@ -87,4 +87,4 @@ const NewPage: FC = () => {
     );
 };
 
-export default NewPage;
+export default UnaryExample;
