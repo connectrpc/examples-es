@@ -52,7 +52,7 @@
     "prettier": "^2.8.8",
     "react-app-rewired": "^2.2.1",
     "resolve-typescript-plugin": "^2.0.0",
-    "ts-jest": "^29.1.0"
+    "ts-jest": "^29.1.1"
   },
   "jest": {
     "moduleNameMapper": {
