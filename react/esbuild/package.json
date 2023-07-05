@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@bufbuild/buf": "^1.21.0-1",
+    "@bufbuild/buf": "^1.23.1",
     "@bufbuild/connect": "^0.10.0",
     "@bufbuild/connect-web": "^0.10.0",
     "@bufbuild/protobuf": "^1.2.1",
