@@ -20,7 +20,7 @@
     "@bufbuild/protoc-gen-connect-es": "^0.10.0",
     "@bufbuild/protoc-gen-es": "^1.2.1",
     "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.4",
+    "@types/react-dom": "^18.2.6",
     "css-loader": "^6.7.3",
     "style-loader": "^3.3.2",
     "ts-jest": "^29.1.0",
