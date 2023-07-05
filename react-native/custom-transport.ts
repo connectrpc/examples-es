@@ -93,116 +93,110 @@ export function createXHRGrpcWebTransport(
         options.binaryOptions
       );
 
-        return await runUnaryCall<I, O>({
-          signal,
-          interceptors: options.interceptors,
-          req: {
-            stream: false,
-            service,
-            method,
-            url: createMethodUrl(options.baseUrl, service, method),
-            init: {
-              method: "POST",
-              mode: "cors",
-            },
-            header: requestHeader(useBinaryFormat, timeoutMs, header),
-            message: normalize(message),
+      return await runUnaryCall<I, O>({
+        signal,
+        interceptors: options.interceptors,
+        req: {
+          stream: false,
+          service,
+          method,
+          url: createMethodUrl(options.baseUrl, service, method),
+          init: {
+            method: "POST",
+            mode: "cors",
           },
-          next: async (
-            req: UnaryRequest<I, O>
-          ): Promise<UnaryResponse<I, O>> => {
-            function fetchXHR(): Promise<FetchXHRResponse> {
-              return new Promise((resolve, reject) => {
-                const xhr = new XMLHttpRequest();
+          header: requestHeader(useBinaryFormat, timeoutMs, header),
+          message: normalize(message),
+        },
+        next: async (req: UnaryRequest<I, O>): Promise<UnaryResponse<I, O>> => {
+          function fetchXHR(): Promise<FetchXHRResponse> {
+            return new Promise((resolve, reject) => {
+              const xhr = new XMLHttpRequest();
 
-                xhr.open(req.init.method ?? "POST", req.url);
+              xhr.open(req.init.method ?? "POST", req.url);
 
-                function onAbort() {
-                  xhr.abort();
-                }
+              function onAbort() {
+                xhr.abort();
+              }
 
-                req.signal.addEventListener("abort", onAbort);
+              req.signal.addEventListener("abort", onAbort);
 
-                xhr.addEventListener("abort", () => {
-                  reject(new AbortError("Request aborted"));
-                });
-
-                xhr.addEventListener("load", () => {
-                  resolve({
-                    status: xhr.status,
-                    headers: parseHeaders(xhr.getAllResponseHeaders()),
-                    body: new Uint8Array(xhr.response),
-                  });
-                });
-
-                xhr.addEventListener("error", () => {
-                  reject(new Error("Network Error"));
-                });
-
-                xhr.addEventListener("loadend", () => {
-                  req.signal.removeEventListener("abort", onAbort);
-                });
-
-                xhr.responseType = "arraybuffer";
-
-                req.header.forEach((value: string, key: string) =>
-                  xhr.setRequestHeader(key, value)
-                );
-
-                xhr.send(encodeEnvelope(0, serialize(req.message)));
+              xhr.addEventListener("abort", () => {
+                reject(new AbortError("Request aborted"));
               });
-            }
-            const response = await fetchXHR();
 
-            validateResponse(
-              useBinaryFormat,
-              response.status,
-              response.headers
-            );
+              xhr.addEventListener("load", () => {
+                resolve({
+                  status: xhr.status,
+                  headers: parseHeaders(xhr.getAllResponseHeaders()),
+                  body: new Uint8Array(xhr.response),
+                });
+              });
 
-            const chunks = extractDataChunks(response.body);
+              xhr.addEventListener("error", () => {
+                reject(new Error("Network Error"));
+              });
 
-            let trailer: Headers | undefined;
-            let message: O | undefined;
+              xhr.addEventListener("loadend", () => {
+                req.signal.removeEventListener("abort", onAbort);
+              });
 
-            chunks.forEach(({ flags, data }) => {
-              if (flags === trailerFlag) {
-                if (trailer !== undefined) {
-                  throw "extra trailer";
-                }
+              xhr.responseType = "arraybuffer";
 
-                // Unary responses require exactly one response message, but in
-                // case of an error, it is perfectly valid to have a response body
-                // that only contains error trailers.
-                trailer = trailerParse(data);
-                return;
-              }
+              req.header.forEach((value: string, key: string) =>
+                xhr.setRequestHeader(key, value)
+              );
 
-              if (message !== undefined) {
-                throw "extra message";
-              }
-
-              message = parse(data);
+              xhr.send(encodeEnvelope(0, serialize(req.message)));
             });
+          }
+          const response = await fetchXHR();
 
-            if (trailer === undefined) {
-              throw "missing trailer";
+          validateResponse(response.status, response.headers);
+
+          const chunks = extractDataChunks(response.body);
+
+          let trailer: Headers | undefined;
+          let message: O | undefined;
+
+          chunks.forEach(({ flags, data }) => {
+            if (flags === trailerFlag) {
+              if (trailer !== undefined) {
+                throw "extra trailer";
+              }
+
+              // Unary responses require exactly one response message, but in
+              // case of an error, it is perfectly valid to have a response body
+              // that only contains error trailers.
+              trailer = trailerParse(data);
+              return;
             }
 
-            validateTrailer(trailer);
-
-            if (message === undefined) {
-              throw "missing message";
+            if (message !== undefined) {
+              throw "extra message";
             }
 
-            return <UnaryResponse<I, O>>{
-              stream: false,
-              header: response.headers,
-              message,
-              trailer,
-            };
-          },
-        });
+            message = parse(data);
+          });
+
+          if (trailer === undefined) {
+            throw "missing trailer";
+          }
+
+          validateTrailer(trailer);
+
+          if (message === undefined) {
+            throw "missing message";
+          }
+
+          return <UnaryResponse<I, O>>{
+            stream: false,
+            header: response.headers,
+            message,
+            trailer,
+          };
+        },
+      });
     },
     async stream<
       I extends Message<I> = AnyMessage,
