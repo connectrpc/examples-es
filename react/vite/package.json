@@ -16,19 +16,19 @@
         "web-vitals": "^3.3.2"
     },
     "devDependencies": {
-        "@bufbuild/buf": "^1.21.0-1",
-        "@bufbuild/connect": "^0.10.0",
-        "@bufbuild/connect-web": "^0.10.0",
+        "@bufbuild/buf": "^1.23.1",
+        "@bufbuild/connect": "^0.11.0",
+        "@bufbuild/connect-web": "^0.11.0",
         "@bufbuild/protobuf": "^1.2.1",
-        "@bufbuild/protoc-gen-connect-es": "^0.10.0",
+        "@bufbuild/protoc-gen-connect-es": "^0.11.0",
         "@bufbuild/protoc-gen-es": "^1.2.1",
-        "@types/react": "^18.2.0",
-        "@types/react-dom": "^18.2.4",
+        "@types/react": "^18.2.14",
+        "@types/react-dom": "^18.2.6",
         "@vitejs/plugin-react": "^2.2.0",
         "@vitest/coverage-c8": "^0.29.8",
         "c8": "^7.14.0",
         "jsdom": "^21.1.1",
-        "typescript": "^5.0.4",
+        "typescript": "^5.1.6",
         "vite": "^3.2.7",
         "vitest": "^0.31.4"
     }
