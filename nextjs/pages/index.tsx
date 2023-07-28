@@ -44,15 +44,13 @@ const UnaryExample: FC = () => {
     return (
         <div>
             <header className={styles.appHeader}>
-                <h1 className={styles.headline}>Eliza</h1>
-                <h4 className={styles.subtitle}>
-                    Next.js + Client-side Fetching
-                </h4>
+                <h1 className={styles.headline}>Connect with Next.js</h1>
+                <h4 className={styles.subtitle}>Unary Calls</h4>
                 <div className={styles.links}>
-                    <Link href="/ssr">View SSR Example</Link>
-                    <Link href="/server-streaming">
-                        View Server Streaming Example
-                    </Link>
+                    Choose an example:
+                    <Link href="/">Unary Calls</Link>
+                    <Link href="/server-streaming">Server Streaming Calls</Link>
+                    <Link href="/ssr">SSR</Link>
                 </div>
             </header>
             <div className={styles.container}>

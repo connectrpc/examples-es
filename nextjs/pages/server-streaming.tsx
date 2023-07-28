@@ -32,11 +32,13 @@ const NewPage: FC = () => {
     return (
         <div>
             <header className={styles.appHeader}>
-                <h1 className={styles.headline}>Eliza</h1>
-                <h4 className={styles.subtitle}>Next.js + Server Streaming</h4>
+                <h1 className={styles.headline}>Connect with Next.js</h1>
+                <h4 className={styles.subtitle}>Server Streaming Calls</h4>
                 <div className={styles.links}>
-                    <Link href="/ssr">View SSR Example</Link>
-                    <Link href="/">View Unary Example</Link>
+                    Choose an example:
+                    <Link href="/">Unary Calls</Link>
+                    <Link href="/server-streaming">Server Streaming Calls</Link>
+                    <Link href="/ssr">SSR</Link>
                 </div>
             </header>
             <div className={styles.container}>
