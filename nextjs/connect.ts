@@ -13,12 +13,12 @@
 // limitations under the License.
 
 import { ConnectRouter } from '@bufbuild/connect'
-import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connect.js'
+import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_connect.js'
 import type {
     SayRequest,
     IntroduceRequest,
     ConverseRequest,
-} from './gen/buf/connect/demo/eliza/v1/eliza_pb.js'
+} from './gen/connectrpc/eliza/v1/eliza_pb.js'
 
 export default (router: ConnectRouter) =>
     router.service(ElizaService, {

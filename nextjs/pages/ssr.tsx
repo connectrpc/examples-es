@@ -1,15 +1,15 @@
 import { createPromiseClient } from "@bufbuild/connect";
 import { InferGetServerSidePropsType } from "next";
 import Link from 'next/link'
-import { ElizaService } from "../gen/buf/connect/demo/eliza/v1/eliza_connect";
+import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect";
 import { createConnectTransport } from "@bufbuild/connect-web";
 import styles from "../styles/Eliza.module.css";
-import { SayResponse } from "../gen/buf/connect/demo/eliza/v1/eliza_pb";
+import { SayResponse } from "../gen/connectrpc/eliza/v1/eliza_pb";
 
 export const getServerSideProps = async () => {
   const transport = createConnectTransport({
     // Note: you cannot use a relative path like `/api` here because SSR requires absolute URLs.
-    baseUrl: "https://demo.connect.build",
+    baseUrl: "https://demo.connectrpc.com",
   });
   const client = createPromiseClient(ElizaService, transport);
   const request = { sentence: "hi (from the server)" };

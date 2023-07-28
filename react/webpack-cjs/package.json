@@ -7,7 +7,7 @@
     "start": "npm run build && webpack serve --mode development",
     "build": "npm run buf:generate && webpack",
     "test": "jest",
-    "buf:generate": "npx buf generate buf.build/bufbuild/eliza"
+    "buf:generate": "npx buf generate buf.build/connectrpc/eliza"
   },
   "author": "",
   "license": "ISC",

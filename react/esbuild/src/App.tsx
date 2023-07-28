@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { createPromiseClient } from '@bufbuild/connect'
 import { createConnectTransport } from '@bufbuild/connect-web'
-import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connect.js'
-import { IntroduceRequest } from './gen/buf/connect/demo/eliza/v1/eliza_pb.js'
+import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_connect.js'
+import { IntroduceRequest } from './gen/connectrpc/eliza/v1/eliza_pb.js'
 
 interface Response {
     text: string
@@ -23,7 +23,7 @@ function App() {
     const client = createPromiseClient(
         ElizaService,
         createConnectTransport({
-            baseUrl: 'https://demo.connect.build',
+            baseUrl: 'https://demo.connectrpc.com',
         })
     )
 

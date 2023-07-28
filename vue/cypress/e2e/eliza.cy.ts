@@ -1,7 +1,7 @@
 import { createConnectTransport } from "@bufbuild/connect-web";
 import { createPromiseClient } from "@bufbuild/connect";
-import { ElizaService } from "../../src/gen/buf/connect/demo/eliza/v1/eliza_connect.js";
-import { IntroduceRequest } from "../../src/gen/buf/connect/demo/eliza/v1/eliza_pb.js";
+import { ElizaService } from "../../src/gen/connectrpc/eliza/v1/eliza_connect.js";
+import { IntroduceRequest } from "../../src/gen/connectrpc/eliza/v1/eliza_pb.js";
 
 describe("Eliza Testing", () => {
   it("imports properly", () => {
@@ -12,7 +12,7 @@ describe("Eliza Testing", () => {
     const client = createPromiseClient(
       ElizaService,
       createConnectTransport({
-        baseUrl: "https://demo.connect.build",
+        baseUrl: "https://demo.connectrpc.com",
       })
     );
 

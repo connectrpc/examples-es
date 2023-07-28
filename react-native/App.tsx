@@ -10,8 +10,8 @@ import {
 } from "react-native";
 import { createPromiseClient, Code, ConnectError } from "@bufbuild/connect";
 import { createXHRGrpcWebTransport } from "./custom-transport";
-import { ElizaService } from "./gen/buf/connect/demo/eliza/v1/eliza_connect.js";
-import { IntroduceRequest } from "./gen/buf/connect/demo/eliza/v1/eliza_pb.js";
+import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect.js";
+import { IntroduceRequest } from "./gen/connectrpc/eliza/v1/eliza_pb.js";
 import "fast-text-encoding";
 import { Platform } from "react-native";
 
@@ -45,7 +45,7 @@ function App() {
   const client = createPromiseClient(
     ElizaService,
     createXHRGrpcWebTransport({
-      baseUrl: "https://demo.connect.build",
+      baseUrl: "https://demo.connectrpc.com",
     })
   );
 

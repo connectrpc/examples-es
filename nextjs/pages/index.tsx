@@ -6,8 +6,8 @@ import {
 import {
     createConnectTransport,
 } from '@bufbuild/connect-web'
-import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connect.js'
-import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb.js'
+import { ElizaService } from '../gen/connectrpc/eliza/v1/eliza_connect.js'
+import { IntroduceRequest } from '../gen/connectrpc/eliza/v1/eliza_pb.js'
 import Link from 'next/link'
 
 interface Response {
