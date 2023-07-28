@@ -92,3 +92,8 @@
     margin: 15px auto;
     padding: 0 15px 30px 15px;
 }
+
+.links {
+    display: flex;
+    gap: 4px;
+}

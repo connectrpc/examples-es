@@ -5,47 +5,35 @@ import { createConnectTransport } from "@bufbuild/connect-web";
 import { ElizaService } from "../gen/buf/connect/demo/eliza/v1/eliza_connect.js";
 import Link from "next/link";
 
-const elizaClient = createPromiseClient(
+const client = createPromiseClient(
     ElizaService,
     createConnectTransport({
         baseUrl: "/api",
     })
 );
 
-interface ChatMessage {
-    text: string;
-    sender: "eliza" | "user";
-}
-
-const UnaryExample: FC = () => {
-    const [inputValue, setInputValue] = useState<string>("");
-    const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+const NewPage: FC = () => {
+    const [userName, setUserName] = useState<string>("");
+    const [responses, setResponses] = useState<string[]>([]);
 
     const handleSubmit = useCallback(
         async (e: FormEvent) => {
             e.preventDefault();
-            setChatMessages((resp) => [
-                ...resp,
-                { text: inputValue, sender: "user" },
-            ]);
-            setInputValue("");
-            const response = await elizaClient.say({
-                sentence: inputValue,
-            });
-
-            setChatMessages((resp) => [
-                ...resp,
-                { text: response.sentence, sender: "eliza" },
-            ]);
+            setUserName("");
+            for await (const response of client.introduce({
+                name: userName,
+            })) {
+                setResponses((resp) => [...resp, response.sentence]);
+            }
         },
-        [inputValue]
+        [userName]
     );
 
     return (
         <div>
             <header className={styles.appHeader}>
                 <h1 className={styles.headline}>Connect with Next.js</h1>
-                <h4 className={styles.subtitle}>Unary Calls</h4>
+                <h4 className={styles.subtitle}>Server Streaming Calls</h4>
                 <div className={styles.links}>
                     Choose an example:
                     <Link href="/">Unary Calls</Link>
@@ -54,17 +42,10 @@ const UnaryExample: FC = () => {
                 </div>
             </header>
             <div className={styles.container}>
-                {chatMessages.map((resp, i) => {
+                {responses.map((resp, i) => {
                     return (
-                        <div
-                            key={i}
-                            className={
-                                resp.sender === "eliza"
-                                    ? styles.elizaRespContainer
-                                    : styles.userRespContainer
-                            }
-                        >
-                            <p className={styles.respText}>{resp.text}</p>
+                        <div key={i} className={styles.elizaRespContainer}>
+                            <p className={styles.respText}>{resp}</p>
                         </div>
                     );
                 })}
@@ -72,12 +53,14 @@ const UnaryExample: FC = () => {
                     <input
                         type="text"
                         className={`${styles.textInput} ${styles.statementInput}`}
-                        value={inputValue}
-                        onChange={(e) => setInputValue(e.target.value)}
+                        value={userName}
+                        onChange={(e) => setUserName(e.target.value)}
                         name="chat-message"
+                        placeholder="Enter your name"
+                        required
                     />
                     <button className={styles.button} type="submit">
-                        Send
+                        Introduce yourself
                     </button>
                 </form>
             </div>
@@ -85,4 +68,4 @@ const UnaryExample: FC = () => {
     );
 };
 
-export default UnaryExample;
+export default NewPage;
