@@ -80,9 +80,8 @@ define updateyarnfunc
 .PHONY: update$(notdir $(1))
 update$(notdir $(1)):
 	@echo $(1) ---------- ;\
-	cd $(1);\
-	yarn add $(CONNECT) $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
-	yarn run buf:generate || exit 1 ;\
+	yarn --cwd $(1) add $(CONNECT) $(CONNECT_WEB) $(PROTOC_GEN_CONNECT_ES) $(PROTOBUF) $(PROTOC_GEN_ES) $(BUF) ;\
+	yarn --cwd $(1) buf:generate || exit 1 ;\
 
 update:: update$(notdir $(1))
 endef
@@ -91,10 +90,10 @@ define testyarnfunc
 .PHONY: test$(notdir $(1))
 test$(notdir $(1)):
 	@echo $(1) ---------- ;\
-	cd $(1);\
-	yarn run build || exit 1 ;\
-	yarn run buf:generate || exit 1 ;\
-	yarn run test || exit 1 ;\
+	yarn --cwd $(1) install || exit 1 ;\
+	yarn --cwd $(1) build || exit 1 ;\
+	yarn --cwd $(1) buf:generate || exit 1 ;\
+	yarn --cwd $(1) test || exit 1 ;\
 
 test:: test$(notdir $(1))
 endef
