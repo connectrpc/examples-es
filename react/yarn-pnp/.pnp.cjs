@@ -29,7 +29,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@bufbuild/buf", "npm:1.21.0-1"],\
-            ["@bufbuild/connect", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.8.6"],\
+            ["@bufbuild/connect", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.12.0"],\
             ["@bufbuild/connect-web", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.10.0"],\
             ["@bufbuild/protobuf", "npm:1.2.1"],\
             ["@bufbuild/protoc-gen-connect-es", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.10.0"],\
@@ -955,10 +955,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["npm:0.8.6", {\
-          "packageLocation": "./.yarn/cache/@bufbuild-connect-npm-0.8.6-465da06876-cd5808d3f6.zip/node_modules/@bufbuild/connect/",\
+        ["npm:0.12.0", {\
+          "packageLocation": "./.yarn/cache/@bufbuild-connect-npm-0.12.0-eb8ebf2f60-7ddb9972c5.zip/node_modules/@bufbuild/connect/",\
           "packageDependencies": [\
-            ["@bufbuild/connect", "npm:0.8.6"]\
+            ["@bufbuild/connect", "npm:0.12.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -975,10 +975,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.8.6", {\
-          "packageLocation": "./.yarn/__virtual__/@bufbuild-connect-virtual-bd8dc47fb0/0/cache/@bufbuild-connect-npm-0.8.6-465da06876-cd5808d3f6.zip/node_modules/@bufbuild/connect/",\
+        ["virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.12.0", {\
+          "packageLocation": "./.yarn/__virtual__/@bufbuild-connect-virtual-1af5ee2633/0/cache/@bufbuild-connect-npm-0.12.0-eb8ebf2f60-7ddb9972c5.zip/node_modules/@bufbuild/connect/",\
           "packageDependencies": [\
-            ["@bufbuild/connect", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.8.6"],\
+            ["@bufbuild/connect", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.12.0"],\
             ["@bufbuild/protobuf", "npm:1.2.1"],\
             ["@types/bufbuild__protobuf", null]\
           ],\
@@ -1033,7 +1033,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/unplugged/@bufbuild-protoc-gen-connect-es-virtual-c5ba1ab178/node_modules/@bufbuild/protoc-gen-connect-es/",\
           "packageDependencies": [\
             ["@bufbuild/protoc-gen-connect-es", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.10.0"],\
-            ["@bufbuild/connect", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.8.6"],\
+            ["@bufbuild/connect", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.12.0"],\
             ["@bufbuild/protobuf", "npm:1.2.1"],\
             ["@bufbuild/protoc-gen-es", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:1.2.1"],\
             ["@bufbuild/protoplugin", "npm:1.2.1"],\
@@ -2359,7 +2359,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["buf-yarn-pnp", "workspace:."],\
             ["@bufbuild/buf", "npm:1.21.0-1"],\
-            ["@bufbuild/connect", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.8.6"],\
+            ["@bufbuild/connect", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.12.0"],\
             ["@bufbuild/connect-web", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.10.0"],\
             ["@bufbuild/protobuf", "npm:1.2.1"],\
             ["@bufbuild/protoc-gen-connect-es", "virtual:73a134739c0c376ac48091588d51973a07e1e2e1d92bfee7c4b98701ae64c9e28c92fe3a5ed835861e730b66e8926084db5b429226437f3b75e670e9825fae9a#npm:0.10.0"],\

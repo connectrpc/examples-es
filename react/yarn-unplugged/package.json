@@ -6,6 +6,7 @@
   "type": "module",
   "dependencies": {
     "@bufbuild/buf": "latest",
+    "@bufbuild/connect": "latest",
     "@bufbuild/connect-web": "latest",
     "@bufbuild/protobuf": "latest",
     "@bufbuild/protoc-gen-connect-es": "latest",

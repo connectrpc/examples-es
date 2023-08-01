@@ -528,6 +528,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bufbuild/connect@npm:latest":
+  version: 0.12.0
+  resolution: "@bufbuild/connect@npm:0.12.0"
+  peerDependencies:
+    "@bufbuild/protobuf": ^1.2.1
+  checksum: 7ddb9972c52113de3775a942d6948a6763ae9631ca09c03cb1b736a59c4bfafefd419597323a3f1f500a5c6cca85a70afbdd1a839649b87a56f49b362aa7497a
+  languageName: node
+  linkType: hard
+
 "@bufbuild/protobuf@npm:1.2.1, @bufbuild/protobuf@npm:^1.2.1, @bufbuild/protobuf@npm:latest":
   version: 1.2.1
   resolution: "@bufbuild/protobuf@npm:1.2.1"
@@ -1497,6 +1506,7 @@ __metadata:
   resolution: "buf-yarn-unplugged@workspace:."
   dependencies:
     "@bufbuild/buf": latest
+    "@bufbuild/connect": latest
     "@bufbuild/connect-web": latest
     "@bufbuild/protobuf": latest
     "@bufbuild/protoc-gen-connect-es": latest
