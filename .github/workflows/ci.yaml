@@ -55,5 +55,9 @@ jobs:
         uses: bufbuild/buf-setup-action@v1.23.1
         with:
           github_token: ${{ github.token }}
-      - name: Run Make
+      - name: test list2
+        run: echo node manage.mjs list {{ matrix.project }}
+      - name: test list
+        run: node manage.mjs list {{ matrix.project }}
+      - name: Run test
         run: node manage.mjs test {{ matrix.project }}
