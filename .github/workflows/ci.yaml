@@ -51,9 +51,5 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 7
-      - name: Setup Buf
-        uses: bufbuild/buf-setup-action@v1.25.0
-        with:
-          github_token: ${{ github.token }}
       - name: Run test
         run: node manage.mjs test ${{ matrix.project }}
