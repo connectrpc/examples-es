@@ -10,7 +10,7 @@
     "buf:generate": "npx buf generate buf.build/connectrpc/eliza"
   },
   "dependencies": {
-    "@expo/webpack-config": "^18.1.0",
+    "@expo/webpack-config": "^18.1.2",
     "expo": "~48.0.10",
     "expo-status-bar": "~1.4.4",
     "fast-text-encoding": "^1.0.6",
