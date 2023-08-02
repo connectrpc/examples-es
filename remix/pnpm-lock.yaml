@@ -32,8 +32,8 @@ devDependencies:
     specifier: ^0.10.0
     version: 0.10.0(@bufbuild/protobuf@1.2.1)
   '@bufbuild/connect-web':
-    specifier: ^0.10.0
-    version: 0.10.0(@bufbuild/protobuf@1.2.1)
+    specifier: ^0.12.0
+    version: 0.12.0(@bufbuild/protobuf@1.2.1)
   '@bufbuild/protobuf':
     specifier: ^1.2.1
     version: 1.2.1
@@ -1483,17 +1483,25 @@ packages:
       '@bufbuild/buf-win32-x64': 1.21.0-1
     dev: true
 
-  /@bufbuild/connect-web@0.10.0(@bufbuild/protobuf@1.2.1):
-    resolution: {integrity: sha512-tPk7mpUNL/MZ9krx9P7LqvRIGDAC22JHZEvbuhKr7uf75EDBvr5dsgIqpBXK1VRlZ6mz4MtNheTzcAbxoyYq+Q==}
+  /@bufbuild/connect-web@0.12.0(@bufbuild/protobuf@1.2.1):
+    resolution: {integrity: sha512-bw5E6aIs0q3ab5oyIB263ShRg8DhUMsewMHsl/9lUxJFkmzxvHoPIlNFrSWOUUcyudJrahfhDveXF94bi9C5cA==}
     peerDependencies:
       '@bufbuild/protobuf': ^1.2.1
     dependencies:
-      '@bufbuild/connect': 0.10.0(@bufbuild/protobuf@1.2.1)
+      '@bufbuild/connect': 0.12.0(@bufbuild/protobuf@1.2.1)
       '@bufbuild/protobuf': 1.2.1
     dev: true
 
   /@bufbuild/connect@0.10.0(@bufbuild/protobuf@1.2.1):
     resolution: {integrity: sha512-psNHc7R0DDZ2Dl/HVPw1MF5hGMTEjnRROPSqs9YPCjy+ztCNF97wPOUH3S4Qud2nNw9Hn+vqZd+Y4v9G5J+d1A==}
+    peerDependencies:
+      '@bufbuild/protobuf': ^1.2.1
+    dependencies:
+      '@bufbuild/protobuf': 1.2.1
+    dev: true
+
+  /@bufbuild/connect@0.12.0(@bufbuild/protobuf@1.2.1):
+    resolution: {integrity: sha512-rYn3Akp7teOkvqxguLbf6QKizH37Yeo33lseV+JHDZC19CsAV9wrrZM17Sa+LNEBj/hrYtQF7EIcllgGxhv9aw==}
     peerDependencies:
       '@bufbuild/protobuf': ^1.2.1
     dependencies:
