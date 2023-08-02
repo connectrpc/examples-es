@@ -14,28 +14,26 @@ jobs:
         id: filter
         with:
           filters: |
-            angular: angular/**
-            astro: astro/**
-            express: express/**
-            fastify: fastify/**
-            nextjs: nextjs/**
-            plain: plain/**
-            cra: react/cra/**
-            esbuild: react/esbuild/**
-            parcel: react/parcel/**
-            rollup: react/rollup/**
+            buf-ng: angular/**
+            buf-astro: astro/**
+            buf-express: express/**
+            buf-fastify: fastify/**
+            buf-nextjs: nextjs/**
+            buf-plain: plain/**
+            buf-cra: react/cra/**
+            buf-esbuild: react/esbuild/**
+            buf-parcel: react/parcel/**
+            buf-rollup: react/rollup/**
             vite: react/vite/**
-            webpack: react/webpack/**
-            webpack-cjs: react/webpack-cjs/**
-            webpack4: react/webpack4/**
-            webpack4-cjs: react/webpack4-cjs/**
-            yarn-pnp: react/yarn-pnp/**
-            yarn-unplugged: react/yarn-unplugged/**
-            react-native: react-native/**
-            remix: remix/**
-            svelte: svelte/**
-            vanilla-node: vanilla-node/**
-            vue: vue/**
+            buf-webpack: react/webpack/**
+            buf-webpack-cjs: react/webpack-cjs/**
+            buf-yarn-pnp: react/yarn-pnp/**
+            buf-yarn-unplugged: react/yarn-unplugged/**
+            buf-react-native: react-native/**
+            buf-remix: remix/**
+            buf-svelte: svelte/**
+            buf-vanilla-node: vanilla-node/**
+            buf-vue: vue/**
   ci:
     needs: changes
     strategy:
@@ -49,7 +47,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Setup pnpm 
+      - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 7
@@ -57,14 +55,5 @@ jobs:
         uses: bufbuild/buf-setup-action@v1.23.1
         with:
           github_token: ${{ github.token }}
-      - name: Cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.tmp
-            .tmp
-          key: ${{ runner.os }}-connect-web-integration-ci-${{ hashFiles('Makefile') }}
-          restore-keys: |
-            ${{ runner.os }}-connect-web-integration-ci-
-      - name: Run Make
-        run: make test${{ matrix.project }}
+      - name: Run test
+        run: node manage.mjs test ${{ matrix.project }}
