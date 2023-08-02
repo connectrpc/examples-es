@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@remix-run/node':
-    specifier: ^1.7.5
-    version: 1.8.1(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^1.19.1
+    version: 1.19.1
   '@remix-run/react':
     specifier: ^1.18.1
     version: 1.18.1(react-dom@18.2.0)(react@18.2.0)
@@ -2093,6 +2093,21 @@ packages:
       - react
       - react-dom
 
+  /@remix-run/node@1.19.1:
+    resolution: {integrity: sha512-7RbuaG3PMkit04xhu+RdOLHbLj7rhPVJwLeMXAYreQ0D9hvssWNt2lPGEowLd//2IGthU8OvNpb1rB+vyFuF1Q==}
+    engines: {node: '>=14.0.0'}
+    dependencies:
+      '@remix-run/server-runtime': 1.19.1
+      '@remix-run/web-fetch': 4.3.6
+      '@remix-run/web-file': 3.0.2
+      '@remix-run/web-stream': 1.0.3
+      '@web3-storage/multipart-parser': 1.0.0
+      abort-controller: 3.0.0
+      cookie-signature: 1.2.0
+      source-map-support: 0.5.21
+      stream-slice: 0.1.2
+    dev: false
+
   /@remix-run/node@1.8.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-kln2+fRjlFhCmpX1dVxMvuGPoREIwo3Oio34VXlsa7T/e57m/i+bp0Ptn/ZjuakNsbSE/l4Epami4Y7OgDmTIA==}
     engines: {node: '>=14'}
@@ -2132,6 +2147,11 @@ packages:
     engines: {node: '>=14'}
     dev: false
 
+  /@remix-run/router@1.7.2:
+    resolution: {integrity: sha512-7Lcn7IqGMV+vizMPoEl5F0XDshcdDYtMI6uJLQdQz5CfZAwy3vvGKYSUk789qndt5dEC4HfSjviSYlSoHGL2+A==}
+    engines: {node: '>=14'}
+    dev: false
+
   /@remix-run/serve@1.8.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-n+QwItkvkvP624JB2UzjLmHY7ePWO/QxP1Sw2EUQrpA56ubFR6NaMTZQubt/OM8Imj/KUwM3kFnVvpwlcynBJg==}
     engines: {node: '>=14'}
@@ -2145,6 +2165,18 @@ packages:
       - react
       - react-dom
       - supports-color
+
+  /@remix-run/server-runtime@1.19.1:
+    resolution: {integrity: sha512-sRTx/Ibl8HSLGhEr73YTZz3GzO5eZRCusfSJ8MBh1Kq0Mo571W9g4AJ/qJsF3G/wKTKxU2n75MVo0nIfTh4oZQ==}
+    engines: {node: '>=14.0.0'}
+    dependencies:
+      '@remix-run/router': 1.7.2
+      '@types/cookie': 0.4.1
+      '@web3-storage/multipart-parser': 1.0.0
+      cookie: 0.4.2
+      set-cookie-parser: 2.5.1
+      source-map: 0.7.4
+    dev: false
 
   /@remix-run/server-runtime@1.8.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-GcOhrQOB5E1vSPUA1OLzPRRyHErdA6QsKpz4LAw2rayvpBd47bhU18bFBJEPr1vwmimgeU/9QnopUHz5/eOZ5w==}
@@ -2169,6 +2201,13 @@ packages:
       '@remix-run/web-stream': 1.0.3
       web-encoding: 1.1.5
 
+  /@remix-run/web-blob@3.0.5:
+    resolution: {integrity: sha512-Mungj3erqCrq0+5zU/34NkeC2g+U7K6Uwa8uNiZgANvw0Wc64wKglk4MPQJZA0Y2tgPYXyrRn7uw4q75j6Hhww==}
+    dependencies:
+      '@remix-run/web-stream': 1.0.4
+      web-encoding: 1.1.5
+    dev: false
+
   /@remix-run/web-fetch@4.3.2:
     resolution: {integrity: sha512-aRNaaa0Fhyegv/GkJ/qsxMhXvyWGjPNgCKrStCvAvV1XXphntZI0nQO/Fl02LIQg3cGL8lDiOXOS1gzqDOlG5w==}
     engines: {node: ^10.17 || >=12.3}
@@ -2181,6 +2220,19 @@ packages:
       data-uri-to-buffer: 3.0.1
       mrmime: 1.0.1
 
+  /@remix-run/web-fetch@4.3.6:
+    resolution: {integrity: sha512-ifadyJS+/7W6LhKyA8tIR9fBIPwLCFVpl1YCYg5i0ikykiXxE3IWtPVB1G51AJFghc1YgR7rq8BRJLsJeUbE5Q==}
+    engines: {node: ^10.17 || >=12.3}
+    dependencies:
+      '@remix-run/web-blob': 3.0.5
+      '@remix-run/web-form-data': 3.0.5
+      '@remix-run/web-stream': 1.0.4
+      '@web3-storage/multipart-parser': 1.0.0
+      abort-controller: 3.0.0
+      data-uri-to-buffer: 3.0.1
+      mrmime: 1.0.1
+    dev: false
+
   /@remix-run/web-file@3.0.2:
     resolution: {integrity: sha512-eFC93Onh/rZ5kUNpCQersmBtxedGpaXK2/gsUl49BYSGK/DvuPu3l06vmquEDdcPaEuXcsdGP0L7zrmUqrqo4A==}
     dependencies:
@@ -2191,10 +2243,22 @@ packages:
     dependencies:
       web-encoding: 1.1.5
 
+  /@remix-run/web-form-data@3.0.5:
+    resolution: {integrity: sha512-txXJDzjDuTxF8MFvEp9AA2HF3oPcvmlE1I/6HIxeGpX3vpBtrCPw5KQ/nzgBZNuAxyxEm8ps6Ds/UZwoDyfGsQ==}
+    dependencies:
+      web-encoding: 1.1.5
+    dev: false
+
   /@remix-run/web-stream@1.0.3:
     resolution: {integrity: sha512-wlezlJaA5NF6SsNMiwQnnAW6tnPzQ5I8qk0Y0pSohm0eHKa2FQ1QhEKLVVcDDu02TmkfHgnux0igNfeYhDOXiA==}
     dependencies:
       web-streams-polyfill: 3.2.1
+
+  /@remix-run/web-stream@1.0.4:
+    resolution: {integrity: sha512-SVO42pH21I1sAhksGEM8ZBV/jc1mz6knZSg6Qo/2HPy9JTvtUykm3QMHtF2OMCTUXxdRW+4E/rphkPRyGc8WKw==}
+    dependencies:
+      web-streams-polyfill: 3.2.1
+    dev: false
 
   /@rollup/pluginutils@4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
