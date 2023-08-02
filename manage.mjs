@@ -66,7 +66,7 @@ function main() {
             console.error("'list' lists all packages in the repository.");
             console.error("'test' installs dependencies, then runs the 'buf:generate', 'build', and 'test' scripts.");
             console.error("'update' updates all deps to the latest version allowed by the dependency constraints.");
-            console.error("'forceupdateknown' updates all well-known deps to the latest version, regardless of constraints.");
+            console.error("'forceupdateknown' updates all known deps to the latest version, regardless of constraints.");
             console.error("'forceupdateall' updates all deps to the latest version, regardless of constraints.");
             console.error("If no packages are given, the command runs for all packages.");
             process.exit(1);
