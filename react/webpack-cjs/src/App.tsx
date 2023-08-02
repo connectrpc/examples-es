@@ -4,8 +4,8 @@ require('./App.css');
 const React = require('react');
 const {createPromiseClient} = require('@bufbuild/connect');
 const {createConnectTransport} = require('@bufbuild/connect-web');
-const { ElizaService } = require('./gen/buf/connect/demo/eliza/v1/eliza_connect.js');
-const { IntroduceRequest } = require('./gen/buf/connect/demo/eliza/v1/eliza_pb.js');
+const { ElizaService } = require('./gen/connectrpc/eliza/v1/eliza_connect.js');
+const { IntroduceRequest } = require('./gen/connectrpc/eliza/v1/eliza_pb.js');
 
 interface Response {
     text: string
@@ -26,7 +26,7 @@ function App() {
     const client = createPromiseClient(
         ElizaService,
         createConnectTransport({
-            baseUrl: 'https://demo.connect.build',
+            baseUrl: 'https://demo.connectrpc.com',
         })
     )
 

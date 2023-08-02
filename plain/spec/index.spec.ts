@@ -4,8 +4,8 @@ import {
 import {
     createConnectTransport,
 } from '@bufbuild/connect-web'
-import { ElizaService } from '../src/gen/buf/connect/demo/eliza/v1/eliza_connect.js'
-import { IntroduceRequest } from '../src/gen/buf/connect/demo/eliza/v1/eliza_pb.js'
+import { ElizaService } from '../src/gen/connectrpc/eliza/v1/eliza_connect.js'
+import { IntroduceRequest } from '../src/gen/connectrpc/eliza/v1/eliza_pb.js'
 
 it('imports ElizaService correctly', () => {
     expect(ElizaService).toBeDefined()
@@ -18,7 +18,7 @@ it('creates a promise client', () => {
     const client = createPromiseClient(
         ElizaService,
         createConnectTransport({
-            baseUrl: 'https://demo.connect.build',
+            baseUrl: 'https://demo.connectrpc.com',
         })
     )
     expect(client.say).toBeDefined()
