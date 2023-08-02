@@ -7,7 +7,7 @@
     "start": "tsx server.ts",
     "serve": "tsc --noEmit && esbuild webclient.ts --serve=localhost:8080 --servedir=www --outdir=www --bundle --global-name=eliza",
     "client": "tsx client.ts",
-    "buf:generate": "npx buf generate buf.build/bufbuild/eliza",
+    "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
     "build": "tsc --noEmit",
     "test": "NODE_OPTIONS=--experimental-vm-modules ts-node --esm node_modules/.bin/jasmine --config=spec/support/jasmine.json"
   },

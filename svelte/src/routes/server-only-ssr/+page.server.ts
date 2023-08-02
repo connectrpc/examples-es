@@ -1,5 +1,5 @@
-import { ElizaService } from "../../gen/buf/connect/demo/eliza/v1/eliza_connect";
-import { SayRequest } from "../../gen/buf/connect/demo/eliza/v1/eliza_pb";
+import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_connect";
+import { SayRequest } from "../../gen/connectrpc/eliza/v1/eliza_pb";
 import { createGrpcWebTransport } from "@bufbuild/connect-web";
 import { createPromiseClient } from "@bufbuild/connect";
 import { wrapFetch } from "../../utils";
@@ -7,7 +7,7 @@ import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ fetch }) => {
   const transport = createGrpcWebTransport({
-    baseUrl: "https://demo.connect.build",
+    baseUrl: "https://demo.connectrpc.com",
     fetch: wrapFetch("calling from gRPC-web in server-only SSR", fetch),
   });
 

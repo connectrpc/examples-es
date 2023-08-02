@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { SayResponse } from "../../gen/buf/connect/demo/eliza/v1/eliza_pb";
+  import { SayResponse } from "../../gen/connectrpc/eliza/v1/eliza_pb";
   import type { PageData } from "./$types";
 
   export let data: PageData = {

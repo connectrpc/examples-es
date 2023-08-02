@@ -3,8 +3,8 @@ import { defineComponent } from 'vue'
 import { createPromiseClient } from '@bufbuild/connect'
 import { createConnectTransport } from '@bufbuild/connect-web'
 import type { PromiseClient } from '@bufbuild/connect'
-import { ElizaService } from '../gen/buf/connect/demo/eliza/v1/eliza_connect'
-import { IntroduceRequest } from '../gen/buf/connect/demo/eliza/v1/eliza_pb'
+import { ElizaService } from '../gen/connectrpc/eliza/v1/eliza_connect'
+import { IntroduceRequest } from '../gen/connectrpc/eliza/v1/eliza_pb'
 
 interface Response {
     text: string
@@ -38,7 +38,7 @@ export default defineComponent({
         this.client = createPromiseClient(
             ElizaService,
             createConnectTransport({
-                baseUrl: 'https://demo.connect.build',
+                baseUrl: 'https://demo.connectrpc.com',
             })
         )
     },

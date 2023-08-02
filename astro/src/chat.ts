@@ -1,34 +1,34 @@
 /* external dependencies */
-import { createPromiseClient } from '@bufbuild/connect'
-import { createConnectTransport } from '@bufbuild/connect-web'
-import type { PromiseClient } from '@bufbuild/connect'
+import { createPromiseClient } from "@bufbuild/connect";
+import { createConnectTransport } from "@bufbuild/connect-web";
+import type { PromiseClient } from "@bufbuild/connect";
 
 /* local dependencies */
-import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connect'
-import { IntroduceRequest } from './gen/buf/connect/demo/eliza/v1/eliza_pb'
+import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect";
+import { IntroduceRequest } from "./gen/connectrpc/eliza/v1/eliza_pb";
 
-import { addMessage } from './chatStore'
+import { addMessage } from "./chatStore";
 
 const client: PromiseClient<typeof ElizaService> = createPromiseClient(
   ElizaService,
   createConnectTransport({
-    baseUrl: 'https://demo.connect.build',
-  }),
-)
+    baseUrl: "https://demo.connectrpc.com",
+  })
+);
 
-let firstInteraction = true
-let author = '?'
+let firstInteraction = true;
+let author = "?";
 
-async function send(statement = '') {
+async function send(statement = "") {
   if (client) {
     addMessage({
       text: statement,
       author,
-    })
+    });
     if (!firstInteraction) {
-      await sendMessage(statement)
+      await sendMessage(statement);
     } else {
-      sendIntroductionMessage(statement)
+      sendIntroductionMessage(statement);
     }
   }
 }
@@ -36,27 +36,27 @@ async function send(statement = '') {
 async function sendMessage(statement: string) {
   const response = await client.say({
     sentence: statement,
-  })
+  });
 
   addMessage({
     text: response.sentence,
-    author: 'Eliza',
-  })
+    author: "Eliza",
+  });
 }
 
 async function sendIntroductionMessage(statement: string) {
   const request = new IntroduceRequest({
     name: statement,
-  })
-  author = statement
+  });
+  author = statement;
 
   for await (const response of client.introduce(request)) {
     addMessage({
       text: response.sentence,
-      author: 'Eliza',
-    })
+      author: "Eliza",
+    });
   }
-  firstInteraction = false
+  firstInteraction = false;
 }
 
-export { send }
+export { send };

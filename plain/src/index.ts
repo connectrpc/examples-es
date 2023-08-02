@@ -4,8 +4,8 @@ import {
 import {
     createConnectTransport,
 } from '@bufbuild/connect-web'
-import { ElizaService } from './gen/buf/connect/demo/eliza/v1/eliza_connect.js'
-import { IntroduceRequest } from './gen/buf/connect/demo/eliza/v1/eliza_pb.js'
+import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_connect.js'
+import { IntroduceRequest } from './gen/connectrpc/eliza/v1/eliza_pb.js'
 
 let introFinished = false;
 
@@ -13,7 +13,7 @@ let introFinished = false;
 const client = createPromiseClient(
     ElizaService,
     createConnectTransport({
-        baseUrl: 'https://demo.connect.build',
+        baseUrl: 'https://demo.connectrpc.com',
     })
 )
 
@@ -36,7 +36,7 @@ function addNode(text: string, sender: string): void {
 
     const respContainerEl = containerEl.appendChild(divEl);
     respContainerEl.className = `${sender}-resp-container`;
-    
+
     const respTextEl = respContainerEl.appendChild(pEl);
     respTextEl.className = "resp-text";
     respTextEl.innerText = text;

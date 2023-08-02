@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "buf:generate": "buf generate buf.build/bufbuild/eliza"
+    "buf:generate": "buf generate buf.build/connectrpc/eliza"
   },
   "dependencies": {
     "@bufbuild/buf": "^1.25.0",

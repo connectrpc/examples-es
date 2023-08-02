@@ -1,5 +1,5 @@
-import { ElizaService } from "../../gen/buf/connect/demo/eliza/v1/eliza_connect";
-import { SayRequest } from "../../gen/buf/connect/demo/eliza/v1/eliza_pb";
+import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_connect";
+import { SayRequest } from "../../gen/connectrpc/eliza/v1/eliza_pb";
 import { createConnectTransport } from "@bufbuild/connect-web";
 import { createPromiseClient } from "@bufbuild/connect";
 import { wrapFetch } from "../../utils";
@@ -9,7 +9,7 @@ import type { PageLoad } from "./$types";
 
 export const load: PageLoad = async ({ fetch }) => {
   const transport = createConnectTransport({
-    baseUrl: "https://demo.connect.build",
+    baseUrl: "https://demo.connectrpc.com",
     fetch: wrapFetch("calling from connect in universal SSR", fetch),
   });
 
