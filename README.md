@@ -79,3 +79,9 @@ framework.
 
 The [vanilla-node](vanilla-node) directory contains an example involving Connect for Node.js with vanilla Node.js using
 the `http` package.
+
+## Legal
+
+Offered under the [Apache 2 license][license].
+
+[license]: https://github.com/connectrpc/examples-es/blob/main/LICENSE.txt
