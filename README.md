@@ -1,6 +1,9 @@
-# Connect-ES Integration
+examples-es
+===========
 
-Connect-ES Integration is a repository of example projects using Connect with various TypeScript web frameworks and tooling.
+[![Build](https://github.com/connectrpc/examples-es/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/connectrpc/examples-es/actions/workflows/ci.yaml)
+
+`examples-es` is a repository of example projects using Connect with various TypeScript web frameworks and tooling.
 It provides numerous examples for integrating Connect into a project, using both Connect for Web and Connect for Node.
 
 ## Web
@@ -58,21 +61,21 @@ The [React Native](react-native) application was generated with the [Expo CLI](h
 
 ## Servers
 
-The server examples make use of Connect for Node.js using various frameworks. All servers serve both Connect endpoints 
-and the Eliza frontend interface. There are multiple kinds of clients available that can be used to interact with the 
+The server examples make use of Connect for Node.js using various frameworks. All servers serve both Connect endpoints
+and the Eliza frontend interface. There are multiple kinds of clients available that can be used to interact with the
 server such as a terminal client and browser clients using both a full-stack setup as well as a CORS setup.
 
 ### Express
 
 The [express](express) directory contains an example involving Connect for Node.js with the [Express](https://expressjs.com)
-framework. 
+framework.
 
 ### Fastify
 
 The [fastify](fastify) directory contains an example involving Connect for Node.js with the [Fastify](https://fastify.io)
-framework. 
+framework.
 
 ### Vanilla Node.js
 
 The [vanilla-node](vanilla-node) directory contains an example involving Connect for Node.js with vanilla Node.js using
-the `http` package. 
+the `http` package.
