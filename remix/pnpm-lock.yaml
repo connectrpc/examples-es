@@ -26,8 +26,8 @@ dependencies:
 
 devDependencies:
   '@bufbuild/buf':
-    specifier: ^1.25.0
-    version: 1.25.0
+    specifier: ^1.26.1
+    version: 1.26.1
   '@bufbuild/connect':
     specifier: ^0.12.0
     version: 0.12.0(@bufbuild/protobuf@1.3.0)
@@ -1383,8 +1383,8 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@bufbuild/buf-darwin-arm64@1.25.0:
-    resolution: {integrity: sha512-X6rf6s/y9VBHfdhhURNBwyDNFYNecOE4GOvzQcwZVYmGteA4Xor8c51ouTPd5wU2lAq/qLwYX2hZAY41uvbMrA==}
+  /@bufbuild/buf-darwin-arm64@1.26.1:
+    resolution: {integrity: sha512-nmyWiT/59RFja0ZuXFxjNGoAMDPTApU66CZUUevkFVWbNB9nzeQDjx2vsJyACY64k5fTgZiaelSiyppwObQknw==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
@@ -1392,8 +1392,8 @@ packages:
     dev: true
     optional: true
 
-  /@bufbuild/buf-darwin-x64@1.25.0:
-    resolution: {integrity: sha512-H7L8DdPwZsP5WSiOJCScY/E5CT7b0zv49l4WYrbbyg0FDJBMHg8Yn8lEK0Ju/mvlXaAqDZk4pwiwVuCPtt4oBw==}
+  /@bufbuild/buf-darwin-x64@1.26.1:
+    resolution: {integrity: sha512-jl5WmUv30OW8JiRLid9+mVx1XVH0XttpUfkQfmqDFdUHGfdy4XWYK8kr84YyWu0SiMTIt1mPXkqG5UM3x+tdIQ==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [darwin]
@@ -1401,8 +1401,8 @@ packages:
     dev: true
     optional: true
 
-  /@bufbuild/buf-linux-aarch64@1.25.0:
-    resolution: {integrity: sha512-bL0dlBmmJ/AmCtIQXiqJLXIPwHM65O3TT85wFQvurexlwnLs6ajM+zJ2e+Xbj2ccXQ+TI8UKLlVgySHPp7EP0A==}
+  /@bufbuild/buf-linux-aarch64@1.26.1:
+    resolution: {integrity: sha512-EedR2KDW/yDIxQKWuq1Y/g7IuwTgvelqylGVO7muMxt2JWShobyUaU6GIU8JB4yhIbqRQYCL2KqBsvDJbJtCUw==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
@@ -1410,8 +1410,8 @@ packages:
     dev: true
     optional: true
 
-  /@bufbuild/buf-linux-x64@1.25.0:
-    resolution: {integrity: sha512-PuxDpPqArjfeZ8LPAru0f/u7nZlE+IIXIjJM6IsnnTqAoBS5A4z9ALUog23BfuU2jJNuPerKPaMs92GAmiSaBQ==}
+  /@bufbuild/buf-linux-x64@1.26.1:
+    resolution: {integrity: sha512-5iFL+MmWqR4cBLVNpgsjRecdHgcTxFaIkVYlQV9q8acbaJn5rgOIjUr1tzcBao9YsL3rdBhHvKkgnQ9gi1IiTw==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
@@ -1419,8 +1419,8 @@ packages:
     dev: true
     optional: true
 
-  /@bufbuild/buf-win32-arm64@1.25.0:
-    resolution: {integrity: sha512-Uw2Bn2pJfPKdh+J6ocqNKMZiYl07eZWYNbAIzl1vXAl1bH7SvgiEA+ujgOM56I+GmNfVSRWNukrxj5ppPvdTQQ==}
+  /@bufbuild/buf-win32-arm64@1.26.1:
+    resolution: {integrity: sha512-/ayymSD12gBetN98ErkH0CBGRLTmtYAp4fmbPuvq8zuJcL0eiAnK6d7ZFjTc+vDMuKY/aelQN7dj9WhzdYAQSQ==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
@@ -1428,8 +1428,8 @@ packages:
     dev: true
     optional: true
 
-  /@bufbuild/buf-win32-x64@1.25.0:
-    resolution: {integrity: sha512-mTBCyzFbpxSDnn33yfsH2qDC1K9mcduJlFdBgJnVcXaZXghlJQAgNA58dpGuY2fsmcACpiimMgChqpON+/LZ4A==}
+  /@bufbuild/buf-win32-x64@1.26.1:
+    resolution: {integrity: sha512-k9Dy3Z9P96wYR43lUhUo0jbjMSo001+MRBlsadEYiw85POqx6RWVaGyHLrxC2Ly7g+aGMisey050OjqfCWtKTA==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
@@ -1437,18 +1437,18 @@ packages:
     dev: true
     optional: true
 
-  /@bufbuild/buf@1.25.0:
-    resolution: {integrity: sha512-eBlzzVNBSw2cjKtkKZPu7RZK2YLUoB9tVRe+Pf4QVxF0IQtO5zPDdtWCF7/IUjd0V+dOJC25nLSeE5+YeZDqKg==}
+  /@bufbuild/buf@1.26.1:
+    resolution: {integrity: sha512-NyYx4T//3ndtFYV3BfqX9Xrm1NZEx3eChXniAKc/osCVViFooC5nuLQUbyqglMonH0w39RohiURMXN+e/oEB4g==}
     engines: {node: '>=12'}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      '@bufbuild/buf-darwin-arm64': 1.25.0
-      '@bufbuild/buf-darwin-x64': 1.25.0
-      '@bufbuild/buf-linux-aarch64': 1.25.0
-      '@bufbuild/buf-linux-x64': 1.25.0
-      '@bufbuild/buf-win32-arm64': 1.25.0
-      '@bufbuild/buf-win32-x64': 1.25.0
+      '@bufbuild/buf-darwin-arm64': 1.26.1
+      '@bufbuild/buf-darwin-x64': 1.26.1
+      '@bufbuild/buf-linux-aarch64': 1.26.1
+      '@bufbuild/buf-linux-x64': 1.26.1
+      '@bufbuild/buf-win32-arm64': 1.26.1
+      '@bufbuild/buf-win32-x64': 1.26.1
     dev: true
 
   /@bufbuild/connect-web@0.12.0(@bufbuild/protobuf@1.3.0):
@@ -3361,6 +3361,7 @@ packages:
 
   /bindings@1.5.0:
     resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
+    requiresBuild: true
     dependencies:
       file-uri-to-path: 1.0.0
     dev: true
@@ -4843,6 +4844,7 @@ packages:
 
   /file-uri-to-path@1.0.0:
     resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -7018,6 +7020,7 @@ packages:
 
   /node-addon-api@1.7.2:
     resolution: {integrity: sha512-ibPK3iA+vaY1eEjESkQkM0BbCqFOaZMiXRTtdB0u7b4djtY6JnsjvPdUHVMg6xQt3B8fpTTWHI9A+ADjM9frzg==}
+    requiresBuild: true
     dev: true
     optional: true
 
