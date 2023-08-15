@@ -40,6 +40,7 @@ jobs:
             buf-vue: vue/**
   ci:
     needs: changes
+    if: ${{ needs.changes.outputs.projects != '' && toJson(fromJson(needs.changes.outputs.projects)) != '[]' }}
     strategy:
       matrix:
         project: ${{ fromJSON(needs.changes.outputs.projects) }}
