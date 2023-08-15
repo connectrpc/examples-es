@@ -12,6 +12,8 @@ jobs:
     outputs:
       projects: ${{ steps.filter.outputs.changes }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
         id: filter
         with:
@@ -38,13 +40,12 @@ jobs:
             buf-vue: vue/**
   ci:
     needs: changes
+    if: ${{ needs.changes.outputs.projects != '' && toJson(fromJson(needs.changes.outputs.projects)) != '[]' }}
     strategy:
       matrix:
         project: ${{ fromJSON(needs.changes.outputs.projects) }}
     runs-on: ubuntu-20.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
