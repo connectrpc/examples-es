@@ -12,41 +12,41 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { ConnectRouter } from '@bufbuild/connect'
-import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_connect.js'
+import { ConnectRouter } from "@bufbuild/connect";
+import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect.js";
 import type {
     SayRequest,
     IntroduceRequest,
     ConverseRequest,
-} from './gen/connectrpc/eliza/v1/eliza_pb.js'
+} from "./gen/connectrpc/eliza/v1/eliza_pb.js";
 
 export default (router: ConnectRouter) =>
     router.service(ElizaService, {
         say(req: SayRequest) {
             return {
                 sentence: `You said ${req.sentence}`,
-            }
+            };
         },
         async *introduce(req: IntroduceRequest) {
-            yield { sentence: `Hi ${req.name}, I'm Eliza` }
-            await delay(250)
+            yield { sentence: `Hi ${req.name}, I'm Eliza` };
+            await delay(250);
             yield {
                 sentence: `Before we begin, ${req.name}, let me tell you something about myself.`,
-            }
-            await delay(250)
-            yield { sentence: `I'm a Rogerian psychotherapist.` }
-            await delay(250)
-            yield { sentence: `How are you feeling today?` }
+            };
+            await delay(250);
+            yield { sentence: `I'm a Rogerian psychotherapist.` };
+            await delay(250);
+            yield { sentence: `How are you feeling today?` };
         },
         async *converse(reqs: AsyncIterable<ConverseRequest>) {
             for await (const req of reqs) {
                 yield {
-                    sentence: `You said ${req.sentence}`,
-                }
+                    sentence: `You said ${req.sentence}.`,
+                };
             }
         },
-    })
+    });
 
 function delay(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms))
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }
