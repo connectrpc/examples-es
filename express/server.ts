@@ -15,8 +15,8 @@
 import http from "http";
 import express from "express";
 import cors from "cors";
-import { cors as connectCors } from "@bufbuild/connect";
-import { expressConnectMiddleware } from "@bufbuild/connect-express";
+import { cors as connectCors } from "@connectrpc/connect";
+import { expressConnectMiddleware } from "@connectrpc/connect-express";
 import { readFileSync } from "fs";
 import { stdout } from "process";
 import * as esbuild from "esbuild";

@@ -8,7 +8,7 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { createPromiseClient, Code, ConnectError } from "@bufbuild/connect";
+import { createPromiseClient, Code, ConnectError } from "@connectrpc/connect";
 import { createXHRGrpcWebTransport } from "./custom-transport";
 import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect.js";
 import { IntroduceRequest } from "./gen/connectrpc/eliza/v1/eliza_pb.js";

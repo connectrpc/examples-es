@@ -1,5 +1,5 @@
 import { Provider } from "@angular/core";
-import { Transport } from "@bufbuild/connect";
+import { Transport } from "@connectrpc/connect";
 import { ServiceType } from "@bufbuild/protobuf";
 import { createObservableClient } from "./observable-client";
 import { TRANSPORT } from "./transport.token";

@@ -1,5 +1,5 @@
-import { makeAnyClient, CallOptions, Transport } from '@bufbuild/connect'
-import { createAsyncIterable } from '@bufbuild/connect/protocol'
+import { makeAnyClient, CallOptions, Transport } from '@connectrpc/connect'
+import { createAsyncIterable } from '@connectrpc/connect/protocol'
 import {
     ServiceType,
     PartialMessage,

@@ -1,7 +1,7 @@
 import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_connect";
 import { SayRequest } from "../../gen/connectrpc/eliza/v1/eliza_pb";
-import { createGrpcWebTransport } from "@bufbuild/connect-web";
-import { createPromiseClient } from "@bufbuild/connect";
+import { createGrpcWebTransport } from "@connectrpc/connect-web";
+import { createPromiseClient } from "@connectrpc/connect";
 import { wrapFetch } from "../../utils";
 import type { PageServerLoad } from "./$types";
 

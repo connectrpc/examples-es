@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css'
-import { createPromiseClient } from '@bufbuild/connect'
-import { createConnectTransport } from '@bufbuild/connect-web'
+import { createPromiseClient } from '@connectrpc/connect'
+import { createConnectTransport } from '@connectrpc/connect-web'
 import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_connect.js'
 import { IntroduceRequest } from './gen/connectrpc/eliza/v1/eliza_pb.js'
 

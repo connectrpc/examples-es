@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { connectNodeAdapter } from "@bufbuild/connect-node";
-import { cors as connectCors } from "@bufbuild/connect";
+import { connectNodeAdapter } from "@connectrpc/connect-node";
+import { cors as connectCors } from "@connectrpc/connect";
 import cors from "cors";
 import routes from "./connect.js";
 import * as esbuild from "esbuild";
