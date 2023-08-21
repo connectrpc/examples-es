@@ -13,8 +13,8 @@
 // limitations under the License.
 
 import { fastify } from "fastify";
-import { fastifyConnectPlugin } from "@bufbuild/connect-fastify";
-import { cors as connectCors } from "@bufbuild/connect";
+import { fastifyConnectPlugin } from "@connectrpc/connect-fastify";
+import { cors as connectCors } from "@connectrpc/connect";
 import fastifyCors from "@fastify/cors";
 import { readFileSync } from "fs";
 import * as esbuild from "esbuild";

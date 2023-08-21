@@ -7,26 +7,26 @@ import type {
   ServiceType,
 } from "@bufbuild/protobuf";
 
-import type { UnaryRequest } from "@bufbuild/connect";
-import { Code, ConnectError } from "@bufbuild/connect";
+import type { UnaryRequest } from "@connectrpc/connect";
+import { Code, ConnectError } from "@connectrpc/connect";
 import type {
   Transport,
   UnaryResponse,
-} from "@bufbuild/connect";
+} from "@connectrpc/connect";
 import {
   createClientMethodSerializers,
   createMethodUrl,
   encodeEnvelope,
   runUnaryCall,
-} from "@bufbuild/connect/protocol";
+} from "@connectrpc/connect/protocol";
 import {
   requestHeader,
   trailerFlag,
   trailerParse,
   validateResponse,
   validateTrailer,
-} from "@bufbuild/connect/protocol-grpc-web";
-import { GrpcWebTransportOptions } from "@bufbuild/connect-web";
+} from "@connectrpc/connect/protocol-grpc-web";
+import { GrpcWebTransportOptions } from "@connectrpc/connect-web";
 
 class AbortError extends Error {
   name = "AbortError";

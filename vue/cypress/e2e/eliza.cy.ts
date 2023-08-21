@@ -1,5 +1,5 @@
-import { createConnectTransport } from "@bufbuild/connect-web";
-import { createPromiseClient } from "@bufbuild/connect";
+import { createConnectTransport } from "@connectrpc/connect-web";
+import { createPromiseClient } from "@connectrpc/connect";
 import { ElizaService } from "../../src/gen/connectrpc/eliza/v1/eliza_connect.js";
 import { IntroduceRequest } from "../../src/gen/connectrpc/eliza/v1/eliza_pb.js";
 

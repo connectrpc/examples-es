@@ -1,7 +1,7 @@
 /* external dependencies */
-import { createPromiseClient } from "@bufbuild/connect";
-import { createConnectTransport } from "@bufbuild/connect-web";
-import type { PromiseClient } from "@bufbuild/connect";
+import { createPromiseClient } from "@connectrpc/connect";
+import { createConnectTransport } from "@connectrpc/connect-web";
+import type { PromiseClient } from "@connectrpc/connect";
 
 /* local dependencies */
 import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect";

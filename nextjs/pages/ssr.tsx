@@ -1,8 +1,8 @@
-import { createPromiseClient } from "@bufbuild/connect";
+import { createPromiseClient } from "@connectrpc/connect";
 import { InferGetServerSidePropsType } from "next";
 import Link from "next/link";
 import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect";
-import { createConnectTransport } from "@bufbuild/connect-web";
+import { createConnectTransport } from "@connectrpc/connect-web";
 import styles from "../styles/Eliza.module.css";
 import { SayResponse } from "../gen/connectrpc/eliza/v1/eliza_pb";
 

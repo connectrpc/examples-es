@@ -2,8 +2,8 @@ require('./index.css');
 require('./App.css'); 
 
 const React = require('react');
-const {createPromiseClient} = require('@bufbuild/connect');
-const {createConnectTransport} = require('@bufbuild/connect-web');
+const {createPromiseClient} = require('@connectrpc/connect');
+const {createConnectTransport} = require('@connectrpc/connect-web');
 const { ElizaService } = require('./gen/connectrpc/eliza/v1/eliza_connect.js');
 const { IntroduceRequest } = require('./gen/connectrpc/eliza/v1/eliza_pb.js');
 
