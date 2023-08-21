@@ -10,7 +10,6 @@ import type {
 import type { UnaryRequest } from "@bufbuild/connect";
 import { Code, ConnectError } from "@bufbuild/connect";
 import type {
-  StreamResponse,
   Transport,
   UnaryResponse,
 } from "@bufbuild/connect";
@@ -86,7 +85,7 @@ export function createXHRGrpcWebTransport(
       header: Headers,
       message: PartialMessage<I>
     ): Promise<UnaryResponse<I, O>> {
-      const { normalize, serialize, parse } = createClientMethodSerializers(
+      const { serialize, parse } = createClientMethodSerializers(
         method,
         useBinaryFormat,
         options.jsonOptions,
@@ -106,7 +105,7 @@ export function createXHRGrpcWebTransport(
             mode: "cors",
           },
           header: requestHeader(useBinaryFormat, timeoutMs, header),
-          message: normalize(message),
+          message,
         },
         next: async (req: UnaryRequest<I, O>): Promise<UnaryResponse<I, O>> => {
           function fetchXHR(): Promise<FetchXHRResponse> {
@@ -198,17 +197,9 @@ export function createXHRGrpcWebTransport(
         },
       });
     },
-    async stream<
-      I extends Message<I> = AnyMessage,
-      O extends Message<O> = AnyMessage
-    >(
-      _service: ServiceType,
-      _method: MethodInfo<I, O>,
-      _signal: AbortSignal | undefined,
-      _timeoutMs: number | undefined,
-      _header: HeadersInit_ | undefined,
-      _input: AsyncIterable<I>
-    ): Promise<StreamResponse<I, O>> {
+    stream(
+      ..._args: unknown[]
+    ) {
       return Promise.reject(
         new ConnectError("streaming is not implemented", Code.Unimplemented)
       );
