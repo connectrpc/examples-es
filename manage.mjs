@@ -11,6 +11,7 @@ const knownDependencies = [
     "@bufbuild/connect",
     "@bufbuild/connect-web",
     "@bufbuild/connect-node",
+    "@bufbuild/connect-next",
     "@bufbuild/connect-fastify",
     "@bufbuild/connect-express",
     "@bufbuild/protobuf",

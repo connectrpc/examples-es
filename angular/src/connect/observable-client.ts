@@ -91,8 +91,6 @@ export function createServerStreamingFn<
 ): ServerStreamingFn<I, O> {
     return function (input, options) {
         return new Observable<O>((subscriber) => {
-            const inputMessage =
-                input instanceof method.I ? input : new method.I(input)
             transport
                 .stream<I, O>(
                     service,
@@ -100,7 +98,7 @@ export function createServerStreamingFn<
                     options?.signal,
                     options?.timeoutMs,
                     options?.headers,
-                    createAsyncIterable([inputMessage])
+                    createAsyncIterable([input])
                 )
                 .then(
                     async (streamResponse) => {
