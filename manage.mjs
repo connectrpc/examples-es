@@ -8,15 +8,15 @@ import { spawnSync } from "node:child_process";
 
 
 const knownDependencies = [
-    "@bufbuild/connect",
-    "@bufbuild/connect-web",
-    "@bufbuild/connect-node",
-    "@bufbuild/connect-next",
-    "@bufbuild/connect-fastify",
-    "@bufbuild/connect-express",
+    "@connectrpc/connect",
+    "@connectrpc/connect-web",
+    "@connectrpc/connect-node",
+    "@connectrpc/connect-next",
+    "@connectrpc/connect-fastify",
+    "@connectrpc/connect-express",
+    "@connectrpc/protoc-gen-connect-es",
     "@bufbuild/protobuf",
     "@bufbuild/protoc-gen-es",
-    "@bufbuild/protoc-gen-connect-es",
     "@bufbuild/buf",
 ];
 
