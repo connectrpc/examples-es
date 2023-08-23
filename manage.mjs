@@ -8,6 +8,7 @@ import { spawnSync } from "node:child_process";
 
 
 const knownDependencies = [
+    // github.com/connectrpc/connect-es
     "@connectrpc/connect",
     "@connectrpc/connect-web",
     "@connectrpc/connect-node",
@@ -15,6 +16,11 @@ const knownDependencies = [
     "@connectrpc/connect-fastify",
     "@connectrpc/connect-express",
     "@connectrpc/protoc-gen-connect-es",
+    // github.com/connectrpc/connect-query-es
+    "@connectrpc/connect-query",
+    // github.com/connectrpc/connect-playwright-es
+    "@connectrpc/connect-playwright",
+    // github.com/bufbuild
     "@bufbuild/protobuf",
     "@bufbuild/protoc-gen-es",
     "@bufbuild/buf",
