@@ -28,7 +28,7 @@ Build the app using Webpack.
 
 ### `npm run test`
 
-Run unit tests via the Jest framework
+Run unit tests via the Jest framework and React Testing Library.
 
 ### `npm run buf:generate`
 
