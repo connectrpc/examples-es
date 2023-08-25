@@ -7,29 +7,22 @@ import {
     SayResponse,
 } from "./gen/connectrpc/eliza/v1/eliza_pb.js";
 import App from "./App.js";
+import { TransportContext } from "./contexts.js";
 
-// Create a mock of the createConnectTransport function by replacing it with our mocked RPCs
-jest.mock("@connectrpc/connect-web", () => {
-    return {
-        __esModule: true,
-        createConnectTransport: jest.fn(() => {
-            return createRouterTransport(({ service }) => {
-                service(ElizaService, {
-                    say(req: SayRequest) {
-                        expect(req.sentence).toEqual("Goodbye");
-                        return new SayResponse({
-                            sentence: "This is a mock response to say.",
-                        });
-                    },
-                    async *introduce(req: IntroduceRequest) {
-                        yield {
-                            sentence: `Hi ${req.name}, this is a mock response to introduce.`,
-                        };
-                    },
-                });
+const mockTransport = createRouterTransport(({ service }) => {
+    service(ElizaService, {
+        say(req: SayRequest) {
+            expect(req.sentence).toEqual("Goodbye");
+            return new SayResponse({
+                sentence: "This is a mock response to say.",
             });
-        }),
-    };
+        },
+        async *introduce(req: IntroduceRequest) {
+            yield {
+                sentence: `Hi ${req.name}, this is a mock response to introduce.`,
+            };
+        },
+    });
 });
 
 describe("mocking transport", () => {
@@ -37,7 +30,11 @@ describe("mocking transport", () => {
     let sendButton: HTMLElement;
 
     beforeEach(() => {
-        render(<App />);
+        render(
+            <TransportContext.Provider value={mockTransport}>
+                <App />
+            </TransportContext.Provider>,
+        );
 
         input = screen.getByRole("textbox");
         sendButton = screen.getByRole("button");
