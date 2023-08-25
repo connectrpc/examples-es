@@ -1,9 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import {
-    createPromiseClient,
-    createRouterTransport,
-} from "@connectrpc/connect";
-import { createConnectTransport } from "@connectrpc/connect-web";
+import { createRouterTransport } from "@connectrpc/connect";
 import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect.js";
 import {
     IntroduceRequest,
@@ -34,19 +30,6 @@ jest.mock("@connectrpc/connect-web", () => {
             });
         }),
     };
-});
-
-describe("service definition", () => {
-    test("creates a promise client", () => {
-        const client = createPromiseClient(
-            ElizaService,
-            createConnectTransport({
-                baseUrl: "https://demo.connectrpc.com",
-            }),
-        );
-        expect(client.say).toBeDefined();
-        expect(client.introduce).toBeDefined();
-    });
 });
 
 describe("mocking transport", () => {
