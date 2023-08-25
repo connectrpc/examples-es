@@ -2,7 +2,6 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import {
     createPromiseClient,
     createRouterTransport,
-    Transport,
 } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
 import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect.js";
@@ -11,7 +10,30 @@ import {
     SayRequest,
     SayResponse,
 } from "./gen/connectrpc/eliza/v1/eliza_pb.js";
-import { ChatContainer } from "./App.js";
+import App from "./App.js";
+
+jest.mock("@connectrpc/connect-web", () => {
+    return {
+        __esModule: true,
+        createConnectTransport: jest.fn(() => {
+            return createRouterTransport(({ service }) => {
+                service(ElizaService, {
+                    say(req: SayRequest) {
+                        expect(req.sentence).toEqual("Goodbye");
+                        return new SayResponse({
+                            sentence: "This is a mock response to say.",
+                        });
+                    },
+                    async *introduce(req: IntroduceRequest) {
+                        yield {
+                            sentence: `Hi ${req.name}, this is a mock response to introduce.`,
+                        };
+                    },
+                });
+            });
+        }),
+    };
+});
 
 describe("service definition", () => {
     test("creates a promise client", () => {
@@ -27,28 +49,11 @@ describe("service definition", () => {
 });
 
 describe("mocking transport", () => {
-    let mockTransport: Transport;
     let input: HTMLElement;
     let sendButton: HTMLElement;
 
     beforeEach(() => {
-        mockTransport = createRouterTransport(({ service }) => {
-            service(ElizaService, {
-                say(req: SayRequest) {
-                    expect(req.sentence).toEqual("Goodbye");
-                    return new SayResponse({
-                        sentence: "This is a mock response to say.",
-                    });
-                },
-                async *introduce(req: IntroduceRequest) {
-                    yield {
-                        sentence: `Hi ${req.name}, this is a mock response to introduce.`,
-                    };
-                },
-            });
-        });
-
-        render(<ChatContainer transport={mockTransport} />);
+        render(<App />);
 
         input = screen.getByRole("textbox");
         sendButton = screen.getByRole("button");

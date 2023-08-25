@@ -1,20 +1,15 @@
 import React, { useState } from "react";
 import "./App.css";
-import { createPromiseClient, Transport } from "@connectrpc/connect";
-import { createConnectTransport } from "@connectrpc/connect-web";
 import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect.js";
 import { IntroduceRequest } from "./gen/connectrpc/eliza/v1/eliza_pb.js";
+import { useClient } from "./use-client.js";
 
 interface Response {
     text: string;
     sender: "eliza" | "user";
 }
 
-interface ChatContainerProps {
-    transport: Transport;
-}
-
-export function ChatContainer({ transport }: ChatContainerProps) {
+function App() {
     const [statement, setStatement] = useState<string>("");
     const [introFinished, setIntroFinished] = useState<boolean>(false);
     const [responses, setResponses] = useState<Response[]>([
@@ -25,7 +20,7 @@ export function ChatContainer({ transport }: ChatContainerProps) {
     ]);
 
     // Make the Eliza Service client
-    const client = createPromiseClient(ElizaService, transport);
+    const client = useClient(ElizaService);
 
     const send = async (sentence: string) => {
         setResponses((resp) => [...resp, { text: sentence, sender: "user" }]);
@@ -55,6 +50,7 @@ export function ChatContainer({ transport }: ChatContainerProps) {
             setIntroFinished(true);
         }
     };
+
     const handleStatementChange = (
         event: React.ChangeEvent<HTMLInputElement>,
     ) => {
@@ -72,49 +68,41 @@ export function ChatContainer({ transport }: ChatContainerProps) {
     };
 
     return (
-        <div className="container">
-            {responses.map((resp, i) => {
-                return (
-                    <div
-                        key={`resp${i}`}
-                        className={
-                            resp.sender === "eliza"
-                                ? "eliza-resp-container"
-                                : "user-resp-container"
-                        }
-                    >
-                        <p data-testid={`test${i}`} className="resp-text">
-                            {resp.text}
-                        </p>
-                    </div>
-                );
-            })}
-            <div>
-                <input
-                    type="text"
-                    className="text-input"
-                    value={statement}
-                    onChange={handleStatementChange}
-                    onKeyPress={handleKeyPress}
-                />
-                <button onClick={handleSend}>Send</button>
-            </div>
-        </div>
-    );
-}
-
-export function App() {
-    const transport = createConnectTransport({
-        baseUrl: "https://demo.connectrpc.com",
-    });
-
-    return (
         <div>
             <header className="app-header">
                 <h1>Eliza</h1>
                 <h4>React/CRA</h4>
             </header>
-            <ChatContainer transport={transport} />
+            <div className="container">
+                {responses.map((resp, i) => {
+                    return (
+                        <div
+                            key={`resp${i}`}
+                            className={
+                                resp.sender === "eliza"
+                                    ? "eliza-resp-container"
+                                    : "user-resp-container"
+                            }
+                        >
+                            <p data-testid={`test${i}`} className="resp-text">
+                                {resp.text}
+                            </p>
+                        </div>
+                    );
+                })}
+                <div>
+                    <input
+                        type="text"
+                        className="text-input"
+                        value={statement}
+                        onChange={handleStatementChange}
+                        onKeyPress={handleKeyPress}
+                    />
+                    <button onClick={handleSend}>Send</button>
+                </div>
+            </div>
         </div>
     );
 }
+
+export default App;
