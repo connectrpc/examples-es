@@ -12,6 +12,7 @@ import {
 } from "./gen/connectrpc/eliza/v1/eliza_pb.js";
 import App from "./App.js";
 
+// Create a mock of the createConnectTransport function by replacing it with our mocked RPCs
 jest.mock("@connectrpc/connect-web", () => {
     return {
         __esModule: true,
