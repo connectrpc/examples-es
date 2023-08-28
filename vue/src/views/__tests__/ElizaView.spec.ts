@@ -8,7 +8,7 @@ import {
     SayResponse,
 } from "../../gen/connectrpc/eliza/v1/eliza_pb";
 import ElizaView from "../ElizaView.vue";
-import { keys } from "../../keys";
+import { transportKey } from "../../keys";
 
 const mockTransport = createRouterTransport(({ service }) => {
     service(ElizaService, {
@@ -29,13 +29,13 @@ const mockTransport = createRouterTransport(({ service }) => {
 describe("ElizaView", () => {
     let input: DOMWrapper<Element>;
     let sendButton: DOMWrapper<Element>;
-    let wrapper: VueWrapper<any, any>;
+    let wrapper: VueWrapper;
 
     beforeEach(() => {
         wrapper = mount(ElizaView, {
             global: {
                 provide: {
-                    [keys.TRANSPORT as symbol]: mockTransport,
+                    [transportKey as symbol]: mockTransport,
                 },
             },
         });

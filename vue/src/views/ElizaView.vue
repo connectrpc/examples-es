@@ -5,7 +5,7 @@ import { createConnectTransport } from "@connectrpc/connect-web";
 import type { PromiseClient } from "@connectrpc/connect";
 import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect";
 import { IntroduceRequest } from "../gen/connectrpc/eliza/v1/eliza_pb";
-import { keys } from "../keys";
+import { transportKey } from "../keys";
 
 interface Response {
     text: string;
@@ -22,7 +22,7 @@ interface ElizaData {
 export default defineComponent({
     name: "ElizaView",
     setup() {
-        const transport = inject(keys.TRANSPORT);
+        const transport = inject(transportKey);
         if (!transport) {
             throw new Error("No transport set by provider");
         }

@@ -6,10 +6,6 @@ This project was created using the [Expo CLI](https://docs.expo.dev/workflow/exp
 
 ## Prerequisites:
 
-* Before running locally, set the following environment variable:
-
-`export NODE_OPTIONS=--openssl-legacy-provider`
-
 * To view on a phone, download the [Expo Go](https://expo.dev/client) app, which will allow you to run the app on your
 phone while hitting a server running on your computer.
 

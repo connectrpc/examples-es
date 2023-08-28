@@ -4,7 +4,7 @@ import { createConnectTransport } from "@connectrpc/connect-web";
 
 import App from "./App.vue";
 import router from "./router";
-import { keys } from "./keys";
+import { transportKey } from "./keys";
 
 const app = createApp(App);
 
@@ -15,6 +15,6 @@ app.use(router);
 const transport = createConnectTransport({
     baseUrl: "https://demo.connectrpc.com",
 });
-app.provide(keys.TRANSPORT, transport);
+app.provide(transportKey, transport);
 
 app.mount("#app");
