@@ -14,5 +14,8 @@ export function useClient<T extends ServiceType>(service: T): PromiseClient<T> {
     }
 
     // We memoize the client, so that we only create one instance per service.
-    return useMemo(() => createPromiseClient(service, transport), [service]);
+    return useMemo(
+        () => createPromiseClient(service, transport),
+        [service, transport],
+    );
 }
