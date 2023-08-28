@@ -1,87 +1,90 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { createPromiseClient } from '@connectrpc/connect'
-import { createConnectTransport } from '@connectrpc/connect-web'
-import type { PromiseClient } from '@connectrpc/connect'
-import { ElizaService } from '../gen/connectrpc/eliza/v1/eliza_connect'
-import { IntroduceRequest } from '../gen/connectrpc/eliza/v1/eliza_pb'
+import { defineComponent, inject } from "vue";
+import { createPromiseClient } from "@connectrpc/connect";
+import { createConnectTransport } from "@connectrpc/connect-web";
+import type { PromiseClient } from "@connectrpc/connect";
+import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect";
+import { IntroduceRequest } from "../gen/connectrpc/eliza/v1/eliza_pb";
+import { keys } from "../keys";
 
 interface Response {
-    text: string
-    sender: 'eliza' | 'user'
+    text: string;
+    sender: "eliza" | "user";
 }
 
 interface ElizaData {
-    statement: string
-    responses: Response[]
-    introFinished: boolean
-    client: PromiseClient<typeof ElizaService> | undefined
+    statement: string;
+    responses: Response[];
+    introFinished: boolean;
+    client: PromiseClient<typeof ElizaService> | undefined;
 }
 
 export default defineComponent({
-    name: 'ElizaView',
+    name: "ElizaView",
+    setup() {
+        const transport = inject(keys.TRANSPORT);
+        if (!transport) {
+            throw new Error("No transport set by provider");
+        }
+        return { transport };
+    },
     data(): ElizaData {
         return {
-            statement: '',
+            statement: "",
             responses: [
                 {
-                    text: 'What is your name?',
-                    sender: 'eliza',
+                    text: "What is your name?",
+                    sender: "eliza",
                 },
             ],
             introFinished: false,
             client: undefined,
-        }
+        };
     },
     mounted() {
         // Make the Eliza Service client
-        this.client = createPromiseClient(
-            ElizaService,
-            createConnectTransport({
-                baseUrl: 'https://demo.connectrpc.com',
-            })
-        )
+        this.client = createPromiseClient(ElizaService, this.transport);
     },
     methods: {
         async send() {
             if (this.client) {
                 this.responses.push({
                     text: this.statement,
-                    sender: 'user',
-                })
+                    sender: "user",
+                });
                 if (this.introFinished) {
                     const response = await this.client.say({
                         sentence: this.statement,
-                    })
-                    this.statement = ''
+                    });
+                    this.statement = "";
 
                     this.responses.push({
                         text: response.sentence,
-                        sender: 'eliza',
-                    })
+                        sender: "eliza",
+                    });
                 } else {
                     const request = new IntroduceRequest({
                         name: this.statement,
-                    })
-                    this.statement = ''
+                    });
+                    this.statement = "";
 
                     for await (const response of this.client.introduce(
-                        request
+                        request,
                     )) {
                         this.responses.push({
                             text: response.sentence,
-                            sender: 'eliza',
-                        })
+                            sender: "eliza",
+                        });
                     }
-                    this.introFinished = true
+                    this.introFinished = true;
                 }
             }
         },
         handleSend() {
-            this.send()
+            this.send();
         },
     },
-})
+});
 </script>
 
 <template>
