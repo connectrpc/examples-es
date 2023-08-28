@@ -1,6 +1,5 @@
 import { beforeEach, describe, it, expect } from "vitest";
-import flushPromises from "flush-promises";
-import { mount, DOMWrapper, VueWrapper } from "@vue/test-utils";
+import { flushPromises, mount, DOMWrapper, VueWrapper } from "@vue/test-utils";
 import { createRouterTransport } from "@connectrpc/connect";
 import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_connect";
 import {
