@@ -8,6 +8,7 @@ All default tooling setup via Create React App is used, which includes:
 
 * [Webpack](https://webpack.js.org/) (Bundler)
 * [Jest](https://jestjs.io/) (Test Framework)
+* [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) (Component Testing APIs)
 
 ## Getting Started
 
@@ -28,7 +29,7 @@ Build the app using Webpack.
 
 ### `npm run test`
 
-Run unit tests via the Jest framework
+Run unit tests via the Jest framework and React Testing Library.
 
 ### `npm run buf:generate`
 

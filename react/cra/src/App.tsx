@@ -1,77 +1,71 @@
-import React, { useState } from 'react'
-import './App.css'
-import { createPromiseClient } from '@connectrpc/connect'
-import { createConnectTransport } from '@connectrpc/connect-web'
-import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_connect.js'
-import { IntroduceRequest } from './gen/connectrpc/eliza/v1/eliza_pb.js'
+import React, { useState } from "react";
+import "./App.css";
+import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect.js";
+import { IntroduceRequest } from "./gen/connectrpc/eliza/v1/eliza_pb.js";
+import { useClient } from "./use-client.js";
 
 interface Response {
-    text: string
-    sender: 'eliza' | 'user'
+    text: string;
+    sender: "eliza" | "user";
 }
 
 function App() {
-    const [statement, setStatement] = useState<string>('')
-    const [introFinished, setIntroFinished] = useState<boolean>(false)
+    const [statement, setStatement] = useState<string>("");
+    const [introFinished, setIntroFinished] = useState<boolean>(false);
     const [responses, setResponses] = useState<Response[]>([
         {
-            text: 'What is your name?',
-            sender: 'eliza',
+            text: "What is your name?",
+            sender: "eliza",
         },
-    ])
+    ]);
 
     // Make the Eliza Service client
-    const client = createPromiseClient(
-        ElizaService,
-        createConnectTransport({
-            baseUrl: 'https://demo.connectrpc.com',
-        })
-    )
+    const client = useClient(ElizaService);
 
     const send = async (sentence: string) => {
-        setResponses((resp) => [...resp, { text: sentence, sender: 'user' }])
-        setStatement('')
+        setResponses((resp) => [...resp, { text: sentence, sender: "user" }]);
+        setStatement("");
 
         if (introFinished) {
             const response = await client.say({
                 sentence,
-            })
+            });
 
             setResponses((resp) => [
                 ...resp,
-                { text: response.sentence, sender: 'eliza' },
-            ])
+                { text: response.sentence, sender: "eliza" },
+            ]);
         } else {
             const request = new IntroduceRequest({
                 name: sentence,
-            })
+            });
 
             for await (const response of client.introduce(request)) {
                 setResponses((resp) => [
                     ...resp,
-                    { text: response.sentence, sender: 'eliza' },
-                ])
+                    { text: response.sentence, sender: "eliza" },
+                ]);
             }
 
-            setIntroFinished(true)
+            setIntroFinished(true);
         }
-    }
+    };
 
     const handleStatementChange = (
-        event: React.ChangeEvent<HTMLInputElement>
+        event: React.ChangeEvent<HTMLInputElement>,
     ) => {
-        setStatement(event.target.value)
-    }
+        setStatement(event.target.value);
+    };
 
     const handleSend = () => {
-        send(statement)
-    }
+        send(statement);
+    };
 
     const handleKeyPress = (event: any) => {
-        if (event.key === 'Enter') {
-            handleSend()
+        if (event.key === "Enter") {
+            handleSend();
         }
-    }
+    };
 
     return (
         <div>
@@ -85,14 +79,16 @@ function App() {
                         <div
                             key={`resp${i}`}
                             className={
-                                resp.sender === 'eliza'
-                                    ? 'eliza-resp-container'
-                                    : 'user-resp-container'
+                                resp.sender === "eliza"
+                                    ? "eliza-resp-container"
+                                    : "user-resp-container"
                             }
                         >
-                            <p className="resp-text">{resp.text}</p>
+                            <p data-testid={`test${i}`} className="resp-text">
+                                {resp.text}
+                            </p>
                         </div>
-                    )
+                    );
                 })}
                 <div>
                     <input
@@ -106,7 +102,7 @@ function App() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default App
+export default App;
