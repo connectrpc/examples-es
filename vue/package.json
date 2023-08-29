@@ -2,7 +2,7 @@
   "name": "buf-vue",
   "version": "0.0.0",
   "scripts": {
-    "start": "vite --port 3000",
+    "start": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
     "test": "vitest run --environment jsdom",
