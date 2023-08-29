@@ -3,7 +3,7 @@
   import { createConnectTransport } from "@connectrpc/connect-web";
   import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
   import { IntroduceRequest } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
-    import { getContext } from 'svelte';
+  import { getContext } from 'svelte';
 
   interface Response {
     text: string;

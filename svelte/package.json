@@ -16,8 +16,7 @@
   },
   "type": "module",
   "dependencies": {
-    "eslint-plugin-svelte": "^2.32.4",
-    "flush-promises": "^1.0.2"
+    "eslint-plugin-svelte": "^2.32.4"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.26.1",
@@ -35,6 +34,7 @@
     "@typescript-eslint/parser": "^6.2.1",
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^8.9.0",
+    "flush-promises": "^1.0.2",
     "jsdom": "^22.1.0",
     "prettier": "^3.0.0",
     "prettier-plugin-svelte": "^3.0.3",
