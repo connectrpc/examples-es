@@ -15,8 +15,7 @@ All default tooling setup via the above command is used, which includes:
 ### `npm install`
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in development mode.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
@@ -29,13 +28,7 @@ Type-check using vue-tsc and build the app using Vite.
 
 ### `npm run test`
 
-Run unit tests via the Vitest framework.
-
-**Note that if you ran `export NODE_OPTIONS=--openssl-legacy-provider` prior to this while working with the 
-[React Native project](../react-native/), you will need to run `unset NODE_OPTIONS` to before running tests.  Otherwise, you will see an 
-error similar to the following:**
-
-`Error: Initiated Worker with invalid NODE_OPTIONS env variable: --openssl-legacy-provider is not allowed in NODE_OPTIONS`
+Run unit tests via the Vitest framework and Vue Testing Library.
 
 ### `npm run buf:generate`
 
