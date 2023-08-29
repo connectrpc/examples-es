@@ -73,7 +73,7 @@
           ? "eliza-resp-container"
           : "user-resp-container"}
       >
-        <p class="resp-text">{resp.text}</p>
+        <p data-testid="resp-text" class="resp-text">{resp.text}</p>
       </div>
     {/each}
     <div>
