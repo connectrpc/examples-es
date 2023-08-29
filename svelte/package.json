@@ -16,7 +16,8 @@
   },
   "type": "module",
   "dependencies": {
-    "eslint-plugin-svelte": "^2.32.4"
+    "eslint-plugin-svelte": "^2.32.4",
+    "flush-promises": "^1.0.2"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.26.1",
@@ -28,8 +29,8 @@
     "@playwright/test": "^1.36.2",
     "@sveltejs/adapter-auto": "^2.1.0",
     "@sveltejs/kit": "^1.22.5",
-    "@testing-library/svelte": "^4.0.3",
     "@testing-library/jest-dom": "^6.1.2",
+    "@testing-library/svelte": "^4.0.3",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.2.1",
     "eslint": "^8.47.0",

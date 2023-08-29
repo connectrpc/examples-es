@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
+import flushPromises from "flush-promises";
 import { beforeEach, describe, it, expect } from "vitest";
 import { render, fireEvent, screen } from "@testing-library/svelte";
-// import { flushPromises, mount, DOMWrapper, VueWrapper } from "@vue/test-utils";
 import { createRouterTransport } from "@connectrpc/connect";
 import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
 import {
@@ -10,6 +10,7 @@ import {
     SayResponse,
 } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
 import ElizaPage from "../routes/+page.svelte";
+import TestPage from "./Test.svelte";
 
 const mockTransport = createRouterTransport(({ service }) => {
     service(ElizaService, {
@@ -32,7 +33,13 @@ describe("ElizaView", () => {
     let sendButton: HTMLElement;
 
     beforeEach(() => {
-        render(ElizaPage);
+        render(TestPage, {
+            props: {
+                Component: ElizaPage,
+                context_key: "transport",
+                context_value: mockTransport,
+            },
+        });
 
         input = screen.getByRole("textbox");
         sendButton = screen.getByRole("button");
@@ -45,29 +52,31 @@ describe("ElizaView", () => {
         );
 
         // Enter a name in the input and click send
-        fireEvent.change(input, {
+        fireEvent.input(input, {
             target: {
                 value: "Steve",
             },
         });
-        fireEvent.click(sendButton);
+        await fireEvent.click(sendButton);
+        await flushPromises();
 
         // The sent name should appear as the next response in the chat
         expect(screen.getByTestId("test1")).toHaveTextContent("Steve");
 
-        // Wait for the introduce response from our mocked Eliza and verify it is our mocked response
+        // // Wait for the introduce response from our mocked Eliza and verify it is our mocked response
         let response = await screen.findByTestId("test2");
         expect(response).toHaveTextContent(
             "Hi Steve, this is a mock response to introduce.",
         );
 
         // Enter another response in the input and click send
-        fireEvent.change(input, {
+        fireEvent.input(input, {
             target: {
                 value: "Goodbye",
             },
         });
-        fireEvent.click(sendButton);
+        await fireEvent.click(sendButton);
+        await flushPromises();
 
         // The new response should again appear in the chat
         expect(screen.getByTestId("test3")).toHaveTextContent("Goodbye");
