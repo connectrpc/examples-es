@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createPromiseClient } from "@connectrpc/connect";
-  import { createConnectTransport } from "@connectrpc/connect-web";
+  import type { Transport } from "@connectrpc/connect";
   import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
   import { IntroduceRequest } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
   import { getContext } from 'svelte';
@@ -19,7 +19,7 @@
   ];
   let introFinished = false;
 
-  const transport = getContext('transport');
+  const transport: Transport = getContext('transport');
 
   // Make the Eliza Service client
   const client = createPromiseClient(

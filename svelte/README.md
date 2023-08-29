@@ -6,9 +6,12 @@ This project was bootstrapped as a [Svelte](https://svelte.dev/) project with th
 
 All default tooling setup via the above command is used, which includes:
 
-- [Vite](https://vitejs.dev) (Module Loader)
-- [Playwright](https://playwright.dev) (Testing Framework)
-- [Svelte Kit](https://kit.svelte.dev/) (Application Framework)
+-   [Vite](https://vitejs.dev) (Module Loader)
+
+*   [Vitest](https://vitest.dev) (Unit Test Framework)
+
+-   [Playwright](https://playwright.dev) (e2e Testing Framework)
+-   [Svelte Kit](https://kit.svelte.dev/) (Application Framework)
 
 ## Getting Started
 
@@ -16,8 +19,7 @@ All default tooling setup via the above command is used, which includes:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
@@ -30,7 +32,11 @@ Build the app using Vite.
 
 ### `npm run test`
 
-Run unit tests via the Playwright framework.
+Run unit tests via the Vitest framework and Svelte Testing Library.
+
+### `npm run test:e2e`
+
+Run e2e tests via the Playwright framework.
 
 ### `npm run buf:generate`
 
