@@ -4,7 +4,7 @@
   "scripts": {
     "start": "npm run buf:generate && vite dev",
     "build": "vite build",
-    "test": "vitest run --environment jsdom",
+    "test": "vitest run",
     "test:e2e": "npm run playwright:install && playwright test",
     "playwright:install": "playwright install",
     "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
