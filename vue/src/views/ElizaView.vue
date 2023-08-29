@@ -1,8 +1,7 @@
 <script lang="ts">
 import { defineComponent, inject } from "vue";
 import { createPromiseClient } from "@connectrpc/connect";
-import { createConnectTransport } from "@connectrpc/connect-web";
-import type { PromiseClient } from "@connectrpc/connect";
+import type { PromiseClient, Transport } from "@connectrpc/connect";
 import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect";
 import { IntroduceRequest } from "../gen/connectrpc/eliza/v1/eliza_pb";
 import { transportKey } from "../keys";
@@ -22,7 +21,7 @@ interface ElizaData {
 export default defineComponent({
     name: "ElizaView",
     setup() {
-        const transport = inject(transportKey);
+        const transport = inject<Transport>(transportKey);
         if (!transport) {
             throw new Error("No transport set by provider");
         }
