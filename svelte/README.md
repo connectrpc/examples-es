@@ -19,7 +19,7 @@ All default tooling setup via the above command is used, which includes:
 
 ### `npm start`
 
-Runs the app in the development mode.
+Runs the app in development mode.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
