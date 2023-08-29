@@ -35,7 +35,7 @@ describe("ElizaView", () => {
         wrapper = mount(ElizaView, {
             global: {
                 provide: {
-                    [transportKey as symbol]: mockTransport,
+                    [transportKey]: mockTransport,
                 },
             },
         });
