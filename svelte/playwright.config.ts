@@ -2,7 +2,7 @@ import type { PlaywrightTestConfig } from "@playwright/test";
 
 // Playwright Config
 const config: PlaywrightTestConfig = {
-  testDir: "./tests",
+  testDir: "./e2e",
   testMatch: "*.spec.ts",
   webServer: {
     command: "npm run build && npm run preview",

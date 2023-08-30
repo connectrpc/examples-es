@@ -6,6 +6,11 @@ const config = {
   preview: {
     port: 3000,
   },
+  test: {
+    include: ["src/tests/*.spec.ts"],
+    globals: true,
+    environment: "jsdom",
+  },
 };
 
 export default config;

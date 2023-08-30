@@ -1,8 +1,9 @@
 <script lang="ts">
   import { createPromiseClient } from "@connectrpc/connect";
-  import { createConnectTransport } from "@connectrpc/connect-web";
+  import type { Transport } from "@connectrpc/connect";
   import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
   import { IntroduceRequest } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
+  import { getContext } from 'svelte';
 
   interface Response {
     text: string;
@@ -18,12 +19,12 @@
   ];
   let introFinished = false;
 
+  const transport: Transport = getContext('transport');
+
   // Make the Eliza Service client
   const client = createPromiseClient(
     ElizaService,
-    createConnectTransport({
-      baseUrl: "https://demo.connectrpc.com",
-    })
+    transport
   );
 
   const send = async () => {
@@ -67,13 +68,13 @@
     <a href="/server-only-ssr">View Server Only SSR Example</a>
   </header>
   <div class="container">
-    {#each responses as resp}
+    {#each responses as resp, i}
       <div
         class={resp.sender === "eliza"
           ? "eliza-resp-container"
           : "user-resp-container"}
       >
-        <p class="resp-text">{resp.text}</p>
+      <p data-testid={`test${i}`} class="resp-text">{resp.text}</p>
       </div>
     {/each}
     <div>
