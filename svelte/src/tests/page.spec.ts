@@ -1,8 +1,10 @@
 import "@testing-library/jest-dom";
 import flushPromises from "flush-promises";
 import { beforeEach, describe, it, expect } from "vitest";
+import type { ComponentType } from "svelte";
 import { render, fireEvent, screen } from "@testing-library/svelte";
 import { createRouterTransport } from "@connectrpc/connect";
+import type { ConnectRouter } from "@connectrpc/connect";
 import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
 import {
   IntroduceRequest,
@@ -12,33 +14,39 @@ import {
 import ElizaPage from "../routes/+page.svelte";
 import TestPage from "./Test.svelte";
 
-const mockTransport = createRouterTransport(({ service }) => {
-  service(ElizaService, {
-    say(req: SayRequest) {
-      expect(req.sentence).toEqual("Goodbye");
-      return new SayResponse({
-        sentence: "This is a mock response to say.",
-      });
-    },
-    async *introduce(req: IntroduceRequest) {
-      yield {
-        sentence: `Hi ${req.name}, this is a mock response to introduce.`,
-      };
+function renderWithMockRoutes(
+  component: ComponentType,
+  routes: (router: ConnectRouter) => void,
+) {
+  const mockTransport = createRouterTransport(routes);
+  render(TestPage, {
+    props: {
+      Component: component,
+      context_key: "transport",
+      context_value: mockTransport,
     },
   });
-});
+}
 
 describe("ElizaView", () => {
   let input: HTMLElement;
   let sendButton: HTMLElement;
 
   beforeEach(() => {
-    render(TestPage, {
-      props: {
-        Component: ElizaPage,
-        context_key: "transport",
-        context_value: mockTransport,
-      },
+    renderWithMockRoutes(ElizaPage, ({ service }) => {
+      service(ElizaService, {
+        say(req: SayRequest) {
+          expect(req.sentence).toEqual("Goodbye");
+          return new SayResponse({
+            sentence: "This is a mock response to say.",
+          });
+        },
+        async *introduce(req: IntroduceRequest) {
+          yield {
+            sentence: `Hi ${req.name}, this is a mock response to introduce.`,
+          };
+        },
+      });
     });
 
     input = screen.getByRole("textbox");
