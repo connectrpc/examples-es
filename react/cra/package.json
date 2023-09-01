@@ -6,7 +6,8 @@
     "start": "npm run buf:generate && react-app-rewired start",
     "build": "BUILD_PATH='./dist' react-app-rewired build",
     "test": "jest",
-    "buf:generate": "npx buf generate buf.build/connectrpc/eliza"
+    "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
+    "lint": "npx eslint ."
   },
   "type": "commonjs",
   "eslintConfig": {
