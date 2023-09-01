@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@remix-run/node':
-    specifier: ^1.19.1
-    version: 1.19.1
+    specifier: ^1.19.3
+    version: 1.19.3
   '@remix-run/react':
     specifier: ^1.19.3
     version: 1.19.3(react-dom@18.2.0)(react@18.2.0)
@@ -2433,21 +2433,6 @@ packages:
       '@remix-run/node': 1.19.3
       express: 4.18.2
 
-  /@remix-run/node@1.19.1:
-    resolution: {integrity: sha512-7RbuaG3PMkit04xhu+RdOLHbLj7rhPVJwLeMXAYreQ0D9hvssWNt2lPGEowLd//2IGthU8OvNpb1rB+vyFuF1Q==}
-    engines: {node: '>=14.0.0'}
-    dependencies:
-      '@remix-run/server-runtime': 1.19.1
-      '@remix-run/web-fetch': 4.3.6
-      '@remix-run/web-file': 3.0.3
-      '@remix-run/web-stream': 1.0.4
-      '@web3-storage/multipart-parser': 1.0.0
-      abort-controller: 3.0.0
-      cookie-signature: 1.2.1
-      source-map-support: 0.5.21
-      stream-slice: 0.1.2
-    dev: false
-
   /@remix-run/node@1.19.3:
     resolution: {integrity: sha512-z5qrVL65xLXIUpU4mkR4MKlMeKARLepgHAk4W5YY3IBXOreRqOGUC70POViYmY7x38c2Ia1NwqL80H+0h7jbMw==}
     engines: {node: '>=14.0.0'}
@@ -2503,6 +2488,7 @@ packages:
       cookie: 0.4.2
       set-cookie-parser: 2.6.0
       source-map: 0.7.4
+    dev: true
 
   /@remix-run/server-runtime@1.19.3:
     resolution: {integrity: sha512-KzQ+htUsKqpBgKE2tWo7kIIGy3MyHP58Io/itUPvV+weDjApwr9tQr9PZDPA3yAY6rAzLax7BU0NMSYCXWFY5A==}

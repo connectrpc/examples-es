@@ -16,7 +16,7 @@
     "node": ">=14"
   },
   "dependencies": {
-    "@remix-run/node": "^1.19.1",
+    "@remix-run/node": "^1.19.3",
     "@remix-run/react": "^1.19.3",
     "@remix-run/serve": "^1.19.3",
     "@types/jest": "^29.5.3",
