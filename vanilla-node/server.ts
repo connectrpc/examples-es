@@ -21,7 +21,7 @@ import http from "http";
 import { readFileSync } from "fs";
 import { stdout } from "process";
 
-const PORT = 3000;
+const PORT = parseInt(process.argv[2] ?? 3000);
 
 // The adapter turns our RPC routes into as Node.js request handler.
 const handler = connectNodeAdapter({
@@ -32,18 +32,18 @@ const handler = connectNodeAdapter({
     switch (req.url) {
       case "/":
         res.writeHead(200, { "content-type": "text/html" });
-        res.write(readFileSync("../www/index-node.html", "utf8"), "utf8");
+        res.write(readFileSync("www/index.html", "utf8"), "utf8");
         res.end();
         break;
       case "/app.css":
         res.writeHead(200, { "content-type": "text/css" });
-        res.write(readFileSync("../www/app.css", "utf8"), "utf8");
+        res.write(readFileSync("www/app.css", "utf8"), "utf8");
         res.end();
         break;
       case "/webclient.js":
         void esbuild
           .build({
-            entryPoints: ["../webclient.ts"],
+            entryPoints: ["webclient.ts"],
             bundle: true,
             write: false,
             globalName: "eliza",
@@ -84,5 +84,4 @@ http
   .listen(PORT, () => {
     stdout.write(`The app is running on http://localhost:${PORT}\n`);
     stdout.write("Run `npm run client` for a terminal client.\n");
-    stdout.write("Run `npm run serve` for a web client using CORS.\n");
   });
