@@ -17,6 +17,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Run unit tests via the Jest framework
 
-### `npm run buf:generate`
+### `npm run generate`
 
 Use `buf` to generate the compiled protos via protobuf-es

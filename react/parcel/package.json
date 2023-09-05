@@ -4,10 +4,10 @@
   "description": "",
   "source": "src/index.html",
   "scripts": {
-    "start": "npm run buf:generate && parcel src/index.html -p 3000 --log-level error",
+    "start": "npm run generate && parcel src/index.html -p 3000 --log-level error",
     "build": "parcel build src/index.html --log-level error",
     "test": "jest",
-    "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate buf.build/connectrpc/eliza",
     "ci": "npm run generate && npm run build && npm run test"
   },
   "author": "",

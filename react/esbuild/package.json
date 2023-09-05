@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npm run buf:generate && esbuild src/index.tsx --serve=localhost:3000 --servedir=www --outdir=www --bundle",
+    "start": "npm run generate && esbuild src/index.tsx --serve=localhost:3000 --servedir=www --outdir=www --bundle",
     "build": "esbuild src/index.tsx --bundle --outfile=dist/out.js",
     "test": "jest",
-    "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate buf.build/connectrpc/eliza",
     "ci": "npm run generate && npm run build && npm run test"
   },
   "author": "",

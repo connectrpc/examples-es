@@ -19,7 +19,7 @@ You will also see any lint errors in the console.
 
 Build the app using Rollup.
 
-### `npm run buf:generate`
+### `npm run generate`
 
 Use `buf` to generate the compiled protos via protobuf-es
 

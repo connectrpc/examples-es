@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "npm run buf:generate && react-app-rewired start",
+    "start": "npm run generate && react-app-rewired start",
     "build": "BUILD_PATH='./dist' react-app-rewired build",
     "test": "jest",
-    "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
-    "lint": "npx eslint .",
+    "generate": "buf generate buf.build/connectrpc/eliza",
+    "lint": "eslint .",
     "ci": "npm run generate && npm run build && npm run lint && npm run test"
   },
   "type": "commonjs",

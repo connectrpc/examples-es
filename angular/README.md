@@ -23,7 +23,7 @@ Runs `ng build` to build the project. The build artifacts will be stored in the 
 
 Runs `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-### `npm run buf:generate`
+### `npm run generate`
 
 Use `buf` to generate the compiled protos via protobuf-es
 
@@ -31,10 +31,10 @@ Use `buf` to generate the compiled protos via protobuf-es
 
 You can access the Angular CLI either by running `ng <command>` or by running the npm script `npm run ng <command>`
 
-For example: 
+For example:
 
-### `ng generate component component-name` 
-### `npm run ng generate component component-name` 
+### `ng generate component component-name`
+### `npm run ng generate component component-name`
 
 Generates a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 

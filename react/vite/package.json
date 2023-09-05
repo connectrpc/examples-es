@@ -4,9 +4,9 @@
     "version": "0.1.0",
     "type": "module",
     "scripts": {
-        "start": "npm run buf:generate && vite --port 3000",
+        "start": "npm run generate && vite --port 3000",
         "build": "tsc && vite build",
-        "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
+        "generate": "buf generate buf.build/connectrpc/eliza",
         "test": "vitest run",
         "coverage": "vitest run --coverage",
         "ci": "npm run generate && npm run build && npm run test"
