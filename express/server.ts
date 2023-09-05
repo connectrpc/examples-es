@@ -24,7 +24,7 @@ import routes from "./connect";
 
 const PORT = parseInt(process.argv[2] ?? 3000);
 
-// Options for configuring CORS. The @bufbuild/connect package exports
+// Options for configuring CORS. The @connectrpc/connect package exports
 // convenience variables for configuring a CORS setup.
 const corsOptions: cors.CorsOptions = {
   // Reflects the request origin. This should only be used for development.
