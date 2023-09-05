@@ -6,7 +6,7 @@
   "scripts": {
     "start": "tsx server.ts",
     "client": "tsx client.ts",
-    "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate buf.build/connectrpc/eliza",
     "build": "tsc --noEmit",
     "test": "node --loader ts-node/esm --test connect.test.ts client.test.ts"
   },

@@ -25,10 +25,10 @@ Build the app using Vite.
 
 ### `yarn run preview`
 
-Previews a built application on port 4173.  Note that `yarn run build` must be run initially or you will see an error 
+Previews a built application on port 4173.  Note that `yarn run build` must be run initially or you will see an error
 that says `Cannot /GET`
 
-### `yarn run buf:generate`
+### `yarn run generate`
 
 Use `buf` to generate the compiled protos via protobuf-es
 

@@ -30,7 +30,7 @@ Type-check using vue-tsc and build the app using Vite.
 
 Run unit tests via the Vitest framework and Vue Testing Library.
 
-### `npm run buf:generate`
+### `npm run generate`
 
 Use `buf` to generate the compiled protos via protobuf-es.
 

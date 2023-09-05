@@ -38,7 +38,7 @@ Run unit tests via the Vitest framework and Svelte Testing Library.
 
 Run e2e tests via the Playwright framework.
 
-### `npm run buf:generate`
+### `npm run generate`
 
 Use `buf` to generate the compiled protos via protobuf-es.
 

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "tsx server.ts",
     "client": "tsx client.ts",
-    "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate buf.build/connectrpc/eliza",
     "build": "tsc --noEmit",
     "test": "NODE_OPTIONS=--experimental-vm-modules ts-node --esm node_modules/.bin/jasmine --config=spec/support/jasmine.json"
   },
