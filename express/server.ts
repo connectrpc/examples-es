@@ -12,68 +12,71 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import http from "http";
+import http from "node:http";
 import express from "express";
 import cors from "cors";
 import { cors as connectCors } from "@connectrpc/connect";
 import { expressConnectMiddleware } from "@connectrpc/connect-express";
-import { readFileSync } from "fs";
-import { stdout } from "process";
+import { readFileSync } from "node:fs";
 import * as esbuild from "esbuild";
-import routes from "./connect";
+import routes from "./connect.js";
 
-const PORT = parseInt(process.argv[2] ?? 3000);
+if (process.argv[1] === new URL(import.meta.url).pathname) {
+  const PORT = parseInt(process.argv[2] ?? 3000);
+  build().listen({ host: "localhost", port: PORT });
+  console.log(`The app is running on http://localhost:${PORT}`);
+  console.log("Run `npm run client` for a terminal client.");
+}
 
-// Options for configuring CORS. The @connectrpc/connect package exports
-// convenience variables for configuring a CORS setup.
-const corsOptions: cors.CorsOptions = {
-  // Reflects the request origin. This should only be used for development.
-  // Production should explicitly specify an origin
-  origin: true,
-  methods: [...connectCors.allowedMethods],
-  allowedHeaders: [...connectCors.allowedHeaders],
-  exposedHeaders: [...connectCors.exposedHeaders],
-};
+export function build() {
+  const app = express();
 
-const app = express();
+  // Options for configuring CORS. The @connectrpc/connect package exports
+  // convenience variables for configuring a CORS setup.
+  const corsOptions: cors.CorsOptions = {
+    // Reflects the request origin. This should only be used for development.
+    // Production should explicitly specify an origin
+    origin: true,
+    methods: [...connectCors.allowedMethods],
+    allowedHeaders: [...connectCors.allowedHeaders],
+    exposedHeaders: [...connectCors.exposedHeaders],
+  };
 
-app.use(cors(corsOptions));
-app.use(
-  expressConnectMiddleware({
-    routes,
-  })
-);
+  app.use(cors(corsOptions));
+  app.use(
+      expressConnectMiddleware({
+        routes,
+      })
+  );
 
-app.get("/", (_, res) => {
-  res.writeHead(200, { "content-type": "text/html" });
-  res.write(readFileSync("./www/index.html", "utf8"), "utf8");
-  res.end();
-});
+  app.get("/", (_, res) => {
+    res.writeHead(200, { "content-type": "text/html" });
+    res.write(readFileSync("./www/index.html", "utf8"), "utf8");
+    res.end();
+  });
 
-app.get("/app.css", (_, res) => {
-  res.writeHead(200, { "content-type": "text/css" });
-  res.write(readFileSync("./www/app.css", "utf8"), "utf8");
-  res.end();
-});
+  app.get("/app.css", (_, res) => {
+    res.writeHead(200, { "content-type": "text/css" });
+    res.write(readFileSync("./www/app.css", "utf8"), "utf8");
+    res.end();
+  });
 
-app.get("/webclient.js", (_, res) => {
-  void esbuild
-    .build({
-      entryPoints: ["./webclient.ts"],
-      bundle: true,
-      write: false,
-      globalName: "eliza",
-    })
-    .then((result) => {
-      res.writeHead(200, {
-        "content-type": "application/javascript",
-      });
-      res.write(result.outputFiles[0].text, "utf8");
-      res.end();
-    });
-});
+  app.get("/webclient.js", (_, res) => {
+    void esbuild
+        .build({
+          entryPoints: ["./webclient.ts"],
+          bundle: true,
+          write: false,
+          globalName: "eliza",
+        })
+        .then((result) => {
+          res.writeHead(200, {
+            "content-type": "application/javascript",
+          });
+          res.write(result.outputFiles[0].text, "utf8");
+          res.end();
+        });
+  });
 
-http.createServer(app).listen(PORT, () => {
-  stdout.write(`The app is running on http://localhost:${PORT}\n`);
-  stdout.write("Run `npm run client` for a terminal client.\n");
-});
+  return http.createServer(app);
+}
