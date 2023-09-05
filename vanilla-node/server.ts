@@ -64,7 +64,7 @@ const handler = connectNodeAdapter({
 });
 
 // CORS example using Express middleware with vanilla HTTP server
-// The @bufbuild/connect package exports convenience variables for
+// The @connectrpc/connect package exports convenience variables for
 // configuring a CORS setup.
 const corsHandler = cors({
   // Reflects the request origin. This should only be used for development.
