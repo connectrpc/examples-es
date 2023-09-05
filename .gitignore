@@ -28,6 +28,7 @@ lerna-debug.log*
 **/coverage
 **/cypress/videos/
 **/cypress/screenshots/
+**/.nyc_output
 
 # Editor directories and files
 **/.vscode/*
