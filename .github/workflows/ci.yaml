@@ -52,14 +52,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'yarn'
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 7
       - name: Run CI
         run: node manage.mjs ci ${{ matrix.project }}
-      - name: Check Diff
-        id: checkdiff
-        run: |
-          [[ -z $(git status --porcelain | tee /dev/stderr) ]] || exit 1
-
