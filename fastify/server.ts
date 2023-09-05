@@ -31,7 +31,7 @@ if (process.argv[1] === new URL(import.meta.url).pathname) {
 export async function build() {
     const server = fastify();
 
-    // Options for configuring CORS. The @bufbuild/connect package exports
+    // Options for configuring CORS. The @connectrpc/connect package exports
     // convenience variables for configuring a CORS setup.
     await server.register(fastifyCors, {
         // Reflects the request origin. This should only be used for development.
