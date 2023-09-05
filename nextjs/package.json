@@ -5,7 +5,7 @@
   "scripts": {
     "start": "next dev",
     "build": "next build",
-    "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate buf.build/connectrpc/eliza",
     "start:production": "next start",
     "lint": "next lint",
     "test": "jest"

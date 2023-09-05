@@ -6,7 +6,7 @@
   "scripts": {
     "start": "tsx server.ts",
     "client": "tsx client.ts",
-    "buf:generate": "buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate buf.build/connectrpc/eliza",
     "build": "tsc --noEmit",
     "test": "tap --no-coverage --node-arg=--loader=ts-node/esm --node-arg=--no-warnings test"
   },

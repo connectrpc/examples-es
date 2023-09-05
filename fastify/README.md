@@ -12,7 +12,7 @@ Once a server is started, there are multiple variations of clients to interact w
 
 ### Browser
 
-By default, the Fastify server also serves the frontend Eliza interface. Visit [http://localhost:3000](http://localhost:3000) 
+By default, the Fastify server also serves the frontend Eliza interface. Visit [http://localhost:3000](http://localhost:3000)
 to view it in a browser. This is a full-stack example using Connect for Web.
 
 ### Terminal
@@ -27,7 +27,7 @@ triggering CORS.
 
 ## Tests
 
-This example comes with tests. We are using [tap](https://node-tap.org/) - the 
+This example comes with tests. We are using [tap](https://node-tap.org/) - the
 test framework used by Fastify.
 
 Run `npm test` to run all tests.
@@ -35,4 +35,4 @@ Run `npm test` to run all tests.
 
 ## Other helpful commands
 
-Run `npm run buf:generate` to generate the compiled protos via Protobuf-ES.
+Run `npm run generate` to generate the compiled protos via Protobuf-ES.

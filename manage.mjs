@@ -63,7 +63,7 @@ function main() {
         case "test":
             for (const pkg of packages) {
                 pkg.install();
-                pkg.runScript("buf:generate");
+                pkg.runScript("generate");
                 pkg.runScript("build");
                 pkg.runScript("test");
             }
@@ -71,7 +71,7 @@ function main() {
         default:
             console.error("Usage: (list | test | update | forceupdateknown | forceupdateall) <packages>...");
             console.error("'list' lists all packages in the repository.");
-            console.error("'test' installs dependencies, then runs the 'buf:generate', 'build', and 'test' scripts.");
+            console.error("'test' installs dependencies, then runs the 'generate', 'build', and 'test' scripts.");
             console.error("'update' updates all deps to the latest version allowed by the dependency constraints.");
             console.error("'forceupdateknown' updates all known deps to the latest version, regardless of constraints.");
             console.error("'forceupdateall' updates all deps to the latest version, regardless of constraints.");
