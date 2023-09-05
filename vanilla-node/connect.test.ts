@@ -32,7 +32,7 @@ describe("testing the eliza service with a full HTTP server", () => {
     });
 });
 
-describe("unit testing testing the eliza service", () => {
+describe("unit testing the eliza service", () => {
 
     // We are not using this style in connect.ts, but services can also be
     // implemented as classes. This approach is useful for unit testing, making

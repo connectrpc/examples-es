@@ -49,7 +49,7 @@ t.test("testing the eliza service with fastify.inject()", async (t) => {
     t.same(sayRes.sentence, "You said hello");
 });
 
-t.test("unit testing testing the eliza service", async (t) => {
+t.test("unit testing the eliza service", async (t) => {
 
     // We are not using this style in connect.ts, but services can also be
     // implemented as classes. This approach is useful for unit testing, making
