@@ -19,19 +19,20 @@ to view it in a browser. This is a full-stack example using Connect for Web.
 
 Run `npm run client` to start a terminal client using Connect for Node.js.
 
-#### CORS example
+### CORS example
 
 To see the CORS setup in action, run `npm start 3001` and then visit [http://localhost:3001](http://localhost:3001)
 in a browser. The browser client will send requests to localhost:3000,
 triggering CORS.
 
+## Tests
+
+This example comes with tests. We are using [tap](https://node-tap.org/) - the
+test framework used by Fastify.
+
+Run `npm test` to run all tests.
+
 
 ## Other helpful commands
 
-### `npm run test`
-
-Run the unit tests via Jasmine.
-
-### `npm run generate`
-
-Use `buf` to generate the compiled protos via Protobuf-ES.
+Run `npm run generate` to generate the compiled protos via Protobuf-ES.
