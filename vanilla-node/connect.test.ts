@@ -9,14 +9,12 @@ import routes from "./connect.js";
 import { setupTestServer } from "./setup-test-server.js";
 
 describe("testing the eliza service with an in-memory server", () => {
-    describe("say", () => {
-        it("should repeat what we said", async () => {
-            // Create an in-memory transport with the routes from connect.ts
-            const transport = createRouterTransport(routes);
-            const client = createPromiseClient(ElizaService, transport);
-            const { sentence } = await client.say({ sentence: "hello" });
-            assert.strictEqual(sentence, "You said hello");
-        });
+    it("say should repeat what we said", async () => {
+        // Create an in-memory transport with the routes from connect.ts
+        const transport = createRouterTransport(routes);
+        const client = createPromiseClient(ElizaService, transport);
+        const { sentence } = await client.say({ sentence: "hello" });
+        assert.strictEqual(sentence, "You said hello");
     });
 });
 
@@ -30,14 +28,12 @@ describe("testing the eliza service with a full HTTP server", () => {
             connectNodeAdapter({ routes })
         )
     );
-    describe("say", () => {
-        it("should repeat what we said", async () => {
-            // create a transport for the test server
-            const transport = createConnectTransport(serverInfo());
-            const client = createPromiseClient(ElizaService, transport);
-            const { sentence } = await client.say({ sentence: "hello" });
-            assert.strictEqual(sentence, "You said hello");
-        });
+    it("say should repeat what we said", async () => {
+        // create a transport for the test server
+        const transport = createConnectTransport(serverInfo());
+        const client = createPromiseClient(ElizaService, transport);
+        const { sentence } = await client.say({ sentence: "hello" });
+        assert.strictEqual(sentence, "You said hello");
     });
 });
 
@@ -64,7 +60,7 @@ describe("unit testing testing the eliza service", () => {
         }
     }
 
-    describe("say", async () => {
+    it("say should repeat what we said", async () => {
         const eliza = new Eliza();
         const { sentence } = await eliza.say(new SayRequest({ sentence: "hello" }));
         assert.strictEqual(sentence, "You said hello");
