@@ -22,7 +22,7 @@ import { stdout } from "process";
 import * as esbuild from "esbuild";
 import routes from "./connect";
 
-const PORT = 3000;
+const PORT = parseInt(process.argv[2] ?? 3000);
 
 // Options for configuring CORS. The @bufbuild/connect package exports
 // convenience variables for configuring a CORS setup.
@@ -46,7 +46,7 @@ app.use(
 
 app.get("/", (_, res) => {
   res.writeHead(200, { "content-type": "text/html" });
-  res.write(readFileSync("./www/index-fullstack.html", "utf8"), "utf8");
+  res.write(readFileSync("./www/index.html", "utf8"), "utf8");
   res.end();
 });
 
@@ -76,5 +76,4 @@ app.get("/webclient.js", (_, res) => {
 http.createServer(app).listen(PORT, () => {
   stdout.write(`The app is running on http://localhost:${PORT}\n`);
   stdout.write("Run `npm run client` for a terminal client.\n");
-  stdout.write("Run `npm run serve` for a web client using CORS.\n");
 });

@@ -20,6 +20,8 @@ import { readFileSync } from "fs";
 import * as esbuild from "esbuild";
 import routes from "./connect";
 
+const PORT = parseInt(process.argv[2] ?? 3000);
+
 const server = fastify();
 
 // Options for configuring CORS. The @bufbuild/connect package exports
@@ -37,7 +39,7 @@ await server.register(fastifyConnectPlugin, { routes });
 
 server.get("/", (_, reply) => {
   reply.type("text/html");
-  reply.send(readFileSync("./www/index-fullstack.html", "utf8"));
+  reply.send(readFileSync("./www/index.html", "utf8"));
 });
 
 server.get("/app.css", (_, reply) => {
@@ -59,7 +61,6 @@ server.get("/webclient.js", (_, reply) => {
     });
 });
 
-await server.listen({ host: "localhost", port: 3000 });
-console.log("The app is running on ", server.addresses());
+await server.listen({ host: "localhost", port: PORT });
+console.log(`The app is running on http://localhost:${PORT}`);
 console.log("Run `npm run client` for a terminal client.");
-console.log("Run `npm run serve` for a web client using CORS.");

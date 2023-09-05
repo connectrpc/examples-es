@@ -12,19 +12,19 @@ Once a server is started, there are multiple variations of clients to interact w
 
 ### Browser
 
-#### Full-stack
-
 By default, the Fastify server also serves the frontend Eliza interface. Visit [http://localhost:3000](http://localhost:3000) 
 to view it in a browser. This is a full-stack example using Connect for Web.
-
-#### CORS example
-
-It is also possible to run the frontend interface on a separate port to make use of the CORS setup. To do so, run the
-command `npm run serve` and then visit [http://localhost:8080](http://localhost:8080) in a browser.
 
 ### Terminal
 
 Run `npm run client` to start a terminal client using Connect for Node.js.
+
+#### CORS example
+
+To see the CORS setup in action, run `npm start 3001` and then visit [http://localhost:3001](http://localhost:3001)
+in a browser. The browser client will send requests to localhost:3000,
+triggering CORS.
+
 
 ## Other helpful commands
 
