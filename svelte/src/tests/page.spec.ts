@@ -30,19 +30,19 @@ function renderWithMockRoutes(
 
 test("against a mocked service", async () => {
   renderWithMockRoutes(ElizaPage, ({ service }) => {
-      service(ElizaService, {
-          say(req: SayRequest) {
-              expect(req.sentence).toEqual("Goodbye");
-              return new SayResponse({
-                  sentence: "This is a mock response to say.",
-              });
-          },
-          async *introduce(req: IntroduceRequest) {
-              yield {
-                  sentence: `Hi ${req.name}, this is a mock response to introduce.`,
-              };
-          },
-      });
+    service(ElizaService, {
+      say(req: SayRequest) {
+        expect(req.sentence).toEqual("Goodbye");
+        return new SayResponse({
+          sentence: "This is a mock response to say.",
+        });
+      },
+      async *introduce(req: IntroduceRequest) {
+        yield {
+          sentence: `Hi ${req.name}, this is a mock response to introduce.`,
+        };
+      },
+    });
   });
   const input = screen.getByRole("textbox");
   const sendButton = screen.getByRole("button");

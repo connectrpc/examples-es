@@ -8,9 +8,10 @@
   "scripts": {
     "start": "pnpm run buf:generate && remix dev",
     "start:production": "remix-serve dist",
-    "build": "pnpm run buf:generate && remix build",
+    "build": "remix build",
     "test": "jest",
-    "buf:generate": "npx buf generate buf.build/connectrpc/eliza"
+    "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
+    "ci": "pnpm run generate && pnpm run build && pnpm run test"
   },
   "engines": {
     "node": ">=14"

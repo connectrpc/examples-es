@@ -7,7 +7,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test --browsers=ChromeHeadless --watch=false",
     "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
-    "ng": "ng"
+    "ng": "ng",
+    "ci": "npm run generate && npm run build && npm run test"
   },
   "private": true,
   "dependencies": {

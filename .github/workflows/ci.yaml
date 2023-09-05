@@ -56,5 +56,10 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 7
-      - name: Run test
-        run: node manage.mjs test ${{ matrix.project }}
+      - name: Run CI
+        run: node manage.mjs ci ${{ matrix.project }}
+      - name: Check Diff
+        id: checkdiff
+        run: |
+          [[ -z $(git status --porcelain | tee /dev/stderr) ]] || exit 1
+

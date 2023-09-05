@@ -7,8 +7,9 @@
     "start": "tsx server.ts",
     "client": "tsx client.ts",
     "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
-    "build": "tsc --noEmit",
-    "test": "NODE_OPTIONS=--experimental-vm-modules ts-node --esm node_modules/.bin/jasmine --config=spec/support/jasmine.json"
+    "type-check": "tsc --noEmit",
+    "test": "NODE_OPTIONS=--experimental-vm-modules ts-node --esm node_modules/.bin/jasmine --config=spec/support/jasmine.json",
+    "ci": "npm run generate && npm run type-check && npm run test"
   },
   "dependencies": {
     "tsx": "^3.12.7",

@@ -13,7 +13,7 @@ app.use(router);
 
 // This transport is going to be used throughout the app
 const transport = createConnectTransport({
-    baseUrl: "https://demo.connectrpc.com",
+  baseUrl: "https://demo.connectrpc.com",
 });
 app.provide(transportKey, transport);
 

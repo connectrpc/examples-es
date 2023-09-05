@@ -13,7 +13,7 @@ describe("Eliza Testing", () => {
       ElizaService,
       createConnectTransport({
         baseUrl: "https://demo.connectrpc.com",
-      })
+      }),
     );
 
     expect(client.say).to.not.be.undefined;

@@ -8,7 +8,8 @@
     "start": "npm run buf:generate && esbuild src/index.tsx --serve=localhost:3000 --servedir=www --outdir=www --bundle",
     "build": "esbuild src/index.tsx --bundle --outfile=dist/out.js",
     "test": "jest",
-    "buf:generate": "npx buf generate buf.build/connectrpc/eliza"
+    "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
+    "ci": "npm run generate && npm run build && npm run test"
   },
   "author": "",
   "license": "ISC",

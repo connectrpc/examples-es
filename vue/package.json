@@ -5,13 +5,14 @@
     "start": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
-    "test": "vitest run --environment jsdom",
     "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
+    "test": "vitest run --environment jsdom",
     "test:e2e": "npm run build && start-server-and-test preview http://localhost:4173/ 'cypress open --e2e'",
     "test:e2e:ci": "npm run build && start-server-and-test preview http://localhost:4173/ 'cypress run --e2e'",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "ci": "npm run buf:generate && npm run lint && npm run build && npm run test && npm run test:e2e:ci"
   },
   "dependencies": {
     "pinia": "^2.1.6",

@@ -5,9 +5,10 @@
   "source": "src/index.html",
   "scripts": {
     "start": "npm run buf:generate && parcel src/index.html -p 3000 --log-level error",
-    "build": "npm run buf:generate && parcel build src/index.html --log-level error",
+    "build": "parcel build src/index.html --log-level error",
     "test": "jest",
-    "buf:generate": "npx buf generate buf.build/connectrpc/eliza"
+    "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
+    "ci": "npm run generate && npm run build && npm run test"
   },
   "author": "",
   "license": "ISC",

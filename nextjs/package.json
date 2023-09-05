@@ -8,7 +8,8 @@
     "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
     "start:production": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "ci": "npm run generate && npm run build && npm run lint && npm run test"
   },
   "dependencies": {
     "@connectrpc/connect-next": "^0.13.2",

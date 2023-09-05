@@ -5,9 +5,10 @@
   "main": "webpack.config.js",
   "scripts": {
     "start": "npm run build && webpack serve --mode development",
-    "build": "npm run buf:generate && webpack",
+    "build": "webpack",
     "test": "jest",
-    "buf:generate": "npx buf generate buf.build/connectrpc/eliza"
+    "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
+    "ci": "npm run generate && npm run build && npm run test"
   },
   "author": "",
   "license": "ISC",

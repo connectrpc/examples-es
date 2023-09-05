@@ -4,10 +4,11 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "npm run buf:generate && expo start",
-    "build": "npx tsc --noEmit",
+    "type-check": "npx tsc --noEmit",
     "web": "npm run buf:generate && expo start --web",
     "test": "jest",
-    "buf:generate": "npx buf generate buf.build/connectrpc/eliza"
+    "buf:generate": "npx buf generate buf.build/connectrpc/eliza",
+    "ci": "npm run generate && npm run type-check && npm run test"
   },
   "private": true,
   "dependencies": {
