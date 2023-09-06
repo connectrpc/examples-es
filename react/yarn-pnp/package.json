@@ -1,6 +1,6 @@
 {
   "name": "buf-yarn-pnp",
-  "packageManager": "yarn@3.6.1",
+  "packageManager": "yarn@3.6.3",
   "private": true,
   "scripts": {
     "start": "vite --port 3000",

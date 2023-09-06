@@ -41,11 +41,13 @@ function main() {
             break;
         case "update":
             for (const pkg of packages) {
+                pkg.enableCorepack();
                 pkg.update();
             }
             break;
         case "forceupdateall":
             for (const pkg of packages) {
+                pkg.enableCorepack();
                 pkg.forceUpdate(
                     Object.keys(pkg.packageJson.dependencies ?? {}),
                     Object.keys(pkg.packageJson.devDependencies ?? {})
@@ -54,6 +56,7 @@ function main() {
             break;
         case "forceupdateknown":
             for (const pkg of packages) {
+                pkg.enableCorepack();
                 pkg.forceUpdate(
                     Object.keys(pkg.packageJson.dependencies ?? {}).filter(name => knownDependencies.includes(name)),
                     Object.keys(pkg.packageJson.devDependencies ?? {}).filter(name => knownDependencies.includes(name)),
@@ -62,6 +65,7 @@ function main() {
             break;
         case "test":
             for (const pkg of packages) {
+                pkg.enableCorepack();
                 pkg.install();
                 pkg.runScript("generate");
                 pkg.runScript("build");
@@ -70,6 +74,7 @@ function main() {
             break;
         case "ci":
             for (const pkg of packages) {
+                pkg.enableCorepack();
                 pkg.install();
                 pkg.runScript("ci");
             }
@@ -188,6 +193,12 @@ class PackageEnt {
                     throw `unknown package manager ${this.packageManager}`;
             }
         }
+    }
+
+    /**
+     */
+    enableCorepack() {
+      this.run(`corepack enable`);
     }
 
     /**

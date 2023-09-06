@@ -11,6 +11,7 @@ Other tools used:
 
 ## Getting Started
 
+### `corepack enable`
 ### `yarn install`
 ### `yarn start`
 
