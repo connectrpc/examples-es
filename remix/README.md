@@ -29,3 +29,15 @@ Build the app using Rollup.
 ### `pnpm run start:production`
 
 Run the app in production mode.
+
+## Making sure you're on the right `pnpm` version
+
+Ensure that you've got corepack enabled:
+
+```console
+corepack enable
+```
+
+This should only be necessary once.
+
+Verify that `pnpm --version` matches the `packageManager` version in `package.json`.

@@ -11,7 +11,6 @@ Other tools used:
 
 ## Getting Started
 
-### `corepack enable`
 ### `yarn install`
 ### `yarn start`
 
@@ -27,11 +26,14 @@ Build the app using Vite.
 
 Use `buf` to generate the compiled protos via protobuf-es
 
-### `yarn set version canary`
+## Making sure you're on the right `yarn` version
 
-Use the latest dev channel of Yarn to test bleeding edge changes
+Ensure that you've got corepack enabled:
 
-### `yarn set version berry`
+```console
+corepack enable
+```
 
-Use the Berry release (3.x) of Yarn
+This should only be necessary once.
 
+Verify that `yarn --version` matches the `packageManager` version in `package.json`.
