@@ -12,6 +12,7 @@
     "ci": "npm run generate && npm run build && npm run lint && npm run test"
   },
   "dependencies": {
+    "@bufbuild/jest-environment-jsdom": "^0.1.1",
     "@connectrpc/connect-next": "^0.13.2",
     "next": "^13.4.19",
     "react": "^18.2.0",
