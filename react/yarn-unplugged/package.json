@@ -8,9 +8,10 @@
     "start": "yarn run build && open index.html",
     "build": "esbuild src/index.tsx --bundle --outfile=dist/out.js",
     "test": "jest",
-    "generate": "buf generate buf.build/connectrpc/eliza"
+    "generate": "buf generate buf.build/connectrpc/eliza",
+    "ci": "yarn run generate && yarn run build && yarn run test"
   },
-  "packageManager": "yarn@3.2.1",
+  "packageManager": "yarn@3.6.3",
   "dependencies": {
     "@bufbuild/buf": "^1.26.1",
     "@bufbuild/protobuf": "^1.3.1",

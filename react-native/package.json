@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "npm run generate && expo start",
+    "start": "npm run buf:generate && expo start",
     "build": "tsc --noEmit",
     "web": "npm run generate && expo start --web",
     "test": "jest",
-    "generate": "buf generate buf.build/connectrpc/eliza"
+    "generate": "buf generate buf.build/connectrpc/eliza",
+    "ci": "npm run generate && npm run build && npm run test"
   },
   "private": true,
   "dependencies": {

@@ -1,13 +1,14 @@
 {
   "name": "buf-yarn-pnp",
-  "packageManager": "yarn@3.6.1",
+  "packageManager": "yarn@3.6.3",
   "private": true,
   "scripts": {
     "start": "vite --port 3000",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "generate": "buf generate buf.build/connectrpc/eliza"
+    "generate": "buf generate buf.build/connectrpc/eliza",
+    "ci": "yarn run generate && yarn run build && yarn run test"
   },
   "dependencies": {
     "@bufbuild/buf": "^1.26.1",

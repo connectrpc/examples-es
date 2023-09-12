@@ -8,7 +8,8 @@
     "generate": "buf generate buf.build/connectrpc/eliza",
     "start:production": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "ci": "npm run generate && npm run build && npm run lint && npm run test"
   },
   "dependencies": {
     "@bufbuild/jest-environment-jsdom": "^0.1.1",

@@ -68,6 +68,12 @@ function main() {
                 pkg.runScript("test");
             }
             break;
+        case "ci":
+            for (const pkg of packages) {
+                pkg.install();
+                pkg.runScript("ci");
+            }
+            break;
         default:
             console.error("Usage: (list | test | update | forceupdateknown | forceupdateall) <packages>...");
             console.error("'list' lists all packages in the repository.");

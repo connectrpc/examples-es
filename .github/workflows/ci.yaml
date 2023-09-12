@@ -48,13 +48,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      # Slightly fragile since it runs on the default node version
+      # but until setup-node supports corepack (https://github.com/actions/setup-node/issues/531)
+      # this is our best option
+      - name: Enable core pack
+        run: |
+          corepack enable
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 7
-      - name: Run test
-        run: node manage.mjs test ${{ matrix.project }}
+      - name: Run CI
+        run: node manage.mjs ci ${{ matrix.project }}
+      - name: Check Diff
+        id: checkdiff
+        run: |
+          [[ -z $(git status --porcelain | tee /dev/stderr) ]] || exit 1
+
