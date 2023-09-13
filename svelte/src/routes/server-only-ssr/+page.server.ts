@@ -37,15 +37,16 @@ export const load: PageServerLoad = async ({ fetch }) => {
   const response = await client.say(new SayRequest(request));
 
   /**
-   * The values on `response` (such as `sentence`) are regular JavaScript values.
-   * This means that we can easily pass them directly.
+   * The values on `response` (such as `sentence`) are JSON serializable
+   * JavaScript values. This means that we can easily pass them directly.
+   *
    * The nice thing about doing this is that you retain full typing for `sentence: string`.
    */
   const plainProperty = response.sentence;
 
   /**
-   * However, if we want to pass the entire response, we call `.toJson()` since what's passed through
-   * the SSR boundary must be plain JSON.
+   * However, if we want to pass the entire response, we call `.toJson()` since
+   * what's passed through the SSR boundary must be plain JSON.
    *
    * You may also need to do this if you use BigInts or byte array (byte arrays use UInt8Array).
    * The downside to this approach is that you lose all type information and get `JsonValue`.
