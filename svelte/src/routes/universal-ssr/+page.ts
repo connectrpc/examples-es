@@ -36,7 +36,7 @@ export const load: PageLoad = async ({ fetch }) => {
 
   const client = createPromiseClient(ElizaService, transport);
 
-  const request = new SayRequest( {
+  const request = new SayRequest({
     sentence: "hi from the server",
   });
 
