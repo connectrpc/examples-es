@@ -11,7 +11,7 @@ All default tooling setup via the above command is used, which includes:
 - [Playwright](https://playwright.dev) (e2e Testing Framework)
 - [Svelte Kit](https://kit.svelte.dev/) (Application Framework)
 
-The example includes server side rendering via a universal load function in [src/routes/universal-ssr](./src/routes/universal-ssr), 
+The example includes server side rendering via a universal load function in [src/routes/universal-ssr](./src/routes/universal-ssr),
 and a server-only load function in [src/routes/server-only-ssr](./src/routes/server-only-ssr). Run the app to see them
 in action.
 

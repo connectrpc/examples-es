@@ -23,46 +23,46 @@ test("visits the app root url", async ({ page }) => {
 });
 
 test("/universal-ssr", async ({ page }) => {
-    await page.route("https://demo.connectrpc.com/**", async route => {
-        // Prove that all API requests happen server side
-        await route.abort("accessdenied")
-    });
+  await page.route("https://demo.connectrpc.com/**", async (route) => {
+    // Prove that all API requests happen server side
+    await route.abort("accessdenied");
+  });
 
-    await page.goto("http://localhost:3000/universal-ssr");
+  await page.goto("http://localhost:3000/universal-ssr");
 
-    const title = page.locator("h1");
-    await expect(title).toHaveText("Eliza with Svelte");
+  const title = page.locator("h1");
+  await expect(title).toHaveText("Eliza with Svelte");
 
-    const requestSentence = page.getByTestId("request-sentence");
-    await expect(requestSentence).toHaveText("hi from the server");
+  const requestSentence = page.getByTestId("request-sentence");
+  await expect(requestSentence).toHaveText("hi from the server");
 
-    const requestType = page.getByTestId("request-type");
-    await expect(requestType).toHaveText("connectrpc.eliza.v1.SayRequest");
+  const requestType = page.getByTestId("request-type");
+  await expect(requestType).toHaveText("connectrpc.eliza.v1.SayRequest");
 
-    const responseSentence = page.getByTestId("response-sentence");
-    await expect(responseSentence).toHaveText(/.+/);
+  const responseSentence = page.getByTestId("response-sentence");
+  await expect(responseSentence).toHaveText(/.+/);
 
-    const responseType = page.getByTestId("response-type");
-    await expect(responseType).toHaveText("connectrpc.eliza.v1.SayResponse");
+  const responseType = page.getByTestId("response-type");
+  await expect(responseType).toHaveText("connectrpc.eliza.v1.SayResponse");
 });
 
 test("/server-only-ssr", async ({ page }) => {
-    await page.route("https://demo.connectrpc.com/**", async route => {
-        // Prove that all API requests happen server side
-        await route.abort("accessdenied")
-    });
+  await page.route("https://demo.connectrpc.com/**", async (route) => {
+    // Prove that all API requests happen server side
+    await route.abort("accessdenied");
+  });
 
-    await page.goto("http://localhost:3000/server-only-ssr");
+  await page.goto("http://localhost:3000/server-only-ssr");
 
-    const title = page.locator("h1");
-    await expect(title).toHaveText("Eliza with Svelte");
+  const title = page.locator("h1");
+  await expect(title).toHaveText("Eliza with Svelte");
 
-    const requestSentence = page.getByTestId("request-sentence");
-    await expect(requestSentence).toHaveText("hi from the server");
+  const requestSentence = page.getByTestId("request-sentence");
+  await expect(requestSentence).toHaveText("hi from the server");
 
-    const responseSentence = page.getByTestId("response-sentence");
-    await expect(responseSentence).toHaveText(/.+/);
+  const responseSentence = page.getByTestId("response-sentence");
+  await expect(responseSentence).toHaveText(/.+/);
 
-    const responseType = page.getByTestId("response-type");
-    await expect(responseType).toHaveText("connectrpc.eliza.v1.SayResponse");
+  const responseType = page.getByTestId("response-type");
+  await expect(responseType).toHaveText("connectrpc.eliza.v1.SayResponse");
 });
