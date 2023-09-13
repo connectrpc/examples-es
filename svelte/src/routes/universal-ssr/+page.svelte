@@ -20,14 +20,24 @@
 
 <div>
   <header class="app-header">
-    <h1>Eliza</h1>
-    <h4>Svelte + Universal SSR</h4>
-    <a href="/">View Client-side Rendering Example</a>
-    <a href="/server-only-ssr">View Server Only SSR Example</a>
+    <h1>Eliza with Svelte</h1>
+    <h4>Universal SSR</h4>
+    <div>
+      Choose an example:
+      <a href="/">Client-side Rendering</a>
+      <a href="/universal-ssr">Universal SSR</a>
+      <a href="/server-only-ssr">Server Only SSR</a>
+    </div>
   </header>
   <div class="container">
     <h3>Universal SSR Rendered Data</h3>
     <div class="pre-container">
+      <div>
+        Request sentence: <code data-testid="request-sentence">{data.request.sentence}</code><br>
+        Request type: <code data-testid="request-type">{data.request.getType().typeName}</code><br>
+        Response sentence: <code data-testid="response-sentence">{data.response.sentence}</code><br>
+        Response type: <code data-testid="response-type">{data.response.getType().typeName}</code>
+      </div>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   </div>
@@ -45,7 +55,8 @@
   .pre-container {
     text-align: left;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
   .container {
     text-align: center;
