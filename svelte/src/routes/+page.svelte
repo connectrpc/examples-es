@@ -62,10 +62,14 @@
 
 <div>
   <header class="app-header">
-    <h1>Eliza</h1>
-    <h4>Svelte + Client-side Rendering</h4>
-    <a href="/universal-ssr">View Universal SSR Example</a>
-    <a href="/server-only-ssr">View Server Only SSR Example</a>
+    <h1>Eliza with Svelte</h1>
+    <h4>Client-side Rendering</h4>
+    <div>
+      Choose an example:
+      <a href="/">Client-side Rendering</a>
+      <a href="/universal-ssr">Universal SSR</a>
+      <a href="/server-only-ssr">Server Only SSR</a>
+    </div>
   </header>
   <div class="container">
     {#each responses as resp, i}
