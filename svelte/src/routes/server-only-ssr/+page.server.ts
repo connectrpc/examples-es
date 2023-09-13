@@ -9,11 +9,6 @@ import type { PageServerLoad } from "./$types";
  * This load function always runs on the server. The data it returns is
  * serialized, embedded into the page, and hydrated on page load.
  *
- * Serialization and hydration is unaware of the protobuf schema, so you
- * can only return JSON serializable data. Make sure to only return
- * individual JSON serializable fields here, or hydrate your protobuf
- * messages from JSON via YourMessage.fromJson() in the .svelte file.
- *
  * To learn about the distinction between universal load functions and
  * this server load function, see https://kit.svelte.dev/docs/load#universal-vs-server
  */
