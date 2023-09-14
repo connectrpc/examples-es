@@ -1,4 +1,4 @@
-// Copyright 2022 Buf Technologies, Inc.
+// Copyright 2022-2023 The Connect Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 // @ts-nocheck
 
 import { ConverseRequest, ConverseResponse, IntroduceRequest, IntroduceResponse, SayRequest, SayResponse } from "./eliza_pb.js";
-import { MethodKind } from "@bufbuild/protobuf";
+import { MethodIdempotency, MethodKind } from "@bufbuild/protobuf";
 
 /**
  * ElizaService provides a way to talk to Eliza, a port of the DOCTOR script
@@ -43,6 +43,7 @@ export declare const ElizaService: {
       readonly I: typeof SayRequest,
       readonly O: typeof SayResponse,
       readonly kind: MethodKind.Unary,
+      readonly idempotency: MethodIdempotency.NoSideEffects,
     },
     /**
      * Converse is a bidirectional RPC. The caller may exchange multiple
