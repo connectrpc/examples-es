@@ -527,18 +527,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protoplugin@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@bufbuild/protoplugin@npm:1.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40bufbuild%2Fprotoplugin%2F-%2Fprotoplugin-1.3.1.tgz"
-  dependencies:
-    "@bufbuild/protobuf": 1.3.1
-    "@typescript/vfs": ^1.4.0
-    typescript: 4.5.2
-  checksum: a312943e89fdd90c13630f0e47e720ebe3e0c52fd11b7a414c83f2a21102ebdd98414a67314351fb86cda42f5674f030106a855147003ddb35b2741e82ade7da
-  languageName: node
-  linkType: hard
-
-"@bufbuild/protoplugin@npm:^1.3.1":
+"@bufbuild/protoplugin@npm:1.3.1, @bufbuild/protoplugin@npm:^1.3.1":
   version: 1.3.1
   resolution: "@bufbuild/protoplugin@npm:1.3.1"
   dependencies:
