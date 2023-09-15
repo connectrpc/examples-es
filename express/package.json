@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "@bufbuild/protobuf": "^1.3.1",
-    "@connectrpc/connect": "^0.13.2",
-    "@connectrpc/connect-express": "^0.13.2",
-    "@connectrpc/connect-node": "^0.13.2",
-    "@connectrpc/connect-web": "^0.13.2",
+    "@connectrpc/connect": "^1.0.0-rc1",
+    "@connectrpc/connect-express": "^1.0.0-rc1",
+    "@connectrpc/connect-node": "^1.0.0-rc1",
+    "@connectrpc/connect-web": "^1.0.0-rc1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "tsx": "^3.12.7"
@@ -24,7 +24,7 @@
   "devDependencies": {
     "@bufbuild/buf": "^1.26.1",
     "@bufbuild/protoc-gen-es": "^1.3.1",
-    "@connectrpc/protoc-gen-connect-es": "^0.13.2",
+    "@connectrpc/protoc-gen-connect-es": "^1.0.0-rc1",
     "@types/cors": "^2.8.13",
     "@types/node": "^20.4.5",
     "ts-node": "^10.9.1",

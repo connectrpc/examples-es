@@ -482,7 +482,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:1.3.1, @bufbuild/protobuf@npm:^1.2.1, @bufbuild/protobuf@npm:^1.3.1":
+"@bufbuild/protobuf@npm:1.3.1, @bufbuild/protobuf@npm:^1.3.1":
   version: 1.3.1
   resolution: "@bufbuild/protobuf@npm:1.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40bufbuild%2Fprotobuf%2F-%2Fprotobuf-1.3.1.tgz"
   checksum: 5ee96282a6259a222ccd0daf56bcab587918253750dda34c1bf2caad0d89bc3796970f7b55b1c7e25bae5d033c8e9dd687638675fe15cac7d9d6558ebfd4dfa8
@@ -505,7 +505,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protoplugin@npm:1.3.1, @bufbuild/protoplugin@npm:^1.2.1":
+"@bufbuild/protoplugin@npm:1.3.1":
   version: 1.3.1
   resolution: "@bufbuild/protoplugin@npm:1.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40bufbuild%2Fprotoplugin%2F-%2Fprotoplugin-1.3.1.tgz"
   dependencies:
@@ -516,35 +516,45 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@connectrpc/connect-web@npm:^0.13.2":
-  version: 0.13.2
-  resolution: "@connectrpc/connect-web@npm:0.13.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40connectrpc%2Fconnect-web%2F-%2Fconnect-web-0.13.2.tgz"
+"@bufbuild/protoplugin@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "@bufbuild/protoplugin@npm:1.3.1"
   dependencies:
-    "@connectrpc/connect": 0.13.2
-  peerDependencies:
-    "@bufbuild/protobuf": ^1.2.1
-  checksum: 438a7264186a9367b9b371cbf1042d9cdc2652ab6a81e37f109acdcd0dd97588d4f1efc188104d3a49fa9754f77989c594817c17a767f7dcd5c699ab3e32cb5a
+    "@bufbuild/protobuf": 1.3.1
+    "@typescript/vfs": ^1.4.0
+    typescript: 4.5.2
+  checksum: a312943e89fdd90c13630f0e47e720ebe3e0c52fd11b7a414c83f2a21102ebdd98414a67314351fb86cda42f5674f030106a855147003ddb35b2741e82ade7da
   languageName: node
   linkType: hard
 
-"@connectrpc/connect@npm:0.13.2, @connectrpc/connect@npm:^0.13.2":
-  version: 0.13.2
-  resolution: "@connectrpc/connect@npm:0.13.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40connectrpc%2Fconnect%2F-%2Fconnect-0.13.2.tgz"
+"@connectrpc/connect-web@npm:^1.0.0-rc1":
+  version: 1.0.0-rc1
+  resolution: "@connectrpc/connect-web@npm:1.0.0-rc1"
   peerDependencies:
     "@bufbuild/protobuf": ^1.2.1
-  checksum: 799eccb3c75d549c08d961870d7cf00f8eb778da2b548af461efd07b6301e038a684c5d013cec4fc83cfcd3a4927ef3e3ad45c7144754ca776037a36fc7f3158
+    "@connectrpc/connect": 1.0.0-rc1
+  checksum: 0abcb911db66e7faabd1fe28f0aa6227e28313b022174d4b3c3c4d344a99c7fff3388056f96161e1bccfadf25e42a6024ddd2e32e49f8f7bbbac12764ded941c
   languageName: node
   linkType: hard
 
-"@connectrpc/protoc-gen-connect-es@npm:^0.13.2":
-  version: 0.13.2
-  resolution: "@connectrpc/protoc-gen-connect-es@npm:0.13.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40connectrpc%2Fprotoc-gen-connect-es%2F-%2Fprotoc-gen-connect-es-0.13.2.tgz"
-  dependencies:
+"@connectrpc/connect@npm:^1.0.0-rc1":
+  version: 1.0.0-rc1
+  resolution: "@connectrpc/connect@npm:1.0.0-rc1"
+  peerDependencies:
     "@bufbuild/protobuf": ^1.2.1
-    "@bufbuild/protoplugin": ^1.2.1
+  checksum: 20399467396dd19a9c0d65412113e7ab2c5bea162effed634a145eb74dd1d4a9d4783297d4819e402c1cdc06dad92b80f778b8b065e86409d4c48f23655ab2d8
+  languageName: node
+  linkType: hard
+
+"@connectrpc/protoc-gen-connect-es@npm:^1.0.0-rc1":
+  version: 1.0.0-rc1
+  resolution: "@connectrpc/protoc-gen-connect-es@npm:1.0.0-rc1"
+  dependencies:
+    "@bufbuild/protobuf": ^1.3.1
+    "@bufbuild/protoplugin": ^1.3.1
   peerDependencies:
     "@bufbuild/protoc-gen-es": ^1.2.1
-    "@connectrpc/connect": 0.13.2
+    "@connectrpc/connect": 1.0.0-rc1
   peerDependenciesMeta:
     "@bufbuild/protoc-gen-es":
       optional: true
@@ -552,7 +562,7 @@ __metadata:
       optional: true
   bin:
     protoc-gen-connect-es: bin/protoc-gen-connect-es
-  checksum: 3e1a95408d0c2f48935cf2a52bdad806edd8a0cfd727d9ff5fe694275c808e8182c6bfd7e993c46427a3b590e6d078e007f8f6632ffea5891eb7cc548470ea21
+  checksum: 5a7535d8f0969c4588a76ebf8eb094a5ea9cb9554e82ff79642ec3f5353a77fb5ab674853d561902ec5dc3ae0989723a3336ba5cc364ce05e064a5f15bd85ae0
   languageName: node
   linkType: hard
 
@@ -1463,9 +1473,9 @@ __metadata:
     "@bufbuild/buf": ^1.26.1
     "@bufbuild/protobuf": ^1.3.1
     "@bufbuild/protoc-gen-es": ^1.3.1
-    "@connectrpc/connect": ^0.13.2
-    "@connectrpc/connect-web": ^0.13.2
-    "@connectrpc/protoc-gen-connect-es": ^0.13.2
+    "@connectrpc/connect": ^1.0.0-rc1
+    "@connectrpc/connect-web": ^1.0.0-rc1
+    "@connectrpc/protoc-gen-connect-es": ^1.0.0-rc1
     esbuild: ^0.18.17
     jest: ^29.6.2
     react: ^18.2.0
