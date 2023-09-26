@@ -21,7 +21,9 @@ const plugins = [
             babelHelpers: 'bundled',
         }),
         commonjs(),
-        typescript(),
+        typescript({
+          noEmitOnError: true
+        }),
 ];
 
 if (process.env.NODE_ENV === 'development') {
