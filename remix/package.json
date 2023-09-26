@@ -8,7 +8,7 @@
   "scripts": {
     "start": "pnpm run generate && remix dev",
     "start:production": "remix-serve dist",
-    "build": "tsc --noEmit && remix build",
+    "build": "tsc && remix build",
     "test": "jest",
     "generate": "buf generate buf.build/connectrpc/eliza",
     "ci": "pnpm run generate && pnpm run build && pnpm run test"
