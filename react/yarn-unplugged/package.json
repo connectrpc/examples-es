@@ -6,10 +6,11 @@
   "type": "module",
   "scripts": {
     "start": "yarn run build && open index.html",
-    "build": "tsc --noEmit && esbuild src/index.tsx --bundle --outfile=dist/out.js",
+    "build": "esbuild src/index.tsx --bundle --outfile=dist/out.js",
+    "typecheck": "tsc --noEmit",
     "test": "jest",
     "generate": "buf generate buf.build/connectrpc/eliza",
-    "ci": "yarn run generate && yarn run build && yarn run test"
+    "ci": "yarn run generate && yarn run typecheck && yarn run build && yarn run test"
   },
   "packageManager": "yarn@3.6.3",
   "dependencies": {

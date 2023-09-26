@@ -5,10 +5,11 @@
   "source": "src/index.html",
   "scripts": {
     "start": "npm run generate && parcel src/index.html -p 3000 --log-level error",
-    "build": "tsc --noEmit && parcel build src/index.html --log-level error",
+    "build": "parcel build src/index.html --log-level error",
     "test": "jest",
     "generate": "buf generate buf.build/connectrpc/eliza",
-    "ci": "npm run generate && npm run build && npm run test"
+    "check": "tsc --noEmit",
+    "ci": "npm run generate && npm run check && npm run build && npm run test"
   },
   "author": "",
   "license": "ISC",
