@@ -1,5 +1,5 @@
-require('./index.css');
-require('./App.css');
+require('./index.css'); 
+require('./App.css'); 
 
 const React = require('react');
 const {createPromiseClient} = require('@connectrpc/connect');
