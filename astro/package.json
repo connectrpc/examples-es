@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && tsc --noEmit && astro build",
     "generate": "buf generate buf.build/connectrpc/eliza",
     "test": "npm run playwright:install && playwright test",
     "playwright:install": "playwright install",
@@ -27,6 +27,7 @@
     "@connectrpc/connect": "^1.0.0",
     "@connectrpc/connect-web": "^1.0.0",
     "@connectrpc/protoc-gen-connect-es": "^1.0.0",
-    "@playwright/test": "^1.36.2"
+    "@playwright/test": "^1.36.2",
+    "typescript": "^5.2.2"
   }
 }
