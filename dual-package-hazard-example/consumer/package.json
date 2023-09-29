@@ -1,0 +1,8 @@
+{
+  "name": "consumer",
+  "type": "module",
+  "dependencies": {
+    "@connectrpc/connect": "^1.0.0",
+    "intermediary": "0.0.1"
+  }
+}

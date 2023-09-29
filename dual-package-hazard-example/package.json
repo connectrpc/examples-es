@@ -1,0 +1,6 @@
+{
+  "workspaces": [
+    "./consumer",
+    "./intermediary"
+  ]
+}

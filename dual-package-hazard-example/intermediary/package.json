@@ -1,0 +1,8 @@
+{
+  "name": "intermediary",
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "@connectrpc/connect": "^1.0.0"
+  }
+}
