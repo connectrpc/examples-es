@@ -1,6 +1,6 @@
 set -x
 
-#npm ci
+npm ci
 
 # you'll need https://github.com/Schniz/fnm
 
