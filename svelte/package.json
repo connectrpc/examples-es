@@ -29,7 +29,7 @@
     "@testing-library/jest-dom": "^6.1.2",
     "@testing-library/svelte": "^4.0.3",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
-    "@typescript-eslint/parser": "^6.2.1",
+    "@typescript-eslint/parser": "^6.7.3",
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^8.9.0",
     "eslint-plugin-svelte": "^2.33.0",
