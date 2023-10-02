@@ -13,7 +13,7 @@ jobs:
       projects: ${{ steps.filter.outputs.changes }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - uses: dorny/paths-filter@v2
         id: filter
         with:
@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       # Slightly fragile since it runs on the default node version
       # but until setup-node supports corepack (https://github.com/actions/setup-node/issues/531)
       # this is our best option
