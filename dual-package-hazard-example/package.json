@@ -2,5 +2,14 @@
   "workspaces": [
     "./consumer",
     "./intermediary"
-  ]
+  ],
+  "dependencies": {
+    "parcel": "^2.9.3"
+  },
+  "scripts": {
+    "build:parcel": "parcel build consumer/index.js --log-level error --dist-dir ./parcel/dist --cache-dir ./parcel/dist/.cache"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
 }
