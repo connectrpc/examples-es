@@ -4,12 +4,16 @@
     "./intermediary"
   ],
   "dependencies": {
-    "parcel": "^2.9.3"
+    "@connectrpc/connect": "file:../../connect-es/packages/connect/connectrpc-connect-1.0.0.tgz",
+    "parcel": "^2.9.3",
+    "webpack": "^5.88.2"
   },
   "scripts": {
-    "build:parcel": "parcel build consumer/index.js --log-level error --dist-dir ./parcel/dist --cache-dir ./parcel/dist/.cache"
+    "build:parcel": "parcel build consumer/index.js --log-level error --dist-dir ./parcel/dist --cache-dir ./parcel/dist/.cache",
+    "build:webpack": "webpack"
   },
   "devDependencies": {
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "webpack-cli": "^5.1.4"
   }
 }
