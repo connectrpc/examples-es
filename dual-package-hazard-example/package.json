@@ -4,7 +4,6 @@
     "./intermediary"
   ],
   "dependencies": {
-    "@connectrpc/connect": "file:../../connect-es/packages/connect/connectrpc-connect-1.0.0.tgz",
     "parcel": "^2.9.3",
     "webpack": "^5.88.2"
   },
@@ -15,5 +14,8 @@
   "devDependencies": {
     "process": "^0.11.10",
     "webpack-cli": "^5.1.4"
-  }
+  },
+    "@parcel/resolver-default": {
+            "packageExports": true
+              }
 }
