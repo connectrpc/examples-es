@@ -22,7 +22,7 @@
     "@connectrpc/connect": "^1.0.0",
     "@connectrpc/connect-web": "^1.0.0",
     "@connectrpc/protoc-gen-connect-es": "^1.0.0",
-    "@types/jasmine": "^4.3.5",
+    "@types/jasmine": "^4.3.6",
     "esbuild": "^0.19.4",
     "jasmine": "^5.1.0",
     "ts-node": "^10.9.1",
