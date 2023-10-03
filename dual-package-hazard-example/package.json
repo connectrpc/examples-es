@@ -4,18 +4,35 @@
     "./intermediary"
   ],
   "dependencies": {
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-typescript": "^11.1.4",
+    "esbuild": "^0.19.4",
     "parcel": "^2.9.3",
+    "vite": "^4.4.9",
     "webpack": "^5.88.2"
   },
   "scripts": {
-    "build:parcel": "parcel build consumer/index.js --log-level error --dist-dir ./parcel/dist --cache-dir ./parcel/dist/.cache",
-    "build:webpack": "webpack"
+    "build:parcel": "parcel build consumer/index.js --no-optimize --no-cache --log-level error --dist-dir ./parcel/dist --cache-dir ./parcel/dist/.cache",
+    "build:webpack": "webpack",
+    "build:rollup": "rollup -c rollup.config.js --silent",
+    "build:vite": "vite build",
+    "build:esbuild": "esbuild consumer/index.js --bundle --outfile=esbuild/dist/out.js"
   },
   "devDependencies": {
     "process": "^0.11.10",
+    "rollup": "^3.29.4",
     "webpack-cli": "^5.1.4"
   },
-    "@parcel/resolver-default": {
-            "packageExports": true
-              }
+  "targets": {
+    "main": {
+      "includeNodeModules": {},
+      "optimize": true
+    }
+  },
+  "@parcel/resolver-default": {
+    "packageExports": true
+  }
 }
