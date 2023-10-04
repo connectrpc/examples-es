@@ -15,7 +15,7 @@
   "scripts": {
     "webpack": "webpack --entry ./direct.js -o bundler-dist/webpack/direct && webpack --entry ./index.js -o bundler-dist/webpack/index && webpack --entry ./direct-less-imports.js -o bundler-dist/webpack/direct-less-imports",
     "esbuild": "esbuild ./direct.js --bundle --outfile=bundler-dist/esbuild/direct.js && esbuild ./index.js --bundle --outfile=bundler-dist/esbuild/index.js && esbuild ./direct-less-imports.js --bundle --outfile=bundler-dist/esbuild/direct-less-imports.js",
-    "parcel": "parcel build ./index.js --log-level error --dist-dir ./bundler-dist/parcel/index && parcel build ./direct.js --log-level error --dist-dir ./bundler-dist/parcel/direct && parcel build ./direct-less-imports.js --log-level error --dist-dir ./bundler-dist/parcel/direct-less-imports",
-    "bundle": "npm run webpack && npm run esbuild && npm run parcel"
+    "parcel": "PARCEL_WORKERS=0 parcel build ./index.js --log-level error --dist-dir ./bundler-dist/parcel/index && PARCEL_WORKERS=0 parcel build ./direct.js --log-level error --dist-dir ./bundler-dist/parcel/direct && PARCEL_WORKERS=0 parcel build ./direct-less-imports.js --log-level error --dist-dir ./bundler-dist/parcel/direct-less-imports",
+    "bundle": "rm -rf bundler-dist && npm run webpack && npm run esbuild && npm run parcel"
   }
 }
