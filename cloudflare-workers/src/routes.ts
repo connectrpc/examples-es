@@ -22,7 +22,6 @@ function getStore(ctx: HandlerContext): KVNamespace {
 export default ({ service }: ConnectRouter) => {
 	service(UrlShortenerService, {
 		shorten: async ({ url }, ctx) => {
-			console.log('shorten', url);
 			validateUrl(url);
 			const store = getStore(ctx);
 			let shortUrl = await store.get(url);
