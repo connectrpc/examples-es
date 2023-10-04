@@ -8,10 +8,10 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
-import { createConnectRouter } from '@connectrpc/connect';
+import { createConnectRouter, createContextValues } from '@connectrpc/connect';
 import type { UniversalHandler } from '@connectrpc/connect/protocol';
+import { universalServerRequestFromFetch, universalServerResponseToFetch } from '@connectrpc/connect/protocol';
 import routes from './routes.js';
-import { universalServerRequestFromFetch, universalServerResponseToFetch } from './universal.js';
 import { kStore } from './store-context.js';
 
 export interface Env {
@@ -45,9 +45,7 @@ export default {
 		if (handler === undefined) {
 			return new Response('Not found', { status: 404 });
 		}
-		const uReq = universalServerRequestFromFetch(req);
-		// Add context values here
-		uReq.contextValues?.set(kStore, env.STORE);
+		const uReq = { ...universalServerRequestFromFetch(req, {}), contextValues: createContextValues().set(kStore, env.STORE) };
 		const uRes = await handler(uReq);
 		return universalServerResponseToFetch(uRes);
 	},
