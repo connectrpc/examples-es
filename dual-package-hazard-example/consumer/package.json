@@ -2,7 +2,20 @@
   "name": "consumer",
   "type": "module",
   "dependencies": {
-    "@connectrpc/connect": "^1.0.0",
+    "@connectrpc/connect": "1.0.0",
     "intermediary": "0.0.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.19.4",
+    "parcel": "^2.9.3",
+    "webpack-cli": "^5.1.4",
+    "webpack": "5.88.2"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "webpack": "webpack --entry ./direct.js -o bundler-dist/webpack/direct && webpack --entry ./index.js -o bundler-dist/webpack/index && webpack --entry ./direct-less-imports.js -o bundler-dist/webpack/direct-less-imports",
+    "esbuild": "esbuild ./direct.js --bundle --outfile=bundler-dist/esbuild/direct.js && esbuild ./index.js --bundle --outfile=bundler-dist/esbuild/index.js && esbuild ./direct-less-imports.js --bundle --outfile=bundler-dist/esbuild/direct-less-imports.js",
+    "parcel": "parcel build ./index.js --log-level error --dist-dir ./bundler-dist/parcel/index && parcel build ./direct.js --log-level error --dist-dir ./bundler-dist/parcel/direct && parcel build ./direct-less-imports.js --log-level error --dist-dir ./bundler-dist/parcel/direct-less-imports",
+    "bundle": "npm run webpack && npm run esbuild && npm run parcel"
   }
 }
