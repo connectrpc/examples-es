@@ -29,8 +29,7 @@ export interface Env {
 	// MY_QUEUE: Queue;
 }
 
-export default {
-	fetch: createWorkerHandler<Env>(routes, {
-		contextValues: (_, env) => createContextValues().set(kStore, env.STORE),
-	}),
-};
+export default createWorkerHandler<Env>({
+	contextValues: (_, env) => createContextValues().set(kStore, env.STORE),
+	routes,
+});

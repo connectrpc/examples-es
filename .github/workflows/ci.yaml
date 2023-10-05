@@ -38,6 +38,7 @@ jobs:
             buf-svelte: svelte/**
             buf-vanilla-node: vanilla-node/**
             buf-vue: vue/**
+            buf-cloudflare-workers: cloudflare-workers/**
   ci:
     needs: changes
     if: ${{ needs.changes.outputs.projects != '' && toJson(fromJson(needs.changes.outputs.projects)) != '[]' }}
