@@ -20,7 +20,7 @@ describe('url-shortener', async () => {
 		useBinaryFormat: true,
 	});
 	const client = createPromiseClient(UrlShortenerService, transport);
-	it('should shorten and expand', async () => {
+	await it('should shorten and expand', async () => {
 		const { url: shortUrl } = await client.shorten({ url: 'https://google.com' });
 		const { url: longUrl } = await client.expand({ url: shortUrl });
 		assert.strictEqual(longUrl, 'https://google.com');
