@@ -1,11 +1,11 @@
-import { after, describe, it } from 'node:test';
+import { after, it } from 'node:test';
 import assert from 'node:assert';
 import { Miniflare } from 'miniflare';
 import { UrlShortenerService } from './gen/urlshortener/v1/urlshortener_connect.js';
 import { createConnectTransport } from '@connectrpc/connect-node';
 import { createPromiseClient } from '@connectrpc/connect';
 
-describe('url-shortener', async () => {
+it('should shorten and expand', async () => {
 	const mf = new Miniflare({
 		scriptPath: './dist/index.js',
 		modules: true,
@@ -20,9 +20,7 @@ describe('url-shortener', async () => {
 		useBinaryFormat: true,
 	});
 	const client = createPromiseClient(UrlShortenerService, transport);
-	await it('should shorten and expand', async () => {
-		const { url: shortUrl } = await client.shorten({ url: 'https://google.com' });
-		const { url: longUrl } = await client.expand({ url: shortUrl });
-		assert.strictEqual(longUrl, 'https://google.com');
-	});
+	const { url: shortUrl } = await client.shorten({ url: 'https://google.com' });
+	const { url: longUrl } = await client.expand({ url: shortUrl });
+	assert.strictEqual(longUrl, 'https://google.com');
 });
