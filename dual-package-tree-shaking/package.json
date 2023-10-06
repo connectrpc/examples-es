@@ -5,8 +5,7 @@
     "./consumer-webpack-ts",
     "./consumer-vite",
     "./consumer-rollup",
-    "./consumer-parcel",
-    "./consumer-snowpack"
+    "./consumer-parcel"
   ],
   "//": "we have to place it here at the root. also see https://parceljs.org/blog/v2-9-0/",
   "@parcel/resolver-default": {

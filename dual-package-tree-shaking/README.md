@@ -6,6 +6,8 @@ For our tree-shaking tests, we import `compressedFlag` from `@connectrpc/connect
 symbols as well. We are intentionally importing from a subpath, because this requires bundlers
 to honor the "exports" fields.
 
+The results are:
+
 <!--- RESULTS-START -->
 | Name | Size | Artifact |
 |------|-----:|----------|
@@ -15,7 +17,6 @@ to honor the "exports" fields.
 | vite | 16 bytes | dist/consumer-vite.js |
 | rollup | 93 bytes | dist/index.js |
 | parcel | 3,654 bytes | dist/index.e621422a.js |
-| snowpack | 342 bytes | build/_snowpack/pkg/@connectrpc/connect/protocol.js |
 <!--- RESULTS-END -->
 
 To run all tests, and update the table above:
