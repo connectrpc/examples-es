@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@connectrpc/connect": "v1.1.0",
+    "@connectrpc/connect-web": "^1.1.0",
     "@vercel/edge": "^1.1.0"
   }
 }

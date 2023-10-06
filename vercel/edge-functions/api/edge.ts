@@ -3,9 +3,8 @@ import { createEdgeFunctionHandler } from "../lib/function-handler";
 import { GeoLocationService } from "../lib/gen/geolocation/v1/geolocation_connect";
 import { kGeo } from "../lib/geo-context";
 import { createContextValues, createPromiseClient } from "@connectrpc/connect";
-import { createFetchClient } from "@connectrpc/connect/protocol";
-import { createTransport } from "@connectrpc/connect/protocol-connect";
 import { ElizaService } from "../lib/gen/connectrpc/eliza/v1/eliza_connect";
+import { createConnectTransport } from "@connectrpc/connect-web";
 
 export const config = {
   runtime: "edge",
@@ -19,17 +18,7 @@ export default createEdgeFunctionHandler({
   routes({ service }) {
     const eliza = createPromiseClient(
       ElizaService,
-      createTransport({
-        baseUrl: "https://demo.connectrpc.com",
-        httpClient: createFetchClient(fetch),
-        useBinaryFormat: true,
-        interceptors: [],
-        acceptCompression: [],
-        sendCompression: null,
-        compressMinBytes: 1024,
-        readMaxBytes: 0xffffffff,
-        writeMaxBytes: 0xffffffff,
-      })
+      createConnectTransport({ baseUrl: "https://demo.connectrpc.com", fetch })
     );
     service(GeoLocationService, {
       async getGeoLocation(_, { values: { get } }) {
