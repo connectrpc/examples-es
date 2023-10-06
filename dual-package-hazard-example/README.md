@@ -1,11 +1,12 @@
 Example for the dual package hazard
 ===================================
 
-This example demonstrates the dual package hazard for `@connectrpc/connect` v1.0.0.
+This example demonstrates the dual package hazard for `@connectrpc/connect` v1.1.1
+and earlier.
 
 `intermediary` is a CommonJS-only package that re-exports from `@connectrpc/connect`.
 
-`consumer` is a ESM package that directly imports from `@connectrpc/connect`, but
+`consumer-*` are ESM packages that directly import from `@connectrpc/connect`, but
 also from the intermediary. 
 
 This causes duplicated identities: `instanceof` does not work as expected, and 
@@ -17,13 +18,14 @@ bundle size would unnecessarily increase in a web project.
 We have 5 test cases, from a to e. They simply do a strict comparison (`===`) 
 between imports from `@connectrpc/connect` and imports from `itermediary`.
 
-To run the tests in several versions of Node.js:
+To run the tests in several versions of Node.js, and also with various bundlers,
+run:
 
 ```bash
 $ bash test.bash
 ```
 
-Expected output for every version of Node.js is:
+Expected output for test is:
 
 ```
 a FAIL
@@ -32,6 +34,9 @@ c FAIL
 d FAIL
 e FAIL
 ```
+
+Vite is an exception: It is smart enough (?) to resolve the `require` calls in 
+`intermediary` as ESM, avoiding the dual package hazard.
 
 
 ### Applying a fix
@@ -57,7 +62,7 @@ Run the tests again:
 $ bash test.bash
 ```
 
-Expected output for every version of Node.js is:
+Expected output for every test is:
 
 ```
 a OK

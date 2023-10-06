@@ -1,0 +1,11 @@
+{
+  "name": "consumer-node",
+  "type": "module",
+  "dependencies": {
+    "intermediary": "0.0.1",
+    "@connectrpc/connect": "^1.0.0"
+  },
+  "scripts": {
+    "start": "bash start.bash"
+  }
+}

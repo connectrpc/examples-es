@@ -1,0 +1,15 @@
+{
+  "name": "consumer-rollup",
+  "type": "module",
+  "dependencies": {
+    "@connectrpc/connect": "^1.1.1"
+  },
+  "devDependencies": {
+    "rollup": "^3.29.4"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "start": "rm -rf dist && rollup --silent -c rollup.config.js ./src/index.js --file dist/index.js --format iife"
+  },
+  "testOutputPath": "dist/index.js"
+}

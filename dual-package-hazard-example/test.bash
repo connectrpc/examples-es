@@ -4,14 +4,11 @@ npm ci
 
 # you'll need https://github.com/Schniz/fnm
 
-fnm exec --using=v20 node consumer/index.js
-fnm exec --using=v18 node consumer/index.js
-fnm exec --using=v16 node consumer/index.js
-fnm exec --using=v14 node consumer/index.js
-fnm exec --using=v12 node consumer/index.js
-
-npm run build:parcel && node parcel/dist/index.js
-npm run build:webpack && node webpack/dist/main.js
-npm run build:rollup && node rollup/dist/bundle.js
-npm run build:vite && node vite/dist/bundle.mjs
-npm run build:esbuild && node esbuild/dist/out.js
+npm start -w consumer-esbuild
+npm start -w consumer-node
+npm start -w consumer-parcel
+npm start -w consumer-rollup
+npm start -w consumer-ts
+npm start -w consumer-vite
+npm start -w consumer-vite-ts
+npm start -w consumer-webpack

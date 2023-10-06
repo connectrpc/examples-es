@@ -1,0 +1,15 @@
+{
+  "name": "consumer-snowpack",
+  "type": "module",
+  "dependencies": {
+    "@connectrpc/connect": "^1.1.1"
+  },
+  "devDependencies": {
+    "snowpack": "^3.8.8"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "start": "rm -rf dist && snowpack build"
+  },
+  "testOutputPath": "build/_snowpack/pkg/@connectrpc/connect/protocol.js"
+}
