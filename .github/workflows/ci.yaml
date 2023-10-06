@@ -39,6 +39,7 @@ jobs:
             buf-vanilla-node: vanilla-node/**
             buf-vue: vue/**
             buf-cloudflare-workers: cloudflare-workers/**
+            buf-vercel-edge-functions: vercel/edge-functions/**
   ci:
     needs: changes
     if: ${{ needs.changes.outputs.projects != '' && toJson(fromJson(needs.changes.outputs.projects)) != '[]' }}

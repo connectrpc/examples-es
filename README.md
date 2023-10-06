@@ -84,6 +84,11 @@ the `http` package.
 
 The [cloudflare-workers](cloudflare-workers) directory contains an example involving Connect running on [Cloudflare Workers](https://workers.cloudflare.com).
 
+
+### Vercel Edge Functions
+
+The [vercel/edge-functions](vercel/edge-functions) directory contains an example involving Connect running on [Vercel Edge Functions](https://vercel.com/docs/functions/edge-functions).
+
 ## Legal
 
 Offered under the [Apache 2 license][license].

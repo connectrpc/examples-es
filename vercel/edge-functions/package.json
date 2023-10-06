@@ -1,0 +1,27 @@
+{
+  "name": "buf-vercel-edge-functions",
+  "repository": "https://github.com/vercel/examples.git",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "buf generate ./proto && buf generate buf.build/connectrpc/eliza",
+    "test": "node --loader ts-node/esm --no-warnings --test edge.test.ts",
+    "ci": "npm run test"
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "^1.27.0",
+    "@connectrpc/connect-node": "^1.1.0",
+    "@connectrpc/protoc-gen-connect-es": "^1.1.0",
+    "@edge-runtime/types": "^2.2.4",
+    "@types/node": "^20.8.2",
+    "edge-runtime": "^2.5.4",
+    "esbuild": "^0.19.4",
+    "typescript": "^5.2.2",
+    "vercel": "^32.4.1"
+  },
+  "dependencies": {
+    "@connectrpc/connect": "v1.1.0",
+    "@vercel/edge": "^1.1.0"
+  }
+}
