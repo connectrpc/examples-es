@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package urlshortener.v1;
+
+// The UrlShortener service definition.
+service UrlShortenerService {
+    // Shortens the given URL.
+    rpc Shorten(ShortenRequest) returns (ShortenResponse);
+    // Expands the given short url to the original URL.
+    rpc Expand(ExpandRequest) returns (ExpandResponse);
+}
+
+// The request message containing the URL to be shortened.
+message ShortenRequest {
+    string url = 1;
+}
+
+// The response message containing the shortened URL.
+message ShortenResponse {
+    string url = 1;
+}
+
+// The request message containing the short URL to be expanded.
+message ExpandRequest {
+    string url = 1;
+}
+
+// The response message containing the expanded URL.
+message ExpandResponse {
+    string url = 1;
+}
