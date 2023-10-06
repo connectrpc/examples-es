@@ -1,9 +1,5 @@
 set -x
 
-npm ci
-
-# you'll need https://github.com/Schniz/fnm
-
 npm start -w consumer-esbuild
 npm start -w consumer-node
 npm start -w consumer-parcel

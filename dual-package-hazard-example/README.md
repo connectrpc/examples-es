@@ -22,6 +22,7 @@ To run the tests in several versions of Node.js, and also with various bundlers,
 run:
 
 ```bash
+$ npm ci
 $ bash test.bash
 ```
 
@@ -47,13 +48,14 @@ Clone branch `tstamm/esmwrapper` from https://github.com/connectrpc/connect-es.
 cd packages/connect
 npm run build
 npm pack
-ls connectrpc-connect-1.0.0.tgz
 ```
 
 Install the fix in this example:
 
 ```bash
-npm i <PATH_TO_CONNECT_ES>/packages/connect/connectrpc-connect-1.0.0.tgz
+tar -xvf <PATH_TO_CONNECT_ES>/packages/connect/connectrpc-connect-1.1.1.tgz
+rm -rf node_modules/@connectrpc/connect
+mv package node_modules/@connectrpc/connect
 ```
 
 Run the tests again:

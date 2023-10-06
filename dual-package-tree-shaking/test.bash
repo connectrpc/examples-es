@@ -1,7 +1,5 @@
 set -x
 
-npm ci
-
 npm start -w consumer-esbuild
 npm start -w consumer-webpack
 npm start -w consumer-webpack-ts
