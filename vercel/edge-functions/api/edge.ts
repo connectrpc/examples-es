@@ -37,14 +37,10 @@ export default createEdgeFunctionHandler({
         };
       },
       async *introduce(req) {
-        try {
-          for await (const next of eliza.introduce(req)) {
-            yield {
-              sentence: `${next.sentence} | Sent via Vercel Edge Function`,
-            };
-          }
-        } catch (e) {
-          console.error(e);
+        for await (const next of eliza.introduce(req)) {
+          yield {
+            sentence: `${next.sentence} | Sent via Vercel Edge Function`,
+          };
         }
       },
     });
