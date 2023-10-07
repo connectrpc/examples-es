@@ -36,7 +36,7 @@ export function createStrictClient<S extends ServiceType>(
 type Strict<I, T> = 
     Equal<T, I> extends true
     ? T
-    : T extends any[] // eslint-disable-line @typescript-eslint/no-explicit-any
+    : T extends any[]
     ? Array<Strict<Element<I>, Element<T>>>
     : T extends AnyRecord
     ? StrictRecord<I, T>
@@ -49,7 +49,7 @@ type StrictRecord<I, T> =
 
 type Element<T> = T extends (infer E)[] ? E : never;
 
-type AnyRecord = { [K in string]: any }; // eslint-disable-line @typescript-eslint/no-explicit-any
+type AnyRecord = { [K in string]: any };
 
 type Equal<L, R> = (<T>() => T extends L ? 1 : 2) extends <T>() => T extends R
   ? 1
