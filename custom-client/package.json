@@ -1,0 +1,22 @@
+{
+  "name": "buf-custom-client",
+  "version": "0.0.0",
+  "description": "Demonstrates creating custom clients from service definition",
+  "type": "module",
+  "scripts": {
+    "generate": "buf generate buf.build/connectrpc/eliza",
+    "build": "tsc --noEmit",
+    "test": "node --loader ts-node/esm --no-warnings --test src/strict-client.test.ts",
+    "ci": "npm run generate && npm run build && npm run test"
+  },
+  "dependencies": {
+    "@connectrpc/connect": "^1.1.2",
+    "@connectrpc/connect-node": "^1.1.2"
+  },
+  "devDependencies": {
+    "@bufbuild/protoc-gen-es": "^1.3.3",
+    "@connectrpc/protoc-gen-connect-es": "^1.1.2",
+    "@types/node": "^20.8.3",
+    "ts-node": "^10.9.1"
+  }
+}

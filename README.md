@@ -84,6 +84,12 @@ the `http` package.
 
 The [cloudflare-workers](cloudflare-workers) directory contains an example involving Connect running on [Cloudflare Workers](https://workers.cloudflare.com).
 
+## Misc
+
+### Custom Client Signature
+
+The [custom-client](custom-client) directory contains an example demonstrating how to create a custom client signature.
+
 ## Legal
 
 Offered under the [Apache 2 license][license].
