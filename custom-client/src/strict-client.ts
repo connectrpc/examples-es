@@ -10,13 +10,18 @@ import type {
 import type { Transport, CallOptions } from "@connectrpc/connect";
 import { createPromiseClient } from "@connectrpc/connect";
 
+// Tweak this to change the request signature like changing from PlainMessage to PartialMessage.
+type Request<R, I extends Message<I>> =
+  | Strict<R, PlainMessage<I>>
+  | StrictMessage<R, I>;
+
 // prettier-ignore
 export type StrictClient<T extends ServiceType> = {
       [P in keyof T["methods"]]:
-        T["methods"][P] extends MethodInfoUnary<infer I, infer O>           ? <R extends Strict<R, PlainMessage<I>> | StrictMessage<R, I>>(request: R, options?: CallOptions) => Promise<O>
-      : T["methods"][P] extends MethodInfoServerStreaming<infer I, infer O> ? <R extends Strict<R, PlainMessage<I>> | StrictMessage<R, I>>(request: R, options?: CallOptions) => AsyncIterable<O>
-      : T["methods"][P] extends MethodInfoClientStreaming<infer I, infer O> ? <R extends Strict<R, PlainMessage<I>> | StrictMessage<R, I>>(request: AsyncIterable<R>, options?: CallOptions) => Promise<O>
-      : T["methods"][P] extends MethodInfoBiDiStreaming<infer I, infer O>   ? <R extends Strict<R, PlainMessage<I>> | StrictMessage<R, I>>(request: AsyncIterable<R>, options?: CallOptions) => AsyncIterable<O>
+        T["methods"][P] extends MethodInfoUnary<infer I, infer O>           ? <R extends Request<R, I>>(request: R, options?: CallOptions) => Promise<O>
+      : T["methods"][P] extends MethodInfoServerStreaming<infer I, infer O> ? <R extends Request<R, I>>(request: R, options?: CallOptions) => AsyncIterable<O>
+      : T["methods"][P] extends MethodInfoClientStreaming<infer I, infer O> ? <R extends Request<R, I>>(request: AsyncIterable<R>, options?: CallOptions) => Promise<O>
+      : T["methods"][P] extends MethodInfoBiDiStreaming<infer I, infer O>   ? <R extends Request<R, I>>(request: AsyncIterable<R>, options?: CallOptions) => AsyncIterable<O>
       : never;
     };
 
