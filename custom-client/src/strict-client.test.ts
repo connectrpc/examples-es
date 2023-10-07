@@ -15,7 +15,7 @@ test("strict client", async () => {
       httpVersion: "2",
     })
   );
-  // Note that these are just a type errors, not a runtime error.
+  // Note that these are just type errors, not a runtime error.
   // @ts-expect-error - missing required field
   await client.say({});
   // @ts-expect-error - unrelated fields
