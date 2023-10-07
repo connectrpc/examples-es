@@ -27,7 +27,7 @@ test("edge", async (t) => {
   after(() => server.close());
 
   const transport = createConnectTransport({
-    baseUrl: `${server.url}/api/edge`,
+    baseUrl: `http://localhost:3000/api`,
     httpVersion: "1.1",
     useBinaryFormat: true,
   });

@@ -4,7 +4,7 @@
 
 import type {} from "@edge-runtime/types";
 
-import handler from "./api/edge";
+import handler from "./api/[service]/[method]";
 
 addEventListener("fetch", (event) => {
   event.respondWith(

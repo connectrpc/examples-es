@@ -1,5 +1,6 @@
 import { createConnectRouter } from "@connectrpc/connect";
 import {
+  createFetchClient,
   universalServerRequestFromFetch,
   universalServerResponseToFetch,
 } from "@connectrpc/connect/protocol";
@@ -8,7 +9,10 @@ import type {
   ConnectRouterOptions,
   ContextValues,
 } from "@connectrpc/connect";
-import type { UniversalHandler } from "@connectrpc/connect/protocol";
+import type {
+  CommonTransportOptions,
+  UniversalHandler,
+} from "@connectrpc/connect/protocol";
 import type { RequestContext } from "@vercel/edge";
 
 interface EdgeFunctionHandlerOptions extends ConnectRouterOptions {
@@ -55,6 +59,7 @@ export function createEdgeFunctionHandler(options: EdgeFunctionHandlerOptions) {
   }
   return async (req: Request, ctx: RequestContext) => {
     const url = new URL(req.url);
+    console.log(req.url, url.pathname);
     let pathname = url.pathname;
     if (options.stripPrefixPath !== undefined) {
       pathname = pathname.slice(options.stripPrefixPath.length);
@@ -74,3 +79,17 @@ export function createEdgeFunctionHandler(options: EdgeFunctionHandlerOptions) {
     return universalServerResponseToFetch(uRes);
   };
 }
+
+/**
+ * Creates a new transport options with the default values.
+ */
+export const defaultTransportOptions = {
+  httpClient: createFetchClient(fetch),
+  useBinaryFormat: true,
+  interceptors: [],
+  acceptCompression: [],
+  sendCompression: null,
+  compressMinBytes: 1024,
+  readMaxBytes: 0xffffffff,
+  writeMaxBytes: 0xffffffff,
+};
