@@ -1,4 +1,4 @@
-# This template is to generate connect-web artifacts for the proto definitions.
+# This template is to generate connect-es artifacts for the proto definitions.
 version: v1
 plugins:
   - name: es
