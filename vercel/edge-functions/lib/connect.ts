@@ -9,10 +9,7 @@ import type {
   ConnectRouterOptions,
   ContextValues,
 } from "@connectrpc/connect";
-import type {
-  CommonTransportOptions,
-  UniversalHandler,
-} from "@connectrpc/connect/protocol";
+import type { UniversalHandler } from "@connectrpc/connect/protocol";
 import type { RequestContext } from "@vercel/edge";
 
 interface EdgeFunctionHandlerOptions extends ConnectRouterOptions {
@@ -48,7 +45,7 @@ interface EdgeFunctionHandlerOptions extends ConnectRouterOptions {
 }
 
 /**
- * Creates new worker handler for the given Connect API routes.
+ * Creates new edge function handler for the given Connect API routes.
  */
 export function createEdgeFunctionHandler(options: EdgeFunctionHandlerOptions) {
   const router = createConnectRouter();
@@ -59,8 +56,8 @@ export function createEdgeFunctionHandler(options: EdgeFunctionHandlerOptions) {
   }
   return async (req: Request, ctx: RequestContext) => {
     const url = new URL(req.url);
-    console.log(req.url, url.pathname);
     let pathname = url.pathname;
+    console.log(pathname);
     if (options.stripPrefixPath !== undefined) {
       pathname = pathname.slice(options.stripPrefixPath.length);
     }
@@ -71,6 +68,7 @@ export function createEdgeFunctionHandler(options: EdgeFunctionHandlerOptions) {
         new Response("Not found", { status: 404 })
       );
     }
+    console.log("matched");
     const uReq = {
       ...universalServerRequestFromFetch(req, {}),
       contextValues: options?.contextValues?.(req, ctx),

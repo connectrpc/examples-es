@@ -1,8 +1,8 @@
-import { RequestContext, geolocation } from "@vercel/edge";
+import { geolocation } from "@vercel/edge";
 import {
   createEdgeFunctionHandler,
   defaultTransportOptions,
-} from "../../lib/functions";
+} from "../../lib/connect";
 import { GeoLocationService } from "../../lib/gen/geolocation/v1/geolocation_connect";
 import { kGeo } from "../../lib/geo-context";
 import { createContextValues, createPromiseClient } from "@connectrpc/connect";
@@ -13,7 +13,7 @@ export const config = {
   runtime: "edge",
 };
 
-const handler = createEdgeFunctionHandler({
+export default createEdgeFunctionHandler({
   stripPrefixPath: "/api",
   contextValues(req) {
     return createContextValues().set(kGeo, geolocation(req));
@@ -27,8 +27,8 @@ const handler = createEdgeFunctionHandler({
       })
     );
     service(GeoLocationService, {
-      async getGeoLocation(_, { values: { get } }) {
-        const geo = get(kGeo);
+      async getGeoLocation(_, { values }) {
+        const geo = values.get(kGeo);
         return {
           geoLocation: {
             ...geo,
@@ -52,7 +52,3 @@ const handler = createEdgeFunctionHandler({
     });
   },
 });
-
-export default function POST(req: Request, ctx: RequestContext) {
-  return handler(req, ctx);
-}
