@@ -7,12 +7,9 @@ import type {
   ServiceType,
 } from "@bufbuild/protobuf";
 
-import type { UnaryRequest } from "@connectrpc/connect";
-import { Code, ConnectError } from "@connectrpc/connect";
-import type {
-  Transport,
-  UnaryResponse,
-} from "@connectrpc/connect";
+import type { ContextValues, UnaryRequest } from "@connectrpc/connect";
+import { Code, ConnectError, createContextValues } from "@connectrpc/connect";
+import type { Transport, UnaryResponse } from "@connectrpc/connect";
 import {
   createClientMethodSerializers,
   createMethodUrl,
@@ -70,26 +67,27 @@ function extractDataChunks(initialData: Uint8Array) {
 }
 
 export function createXHRGrpcWebTransport(
-  options: GrpcWebTransportOptions
+  options: GrpcWebTransportOptions,
 ): Transport {
   const useBinaryFormat = options.useBinaryFormat ?? true;
   return {
     async unary<
       I extends Message<I> = AnyMessage,
-      O extends Message<O> = AnyMessage
+      O extends Message<O> = AnyMessage,
     >(
       service: ServiceType,
       method: MethodInfo<I, O>,
       signal: AbortSignal | undefined,
       timeoutMs: number | undefined,
       header: Headers,
-      message: PartialMessage<I>
+      message: PartialMessage<I>,
+      contextValues?: ContextValues,
     ): Promise<UnaryResponse<I, O>> {
       const { serialize, parse } = createClientMethodSerializers(
         method,
         useBinaryFormat,
         options.jsonOptions,
-        options.binaryOptions
+        options.binaryOptions,
       );
 
       return await runUnaryCall<I, O>({
@@ -105,6 +103,7 @@ export function createXHRGrpcWebTransport(
             mode: "cors",
           },
           header: requestHeader(useBinaryFormat, timeoutMs, header),
+          contextValues: contextValues ?? createContextValues(),
           message,
         },
         next: async (req: UnaryRequest<I, O>): Promise<UnaryResponse<I, O>> => {
@@ -143,7 +142,7 @@ export function createXHRGrpcWebTransport(
               xhr.responseType = "arraybuffer";
 
               req.header.forEach((value: string, key: string) =>
-                xhr.setRequestHeader(key, value)
+                xhr.setRequestHeader(key, value),
               );
 
               xhr.send(encodeEnvelope(0, serialize(req.message)));
@@ -197,11 +196,9 @@ export function createXHRGrpcWebTransport(
         },
       });
     },
-    stream(
-      ..._args: unknown[]
-    ) {
+    stream(..._args: unknown[]) {
       return Promise.reject(
-        new ConnectError("streaming is not implemented", Code.Unimplemented)
+        new ConnectError("streaming is not implemented", Code.Unimplemented),
       );
     },
   };

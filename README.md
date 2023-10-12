@@ -1,5 +1,4 @@
-examples-es
-===========
+# examples-es
 
 [![Build](https://github.com/connectrpc/examples-es/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/connectrpc/examples-es/actions/workflows/ci.yaml)
 
@@ -26,20 +25,20 @@ The [Plain](plain) application was built from scratch with no frameworks at all 
 
 ### React
 
-All applications underneath this directory use [React](https://reactjs.org) as the framework.  Each is divided by the various
+All applications underneath this directory use [React](https://reactjs.org) as the framework. Each is divided by the various
 tooling differences the related projects were constructed with:
 
-* [cra](react/cra) - Generated with [Create React App](https://github.com/facebook/create-react-app) and all associated defaults.
-* [esbuild](react/esbuild) - Built from scratch with [esbuild](https://esbuild.github.io) as the bundler.
-* [parcel](react/parcel) - Built from scratch with [Parcel](https://parceljs.org) as the bundler.
-* [rollup](react/rollup) - Built from scratch with [Rollup](https://rollupjs.org) as the bundler.
-* [vite](react/vite) - Generated with [Vite](https://github.com/vitejs/vite) and all associated defaults.
-* [webpack](react/webpack) - Built from scratch with [Webpack](https://webpack.js.org) as the bundler.
-* [webpack-cjs](react/webpack-cjs) - Built from scratch with [Webpack](https://webpack.js.org) as the bundler, using CommonJS import syntax.
-* [yarn-unplugged](react/yarn-unplugged) - Built from scratch with [Yarn 3](https://yarnpkg.com) in [unplugged mode](https://yarnpkg.com/getting-started/migration#step-by-step).
-* [yarn-pnp](react/yarn-pnp) - Built from scratch with [Yarn 3](https://yarnpkg.com) and [PnP mode](https://yarnpkg.com/features/pnp).
+- [cra](react/cra) - Generated with [Create React App](https://github.com/facebook/create-react-app) and all associated defaults.
+- [esbuild](react/esbuild) - Built from scratch with [esbuild](https://esbuild.github.io) as the bundler.
+- [parcel](react/parcel) - Built from scratch with [Parcel](https://parceljs.org) as the bundler.
+- [rollup](react/rollup) - Built from scratch with [Rollup](https://rollupjs.org) as the bundler.
+- [vite](react/vite) - Generated with [Vite](https://github.com/vitejs/vite) and all associated defaults.
+- [webpack](react/webpack) - Built from scratch with [Webpack](https://webpack.js.org) as the bundler.
+- [webpack-cjs](react/webpack-cjs) - Built from scratch with [Webpack](https://webpack.js.org) as the bundler, using CommonJS import syntax.
+- [yarn-unplugged](react/yarn-unplugged) - Built from scratch with [Yarn 3](https://yarnpkg.com) in [unplugged mode](https://yarnpkg.com/getting-started/migration#step-by-step).
+- [yarn-pnp](react/yarn-pnp) - Built from scratch with [Yarn 3](https://yarnpkg.com) and [PnP mode](https://yarnpkg.com/features/pnp).
 
-Each project also uses various tools for testing, linting, etc.  These variances are noted in each project README.
+Each project also uses various tools for testing, linting, etc. These variances are noted in each project README.
 
 ### Remix
 
@@ -84,10 +83,15 @@ the `http` package.
 
 The [cloudflare-workers](cloudflare-workers) directory contains an example involving Connect running on [Cloudflare Workers](https://workers.cloudflare.com).
 
-
 ### Vercel Edge Functions
 
 The [vercel/edge-functions](vercel/edge-functions) directory contains an example involving Connect running on [Vercel Edge Functions](https://vercel.com/docs/functions/edge-functions).
+
+## Misc
+
+### Custom Client Signature
+
+The [custom-client](custom-client) directory contains an example demonstrating how to create a custom client signature.
 
 ## Legal
 
