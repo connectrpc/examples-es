@@ -1,7 +1,7 @@
 import { geolocation } from "@vercel/edge";
 import {
   createEdgeFunctionHandler,
-  defaultTransportOptions,
+  createConnectTransport,
 } from "../../lib/connect";
 import { GeoLocationService } from "../../lib/gen/geolocation/v1/geolocation_connect";
 import { kGeo } from "../../lib/geo-context";
@@ -21,8 +21,7 @@ export default createEdgeFunctionHandler({
   routes({ service }) {
     const eliza = createPromiseClient(
       ElizaService,
-      createTransport({
-        ...defaultTransportOptions,
+      createConnectTransport({
         baseUrl: "https://demo.connectrpc.com",
       })
     );

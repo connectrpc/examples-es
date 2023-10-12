@@ -8,9 +8,20 @@ import type {
   ConnectRouter,
   ConnectRouterOptions,
   ContextValues,
+  Interceptor,
 } from "@connectrpc/connect";
-import type { UniversalHandler } from "@connectrpc/connect/protocol";
+import type {
+  Compression,
+  UniversalHandler,
+} from "@connectrpc/connect/protocol";
 import type { RequestContext } from "@vercel/edge";
+import type {
+  BinaryReadOptions,
+  BinaryWriteOptions,
+  JsonReadOptions,
+  JsonWriteOptions,
+} from "@bufbuild/protobuf";
+import { createTransport } from "@connectrpc/connect/protocol-connect";
 
 interface EdgeFunctionHandlerOptions extends ConnectRouterOptions {
   /**
@@ -78,16 +89,64 @@ export function createEdgeFunctionHandler(options: EdgeFunctionHandlerOptions) {
   };
 }
 
-/**
- * Creates a new transport options with the default values.
- */
-export const defaultTransportOptions = {
-  httpClient: createFetchClient(fetch),
-  useBinaryFormat: true,
-  interceptors: [],
-  acceptCompression: [],
-  sendCompression: null,
-  compressMinBytes: 1024,
-  readMaxBytes: 0xffffffff,
-  writeMaxBytes: 0xffffffff,
-};
+interface ConnectTransportOptions {
+  /**
+   * Base URI for all HTTP requests.
+   *
+   * Requests will be made to <baseUrl>/<package>.<service>/method
+   *
+   * Example: `baseUrl: "https://example.com/my-api"`
+   *
+   * This will make a `POST /my-api/my_package.MyService/Foo` to
+   * `example.com` via HTTPS.
+   */
+  baseUrl: string;
+  /**
+   * By default, clients use the binary format.
+   */
+  useBinaryFormat?: boolean;
+
+  /**
+   * Interceptors that should be applied to all calls running through
+   * this transport. See the Interceptor type for details.
+   */
+  interceptors?: Interceptor[];
+
+  /**
+   * Options for the JSON format.
+   * By default, unknown fields are ignored.
+   */
+  jsonOptions?: Partial<JsonReadOptions & JsonWriteOptions>;
+
+  /**
+   * Options for the binary wire format.
+   */
+  binaryOptions?: Partial<BinaryReadOptions & BinaryWriteOptions>;
+
+  /**
+   * Controls whether or not Connect GET requests should be used when
+   * available, on side-effect free methods. Defaults to false.
+   */
+  useHttpGet?: boolean;
+
+  /**
+   * The timeout in milliseconds to apply to all requests.
+   *
+   * This can be overridden on a per-request basis by passing a timeoutMs.
+   */
+  defaultTimeoutMs?: number;
+}
+
+export function createConnectTransport(options: ConnectTransportOptions) {
+  return createTransport({
+    httpClient: createFetchClient(fetch),
+    useBinaryFormat: true,
+    interceptors: [],
+    acceptCompression: [],
+    sendCompression: null,
+    compressMinBytes: 1024,
+    readMaxBytes: 0xffffffff,
+    writeMaxBytes: 0xffffffff,
+    ...options,
+  });
+}
