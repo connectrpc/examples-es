@@ -68,7 +68,6 @@ export function createEdgeFunctionHandler(options: EdgeFunctionHandlerOptions) {
   return async (req: Request, ctx: RequestContext) => {
     const url = new URL(req.url);
     let pathname = url.pathname;
-    console.log(pathname);
     if (options.stripPrefixPath !== undefined) {
       pathname = pathname.slice(options.stripPrefixPath.length);
     }
@@ -79,7 +78,6 @@ export function createEdgeFunctionHandler(options: EdgeFunctionHandlerOptions) {
         new Response("Not found", { status: 404 })
       );
     }
-    console.log("matched");
     const uReq = {
       ...universalServerRequestFromFetch(req, {}),
       contextValues: options?.contextValues?.(req, ctx),
