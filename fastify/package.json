@@ -8,7 +8,7 @@
     "client": "tsx client.ts",
     "generate": "buf generate buf.build/connectrpc/eliza",
     "build": "tsc --noEmit",
-    "test": "tap --no-coverage --node-arg=--loader=ts-node/esm --node-arg=--no-warnings test",
+    "test": "tap --typecheck --allow-empty-coverage --disable-coverage",
     "ci": "npm run generate && npm run build && npm run test"
   },
   "dependencies": {
@@ -27,7 +27,7 @@
     "@connectrpc/protoc-gen-connect-es": "^1.1.2",
     "@types/node": "^20.4.5",
     "@types/tap": "^15.0.8",
-    "tap": "^16.3.8",
+    "tap": "^18.5.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   }
