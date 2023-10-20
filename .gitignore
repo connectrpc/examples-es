@@ -29,6 +29,7 @@ lerna-debug.log*
 **/cypress/videos/
 **/cypress/screenshots/
 **/.nyc_output
+**/.tap
 
 # Editor directories and files
 **/.vscode/*
