@@ -2,7 +2,6 @@ import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_connect";
 import { SayRequest } from "../../gen/connectrpc/eliza/v1/eliza_pb";
 import { createConnectTransport } from "@connectrpc/connect-web";
 import { createPromiseClient } from "@connectrpc/connect";
-import { wrapFetch } from "../../utils";
 import type { PageLoad } from "./$types";
 
 /**
@@ -31,7 +30,7 @@ export const load: PageLoad = async ({ fetch }) => {
     // it can make relative requests, so you don't have to specify an
     // absolute baseUrl.
     // For more information, see https://kit.svelte.dev/docs/load#making-fetch-requests
-    fetch: wrapFetch("calling from connect in universal SSR", fetch),
+    fetch,
   });
 
   const client = createPromiseClient(ElizaService, transport);
