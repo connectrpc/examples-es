@@ -9,7 +9,7 @@
     "build": "esbuild src/index.ts --bundle --outfile=dist/out.js",
     "typecheck": "tsc --noEmit",
     "generate": "buf generate buf.build/connectrpc/eliza",
-    "test": "NODE_OPTIONS=--experimental-vm-modules ts-node --esm node_modules/.bin/jasmine --config=spec/support/jasmine.json",
+    "test": "node --experimental-loader ts-node/esm node_modules/.bin/jasmine --config=spec/support/jasmine.json",
     "ci": "npm run generate && npm run typecheck && npm run build && npm run test"
   },
   "author": "",
