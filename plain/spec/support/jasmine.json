@@ -4,9 +4,6 @@
     "**/*[sS]pec.?(m)ts"
   ],
   "jsLoader": "import",
-  "helpers": [
-    "helpers/**/*.js"
-  ],
   "env": {
     "stopSpecOnExpectationFailure": false,
     "random": true
