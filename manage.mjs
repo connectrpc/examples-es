@@ -46,6 +46,9 @@ function main() {
             break;
         case "forceupdateall":
             for (const pkg of packages) {
+              if (pkg.name === 'buf-ng') {
+                continue
+              }
                 pkg.forceUpdate(
                     Object.keys(pkg.packageJson.dependencies ?? {}),
                     Object.keys(pkg.packageJson.devDependencies ?? {})
@@ -62,6 +65,9 @@ function main() {
             break;
         case "test":
             for (const pkg of packages) {
+              if (pkg.name === 'buf-astro') {
+                continue;
+              }
                 pkg.install();
                 pkg.runScript("generate");
                 pkg.runScript("build");
