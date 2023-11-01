@@ -13,6 +13,6 @@ export default defineConfig({
   testDir: "./tests",
   webServer: {
     command: "npm run start",
-    port: 3000,
+    port: 4321, // Astro defaults to port 4321
   },
 });

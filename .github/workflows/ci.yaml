@@ -28,7 +28,7 @@ jobs:
             buf-esbuild: react/esbuild/**
             buf-parcel: react/parcel/**
             buf-rollup: react/rollup/**
-            vite: react/vite/**
+            buf-vite: react/vite/**
             buf-webpack: react/webpack/**
             buf-webpack-cjs: react/webpack-cjs/**
             buf-yarn-pnp: react/yarn-pnp/**

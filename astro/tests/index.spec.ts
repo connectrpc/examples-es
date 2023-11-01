@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 test("visits the app root url", async ({ page }) => {
-  await page.goto("http://localhost:3000");
+  await page.goto("http://localhost:4321");
 
   const title = page.locator("h1");
   await expect(title).toHaveText("Eliza");
@@ -10,7 +10,7 @@ test("visits the app root url", async ({ page }) => {
   await expect(prompt).toHaveText("What is your name?");
 
   const statementInput = page.locator("#statement-input");
-  await statementInput.type("Steve");
+  await statementInput.fill("Steve");
 
   const sendButton = page.locator("#send-button");
   await sendButton.click();
@@ -21,6 +21,6 @@ test("visits the app root url", async ({ page }) => {
   const response = page.locator("p.resp-text").nth(2);
   await expect(response).toHaveText("Hi Steve. I'm Eliza.");
 
-  await statementInput.type("Goodbye");
+  await statementInput.fill("Goodbye");
   await sendButton.click();
 });
