@@ -30,7 +30,7 @@
     "@rollup/plugin-node-resolve": "^15.2.1",
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-typescript": "^11.1.4",
-    "@types/react": "^18.2.24",
+    "@types/react": "^18.2.33",
     "jest": "^29.7.0",
     "rollup": "^3.29.4",
     "rollup-plugin-import-css": "^3.3.4",
