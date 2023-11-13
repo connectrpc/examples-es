@@ -11,9 +11,7 @@ import type { Transport, CallOptions } from "@connectrpc/connect";
 import { createPromiseClient } from "@connectrpc/connect";
 
 // Tweak this to change the request signature like changing from PlainMessage to PartialMessage.
-type Request<R, I extends Message<I>> =
-  | Strict<R, PlainMessage<I>>
-  | StrictMessage<R, I>;
+type Request<R, I extends Message<I>> = Strict<R, PlainMessage<I>>;
 
 // prettier-ignore
 export type StrictClient<T extends ServiceType> = {
@@ -45,7 +43,11 @@ type StrictMessage<I, T extends Message<T>> = Equal<T, I> extends true
 /**
  * Seals `I` to only contain field of `T`.
  */
-type Strict<I, T> = Equal<T, I> extends true
+type Strict<I, T> = T extends PlainMessage<infer O extends Message<O>>
+  ? StrictMessage<I, O> | PlainStrict<I, T>
+  : PlainStrict<I, T>;
+
+type PlainStrict<I, T> = Equal<T, I> extends true
   ? T
   : T extends any[]
   ? Array<Strict<Element<I>, Element<T>>>
