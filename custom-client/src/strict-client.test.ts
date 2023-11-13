@@ -15,6 +15,7 @@ import {
   IntroduceRequest,
   SayRequest,
 } from "./gen/connectrpc/eliza/v1/eliza_pb.js";
+import { createRouterTransport } from "@connectrpc/connect";
 
 export class TestRequest extends Message<TestRequest> {
   /**
@@ -103,10 +104,18 @@ test("strict client", async () => {
 
   const testClient = createStrictClient(
     TestService,
-    createConnectTransport({
-      baseUrl: "https://demo.connectrpc.com",
-      httpVersion: "2",
+    createRouterTransport(({ service }) => {
+      service(TestService, {
+        async unary(req) {
+          return { seconds: 1n };
+        },
+      });
     })
   );
-  testClient.unary({ sentence: new Timestamp({ seconds: 0n, nanos: 0 }) });
+  await testClient.unary({
+    sentence: new Timestamp({ seconds: 0n, nanos: 0 }),
+  });
+  await testClient.unary({
+    sentence: { seconds: 0n, nanos: 0 },
+  });
 });
