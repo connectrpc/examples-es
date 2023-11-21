@@ -1,0 +1,14 @@
+{
+  "workspaces": [
+    "./consumer-node",
+    "./intermediary",
+    "./consumer-bundler",
+    "./consumer-esbuild",
+    "./consumer-webpack",
+    "./consumer-rollup",
+    "./consumer-vite",
+    "./consumer-vite-ts",
+    "./consumer-ts",
+    "./consumer-parcel"
+  ]
+}

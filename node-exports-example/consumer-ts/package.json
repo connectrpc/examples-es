@@ -1,0 +1,16 @@
+{
+  "name": "consumer-ts",
+  "type": "module",
+  "dependencies": {
+    "intermediary": "0.0.1",
+    "@connectrpc/connect": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "start": "node dist/index.js",
+    "prestart": "rm -rf dist && tsc"
+  }
+}

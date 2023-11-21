@@ -1,0 +1,15 @@
+{
+  "name": "consumer-vite",
+  "type": "module",
+  "dependencies": {
+    "@connectrpc/connect": "^1.1.1"
+  },
+  "devDependencies": {
+    "vite": "^4.4.11"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "start": "rm -rf dist && vite build"
+  },
+  "testOutputPath": "dist/consumer-vite.js"
+}

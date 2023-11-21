@@ -1,0 +1,19 @@
+{
+  "name": "consumer-parcel",
+  "type": "module",
+  "source": "src/index.js",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "dependencies": {
+    "intermediary": "0.0.1",
+    "@connectrpc/connect": "^1.0.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "start": "node dist/main.js",
+    "prestart": "rm -rf dist && parcel build --log-level error --no-cache"
+  }
+}

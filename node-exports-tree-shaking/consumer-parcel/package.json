@@ -1,0 +1,21 @@
+{
+  "name": "consumer-parcel",
+  "type": "commonjs",
+  "dependencies": {
+    "@connectrpc/connect": "^1.1.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  },
+  "//": "we actually have to place this config at the monorepo root. also see https://parceljs.org/blog/v2-9-0/",
+  "@parcel/resolver-default": {
+    "packageExports": true
+  },
+  "source": "src/index.html",
+  "//": "otherwise, parcel shakes everything away",
+  "sideEffects": true,
+  "scripts": {
+    "start": "rm -rf dist && parcel build --log-level error --no-cache"
+  },
+  "testOutputPath": "dist/index.e621422a.js"
+}
