@@ -26,9 +26,9 @@ $ npm ci
 $ bash test.bash
 ```
 
-### Applying the dual package hazard fix
+### Applying the Node exports fix
 
-Clone branch `tstamm/esmwrapper` from https://github.com/connectrpc/connect-es.
+Clone branch `sayers/node_exports` from https://github.com/connectrpc/connect-es.
 
 ```bash
 cd packages/connect
@@ -39,7 +39,7 @@ npm pack
 Install the fix in this example:
 
 ```bash
-tar -xvf <PATH_TO_CONNECT_ES>/packages/connect/connectrpc-connect-1.1.1.tgz
+tar -xvf <PATH_TO_CONNECT_ES>/packages/connect/connectrpc-connect-1.1.3.tgz
 rm -rf node_modules/@connectrpc/connect
 mv package node_modules/@connectrpc/connect
 ```
