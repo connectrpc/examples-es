@@ -17,7 +17,7 @@
         "web-vitals": "^3.5.0"
     },
     "devDependencies": {
-        "@bufbuild/buf": "^1.27.2",
+        "@bufbuild/buf": "^1.28.1",
         "@bufbuild/protobuf": "^1.4.1",
         "@bufbuild/protoc-gen-es": "^1.4.1",
         "@connectrpc/connect": "^1.1.3",
