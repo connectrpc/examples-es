@@ -1,7 +1,7 @@
-Tree-shaking tests with various bundlers
+Bundle Size Testing
 ========================================
 
-For our tree-shaking tests, we import `compressedFlag` from `@connectrpc/connect/protocol`.
+For our bundle size tests, we import `compressedFlag` from `@connectrpc/connect/protocol`.
 `compressedFlag` is a simple numeric constant, but the file it is defined in contains other
 symbols as well. We are intentionally importing from a subpath, because this requires bundlers
 to honor the "exports" fields.
@@ -26,9 +26,13 @@ $ npm ci
 $ bash test.bash
 ```
 
-### Applying the Node exports fix
+### Testing regressions with local changes
 
-Clone branch `sayers/node_exports` from https://github.com/connectrpc/connect-es.
+#### Connect-ES
+
+First, clone the branch you would like to test from https://github.com/connectrpc/connect-es.
+
+Then, run the following commands:
 
 ```bash
 cd packages/connect
@@ -36,10 +40,16 @@ npm run build
 npm pack
 ```
 
-Install the fix in this example:
+The above `pack` command will generate a tarball in the `packages/connect` directory named something like
+
+```
+connectrpc-connect-<CONNECT_VERSION>.tgz
+```
+
+Next, navigate back to this directory and install the local Connect-ES package:
 
 ```bash
-tar -xvf <PATH_TO_CONNECT_ES>/packages/connect/connectrpc-connect-1.1.3.tgz
+tar -xvf <PATH_TO_CONNECT_ES>/packages/connect/connectrpc-connect-<CONNECT_VERSION>.tgz
 rm -rf node_modules/@connectrpc/connect
 mv package node_modules/@connectrpc/connect
 ```
@@ -49,3 +59,6 @@ Run the tests again:
 ```bash
 $ bash test.bash
 ```
+
+Verify that the bundle sizes have not changed significantly. It is possible that the bundle sizes have changed slightly
+based on other coding changes, but the deltas should be minimal.
