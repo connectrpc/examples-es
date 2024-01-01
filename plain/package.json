@@ -26,6 +26,6 @@
     "esbuild": "^0.19.8",
     "jasmine": "^5.1.0",
     "ts-node": "^10.9.1",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   }
 }
