@@ -46,7 +46,7 @@ function App() {
     ElizaService,
     createXHRGrpcWebTransport({
       baseUrl: "https://demo.connectrpc.com",
-    })
+    }),
   );
 
   const send = async () => {
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     textAlign: "right",
     borderRadius: 28,
-    border: "none",
+    borderWidth: 0,
   },
   userRespText: {
     color: "#165fed",
