@@ -1,4 +1,4 @@
-import { SayResponse, say } from "./actions";
+import { say } from "./actions";
 import styles from "../../styles/Eliza.module.css";
 import { revalidateTag, unstable_cache } from "next/cache";
 import { cookies } from "next/headers";
@@ -11,6 +11,7 @@ interface ChatMessage {
 
 // The following is a very naive implementation of using cookies to store
 // messages probably best stored in a database.
+// We store it as httpOnly to prove that js cannot access it.
 async function getMessagesFromCookie() {
   const cookie = cookies().get("messages");
   if (cookie) {
@@ -24,28 +25,27 @@ async function addMessageToCookie(message: ChatMessage) {
   if (cookie) {
     const messages = JSON.parse(cookie.value) as ChatMessage[];
     messages.push(message);
-    cookies().set("messages", JSON.stringify(messages));
+    cookies().set("messages", JSON.stringify(messages), {
+      httpOnly: true,
+    });
   } else {
-    cookies().set("messages", JSON.stringify([message]));
+    cookies().set("messages", JSON.stringify([message]), {
+      httpOnly: true,
+    });
   }
 }
 
 const getMessages = unstable_cache(getMessagesFromCookie, ["my-messages"]);
 
 export default async function Page() {
-  async function submitForm(
-    previousState: SayResponse | undefined,
-    formData: FormData
-  ) {
+  async function submitForm(formData: FormData) {
+    "use server";
     const sentence = formData.get("chat-message")?.toString() ?? "";
     addMessageToCookie({ text: sentence, sender: "user" });
-    revalidateTag("my-messages");
     const response = await say({ sentence });
     addMessageToCookie({ text: response.sentence, sender: "eliza" });
     revalidateTag("my-messages");
-    return response;
   }
-  const [state, formAction] = useFormState(submitForm, undefined);
   const messages = await getMessages();
   return (
     <div>
@@ -63,7 +63,7 @@ export default async function Page() {
           </div>
         );
       })}
-      <form action={formAction}>
+      <form action={submitForm}>
         <input
           type="text"
           className={`${styles.textInput} ${styles.statementInput}`}
