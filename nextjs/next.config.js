@@ -2,21 +2,23 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  experimental: {
+    serverActions: true,
+  },
   // Allow the .js extension in import paths when importing TypeScript files.
   // It is the standard for ECMAScript modules, but not all bundlers have
   // caught up yet.
   // Alternatively, add the plugin option `import_extension=none` in buf.gen.yaml.
   webpack: (config) => {
-     config.resolve = {
-        ...config.resolve,
-        extensionAlias: {
-            '.js': ['.ts', '.js'],
-        },
-     };
+    config.resolve = {
+      ...config.resolve,
+      extensionAlias: {
+        ".js": [".ts", ".js"],
+      },
+    };
 
-     return config
-   },
-}
+    return config;
+  },
+};
 
-module.exports = nextConfig
-
+module.exports = nextConfig;
