@@ -2,7 +2,7 @@ import React, { useState, FC, useCallback, FormEvent } from "react";
 import styles from "../styles/Eliza.module.css";
 import { createPromiseClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
-import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
+import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect";
 import Link from "next/link";
 
 const elizaClient = createPromiseClient(
@@ -51,7 +51,9 @@ const UnaryExample: FC = () => {
           <Link href="/">Unary Calls</Link>
           <Link href="/server-streaming">Server Streaming Calls</Link>
           <Link href="/ssr">SSR</Link>
-          <Link href="/new">React Server Components with Server actions</Link>
+          <Link href="/react-server-actions">
+            React Server Components with Server actions
+          </Link>
         </div>
       </header>
       <div className={styles.container}>

@@ -39,7 +39,9 @@ const NewPage: FC = () => {
           <Link href="/">Unary Calls</Link>
           <Link href="/server-streaming">Server Streaming Calls</Link>
           <Link href="/ssr">SSR</Link>
-          <Link href="/new">React Server Components with Server actions</Link>
+          <Link href="/react-server-actions">
+            React Server Components with Server actions
+          </Link>
         </div>
       </header>
       <div className={styles.container}>
