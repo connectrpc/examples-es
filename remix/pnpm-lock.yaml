@@ -29,20 +29,20 @@ devDependencies:
     specifier: ^1.28.1
     version: 1.28.1
   '@bufbuild/protobuf':
-    specifier: ^1.6.0
-    version: 1.6.0
+    specifier: ^1.7.1
+    version: 1.7.1
   '@bufbuild/protoc-gen-es':
-    specifier: ^1.6.0
-    version: 1.6.0(@bufbuild/protobuf@1.6.0)
+    specifier: ^1.7.1
+    version: 1.7.1(@bufbuild/protobuf@1.7.1)
   '@connectrpc/connect':
     specifier: ^1.2.0
-    version: 1.2.0(@bufbuild/protobuf@1.6.0)
+    version: 1.2.0(@bufbuild/protobuf@1.7.1)
   '@connectrpc/connect-web':
     specifier: ^1.2.0
-    version: 1.2.0(@bufbuild/protobuf@1.6.0)(@connectrpc/connect@1.2.0)
+    version: 1.2.0(@bufbuild/protobuf@1.7.1)(@connectrpc/connect@1.2.0)
   '@connectrpc/protoc-gen-connect-es':
     specifier: ^1.2.0
-    version: 1.2.0(@bufbuild/protoc-gen-es@1.6.0)(@connectrpc/connect@1.2.0)
+    version: 1.2.0(@bufbuild/protoc-gen-es@1.7.1)(@connectrpc/connect@1.2.0)
   '@remix-run/dev':
     specifier: ^2.4.1
     version: 2.4.1(@remix-run/serve@2.4.1)(typescript@5.3.3)
@@ -669,18 +669,22 @@ packages:
     resolution: {integrity: sha512-hp19vSFgNw3wBBcVBx5qo5pufCqjaJ0Cfk5H/pfjNOfNWU+4/w0QVOmfAOZNRrNWRrVuaJWxcN8P2vhOkkzbBQ==}
     dev: true
 
-  /@bufbuild/protoc-gen-es@1.6.0(@bufbuild/protobuf@1.6.0):
-    resolution: {integrity: sha512-m0akOPWeD5UBfGdZyudrbnmdjI8l/ZHlP8TyEIcj7qMCR4kh68tMtGvrjRzj5ynIpavrr6G7P06XP9F9f2MDRw==}
+  /@bufbuild/protobuf@1.7.1:
+    resolution: {integrity: sha512-UlI3lKLFBjZQJ0cHf47YUH6DzZxZYWk3sf6dKYyPUaXrfXq4z+zZqNO3q0lPUzyJgh14s6VscjcNFBaQBhYd9Q==}
+    dev: true
+
+  /@bufbuild/protoc-gen-es@1.7.1(@bufbuild/protobuf@1.7.1):
+    resolution: {integrity: sha512-N1diiVcDkTTNX+b9rDY8EVgOXu0W8kRmf2w3nbYi8q/hfM6vBg4zry0m4v3ARSgKp60bCey1WUDBuiynm5+PqQ==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
-      '@bufbuild/protobuf': 1.6.0
+      '@bufbuild/protobuf': 1.7.1
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
     dependencies:
-      '@bufbuild/protobuf': 1.6.0
-      '@bufbuild/protoplugin': 1.6.0
+      '@bufbuild/protobuf': 1.7.1
+      '@bufbuild/protoplugin': 1.7.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -695,25 +699,35 @@ packages:
       - supports-color
     dev: true
 
-  /@connectrpc/connect-web@1.2.0(@bufbuild/protobuf@1.6.0)(@connectrpc/connect@1.2.0):
+  /@bufbuild/protoplugin@1.7.1:
+    resolution: {integrity: sha512-bnPFXs38IXjL2EdpkthkCa/+SXOxERnXyV///rQj1wyidJmw21wOvqpucuIh25YnPtdrUItcIFFDVCoKPkuCPQ==}
+    dependencies:
+      '@bufbuild/protobuf': 1.7.1
+      '@typescript/vfs': 1.5.0
+      typescript: 4.5.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@connectrpc/connect-web@1.2.0(@bufbuild/protobuf@1.7.1)(@connectrpc/connect@1.2.0):
     resolution: {integrity: sha512-vjFKTP/AzSnC8JvkGKRgpggZIB0v+Lv7U+/Tb/pRNGZI0WSElhGDXWgIn3xfcSNQWi079m45c5MlikszzIRsYg==}
     peerDependencies:
       '@bufbuild/protobuf': ^1.4.2
       '@connectrpc/connect': 1.2.0
     dependencies:
-      '@bufbuild/protobuf': 1.6.0
-      '@connectrpc/connect': 1.2.0(@bufbuild/protobuf@1.6.0)
+      '@bufbuild/protobuf': 1.7.1
+      '@connectrpc/connect': 1.2.0(@bufbuild/protobuf@1.7.1)
     dev: true
 
-  /@connectrpc/connect@1.2.0(@bufbuild/protobuf@1.6.0):
+  /@connectrpc/connect@1.2.0(@bufbuild/protobuf@1.7.1):
     resolution: {integrity: sha512-kHF30xAlXF2Y7S1I7XN/D3psKLfjxitgNRmF093KNP+cE9yAnqDAGop6aby3Z5k4XQw2ebjeX4E41db7R3FzaQ==}
     peerDependencies:
       '@bufbuild/protobuf': ^1.4.2
     dependencies:
-      '@bufbuild/protobuf': 1.6.0
+      '@bufbuild/protobuf': 1.7.1
     dev: true
 
-  /@connectrpc/protoc-gen-connect-es@1.2.0(@bufbuild/protoc-gen-es@1.6.0)(@connectrpc/connect@1.2.0):
+  /@connectrpc/protoc-gen-connect-es@1.2.0(@bufbuild/protoc-gen-es@1.7.1)(@connectrpc/connect@1.2.0):
     resolution: {integrity: sha512-VJ50wqjLJ4Thk6nOgARALCny+AMxHDS3fxAVEV1oveVXRbrCl5pb8ge/erKYyxuLKyBYe/I00MFa+ns6C3nN7g==}
     engines: {node: '>=16.0.0'}
     hasBin: true
@@ -726,10 +740,10 @@ packages:
       '@connectrpc/connect':
         optional: true
     dependencies:
-      '@bufbuild/protobuf': 1.6.0
-      '@bufbuild/protoc-gen-es': 1.6.0(@bufbuild/protobuf@1.6.0)
+      '@bufbuild/protobuf': 1.7.1
+      '@bufbuild/protoc-gen-es': 1.7.1(@bufbuild/protobuf@1.7.1)
       '@bufbuild/protoplugin': 1.6.0
-      '@connectrpc/connect': 1.2.0(@bufbuild/protobuf@1.6.0)
+      '@connectrpc/connect': 1.2.0(@bufbuild/protobuf@1.7.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
