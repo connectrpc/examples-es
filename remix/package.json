@@ -21,7 +21,7 @@
   "dependencies": {
     "@remix-run/node": "^2.4.1",
     "@remix-run/react": "^2.4.1",
-    "@remix-run/serve": "^2.4.1",
+    "@remix-run/serve": "^2.5.1",
     "@types/jest": "^29.5.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
