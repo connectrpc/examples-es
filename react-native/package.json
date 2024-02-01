@@ -23,7 +23,7 @@
     "react-native-web": "^0.19.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.7",
+    "@babel/core": "^7.23.9",
     "@babel/plugin-proposal-async-generator-functions": "^7.20.7",
     "@bufbuild/buf": "^1.28.1",
     "@bufbuild/protobuf": "^1.6.0",
