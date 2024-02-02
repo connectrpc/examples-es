@@ -11,6 +11,7 @@ export interface ChatMessage {
 }
 
 // This is a plain json version of the chat message to make
+// serialization to json easier.
 interface StoredChatMessage {
   text: string;
   sender: ChatMessage["sender"];
