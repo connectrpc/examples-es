@@ -5,7 +5,6 @@ import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
 import { getMessages, addMessage } from "./fake-db";
 import { headers } from "next/headers";
-import { toPlainMessage } from "@bufbuild/protobuf";
 
 const getMessagesCached = unstable_cache(getMessages, ["my-messages"]);
 
@@ -25,8 +24,7 @@ export default async function Page() {
     addMessage({ message: { sentence }, sender: "user" });
 
     const response = await elizaClient.say({ sentence });
-    // toPlainMessage strips the class information from the response, making it safe to pass through the SSR boundary.
-    addMessage({ message: toPlainMessage(response), sender: "eliza" });
+    addMessage({ message: response, sender: "eliza" });
     revalidateTag("my-messages");
   }
   const messages = await getMessagesCached();
