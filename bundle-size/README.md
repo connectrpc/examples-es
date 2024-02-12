@@ -1,6 +1,10 @@
 Bundle Size Testing
 ========================================
 
+This directory is meant for testing only and is not intended to illustrate examples for
+using Connect-ES. The purpose of this directory is to build a bundle with various bundlers
+to test the effect of changes to Connect-ES and how those changes impact bundle size.
+
 For our bundle size tests, we import two symbols to get effective coverage:
 
 * `compressedFlag` from `@connectrpc/connect/protocol`, which is a simple numeric constant. However, the file it is 
