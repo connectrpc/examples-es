@@ -2,14 +2,18 @@
   "name": "consumer-vite",
   "type": "module",
   "dependencies": {
-    "@connectrpc/connect": "^1.1.1"
+    "@connectrpc/connect": "^1.3.0",
+    "@bufbuild/protobuf": "^1.7.2"
   },
   "devDependencies": {
-    "vite": "^4.4.11"
+    "vite": "^4.4.11",
+    "@bufbuild/buf": "^1.29.0",
+    "@bufbuild/protoc-gen-es": "^1.7.2",
+    "@connectrpc/protoc-gen-connect-es": "^1.3.0"
   },
   "sideEffects": false,
   "scripts": {
-    "start": "rm -rf dist && vite build"
+    "start": "rm -rf dist && npx buf generate buf.build/connectrpc/eliza && vite build"
   },
   "testOutputPath": "dist/consumer-vite.js"
 }

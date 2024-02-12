@@ -16,7 +16,7 @@ The results are:
 | webpack-ts | 38 bytes | dist/bundle.js |
 | vite | 16 bytes | dist/consumer-vite.js |
 | rollup | 93 bytes | dist/index.js |
-| parcel | 3,654 bytes | dist/index.e621422a.js |
+| parcel | 10,438 bytes | dist/index.bce52f59.js |
 <!--- RESULTS-END -->
 
 To run all tests, and update the table above:
