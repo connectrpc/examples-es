@@ -20,5 +20,5 @@
   "scripts": {
     "start": "rm -rf dist && npx buf generate buf.build/connectrpc/eliza && parcel build --log-level error --no-cache"
   },
-  "testOutputPath": "dist/index.bce52f59.js"
+  "testOutputPath": "dist/index.a2b9d74c.js"
 }

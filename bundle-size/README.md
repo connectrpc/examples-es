@@ -11,12 +11,12 @@ The results are:
 <!--- RESULTS-START -->
 | Name | Size | Artifact |
 |------|-----:|----------|
-| esbuild | 165 bytes | dist/index.js |
-| webpack | 38 bytes | dist/main.js |
-| webpack-ts | 38 bytes | dist/bundle.js |
-| vite | 16 bytes | dist/consumer-vite.js |
-| rollup | 93 bytes | dist/index.js |
-| parcel | 10,438 bytes | dist/index.bce52f59.js |
+| esbuild | 82,796 bytes | dist/index.js |
+| webpack | 33,817 bytes | dist/main.js |
+| webpack-ts | 33,817 bytes | dist/bundle.js |
+| vite | 54,732 bytes | dist/consumer-vite.js |
+| rollup | 2,809 bytes | dist/index.js |
+| parcel | 72,663 bytes | dist/index.a2b9d74c.js |
 <!--- RESULTS-END -->
 
 To run all tests, and update the table above:
