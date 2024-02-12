@@ -1,10 +1,12 @@
 Bundle Size Testing
 ========================================
 
-For our bundle size tests, we import `compressedFlag` from `@connectrpc/connect/protocol`.
-`compressedFlag` is a simple numeric constant, but the file it is defined in contains other
-symbols as well. We are intentionally importing from a subpath, because this requires bundlers
-to honor the "exports" fields.
+For our bundle size tests, we import two symbols to get effective coverage:
+
+* `compressedFlag` from `@connectrpc/connect/protocol`, which is a simple numeric constant. However, the file it is 
+defined in contains other symbols as well. We are intentionally importing from a subpath, because this requires bundlers
+to honor the `exports` fields.
+* `SayRequest` from code generated from the Eliza protos. This allows us to test tree-shaking with generated code.
 
 The results are:
 
