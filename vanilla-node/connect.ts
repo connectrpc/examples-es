@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Code, ConnectError, ConnectRouter } from '@connectrpc/connect'
+import { ConnectRouter } from '@connectrpc/connect'
 import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_connect.js'
 import type {
     SayRequest,
@@ -23,9 +23,6 @@ import type {
 export default (router: ConnectRouter) =>
     router.service(ElizaService, {
         say(req: SayRequest) {
-      if (req.sentence.includes('poo')) {
-        throw new ConnectError('I do not like that word', Code.InvalidArgument)
-      }
             return {
                 sentence: `You said ${req.sentence}`,
             }
