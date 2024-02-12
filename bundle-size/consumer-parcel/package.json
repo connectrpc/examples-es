@@ -18,7 +18,7 @@
   "source": "src/index.html",
   "sideEffects": true,
   "scripts": {
-    "start": "rm -rf dist && npx buf generate buf.build/connectrpc/eliza && parcel build --log-level error --no-cache"
+    "start": "rm -rf dist && npx buf generate buf.build/connectrpc/eliza && parcel build --log-level error --no-cache --no-content-hash"
   },
-  "testOutputPath": "dist/index.a2b9d74c.js"
+  "testOutputPath": "dist/index.bfe2d88b.js"
 }
