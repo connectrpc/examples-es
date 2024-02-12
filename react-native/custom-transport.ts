@@ -102,7 +102,7 @@ export function createXHRGrpcWebTransport(
             method: "POST",
             mode: "cors",
           },
-          header: requestHeader(useBinaryFormat, timeoutMs, header),
+          header: requestHeader(useBinaryFormat, timeoutMs, header, false),
           contextValues: contextValues ?? createContextValues(),
           message,
         },
@@ -181,7 +181,7 @@ export function createXHRGrpcWebTransport(
             throw "missing trailer";
           }
 
-          validateTrailer(trailer);
+          validateTrailer(trailer, response.headers);
 
           if (message === undefined) {
             throw "missing message";
