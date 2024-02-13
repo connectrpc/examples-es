@@ -18,7 +18,7 @@ The results are:
 | Name | Size | Artifact |
 |------|-----:|----------|
 | esbuild | 82,796 bytes | dist/index.js |
-| parcel | 72,685 bytes | dist/index.1756241d.js |
+| parcel | 72,623 bytes | dist/index.1756241d.js |
 | rollup | 145,459 bytes | dist/index.js |
 | vite | 54,732 bytes | dist/consumer-vite.js |
 | webpack | 33,817 bytes | dist/main.js |

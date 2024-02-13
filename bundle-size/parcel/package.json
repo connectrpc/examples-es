@@ -22,5 +22,5 @@
     "packageExports": true
   },
   "source": "src/index.html",
-  "sideEffects": true
+  "sideEffects": false
 }
