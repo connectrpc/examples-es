@@ -21,6 +21,5 @@
   "@parcel/resolver-default": {
     "packageExports": true
   },
-  "source": "src/index.html",
-  "sideEffects": false
+  "source": "src/index.html"
 }
