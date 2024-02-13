@@ -1,5 +1,11 @@
 {
   "name": "consumer-esbuild",
+  "scripts": {
+    "pregenerate": "rm -rf dist",
+    "generate": "npx buf generate buf.build/connectrpc/eliza",
+    "build": "esbuild --log-level=error ./src/index.js --bundle --outfile=dist/index.js"
+  },
+  "testOutputPath": "dist/index.js",
   "type": "module",
   "dependencies": {
     "@connectrpc/connect": "^1.3.0",
@@ -11,9 +17,5 @@
     "@bufbuild/protoc-gen-es": "^1.7.2",
     "@connectrpc/protoc-gen-connect-es": "^1.3.0"
   },
-  "sideEffects": false,
-  "scripts": {
-    "start": "rm -rf dist && npx buf generate buf.build/connectrpc/eliza && esbuild --log-level=error ./src/index.js --bundle --outfile=dist/index.js"
-  },
-  "testOutputPath": "dist/index.js"
+  "sideEffects": false
 }

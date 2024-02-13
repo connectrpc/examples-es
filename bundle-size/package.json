@@ -1,4 +1,12 @@
 {
+  "name": "bundle-size",
+  "scripts": {
+    "all": "npm run generate && npm run build && npm run test",
+    "generate": "npm run --workspaces generate",
+    "build": "npm run --workspaces build",
+    "test": "node README.mjs",
+    "ci": "npm run generate && npm run build && npm run test"
+  },
   "workspaces": [
     "./consumer-esbuild",
     "./consumer-webpack",
