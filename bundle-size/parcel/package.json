@@ -5,7 +5,7 @@
     "generate": "npx buf generate buf.build/connectrpc/eliza",
     "build": "parcel build --log-level error --no-cache --no-content-hash"
   },
-  "testOutputPath": "dist/index.bfe2d88b.js",
+  "testOutputPath": "dist/index.1756241d.js",
   "type": "module",
   "dependencies": {
     "@connectrpc/connect": "^1.3.0",

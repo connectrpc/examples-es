@@ -8,12 +8,12 @@
     "ci": "npm run generate && npm run build && npm run test"
   },
   "workspaces": [
-    "./consumer-esbuild",
-    "./consumer-webpack",
-    "./consumer-webpack-ts",
-    "./consumer-vite",
-    "./consumer-rollup",
-    "./consumer-parcel"
+    "./esbuild",
+    "./parcel",
+    "./rollup",
+    "./vite",
+    "./webpack",
+    "./webpack-ts"
   ],
   "//": "parcel adds the dep on process",
   "@parcel/resolver-default": {
