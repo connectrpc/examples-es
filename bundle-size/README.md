@@ -21,7 +21,7 @@ The results are:
 | webpack | 33,817 bytes | dist/main.js |
 | webpack-ts | 33,817 bytes | dist/bundle.js |
 | vite | 54,732 bytes | dist/consumer-vite.js |
-| rollup | 2,809 bytes | dist/index.js |
+| rollup | 145,459 bytes | dist/index.js |
 | parcel | 72,685 bytes | dist/index.bfe2d88b.js |
 <!--- RESULTS-END -->
 

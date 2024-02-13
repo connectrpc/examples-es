@@ -2,18 +2,19 @@
   "name": "consumer-rollup",
   "type": "module",
   "dependencies": {
-    "@connectrpc/connect": "^1.3.0",
-    "@bufbuild/protobuf": "^1.7.2"
+    "@bufbuild/protobuf": "^1.7.2",
+    "@connectrpc/connect": "^1.3.0"
   },
   "devDependencies": {
-    "rollup": "^3.29.4",
     "@bufbuild/buf": "^1.29.0",
     "@bufbuild/protoc-gen-es": "^1.7.2",
-    "@connectrpc/protoc-gen-connect-es": "^1.3.0"
+    "@connectrpc/protoc-gen-connect-es": "^1.3.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "rollup": "^3.29.4"
   },
   "sideEffects": false,
   "scripts": {
-    "start": "rm -rf dist && npx buf generate buf.build/connectrpc/eliza && rollup --silent -c rollup.config.js ./src/index.js --file dist/index.js --format iife"
+    "start": "rm -rf dist && npx buf generate buf.build/connectrpc/eliza && rollup --silent -c rollup.config.js"
   },
   "testOutputPath": "dist/index.js"
 }
