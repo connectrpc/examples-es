@@ -16,7 +16,9 @@
   },
   "sideEffects": false,
   "scripts": {
-    "start": "rm -rf dist && npx buf generate buf.build/connectrpc/eliza && webpack --no-stats -o dist"
+    "pregenerate": "rm -rf dist",
+    "generate": "npx buf generate buf.build/connectrpc/eliza",
+    "build": "webpack --no-stats -o dist"
   },
   "testOutputPath": "dist/bundle.js"
 }

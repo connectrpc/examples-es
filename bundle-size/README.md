@@ -29,7 +29,7 @@ To run all tests, and update the table above:
 
 ```bash
 $ npm ci
-$ bash test.bash
+$ npm run generate && npm run build && npm run test
 ```
 
 ### Testing regressions with local changes
@@ -63,7 +63,7 @@ mv package node_modules/@connectrpc/connect
 Run the tests again:
 
 ```bash
-$ bash test.bash
+$ npm run generate && npm run build && npm run test
 ```
 
 Verify that the bundle sizes have not changed significantly. It is possible that the bundle sizes have changed slightly

@@ -1,5 +1,11 @@
 {
   "name": "consumer-rollup",
+  "scripts": {
+    "pregenerate": "rm -rf dist",
+    "generate": "npx buf generate buf.build/connectrpc/eliza",
+    "build": "rollup --silent -c rollup.config.js"
+  },
+  "testOutputPath": "dist/index.js",
   "type": "module",
   "dependencies": {
     "@bufbuild/protobuf": "^1.7.2",
@@ -12,9 +18,5 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "rollup": "^3.29.4"
   },
-  "sideEffects": false,
-  "scripts": {
-    "start": "rm -rf dist && npx buf generate buf.build/connectrpc/eliza && rollup --silent -c rollup.config.js"
-  },
-  "testOutputPath": "dist/index.js"
+  "sideEffects": false
 }
