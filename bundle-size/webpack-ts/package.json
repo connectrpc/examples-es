@@ -14,7 +14,6 @@
     "@bufbuild/protoc-gen-es": "^1.7.2",
     "@connectrpc/protoc-gen-connect-es": "^1.3.0"
   },
-  "sideEffects": false,
   "scripts": {
     "pregenerate": "rm -rf dist",
     "generate": "npx buf generate buf.build/connectrpc/eliza",
