@@ -1,0 +1,27 @@
+{
+  "name": "bundle-size",
+  "scripts": {
+    "all": "npm run generate && npm run build && npm run test",
+    "generate": "npm run --workspaces generate",
+    "build": "npm run --workspaces build",
+    "test": "node README.mjs",
+    "ci": "npm run generate && npm run build && npm run test"
+  },
+  "workspaces": [
+    "./esbuild",
+    "./parcel",
+    "./rollup",
+    "./vite",
+    "./webpack",
+    "./webpack-ts"
+  ],
+  "//": "parcel adds the dep on process",
+  "@parcel/resolver-default": {
+    "packageExports": true
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+  }
+}
