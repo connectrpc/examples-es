@@ -17,7 +17,7 @@
   "dependencies": {
     "pinia": "^2.1.7",
     "vue": "^3.4.15",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.29.0",
