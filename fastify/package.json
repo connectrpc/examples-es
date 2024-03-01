@@ -13,19 +13,19 @@
   },
   "dependencies": {
     "@bufbuild/protobuf": "^1.7.2",
-    "@connectrpc/connect": "^1.3.0",
-    "@connectrpc/connect-fastify": "^1.3.0",
-    "@connectrpc/connect-node": "^1.3.0",
-    "@connectrpc/connect-web": "^1.3.0",
+    "@connectrpc/connect": "^1.4.0",
+    "@connectrpc/connect-fastify": "^1.4.0",
+    "@connectrpc/connect-node": "^1.4.0",
+    "@connectrpc/connect-web": "^1.4.0",
     "@fastify/cors": "^9.0.1",
-    "fastify": "^4.26.0",
-    "tsx": "^4.7.0"
+    "fastify": "^4.26.1",
+    "tsx": "^4.7.1"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.29.0",
     "@bufbuild/protoc-gen-es": "^1.7.2",
-    "@connectrpc/protoc-gen-connect-es": "^1.3.0",
-    "@types/node": "^20.11.15",
+    "@connectrpc/protoc-gen-connect-es": "^1.4.0",
+    "@types/node": "^20.11.24",
     "@types/tap": "^15.0.11",
     "tap": "^18.7.0",
     "ts-node": "^10.9.2",
