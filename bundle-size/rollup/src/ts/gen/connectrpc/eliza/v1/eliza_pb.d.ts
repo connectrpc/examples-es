@@ -21,23 +21,43 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3 } from "@bufbuild/protobuf";
 
 /**
- * @generated from enum connectrpc.eliza.v1.Test
+ * @generated from enum connectrpc.eliza.v1.SayVolume
  */
-export declare enum Test {
+export declare enum SayVolume {
   /**
-   * @generated from enum value: TEST_UNSPECIFIED = 0;
+   * @generated from enum value: SAY_VOLUME_UNSPECIFIED = 0;
    */
   UNSPECIFIED = 0,
 
   /**
-   * @generated from enum value: TEST_ON = 1;
+   * @generated from enum value: SAY_VOLUME_LOUD = 1;
    */
-  ON = 1,
+  LOUD = 1,
 
   /**
-   * @generated from enum value: TEST_OFF = 2;
+   * @generated from enum value: SAY_VOLUME_SOFT = 2;
    */
-  OFF = 2,
+  SOFT = 2,
+}
+
+/**
+ * @generated from enum connectrpc.eliza.v1.ConverseVolume
+ */
+export declare enum ConverseVolume {
+  /**
+   * @generated from enum value: CONVERSE_VOLUME_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: CONVERSE_VOLUME_LOUD = 1;
+   */
+  LOUD = 1,
+
+  /**
+   * @generated from enum value: CONVERSE_VOLUME_SOFT = 2;
+   */
+  SOFT = 2,
 }
 
 /**
@@ -52,9 +72,9 @@ export declare class SayRequest extends Message<SayRequest> {
   sentence: string;
 
   /**
-   * @generated from field: connectrpc.eliza.v1.Test switch = 2;
+   * @generated from field: connectrpc.eliza.v1.SayVolume volume = 2;
    */
-  switch: Test;
+  volume: SayVolume;
 
   constructor(data?: PartialMessage<SayRequest>);
 
@@ -108,6 +128,11 @@ export declare class ConverseRequest extends Message<ConverseRequest> {
    * @generated from field: string sentence = 1;
    */
   sentence: string;
+
+  /**
+   * @generated from field: connectrpc.eliza.v1.ConverseVolume volume = 2;
+   */
+  volume: ConverseVolume;
 
   constructor(data?: PartialMessage<ConverseRequest>);
 

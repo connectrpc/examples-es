@@ -16,10 +16,16 @@ syntax = "proto3";
 
 package connectrpc.eliza.v1;
 
-enum Test {
-  TEST_UNSPECIFIED = 0;
-  TEST_ON = 1;
-  TEST_OFF = 2;
+enum SayVolume {
+  SAY_VOLUME_UNSPECIFIED = 0;
+  SAY_VOLUME_LOUD = 1;
+  SAY_VOLUME_SOFT = 2;
+}
+
+enum ConverseVolume {
+  CONVERSE_VOLUME_UNSPECIFIED = 0;
+  CONVERSE_VOLUME_LOUD = 1;
+  CONVERSE_VOLUME_SOFT = 2;
 }
 
 // ElizaService provides a way to talk to Eliza, a port of the DOCTOR script
@@ -45,7 +51,7 @@ service ElizaService {
 // SayRequest is a single-sentence request.
 message SayRequest {
   string sentence = 1;
-  Test switch = 2;
+  SayVolume volume = 2;
 }
 
 // SayResponse is a single-sentence response.
@@ -57,6 +63,7 @@ message SayResponse {
 // back-and-forth conversation.
 message ConverseRequest {
   string sentence = 1;
+  ConverseVolume volume = 2;
 }
 
 // ConverseResponse is a single sentence response sent in answer to a

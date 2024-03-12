@@ -20,14 +20,26 @@
 import { proto3 } from "@bufbuild/protobuf";
 
 /**
- * @generated from enum connectrpc.eliza.v1.Test
+ * @generated from enum connectrpc.eliza.v1.SayVolume
  */
-export const Test = /*@__PURE__*/ proto3.makeEnum(
-  "connectrpc.eliza.v1.Test",
+export const SayVolume = proto3.makeEnum(
+  "connectrpc.eliza.v1.SayVolume",
   [
-    {no: 0, name: "TEST_UNSPECIFIED", localName: "UNSPECIFIED"},
-    {no: 1, name: "TEST_ON", localName: "ON"},
-    {no: 2, name: "TEST_OFF", localName: "OFF"},
+    {no: 0, name: "SAY_VOLUME_UNSPECIFIED", localName: "UNSPECIFIED"},
+    {no: 1, name: "SAY_VOLUME_LOUD", localName: "LOUD"},
+    {no: 2, name: "SAY_VOLUME_SOFT", localName: "SOFT"},
+  ],
+);
+
+/**
+ * @generated from enum connectrpc.eliza.v1.ConverseVolume
+ */
+export const ConverseVolume = proto3.makeEnum(
+  "connectrpc.eliza.v1.ConverseVolume",
+  [
+    {no: 0, name: "CONVERSE_VOLUME_UNSPECIFIED", localName: "UNSPECIFIED"},
+    {no: 1, name: "CONVERSE_VOLUME_LOUD", localName: "LOUD"},
+    {no: 2, name: "CONVERSE_VOLUME_SOFT", localName: "SOFT"},
   ],
 );
 
@@ -36,11 +48,11 @@ export const Test = /*@__PURE__*/ proto3.makeEnum(
  *
  * @generated from message connectrpc.eliza.v1.SayRequest
  */
-export const SayRequest = /*@__PURE__*/ proto3.makeMessageType(
+export const SayRequest = proto3.makeMessageType(
   "connectrpc.eliza.v1.SayRequest",
   () => [
     { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "switch", kind: "enum", T: proto3.getEnumType(Test) },
+    { no: 2, name: "volume", kind: "enum", T: proto3.getEnumType(SayVolume) },
   ],
 );
 
@@ -49,7 +61,7 @@ export const SayRequest = /*@__PURE__*/ proto3.makeMessageType(
  *
  * @generated from message connectrpc.eliza.v1.SayResponse
  */
-export const SayResponse = /*@__PURE__*/ proto3.makeMessageType(
+export const SayResponse = proto3.makeMessageType(
   "connectrpc.eliza.v1.SayResponse",
   () => [
     { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },
@@ -62,10 +74,11 @@ export const SayResponse = /*@__PURE__*/ proto3.makeMessageType(
  *
  * @generated from message connectrpc.eliza.v1.ConverseRequest
  */
-export const ConverseRequest = /*@__PURE__*/ proto3.makeMessageType(
+export const ConverseRequest = proto3.makeMessageType(
   "connectrpc.eliza.v1.ConverseRequest",
   () => [
     { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "volume", kind: "enum", T: proto3.getEnumType(ConverseVolume) },
   ],
 );
 
@@ -75,7 +88,7 @@ export const ConverseRequest = /*@__PURE__*/ proto3.makeMessageType(
  *
  * @generated from message connectrpc.eliza.v1.ConverseResponse
  */
-export const ConverseResponse = /*@__PURE__*/ proto3.makeMessageType(
+export const ConverseResponse = proto3.makeMessageType(
   "connectrpc.eliza.v1.ConverseResponse",
   () => [
     { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },
@@ -87,7 +100,7 @@ export const ConverseResponse = /*@__PURE__*/ proto3.makeMessageType(
  *
  * @generated from message connectrpc.eliza.v1.IntroduceRequest
  */
-export const IntroduceRequest = /*@__PURE__*/ proto3.makeMessageType(
+export const IntroduceRequest = proto3.makeMessageType(
   "connectrpc.eliza.v1.IntroduceRequest",
   () => [
     { no: 1, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
@@ -99,7 +112,7 @@ export const IntroduceRequest = /*@__PURE__*/ proto3.makeMessageType(
  *
  * @generated from message connectrpc.eliza.v1.IntroduceResponse
  */
-export const IntroduceResponse = /*@__PURE__*/ proto3.makeMessageType(
+export const IntroduceResponse = proto3.makeMessageType(
   "connectrpc.eliza.v1.IntroduceResponse",
   () => [
     { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },

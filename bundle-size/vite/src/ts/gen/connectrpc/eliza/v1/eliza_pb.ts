@@ -21,29 +21,55 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3 } from "@bufbuild/protobuf";
 
 /**
- * @generated from enum connectrpc.eliza.v1.Test
+ * @generated from enum connectrpc.eliza.v1.SayVolume
  */
-export enum Test {
+export enum SayVolume {
   /**
-   * @generated from enum value: TEST_UNSPECIFIED = 0;
+   * @generated from enum value: SAY_VOLUME_UNSPECIFIED = 0;
    */
   UNSPECIFIED = 0,
 
   /**
-   * @generated from enum value: TEST_ON = 1;
+   * @generated from enum value: SAY_VOLUME_LOUD = 1;
    */
-  ON = 1,
+  LOUD = 1,
 
   /**
-   * @generated from enum value: TEST_OFF = 2;
+   * @generated from enum value: SAY_VOLUME_SOFT = 2;
    */
-  OFF = 2,
+  SOFT = 2,
 }
-// Retrieve enum metadata with: proto3.getEnumType(Test)
-proto3.util.setEnumType(Test, "connectrpc.eliza.v1.Test", [
-  { no: 0, name: "TEST_UNSPECIFIED" },
-  { no: 1, name: "TEST_ON" },
-  { no: 2, name: "TEST_OFF" },
+// Retrieve enum metadata with: proto3.getEnumType(SayVolume)
+proto3.util.setEnumType(SayVolume, "connectrpc.eliza.v1.SayVolume", [
+  { no: 0, name: "SAY_VOLUME_UNSPECIFIED" },
+  { no: 1, name: "SAY_VOLUME_LOUD" },
+  { no: 2, name: "SAY_VOLUME_SOFT" },
+]);
+
+/**
+ * @generated from enum connectrpc.eliza.v1.ConverseVolume
+ */
+export enum ConverseVolume {
+  /**
+   * @generated from enum value: CONVERSE_VOLUME_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: CONVERSE_VOLUME_LOUD = 1;
+   */
+  LOUD = 1,
+
+  /**
+   * @generated from enum value: CONVERSE_VOLUME_SOFT = 2;
+   */
+  SOFT = 2,
+}
+// Retrieve enum metadata with: proto3.getEnumType(ConverseVolume)
+proto3.util.setEnumType(ConverseVolume, "connectrpc.eliza.v1.ConverseVolume", [
+  { no: 0, name: "CONVERSE_VOLUME_UNSPECIFIED" },
+  { no: 1, name: "CONVERSE_VOLUME_LOUD" },
+  { no: 2, name: "CONVERSE_VOLUME_SOFT" },
 ]);
 
 /**
@@ -58,9 +84,9 @@ export class SayRequest extends Message<SayRequest> {
   sentence = "";
 
   /**
-   * @generated from field: connectrpc.eliza.v1.Test switch = 2;
+   * @generated from field: connectrpc.eliza.v1.SayVolume volume = 2;
    */
-  switch = Test.UNSPECIFIED;
+  volume = SayVolume.UNSPECIFIED;
 
   constructor(data?: PartialMessage<SayRequest>) {
     super();
@@ -71,7 +97,7 @@ export class SayRequest extends Message<SayRequest> {
   static readonly typeName = "connectrpc.eliza.v1.SayRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 2, name: "switch", kind: "enum", T: proto3.getEnumType(Test) },
+    { no: 2, name: "volume", kind: "enum", T: proto3.getEnumType(SayVolume) },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): SayRequest {
@@ -142,6 +168,11 @@ export class ConverseRequest extends Message<ConverseRequest> {
    */
   sentence = "";
 
+  /**
+   * @generated from field: connectrpc.eliza.v1.ConverseVolume volume = 2;
+   */
+  volume = ConverseVolume.UNSPECIFIED;
+
   constructor(data?: PartialMessage<ConverseRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -151,6 +182,7 @@ export class ConverseRequest extends Message<ConverseRequest> {
   static readonly typeName = "connectrpc.eliza.v1.ConverseRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "volume", kind: "enum", T: proto3.getEnumType(ConverseVolume) },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ConverseRequest {
