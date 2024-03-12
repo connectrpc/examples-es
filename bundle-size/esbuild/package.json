@@ -2,10 +2,12 @@
   "name": "consumer-esbuild",
   "scripts": {
     "pregenerate": "rm -rf dist",
-    "generate": "npx buf generate buf.build/connectrpc/eliza",
-    "build": "esbuild --log-level=error ./src/index.js --bundle --outfile=dist/index.js"
+    "generate": "npx buf generate ../proto --template ../buf.gen.yaml",
+    "build": "npm run build:js && npm run build:ts",
+    "build:js": "esbuild --log-level=error ./src/js/index.js --bundle --outfile=dist/js/index.js",
+    "build:ts": "echo \"hi\""
   },
-  "testOutputPath": "dist/index.js",
+  "testOutputPath": "dist/js/index.js",
   "type": "module",
   "dependencies": {
     "@connectrpc/connect": "^1.3.0",

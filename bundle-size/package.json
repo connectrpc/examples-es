@@ -12,8 +12,7 @@
     "./parcel",
     "./rollup",
     "./vite",
-    "./webpack",
-    "./webpack-ts"
+    "./webpack"
   ],
   "//": "parcel adds the dep on process",
   "@parcel/resolver-default": {
