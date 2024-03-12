@@ -4,9 +4,8 @@
     "all": "npm run generate && npm run build && npm run test",
     "generate": "npm run --workspaces generate",
     "build": "npm run --workspaces build",
-    "test": "npm run --workspaces test",
-    "size": "node README.mjs",
-    "ci": "npm run generate && npm run build && npm run test && npm run size"
+    "test": "npm run --workspaces test && node README.mjs",
+    "ci": "npm run generate && npm run build && npm run test"
   },
   "workspaces": [
     "./esbuild",
