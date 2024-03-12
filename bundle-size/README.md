@@ -18,15 +18,15 @@ The results are:
 <!--- RESULTS-START -->
 | Name | Size | Artifact |
 |------|-----:|----------|
-| esbuild (js) | 83,451 bytes | dist/js/index.js |
+| esbuild (js) | 85,011 bytes | dist/js/index.js |
 | esbuild (ts) | 89,967 bytes | dist/ts/index.js |
 | parcel (js) | 73,184 bytes | dist/js/index.cf4251ac.js |
 | parcel (ts) | 76,688 bytes | dist/ts/index.dc635180.js |
-| rollup (js) | 145,335 bytes | dist/js/index.js |
+| rollup (js) | 147,584 bytes | dist/js/index.js |
 | rollup (ts) | 157,558 bytes | dist/ts/index.js |
-| vite (js) | 54,843 bytes | dist/js/consumer-vite.js |
+| vite (js) | 56,098 bytes | dist/js/consumer-vite.js |
 | vite (ts) | 58,763 bytes | dist/ts/consumer-vite.js |
-| webpack (js) | 34,162 bytes | dist/js/main.js |
+| webpack (js) | 34,974 bytes | dist/js/main.js |
 | webpack (ts) | 37,931 bytes | dist/ts/main.js |
 <!--- RESULTS-END -->
 
