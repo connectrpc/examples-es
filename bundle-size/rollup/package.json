@@ -5,9 +5,15 @@
     "generate": "npx buf generate ../proto --template ../buf.gen.yaml",
     "build": "npm run build:js && npm run build:ts",
     "build:js": "rollup --silent -c rollup.config.js --input src/js/index.js -o dist/js/index.js",
-    "build:ts": "rollup --silent -c rollup.config.js --input src/ts/index.ts -o dist/ts/index.js"
+    "build:ts": "rollup --silent -c rollup.config.js --input src/ts/index.ts -o dist/ts/index.js",
+    "test": "npm run test:js -s && npm run test:ts -s",
+    "test:js": "node dist/js/index.js",
+    "test:ts": "node dist/ts/index.js"
   },
-  "testOutputPath": "dist/js/index.js",
+  "testOutputPaths": {
+    "js": "dist/js/index.js",
+    "ts": "dist/ts/index.js"
+  },
   "type": "module",
   "dependencies": {
     "@bufbuild/protobuf": "^1.7.2",

@@ -4,8 +4,9 @@
     "all": "npm run generate && npm run build && npm run test",
     "generate": "npm run --workspaces generate",
     "build": "npm run --workspaces build",
-    "test": "node README.mjs",
-    "ci": "npm run generate && npm run build && npm run test"
+    "test": "npm run --workspaces test -s",
+    "size": "node README.mjs",
+    "ci": "npm run generate && npm run build && npm run test && npm run size"
   },
   "workspaces": [
     "./esbuild",
@@ -19,6 +20,7 @@
     "packageExports": true
   },
   "devDependencies": {
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "prettier": "^3.2.5"
   }
 }

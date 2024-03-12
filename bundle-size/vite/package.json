@@ -4,10 +4,16 @@
     "pregenerate": "rm -rf dist",
     "generate": "npx buf generate ../proto --template ../buf.gen.yaml",
     "build": "npm run build:js && npm run build:ts",
-    "build:js": "vite build",
-    "build:ts": "echo \"hi\""
+    "build:js": "vite build -c vite.config.js -l error",
+    "build:ts": "vite build -c vite.tsconfig.js -l error",
+    "test": "npm run test:js -s && npm run test:ts -s",
+    "test:js": "node dist/js/consumer-vite.js",
+    "test:ts": "node dist/ts/consumer-vite.js"
   },
-  "testOutputPath": "dist/js/consumer-vite.js",
+  "testOutputPaths": {
+    "js": "dist/js/consumer-vite.js",
+    "ts": "dist/ts/consumer-vite.js"
+  },
   "type": "module",
   "dependencies": {
     "@connectrpc/connect": "^1.3.0",

@@ -9,5 +9,5 @@ if (
   SayRequest !== undefined &&
   testEnum.typeName === "connectrpc.eliza.v1.Test"
 ) {
-  console.log("webpack (ts) OK");
+  console.log("parcel (ts) OK");
 }

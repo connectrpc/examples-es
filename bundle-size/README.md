@@ -17,12 +17,16 @@ The results are:
 <!--- RESULTS-START -->
 | Name | Size | Artifact |
 |------|-----:|----------|
-| esbuild | 82,796 bytes | dist/index.js |
-| parcel | 72,685 bytes | dist/index.1756241d.js |
-| rollup | 145,459 bytes | dist/index.js |
-| vite | 54,732 bytes | dist/consumer-vite.js |
-| webpack | 33,817 bytes | dist/main.js |
-| webpack-ts | 33,817 bytes | dist/bundle.js |
+| esbuild (js) | 84,415 bytes | dist/js/index.js |
+| esbuild (ts) | 89,009 bytes | dist/ts/index.js |
+| parcel (js) | 72,754 bytes | dist/js/index.cf4251ac.js |
+| parcel (ts) | 75,911 bytes | dist/ts/index.dc635180.js |
+| rollup (js) | 147,843 bytes | dist/js/index.js |
+| rollup (ts) | 157,020 bytes | dist/ts/index.js |
+| vite (js) | 55,625 bytes | dist/js/consumer-vite.js |
+| vite (ts) | 58,227 bytes | dist/ts/consumer-vite.js |
+| webpack (js) | 34,547 bytes | dist/js/main.js |
+| webpack (ts) | 37,449 bytes | dist/ts/main.js |
 <!--- RESULTS-END -->
 
 To run all tests, and update the table above:

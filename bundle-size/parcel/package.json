@@ -3,9 +3,15 @@
   "scripts": {
     "pregenerate": "rm -rf dist",
     "generate": "npx buf generate ../proto --template ../buf.gen.yaml",
-    "build": "parcel build --log-level error --no-cache --no-content-hash"
+    "build": "parcel build --log-level error --no-cache --no-content-hash",
+    "test": "npm run test:js -s && npm run test:ts -s",
+    "test:js": "node dist/js/index.cf4251ac.js",
+    "test:ts": "node dist/ts/index.dc635180.js"
   },
-  "testOutputPath": "dist/js/index.cf4251ac.js",
+  "testOutputPaths": {
+    "js": "dist/js/index.cf4251ac.js",
+    "ts": "dist/ts/index.dc635180.js"
+  },
   "type": "module",
   "dependencies": {
     "@bufbuild/protobuf": "^1.7.2",
