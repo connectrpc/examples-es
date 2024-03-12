@@ -6,7 +6,7 @@
     "build": "npm run build:js && npm run build:ts",
     "build:js": "webpack --no-stats --entry ./src/js/index.js -o dist/js",
     "build:ts": "webpack --no-stats --entry ./src/ts/index.ts -o dist/ts --config src/webpack.config.cjs",
-    "test": "npm run test:js -s && npm run test:ts -s",
+    "test": "npm run test:js && npm run test:ts",
     "test:js": "node dist/js/main.js",
     "test:ts": "node dist/ts/main.js"
   },

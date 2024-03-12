@@ -6,7 +6,7 @@
     "build": "npm run build:js && npm run build:ts",
     "build:js": "vite build -c vite.config.js -l error",
     "build:ts": "vite build -c vite.tsconfig.js -l error",
-    "test": "npm run test:js -s && npm run test:ts -s",
+    "test": "npm run test:js && npm run test:ts",
     "test:js": "node dist/js/consumer-vite.js",
     "test:ts": "node dist/ts/consumer-vite.js"
   },

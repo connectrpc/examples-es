@@ -4,7 +4,7 @@
     "pregenerate": "rm -rf dist",
     "generate": "npx buf generate ../proto --template ../buf.gen.yaml",
     "build": "parcel build --log-level error --no-cache --no-content-hash",
-    "test": "npm run test:js -s && npm run test:ts -s",
+    "test": "npm run test:js && npm run test:ts",
     "test:js": "node dist/js/index.cf4251ac.js",
     "test:ts": "node dist/ts/index.dc635180.js"
   },

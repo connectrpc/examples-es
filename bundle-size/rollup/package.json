@@ -6,7 +6,7 @@
     "build": "npm run build:js && npm run build:ts",
     "build:js": "rollup --silent -c rollup.config.js --input src/js/index.js -o dist/js/index.js",
     "build:ts": "rollup --silent -c rollup.config.js --input src/ts/index.ts -o dist/ts/index.js",
-    "test": "npm run test:js -s && npm run test:ts -s",
+    "test": "npm run test:js && npm run test:ts",
     "test:js": "node dist/js/index.js",
     "test:ts": "node dist/ts/index.js"
   },
