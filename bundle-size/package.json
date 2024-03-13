@@ -4,7 +4,7 @@
     "all": "npm run generate && npm run build && npm run test",
     "generate": "npm run --workspaces generate",
     "build": "npm run --workspaces build",
-    "test": "node README.mjs",
+    "test": "npm run --workspaces test && node README.mjs",
     "ci": "npm run generate && npm run build && npm run test"
   },
   "workspaces": [
@@ -12,14 +12,14 @@
     "./parcel",
     "./rollup",
     "./vite",
-    "./webpack",
-    "./webpack-ts"
+    "./webpack"
   ],
   "//": "parcel adds the dep on process",
   "@parcel/resolver-default": {
     "packageExports": true
   },
   "devDependencies": {
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "prettier": "^3.2.5"
   }
 }

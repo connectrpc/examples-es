@@ -2,24 +2,40 @@
   "name": "consumer-parcel",
   "scripts": {
     "pregenerate": "rm -rf dist",
-    "generate": "npx buf generate buf.build/connectrpc/eliza",
-    "build": "parcel build --log-level error --no-cache --no-content-hash"
+    "generate": "npx buf generate ../proto --template ../buf.gen.yaml",
+    "build": "parcel build --log-level error --no-cache --no-content-hash",
+    "test": "npm run test:js && npm run test:ts",
+    "test:js": "node dist/js/index.cf4251ac.js",
+    "test:ts": "node dist/ts/index.dc635180.js"
   },
-  "testOutputPath": "dist/index.1756241d.js",
+  "testOutputPaths": {
+    "js": "dist/js/index.cf4251ac.js",
+    "ts": "dist/ts/index.dc635180.js"
+  },
   "type": "module",
   "dependencies": {
+    "@bufbuild/protobuf": "^1.7.2",
     "@connectrpc/connect": "^1.3.0",
-    "@bufbuild/protobuf": "^1.7.2"
+    "typescript": "^5.4.2"
   },
   "devDependencies": {
-    "parcel": "^2.9.3",
     "@bufbuild/buf": "^1.29.0",
     "@bufbuild/protoc-gen-es": "^1.7.2",
-    "@connectrpc/protoc-gen-connect-es": "^1.3.0"
+    "@connectrpc/protoc-gen-connect-es": "^1.3.0",
+    "parcel": "^2.9.3"
   },
   "//": "otherwise, parcel shakes everything away",
   "@parcel/resolver-default": {
     "packageExports": true
   },
-  "source": "src/index.html"
+  "targets": {
+    "js": {
+      "source": "src/js/index.html",
+      "distDir": "./dist/js"
+    },
+    "ts": {
+      "source": "src/ts/index.html",
+      "distDir": "./dist/ts"
+    }
+  }
 }

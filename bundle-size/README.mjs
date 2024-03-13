@@ -12,11 +12,13 @@ function getResultsTable() {
   const fmt = new Intl.NumberFormat("en-US", {});
   for (const workspace of workspaces) {
     const pkgPath = readFileSync(join(workspace, "package.json"), "utf-8");
-    const { testOutputPath, name } = JSON.parse(pkgPath);
-    const testPath = join(workspace, testOutputPath);
-    const {size} = statSync(testPath);
-    console.log(`${name}: ${fmt.format(size)} bytes in ${testOutputPath}`);
-    rows.push(`| ${name.replace(/^consumer-/, "")} | ${fmt.format(size)} bytes | ${testOutputPath} |`)
+    const { testOutputPaths, name } = JSON.parse(pkgPath);
+    for (const [type, path] of Object.entries(testOutputPaths)) {
+      const testPath = join(workspace, path);
+      const {size} = statSync(testPath);
+      console.log(`${name} (${type}): ${fmt.format(size)} bytes in ${path}`);
+      rows.push(`| ${name.replace(/^consumer-/, "")} (${type}) | ${fmt.format(size)} bytes | ${path} |`)
+    }
   }
   return ["", ...rows, ""].join("\n");
 }
