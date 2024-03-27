@@ -16,16 +16,16 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "@bufbuild/buf": "^1.29.0",
-    "@bufbuild/protobuf": "^1.7.2",
-    "@bufbuild/protoc-gen-es": "^1.7.2",
+    "@bufbuild/buf": "^1.30.0",
+    "@bufbuild/protobuf": "^1.8.0",
+    "@bufbuild/protoc-gen-es": "^1.8.0",
     "@connectrpc/connect": "^1.4.0",
     "@connectrpc/connect-web": "^1.4.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
     "@types/jasmine": "^5.1.4",
-    "esbuild": "^0.20.1",
+    "esbuild": "^0.20.2",
     "jasmine": "^5.1.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.3"
   }
 }
