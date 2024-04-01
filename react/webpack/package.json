@@ -30,7 +30,7 @@
     "@connectrpc/connect": "^1.4.0",
     "@connectrpc/connect-web": "^1.4.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
-    "@types/react": "^18.2.72",
+    "@types/react": "^18.2.73",
     "@types/react-dom": "^18.2.22",
     "css-loader": "^6.10.0",
     "style-loader": "^3.3.4",
