@@ -25,7 +25,7 @@
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
     "@playwright/test": "^1.42.1",
     "@sveltejs/adapter-auto": "^3.1.1",
-    "@sveltejs/kit": "^2.5.4",
+    "@sveltejs/kit": "^2.5.5",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/svelte": "^4.1.0",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
