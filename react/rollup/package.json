@@ -32,7 +32,7 @@
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.2.72",
     "jest": "^29.7.0",
-    "rollup": "^4.13.0",
+    "rollup": "^4.13.2",
     "rollup-plugin-import-css": "^3.5.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-serve": "^1.1.1",
