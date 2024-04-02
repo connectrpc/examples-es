@@ -25,9 +25,9 @@
     "@bufbuild/buf": "^1.30.0",
     "@bufbuild/protoc-gen-es": "^1.8.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
-    "@types/node": "^20.11.30",
+    "@types/node": "^20.12.2",
     "@types/tap": "^15.0.11",
-    "tap": "^18.7.1",
+    "tap": "^18.7.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
   }
