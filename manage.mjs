@@ -146,6 +146,7 @@ class PackageEnt {
         this.name = pkgJson.name;
         this.packageJson = pkgJson;
         this.packageManager = packageManager;
+      this.workspaces = [];
         if (pkgJson.workspaces) {
             this.workspaces = pkgJson.workspaces.map((ws) => {
                 const pkgPath = path.join(dir, ws, "package.json");
@@ -190,13 +191,14 @@ class PackageEnt {
         }
     }
 
-    print() {
-      console.log(`${this.name} (${this.packageManager}) at ${this.path}`);
+    print(indent = 0) {
+      const spacing = ' '.repeat(indent);
+      console.log(`${spacing}${this.name} (${this.packageManager}) at ${this.path}`);
       let workspaces = this.workspaces;
       if (workspaces && workspaces.length > 0) {
         console.log(`  workspaces:`);
         for (const ws of workspaces) {
-          console.log(`    ${ws.name}`);
+          ws.print(4);
         }
       }
     }
