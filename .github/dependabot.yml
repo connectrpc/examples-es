@@ -18,6 +18,102 @@ updates:
       timezone: UTC
       time: "07:00"
   - package-ecosystem: "npm"
+    directory: "astro"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "bundle-size"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "bundle-size/esbuild"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      timezone: UTC
+      time: "07:00"
+      open-pull-requests-limit: 50
+      groups:
+        bundle-size-esbuild:
+          patterns:
+            - "*"
+  - package-ecosystem: "npm"
+    directory: "bundle-size/parcel"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      timezone: UTC
+      time: "07:00"
+      open-pull-requests-limit: 50
+      groups:
+        bundle-size-parcel:
+          patterns:
+            - "*"
+  - package-ecosystem: "npm"
+    directory: "bundle-size/rollup"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      timezone: UTC
+      time: "07:00"
+      open-pull-requests-limit: 50
+      groups:
+        bundle-size-rollup:
+          patterns:
+            - "*"
+  - package-ecosystem: "npm"
+    directory: "bundle-size/vite"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      timezone: UTC
+      time: "07:00"
+      open-pull-requests-limit: 50
+      groups:
+        bundle-size-vite:
+          patterns:
+            - "*"
+  - package-ecosystem: "npm"
+    directory: "bundle-size/webpack"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      timezone: UTC
+      time: "07:00"
+      open-pull-requests-limit: 50
+      groups:
+        bundle-size-webpack:
+          patterns:
+            - "*"
+  - package-ecosystem: "npm"
+    directory: "cloudflare-workers"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "custom-client"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "express"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "fastify"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
     directory: "nextjs"
     schedule:
       interval: "monthly"
@@ -25,12 +121,6 @@ updates:
       time: "07:00"
   - package-ecosystem: "npm"
     directory: "plain"
-    schedule:
-      interval: "monthly"
-      timezone: UTC
-      time: "07:00"
-  - package-ecosystem: "npm"
-    directory: "react-native"
     schedule:
       interval: "monthly"
       timezone: UTC
@@ -72,13 +162,25 @@ updates:
       timezone: UTC
       time: "07:00"
   - package-ecosystem: "npm"
+    directory: "react/webpack-cjs"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
+    directory: "react/yarn-pnp"
+    schedule:
+      interval: "monthly"
+      timezone: UTC
+      time: "07:00"
+  - package-ecosystem: "npm"
     directory: "react/yarn3-unplugged"
     schedule:
       interval: "monthly"
       timezone: UTC
       time: "07:00"
   - package-ecosystem: "npm"
-    directory: "react/yarn3"
+    directory: "react-native"
     schedule:
       interval: "monthly"
       timezone: UTC
