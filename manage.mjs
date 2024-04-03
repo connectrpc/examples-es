@@ -36,7 +36,7 @@ function main() {
     switch (command) {
         case "list":
             for (const pkg of packages) {
-                console.log(`${pkg.name} (${pkg.packageManager}) at ${pkg.path}`);
+              pkg.print();
             }
             break;
         case "update":
@@ -152,6 +152,7 @@ class PackageEnt {
         this.name = pkgJson.name;
         this.packageJson = pkgJson;
         this.packageManager = packageManager;
+        this.workspaces = pkgJson.workspaces;
     }
 
     /**
@@ -190,6 +191,17 @@ class PackageEnt {
         }
     }
 
+    print() {
+      console.log(`${this.name} (${this.packageManager}) at ${this.path}`);
+      let workspaces = this.workspaces;
+      if (workspaces) {
+        console.log(`  workspaces:`);
+        for (const ws of workspaces) {
+          console.log(`    ${ws}`);
+        }
+      }
+    }
+
     /**
      */
     install() {
@@ -217,6 +229,9 @@ class PackageEnt {
                 break;
             case "npm":
                 this.run(`npm update`);
+                if (this.workspaces) {
+                    this.run(`npm --workspaces update`);
+                }
                 break;
             case "pnpm":
                 this.run(`pnpm update`);
