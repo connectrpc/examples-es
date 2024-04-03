@@ -46,18 +46,12 @@ function main() {
             break;
         case "forceupdateall":
             for (const pkg of packages) {
-                pkg.forceUpdate(
-                    Object.keys(pkg.packageJson.dependencies ?? {}),
-                    Object.keys(pkg.packageJson.devDependencies ?? {})
-                );
+                pkg.forceUpdate();
             }
             break;
         case "forceupdateknown":
             for (const pkg of packages) {
-                pkg.forceUpdate(
-                    Object.keys(pkg.packageJson.dependencies ?? {}).filter(name => knownDependencies.includes(name)),
-                    Object.keys(pkg.packageJson.devDependencies ?? {}).filter(name => knownDependencies.includes(name)),
-                );
+                pkg.forceUpdate(true);
             }
             break;
         case "test":
@@ -134,7 +128,7 @@ class PackageEnt {
     /**
      * @param {string} pkgPath
      */
-    constructor(pkgPath) {
+    constructor(pkgPath, isWorkspace = false) {
         const dir = path.dirname(pkgPath);
         const pkgJson = JSON.parse(readFileSync(pkgPath, "utf-8"));
         assert(typeof pkgJson === "object" && pkgJson !== null);
@@ -142,7 +136,7 @@ class PackageEnt {
         let packageManager = undefined;
         if (existsSync(path.join(dir, "pnpm-lock.yaml"))) {
             packageManager = "pnpm";
-        } else if (existsSync(path.join(dir, "package-lock.json"))) {
+        } else if (existsSync(path.join(dir, "package-lock.json")) || isWorkspace) {
             packageManager = "npm";
         } else if (existsSync(path.join(dir, "yarn.lock"))) {
             packageManager = "yarn";
@@ -152,7 +146,12 @@ class PackageEnt {
         this.name = pkgJson.name;
         this.packageJson = pkgJson;
         this.packageManager = packageManager;
-        this.workspaces = pkgJson.workspaces;
+        if (pkgJson.workspaces) {
+            this.workspaces = pkgJson.workspaces.map((ws) => {
+                const pkgPath = path.join(dir, ws, "package.json");
+                return new PackageEnt(pkgPath, true);
+            });
+        }
     }
 
     /**
@@ -194,10 +193,10 @@ class PackageEnt {
     print() {
       console.log(`${this.name} (${this.packageManager}) at ${this.path}`);
       let workspaces = this.workspaces;
-      if (workspaces) {
+      if (workspaces && workspaces.length > 0) {
         console.log(`  workspaces:`);
         for (const ws of workspaces) {
-          console.log(`    ${ws}`);
+          console.log(`    ${ws.name}`);
         }
       }
     }
@@ -229,9 +228,6 @@ class PackageEnt {
                 break;
             case "npm":
                 this.run(`npm update`);
-                if (this.workspaces) {
-                    this.run(`npm --workspaces update`);
-                }
                 break;
             case "pnpm":
                 this.run(`pnpm update`);
@@ -245,7 +241,13 @@ class PackageEnt {
      * @param {Array<string>} directDeps
      * @param {Array<string>} devDeps
      */
-    forceUpdate(directDeps, devDeps) {
+    forceUpdate(knownOnly = false) {
+        let directDeps = Object.keys(this.packageJson.dependencies ?? {});
+        let devDeps = Object.keys(this.packageJson.devDependencies ?? {});
+        if (knownOnly) {
+            directDeps = directDeps.filter(name => knownDependencies.includes(name));
+            devDeps = devDeps.filter(name => knownDependencies.includes(name));
+        }
         if ((directDeps.length + devDeps.length) > 0) {
             const deps = [...directDeps, ...devDeps].join(" ");
             switch (this.packageManager) {
@@ -294,6 +296,13 @@ class PackageEnt {
                     throw `unknown package manager ${this.packageManager}`;
             }
         }
+
+      // loop through workspaces and call their forceupdate
+      if (this.workspaces && this.workspaces.length > 0) {
+            for (const ws of this.workspaces) {
+               ws.forceUpdate(knownOnly);
+            }
+      }
     }
 
 }
