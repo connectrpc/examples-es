@@ -126,7 +126,8 @@ function tryGetPackage(dir) {
 class PackageEnt {
 
     /**
-     * @param {string} pkgPath
+     * @param {string} pkgPath - The path to the package.json file for this package
+     * @param {boolean} isWorkspace - Whether or not this package is a workspace
      */
     constructor(pkgPath, isWorkspace = false) {
         const dir = path.dirname(pkgPath);
@@ -146,7 +147,9 @@ class PackageEnt {
         this.name = pkgJson.name;
         this.packageJson = pkgJson;
         this.packageManager = packageManager;
-      this.workspaces = [];
+        this.workspaces = [];
+        // If this is a package with workspaces, create a PackageEnt for each
+        // and store it as part of the main package
         if (pkgJson.workspaces) {
             this.workspaces = pkgJson.workspaces.map((ws) => {
                 const pkgPath = path.join(dir, ws, "package.json");
@@ -194,11 +197,9 @@ class PackageEnt {
     print(indent = 0) {
       const spacing = ' '.repeat(indent);
       console.log(`${spacing}${this.name} (${this.packageManager}) at ${this.path}`);
-      let workspaces = this.workspaces;
-      if (workspaces && workspaces.length > 0) {
-        console.log(`  workspaces:`);
-        for (const ws of workspaces) {
-          ws.print(4);
+      if (this.workspaces.length > 0) {
+        for (const ws of this.workspaces) {
+          ws.print(2);
         }
       }
     }
@@ -299,14 +300,13 @@ class PackageEnt {
             }
         }
 
-      // loop through workspaces and call their forceupdate
-      if (this.workspaces && this.workspaces.length > 0) {
+        // Loop through any workspaces and call their forceupdate
+        if (this.workspaces.length > 0) {
             for (const ws of this.workspaces) {
-               ws.forceUpdate(knownOnly);
+                ws.forceUpdate(knownOnly);
             }
-      }
+        }
     }
-
 }
 
 main();
