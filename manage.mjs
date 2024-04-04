@@ -194,18 +194,17 @@ class PackageEnt {
         }
     }
 
+    /**
+     * @param {number} indent - Amount to indent the output. Used for workspaces.
+     */
     print(indent = 0) {
-      const spacing = ' '.repeat(indent);
-      console.log(`${spacing}${this.name} (${this.packageManager}) at ${this.path}`);
-      if (this.workspaces.length > 0) {
+        const spacing = ' '.repeat(indent);
+        console.log(`${spacing}${this.name} (${this.packageManager}) at ${this.path}`);
         for (const ws of this.workspaces) {
-          ws.print(2);
+            ws.print(2);
         }
-      }
     }
 
-    /**
-     */
     install() {
         switch (this.packageManager) {
             case "yarn":
@@ -222,8 +221,6 @@ class PackageEnt {
         }
     }
 
-    /**
-     */
     update() {
         switch (this.packageManager) {
             case "yarn":
@@ -300,10 +297,8 @@ class PackageEnt {
         }
 
         // Loop through any workspaces and call their forceupdate
-        if (this.workspaces.length > 0) {
-            for (const ws of this.workspaces) {
-                ws.forceUpdate(knownOnly);
-            }
+        for (const ws of this.workspaces) {
+            ws.forceUpdate(knownOnly);
         }
     }
 }
