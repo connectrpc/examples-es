@@ -241,8 +241,7 @@ class PackageEnt {
     }
 
     /**
-     * @param {Array<string>} directDeps
-     * @param {Array<string>} devDeps
+     * @param {boolean} knownOnly - Whether to only update known dependencies
      */
     forceUpdate(knownOnly = false) {
         let directDeps = Object.keys(this.packageJson.dependencies ?? {});
