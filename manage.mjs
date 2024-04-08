@@ -150,7 +150,7 @@ class PackageEnt {
         this.workspaces = [];
         // If this is a package with workspaces, create a PackageEnt for each
         // and store it as part of the main package
-        if (pkgJson.workspaces) {
+        if (packageManager === "npm" && pkgJson.workspaces) {
             this.workspaces = pkgJson.workspaces.map((ws) => {
                 const pkgPath = path.join(dir, ws, "package.json");
                 return new PackageEnt(pkgPath, true);
