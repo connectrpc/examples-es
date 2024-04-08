@@ -51,7 +51,7 @@ function main() {
             break;
         case "forceupdateknown":
             for (const pkg of packages) {
-                pkg.forceUpdate(true);
+                pkg.forceUpdate(knownDependencies);
             }
             break;
         case "test":
