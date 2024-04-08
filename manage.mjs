@@ -36,7 +36,7 @@ function main() {
     switch (command) {
         case "list":
             for (const pkg of packages) {
-                console.log(`${pkg.name} (${pkg.packageManager}) at ${pkg.path}`);
+              console.log(pkg.toString());
             }
             break;
         case "update":
@@ -46,18 +46,12 @@ function main() {
             break;
         case "forceupdateall":
             for (const pkg of packages) {
-                pkg.forceUpdate(
-                    Object.keys(pkg.packageJson.dependencies ?? {}),
-                    Object.keys(pkg.packageJson.devDependencies ?? {})
-                );
+                pkg.forceUpdate();
             }
             break;
         case "forceupdateknown":
             for (const pkg of packages) {
-                pkg.forceUpdate(
-                    Object.keys(pkg.packageJson.dependencies ?? {}).filter(name => knownDependencies.includes(name)),
-                    Object.keys(pkg.packageJson.devDependencies ?? {}).filter(name => knownDependencies.includes(name)),
-                );
+                pkg.forceUpdate(knownDependencies);
             }
             break;
         case "test":
@@ -132,9 +126,10 @@ function tryGetPackage(dir) {
 class PackageEnt {
 
     /**
-     * @param {string} pkgPath
+     * @param {string} pkgPath - The path to the package.json file for this package
+     * @param {boolean} [isNpmWorkspace = false] - Whether or not this package is an NPM workspace
      */
-    constructor(pkgPath) {
+    constructor(pkgPath, isNpmWorkspace = false) {
         const dir = path.dirname(pkgPath);
         const pkgJson = JSON.parse(readFileSync(pkgPath, "utf-8"));
         assert(typeof pkgJson === "object" && pkgJson !== null);
@@ -142,7 +137,7 @@ class PackageEnt {
         let packageManager = undefined;
         if (existsSync(path.join(dir, "pnpm-lock.yaml"))) {
             packageManager = "pnpm";
-        } else if (existsSync(path.join(dir, "package-lock.json"))) {
+        } else if (existsSync(path.join(dir, "package-lock.json")) || isNpmWorkspace) {
             packageManager = "npm";
         } else if (existsSync(path.join(dir, "yarn.lock"))) {
             packageManager = "yarn";
@@ -152,6 +147,15 @@ class PackageEnt {
         this.name = pkgJson.name;
         this.packageJson = pkgJson;
         this.packageManager = packageManager;
+        this.workspaces = [];
+        // If this is a package with workspaces, create a PackageEnt for each
+        // and store it as part of the main package
+        if (packageManager === "npm" && pkgJson.workspaces) {
+            this.workspaces = pkgJson.workspaces.map((ws) => {
+                const pkgPath = path.join(dir, ws, "package.json");
+                return new PackageEnt(pkgPath, true);
+            });
+        }
     }
 
     /**
@@ -190,8 +194,11 @@ class PackageEnt {
         }
     }
 
-    /**
-     */
+    toString() {
+        const ws = this.workspaces.length > 0 ? `, ${this.workspaces.length} workspaces` : "";
+        return `${this.name} (${this.packageManager}${ws}) at ${this.path}`;
+    }
+
     install() {
         switch (this.packageManager) {
             case "yarn":
@@ -208,8 +215,6 @@ class PackageEnt {
         }
     }
 
-    /**
-     */
     update() {
         switch (this.packageManager) {
             case "yarn":
@@ -227,10 +232,16 @@ class PackageEnt {
     }
 
     /**
-     * @param {Array<string>} directDeps
-     * @param {Array<string>} devDeps
+     * @param {Array<string>} [packageNames] - Specific package names to forcibly update.
+     * If this list is empty, all dependencies will be updated.
      */
-    forceUpdate(directDeps, devDeps) {
+    forceUpdate(packageNames = []) {
+        let directDeps = Object.keys(this.packageJson.dependencies ?? {});
+        let devDeps = Object.keys(this.packageJson.devDependencies ?? {});
+        if (packageNames.length > 0) {
+            directDeps = directDeps.filter(name => packageNames.includes(name));
+            devDeps = devDeps.filter(name => packageNames.includes(name));
+        }
         if ((directDeps.length + devDeps.length) > 0) {
             const deps = [...directDeps, ...devDeps].join(" ");
             switch (this.packageManager) {
@@ -279,8 +290,16 @@ class PackageEnt {
                     throw `unknown package manager ${this.packageManager}`;
             }
         }
-    }
 
+        // Loop through any workspaces and call their forceupdate
+        // Note that forceUpdate removes deps first and then re-installs so packages
+        // get the latest version. However, this might have issues updating all
+        // versions to latest in some situations due to the vagaries of how NPM handles 
+        // workspaces.
+        for (const ws of this.workspaces) {
+            ws.forceUpdate(packageNames);
+        }
+    }
 }
 
 main();
