@@ -127,7 +127,7 @@ class PackageEnt {
 
     /**
      * @param {string} pkgPath - The path to the package.json file for this package
-     * @param {boolean} isWorkspace - Whether or not this package is a workspace
+     * @param {boolean} [isWorkspace] - Whether or not this package is a workspace
      */
     constructor(pkgPath, isNpmWorkspace = false) {
         const dir = path.dirname(pkgPath);
