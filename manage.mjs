@@ -297,7 +297,7 @@ class PackageEnt {
         // versions to latest in some situations due to the vagaries of how NPM handles 
         // workspaces.
         for (const ws of this.workspaces) {
-            ws.forceUpdate(knownOnly);
+            ws.forceUpdate(packageNames);
         }
     }
 }
