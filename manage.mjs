@@ -36,7 +36,7 @@ function main() {
     switch (command) {
         case "list":
             for (const pkg of packages) {
-              pkg.print();
+              console.log(pkg.toString());
             }
             break;
         case "update":
@@ -127,7 +127,7 @@ class PackageEnt {
 
     /**
      * @param {string} pkgPath - The path to the package.json file for this package
-     * @param {boolean} [isWorkspace] - Whether or not this package is a workspace
+     * @param {boolean} [isNpmWorkspace = false] - Whether or not this package is an NPM workspace
      */
     constructor(pkgPath, isNpmWorkspace = false) {
         const dir = path.dirname(pkgPath);
@@ -137,7 +137,7 @@ class PackageEnt {
         let packageManager = undefined;
         if (existsSync(path.join(dir, "pnpm-lock.yaml"))) {
             packageManager = "pnpm";
-        } else if (existsSync(path.join(dir, "package-lock.json")) || isWorkspace) {
+        } else if (existsSync(path.join(dir, "package-lock.json")) || isNpmWorkspace) {
             packageManager = "npm";
         } else if (existsSync(path.join(dir, "yarn.lock"))) {
             packageManager = "yarn";
@@ -194,15 +194,9 @@ class PackageEnt {
         }
     }
 
-    /**
-     * @param {number} indent - Amount to indent the output. Used for workspaces.
-     */
-    print(indent = 0) {
-        const spacing = ' '.repeat(indent);
-        console.log(`${spacing}${this.name} (${this.packageManager}) at ${this.path}`);
-        for (const ws of this.workspaces) {
-            ws.print(2);
-        }
+    toString() {
+        const ws = this.workspaces.length > 0 ? `, ${this.workspaces.length} workspaces` : "";
+        return `${this.name} (${this.packageManager}${ws}) at ${this.path}`;
     }
 
     install() {
@@ -238,14 +232,15 @@ class PackageEnt {
     }
 
     /**
-     * @param {boolean} knownOnly - Whether to only update known dependencies
+     * @param {Array<string>} [packageNames] - Specific package names to forcibly update.
+     * If this list is empty, all dependencies will be updated.
      */
-    forceUpdate(knownOnly = false) {
+    forceUpdate(packageNames = []) {
         let directDeps = Object.keys(this.packageJson.dependencies ?? {});
         let devDeps = Object.keys(this.packageJson.devDependencies ?? {});
-        if (knownOnly) {
-            directDeps = directDeps.filter(name => knownDependencies.includes(name));
-            devDeps = devDeps.filter(name => knownDependencies.includes(name));
+        if (packageNames.length > 0) {
+            directDeps = directDeps.filter(name => packageNames.includes(name));
+            devDeps = devDeps.filter(name => packageNames.includes(name));
         }
         if ((directDeps.length + devDeps.length) > 0) {
             const deps = [...directDeps, ...devDeps].join(" ");
@@ -297,6 +292,10 @@ class PackageEnt {
         }
 
         // Loop through any workspaces and call their forceupdate
+        // Note that forceUpdate removes deps first and then re-installs so packages
+        // get the latest version. However, this might have issues updating all
+        // versions to latest in some situations due to the vagaries of how NPM handles 
+        // workspaces.
         for (const ws of this.workspaces) {
             ws.forceUpdate(knownOnly);
         }
