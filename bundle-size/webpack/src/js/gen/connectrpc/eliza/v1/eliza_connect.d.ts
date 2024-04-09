@@ -30,20 +30,20 @@ import { MethodIdempotency, MethodKind } from "@bufbuild/protobuf";
  *
  * @generated from service connectrpc.eliza.v1.ElizaService
  */
-export const ElizaService = {
-  typeName: "connectrpc.eliza.v1.ElizaService",
-  methods: {
+export declare const ElizaService: {
+  readonly typeName: "connectrpc.eliza.v1.ElizaService",
+  readonly methods: {
     /**
      * Say is a unary RPC. Eliza responds to the prompt with a single sentence.
      *
      * @generated from rpc connectrpc.eliza.v1.ElizaService.Say
      */
-    say: {
-      name: "Say",
-      I: SayRequest,
-      O: SayResponse,
-      kind: MethodKind.Unary,
-      idempotency: MethodIdempotency.NoSideEffects,
+    readonly say: {
+      readonly name: "Say",
+      readonly I: typeof SayRequest,
+      readonly O: typeof SayResponse,
+      readonly kind: MethodKind.Unary,
+      readonly idempotency: MethodIdempotency.NoSideEffects,
     },
     /**
      * Converse is a bidirectional RPC. The caller may exchange multiple
@@ -52,11 +52,11 @@ export const ElizaService = {
      *
      * @generated from rpc connectrpc.eliza.v1.ElizaService.Converse
      */
-    converse: {
-      name: "Converse",
-      I: ConverseRequest,
-      O: ConverseResponse,
-      kind: MethodKind.BiDiStreaming,
+    readonly converse: {
+      readonly name: "Converse",
+      readonly I: typeof ConverseRequest,
+      readonly O: typeof ConverseResponse,
+      readonly kind: MethodKind.BiDiStreaming,
     },
     /**
      * Introduce is a server streaming RPC. Given the caller's name, Eliza
@@ -64,11 +64,11 @@ export const ElizaService = {
      *
      * @generated from rpc connectrpc.eliza.v1.ElizaService.Introduce
      */
-    introduce: {
-      name: "Introduce",
-      I: IntroduceRequest,
-      O: IntroduceResponse,
-      kind: MethodKind.ServerStreaming,
+    readonly introduce: {
+      readonly name: "Introduce",
+      readonly I: typeof IntroduceRequest,
+      readonly O: typeof IntroduceResponse,
+      readonly kind: MethodKind.ServerStreaming,
     },
   }
 };
