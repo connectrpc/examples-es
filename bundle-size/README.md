@@ -19,8 +19,8 @@ The results are:
 |------|-----:|----------|
 | esbuild (js) | 83,741 bytes | dist/js/index.js |
 | esbuild (ts) | 88,697 bytes | dist/ts/index.js |
-| parcel (js) | 73,323 bytes | dist/js/index.cf4251ac.js |
-| parcel (ts) | 76,825 bytes | dist/ts/index.dc635180.js |
+| parcel (js) | 73,296 bytes | dist/js/index.cf4251ac.js |
+| parcel (ts) | 76,821 bytes | dist/ts/index.dc635180.js |
 | rollup (js) | 145,627 bytes | dist/js/index.js |
 | rollup (ts) | 155,601 bytes | dist/ts/index.js |
 | vite (js) | 55,512 bytes | dist/js/consumer-vite.js |
