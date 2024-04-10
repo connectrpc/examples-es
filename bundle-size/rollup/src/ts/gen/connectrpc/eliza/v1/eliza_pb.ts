@@ -95,7 +95,7 @@ export class SayRequest extends Message<SayRequest> {
 
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "connectrpc.eliza.v1.SayRequest";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  static readonly fields: FieldList = /*@__PURE__*/ proto3.util.newFieldList(() => [
     { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "volume", kind: "enum", T: proto3.getEnumType(SayVolume) },
   ]);
@@ -135,7 +135,7 @@ export class SayResponse extends Message<SayResponse> {
 
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "connectrpc.eliza.v1.SayResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  static readonly fields: FieldList = /*@__PURE__*/ proto3.util.newFieldList(() => [
     { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
@@ -180,7 +180,7 @@ export class ConverseRequest extends Message<ConverseRequest> {
 
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "connectrpc.eliza.v1.ConverseRequest";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  static readonly fields: FieldList = /*@__PURE__*/ proto3.util.newFieldList(() => [
     { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "volume", kind: "enum", T: proto3.getEnumType(ConverseVolume) },
   ]);
@@ -221,7 +221,7 @@ export class ConverseResponse extends Message<ConverseResponse> {
 
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "connectrpc.eliza.v1.ConverseResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  static readonly fields: FieldList = /*@__PURE__*/ proto3.util.newFieldList(() => [
     { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
@@ -260,7 +260,7 @@ export class IntroduceRequest extends Message<IntroduceRequest> {
 
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "connectrpc.eliza.v1.IntroduceRequest";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  static readonly fields: FieldList = /*@__PURE__*/ proto3.util.newFieldList(() => [
     { no: 1, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
@@ -299,7 +299,7 @@ export class IntroduceResponse extends Message<IntroduceResponse> {
 
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "connectrpc.eliza.v1.IntroduceResponse";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+  static readonly fields: FieldList = /*@__PURE__*/ proto3.util.newFieldList(() => [
     { no: 1, name: "sentence", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
