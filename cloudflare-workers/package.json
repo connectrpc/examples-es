@@ -15,15 +15,15 @@
 		"@connectrpc/connect": "^1.4.0"
 	},
 	"devDependencies": {
-		"@bufbuild/buf": "^1.30.0",
-		"@bufbuild/protoc-gen-es": "^1.8.0",
-		"@cloudflare/workers-types": "^4.20240329.0",
+		"@bufbuild/buf": "^1.31.0",
+		"@bufbuild/protoc-gen-es": "^1.9.0",
+		"@cloudflare/workers-types": "^4.20240423.0",
 		"@connectrpc/connect-node": "^1.4.0",
 		"@connectrpc/protoc-gen-connect-es": "^1.4.0",
-		"@types/node": "^20.12.2",
-		"miniflare": "^3.20240329.0",
+		"@types/node": "^20.12.7",
+		"miniflare": "^3.20240419.0",
 		"ts-node": "^10.9.2",
-		"typescript": "^5.4.3",
-		"wrangler": "^3.43.0"
+		"typescript": "^5.4.5",
+		"wrangler": "^3.53.0"
 	}
 }
