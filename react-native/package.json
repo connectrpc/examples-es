@@ -24,7 +24,7 @@
     "react-native-web": "^0.19.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.3",
+    "@babel/core": "^7.24.5",
     "@babel/plugin-proposal-async-generator-functions": "^7.20.7",
     "@bufbuild/buf": "^1.30.0",
     "@bufbuild/protobuf": "^1.8.0",
