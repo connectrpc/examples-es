@@ -32,17 +32,17 @@ function main() {
     let packages = listPackages(process.cwd());
     let onlyPackages = [], notPackages = [];
     packageList.forEach((pkg) => {
-      if (pkg.startsWith("!")) {
-        notPackages.push(pkg.substring(1));
-      } else {
-        onlyPackages.push(pkg);
-      }
+        if (pkg.startsWith("!")) {
+            notPackages.push(pkg.substring(1));
+        } else {
+            onlyPackages.push(pkg);
+        }
     });
-    if (onlyPackages.length > 0 && notPackages.length > 0) {
-      process.stderr.write("either a list of packages or a list of skipped packages must be provided, but not both");
-      process.exit(1);
-    }
     if (onlyPackages.length > 0) {
+        if (notPackages.length > 0) {
+            process.stderr.write("either a list of packages or a list of skipped packages must be provided, but not both");
+            process.exit(1);
+        }
         packages = packages.filter(p => onlyPackages.includes(p.name));
     } else if (notPackages.length > 0) {
         packages = packages.filter(p => !notPackages.includes(p.name));
@@ -89,6 +89,7 @@ function main() {
             console.error("'update' updates all deps to the latest version allowed by the dependency constraints.");
             console.error("'forceupdateknown' updates all known deps to the latest version, regardless of constraints.");
             console.error("'forceupdateall' updates all deps to the latest version, regardless of constraints.");
+            console.error("To skip a package, wrap it in single quotes and prefix it with `!`. i.e. '!buf-ng'");
             console.error("If no packages are given, the command runs for all packages.");
             process.exit(1);
     }
