@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@bufbuild/buf": "^1.30.0",
+    "@bufbuild/buf": "^1.31.0",
     "@bufbuild/jest-environment-jsdom": "^0.1.1",
     "@bufbuild/protobuf": "^1.8.0",
     "@bufbuild/protoc-gen-es": "^1.8.0",
