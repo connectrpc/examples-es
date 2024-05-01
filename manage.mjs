@@ -38,10 +38,13 @@ function main() {
         onlyPackages.push(pkg);
       }
     });
+    if (onlyPackages.length > 0 && notPackages.length > 0) {
+      process.stderr.write("either a list of packages or a list of skipped packages must be provided, but not both");
+      process.exit(1);
+    }
     if (onlyPackages.length > 0) {
         packages = packages.filter(p => onlyPackages.includes(p.name));
-    }
-    if (notPackages.length > 0) {
+    } else if (notPackages.length > 0) {
         packages = packages.filter(p => !notPackages.includes(p.name));
     }
     switch (command) {
