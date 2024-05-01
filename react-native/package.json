@@ -27,7 +27,7 @@
     "@babel/core": "^7.24.5",
     "@babel/plugin-proposal-async-generator-functions": "^7.20.7",
     "@bufbuild/buf": "^1.31.0",
-    "@bufbuild/protobuf": "^1.8.0",
+    "@bufbuild/protobuf": "^1.9.0",
     "@bufbuild/protoc-gen-es": "^1.8.0",
     "@connectrpc/connect": "^1.4.0",
     "@connectrpc/connect-web": "^1.4.0",
