@@ -12,7 +12,7 @@
         "ci": "npm run generate && npm run build && npm run test"
     },
     "dependencies": {
-        "react": "^18.2.0",
+        "react": "^18.3.1",
         "react-dom": "^18.2.0",
         "web-vitals": "^3.5.2"
     },
@@ -23,7 +23,7 @@
         "@connectrpc/connect": "^1.4.0",
         "@connectrpc/connect-web": "^1.4.0",
         "@connectrpc/protoc-gen-connect-es": "^1.4.0",
-        "@types/react": "^18.2.74",
+        "@types/react": "^18.3.1",
         "@types/react-dom": "^18.2.23",
         "@vitejs/plugin-react": "^4.2.1",
         "@vitest/coverage-v8": "^1.4.0",
