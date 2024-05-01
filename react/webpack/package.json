@@ -32,7 +32,7 @@
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.23",
-    "css-loader": "^6.10.0",
+    "css-loader": "^7.1.1",
     "style-loader": "^3.3.4",
     "ts-jest": "^29.1.2",
     "ts-loader": "^9.5.1",
