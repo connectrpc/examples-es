@@ -19,7 +19,7 @@
   "devDependencies": {
     "@bufbuild/buf": "^1.30.0",
     "@bufbuild/protobuf": "^1.8.0",
-    "@bufbuild/protoc-gen-es": "^1.8.0",
+    "@bufbuild/protoc-gen-es": "^1.9.0",
     "@connectrpc/connect": "^1.4.0",
     "@connectrpc/connect-web": "^1.4.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
