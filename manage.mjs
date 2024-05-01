@@ -64,9 +64,6 @@ function main() {
             break;
         case "ci":
             for (const pkg of packages) {
-                if (pkg.name === "buf-react-native") {
-                  continue;
-                }
                 pkg.install();
                 pkg.runScript("ci");
             }
