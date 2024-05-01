@@ -28,10 +28,21 @@ const knownDependencies = [
 
 function main() {
     const command = process.argv[2];
-    const onlyPackages = process.argv.splice(3);
+    const packageList = process.argv.splice(3);
     let packages = listPackages(process.cwd());
+    let onlyPackages = [], notPackages = [];
+    packageList.forEach((pkg) => {
+      if (pkg.startsWith("!")) {
+        notPackages.push(pkg.substring(1));
+      } else {
+        onlyPackages.push(pkg);
+      }
+    });
     if (onlyPackages.length > 0) {
         packages = packages.filter(p => onlyPackages.includes(p.name));
+    }
+    if (notPackages.length > 0) {
+        packages = packages.filter(p => !notPackages.includes(p.name));
     }
     switch (command) {
         case "list":
