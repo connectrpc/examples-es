@@ -15,26 +15,26 @@
     "@bufbuild/jest-environment-jsdom": "^0.1.1",
     "@connectrpc/connect-next": "^1.4.0",
     "next": "^13.5.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.30.0",
-    "@bufbuild/protobuf": "^1.8.0",
-    "@bufbuild/protoc-gen-es": "^1.8.0",
+    "@bufbuild/buf": "^1.31.0",
+    "@bufbuild/protobuf": "^1.9.0",
+    "@bufbuild/protoc-gen-es": "^1.9.0",
     "@connectrpc/connect": "^1.4.0",
     "@connectrpc/connect-web": "^1.4.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
     "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.2",
-    "@types/node": "^20.12.2",
-    "@types/react": "^18.2.74",
-    "@types/react-dom": "^18.2.23",
+    "@testing-library/react": "^15.0.5",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.1.4",
+    "eslint-config-next": "^14.2.3",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "ts-jest": "^29.1.2",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.5"
   }
 }
