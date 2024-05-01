@@ -33,7 +33,7 @@
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.23",
     "css-loader": "^6.10.0",
-    "style-loader": "^3.3.4",
+    "style-loader": "^4.0.0",
     "ts-jest": "^29.1.2",
     "ts-loader": "^9.5.1",
     "typescript": "^5.4.3",
