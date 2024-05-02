@@ -31,3 +31,7 @@ Use `buf` to generate the compiled protos via protobuf-es
 
 Starts the app in Expo's `web` mode, which will allow you to see it running in a browser.
 
+### `npx @rnx-kit/align-deps --requirements react-native@[major.minor]`
+
+If the dependency updates for React Native ever fail when running `manage.mjs`, the above command helps diagnose package.json issues.
+
