@@ -89,6 +89,13 @@ function tryGetPackage(dir) {
     return new PackageEnt(pkgPath);
 }
 
+function info(text) {
+    console.log('\x1b[36m%s\x1b[0m', `INFO: ${text}`);
+}
+function warn(text) {
+    console.log('\x1b[33m%s\x1b[0m', `WARNING: ${text}`);
+}
+
 class UpgradeStats {
     /**
      * @param {PackageEnt} pkg
@@ -96,7 +103,7 @@ class UpgradeStats {
      * @param {string} version
      */
     skipPinned(pkg, dependency, version) {
-        console.log("WHOA pinned", pkg.toString(), dependency, version)
+      info(`Skipping upgrade of pinned dependency ${dependency}@${version} for ${pkg.toString()}.`);
     }
 
     /**
@@ -106,7 +113,7 @@ class UpgradeStats {
      * @param {string} newConstraint
      */
     breaking(pkg, dependency, oldConstraint, newConstraint) {
-        console.log("WHOA breaking", pkg.toString(), dependency, oldConstraint, newConstraint)
+        warn(`Potential breaking change upgrading ${dependency} from v${oldConstraint} to v${newConstraint} in ${pkg.toString()}.`);
     }
 
     /**
@@ -116,7 +123,7 @@ class UpgradeStats {
      * @param {string} newConstraint
      */
     unrecognized(pkg, dependency, oldConstraint, newConstraint) {
-        console.log("WHOA unrecognized", pkg.toString(), dependency, oldConstraint, newConstraint)
+        warn(`Found unrecognized dependency ${dependency} for ${pkg.toString()} while trying to upgrade from v${oldConstraint} to v${newConstraint}.`)
     }
 }
 
@@ -346,11 +353,11 @@ class PackageEnt {
         const devNames = [];
         const versions = {};
         for (const [key, val] of Object.entries(this.packageJson.dependencies ?? {})) {
+            versions[key] = val;
             if (rePinned.test(val)) {
                 skippedPinnedNames.push(key);
                 continue;
             }
-            versions[key] = val;
             directNames.push(key);
         }
         for (const [key, val] of Object.entries(this.packageJson.devDependencies ?? {})) {
