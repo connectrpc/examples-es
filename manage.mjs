@@ -100,10 +100,9 @@ class UpgradeStats {
     /**
      * @param {PackageEnt} pkg
      * @param {string} dependency
-     * @param {string} version
      */
-    skipPinned(pkg, dependency, version) {
-      info(`Skipping upgrade of pinned dependency ${dependency}@${version} for ${pkg.toString()}.`);
+    skipPinned(pkg, dependency) {
+      info(`Skipping upgrade of pinned dependency ${dependency} for ${pkg.toString()}.`);
     }
 
     /**
@@ -244,9 +243,9 @@ class PackageEnt {
      * @param {UpgradeStats} stats
      */
     upgrade(stats) {
-        const { directNames, devNames, versions, skippedPinnedNames } = this.filterDeps();
-        for (const name of skippedPinnedNames) {
-            stats.skipPinned(this, name, versions[name])
+        const { directNames, devNames, versions, skippedPinnedDeps } = this.filterDeps();
+        for (const name of skippedPinnedDeps) {
+            stats.skipPinned(this, name)
         }
 
         if ((directNames.length + devNames.length) > 0) {
@@ -338,7 +337,7 @@ class PackageEnt {
 
     /**
      * @typedef {Object} Deps
-     * @property {string[]} skippedPinnedNames
+     * @property {string[]} skippedPinnedDeps
      * @property {string[]} directNames
      * @property {string[]} devNames
      * @property {Record<string, string>} versions
@@ -348,28 +347,28 @@ class PackageEnt {
      */
     filterDeps() {
         const rePinned = /^\d+\.\d+\.\d+$/; // e.g. "1.2.3" or "0.2.3"
-        const skippedPinnedNames = [];
+        const skippedPinnedDeps = [];
         const directNames = [];
         const devNames = [];
         const versions = {};
         for (const [key, val] of Object.entries(this.packageJson.dependencies ?? {})) {
-            versions[key] = val;
             if (rePinned.test(val)) {
-                skippedPinnedNames.push(key);
+                skippedPinnedDeps.push(`${key}@${val}`);
                 continue;
             }
+            versions[key] = val;
             directNames.push(key);
         }
         for (const [key, val] of Object.entries(this.packageJson.devDependencies ?? {})) {
             if (rePinned.test(val)) {
-                skippedPinnedNames.push(key);
+                skippedPinnedDeps.push(`${key}@${val}`);
                 continue;
             }
             versions[key] = val;
             devNames.push(key);
         }
         return {
-            skippedPinnedNames,
+            skippedPinnedDeps,
             directNames,
             devNames,
             versions,
