@@ -69,8 +69,9 @@ You can upgrade all dependencies in this project with a single command:
 ./manage.mjs upgrade
 ```
 
-Dependencies pinned to a version will not be updated. Note that this command may 
-print warnings at the end, for example when a major upgrade was installed or a dependency was skipped due to being pinned. 
+Dependencies pinned to a version will not be updated. 
+Note that this command may print warnings at the end, for example when a major 
+upgrade was installed or a dependency was skipped due to being pinned. 
 Be sure to keep a look out for these messages in the event something fails during the upgrade.
 
 It is usually necessary to follow the framework's upgrade guide for major releases. For example, frameworks such as

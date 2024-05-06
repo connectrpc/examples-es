@@ -29,6 +29,7 @@ function main() {
             for (const pkg of packages) {
                 pkg.upgrade(stats);
             }
+        stats.printSummary();
             break;
         case "ci":
             for (const pkg of packages) {
@@ -91,11 +92,32 @@ function tryGetPackage(dir) {
 
 
 class UpgradeStats {
+
+    statCache = {};
+
+    cache(stat, pkg, dependency, oldConstraint = null, newConstraint = null) {
+      const blah = statCache[pkg];
+      if (!blah) {
+        statCache[pkg] = []
+      }
+      statCache[pkg][stat].push({
+        dependency, 
+        oldConstraint, 
+        newConstraint
+      });
+    }
+
+    printSummary() {
+      warn(statCache);
+    }
+
+
     /**
      * @param {PackageEnt} pkg
      * @param {string} dependency
      */
     skipPinned(pkg, dependency) {
+        cache("pinned", pkg, dependency);
         warn(`Skipping upgrade of pinned dependency ${dependency} for ${pkg.toString()}.`);
     }
 
@@ -106,6 +128,7 @@ class UpgradeStats {
      * @param {string} newConstraint
      */
     breaking(pkg, dependency, oldConstraint, newConstraint) {
+        cache("breaking", pkg, dependency, oldConstraint, newConstraint);
         warn(`Potential breaking change upgrading ${dependency} from v${oldConstraint} to v${newConstraint} in ${pkg.toString()}.`);
     }
 
@@ -116,6 +139,7 @@ class UpgradeStats {
      * @param {string} newConstraint
      */
     unrecognized(pkg, dependency, oldConstraint, newConstraint) {
+        cache("unrecognized", pkg, dependency, oldConstraint, newConstraint);
         warn(`Found unrecognized dependency ${dependency} for ${pkg.toString()} while trying to upgrade from v${oldConstraint} to v${newConstraint}.`)
     }
 
