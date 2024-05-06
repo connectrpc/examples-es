@@ -89,12 +89,6 @@ function tryGetPackage(dir) {
     return new PackageEnt(pkgPath);
 }
 
-function info(text) {
-    console.log('\x1b[36m%s\x1b[0m', `INFO: ${text}`);
-}
-function warn(text) {
-    console.log('\x1b[33m%s\x1b[0m', `WARNING: ${text}`);
-}
 
 class UpgradeStats {
     /**
@@ -102,7 +96,7 @@ class UpgradeStats {
      * @param {string} dependency
      */
     skipPinned(pkg, dependency) {
-      info(`Skipping upgrade of pinned dependency ${dependency} for ${pkg.toString()}.`);
+        warn(`Skipping upgrade of pinned dependency ${dependency} for ${pkg.toString()}.`);
     }
 
     /**
@@ -123,6 +117,13 @@ class UpgradeStats {
      */
     unrecognized(pkg, dependency, oldConstraint, newConstraint) {
         warn(`Found unrecognized dependency ${dependency} for ${pkg.toString()} while trying to upgrade from v${oldConstraint} to v${newConstraint}.`)
+    }
+
+    /**
+     * @param {string} text
+     */
+    warn(text) {
+        console.log('\x1b[33m%s\x1b[0m', `WARNING: ${text}`);
     }
 }
 
@@ -325,8 +326,8 @@ class PackageEnt {
             stats.unrecognized(this, key, oldConstraint, newConstraint);
         }
 
-        // Loop through any workspaces and call their forceupdate
-        // Note that upgrade() removes deps first and then re-installs so packages
+        // Loop through any workspaces and call their `upgrade` method.
+        // Note that `upgrade` removes deps first and then re-installs so packages
         // get the latest version. However, this might have issues updating all
         // versions to latest in some situations due to the vagaries of how NPM handles
         // workspaces.
