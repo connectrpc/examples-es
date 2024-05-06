@@ -96,6 +96,13 @@ class UpgradeStats {
     statTypes = ["skipped", "breaking", "unrecognized"];
     summary = {};
 
+    /**
+     * @param {string} statType
+     * @param {string} pkg
+     * @param {string} dependency
+     * @param {string} oldConstraint
+     * @param {string} newConstraint
+     */
     cache(statType, pkg, dependency, oldConstraint = null, newConstraint = null) {
       if (!this.statTypes.includes(statType)) {
         throw new Error(`invalid stat type: ${statType}`);
@@ -147,7 +154,6 @@ class UpgradeStats {
             });
         }
     }
-
 
     /**
      * @param {PackageEnt} pkg
@@ -403,8 +409,6 @@ class PackageEnt {
      * @property {string[]} directNames
      * @property {string[]} devNames
      * @property {Record<string, string>} versions
-     */
-    /**
      * @return {Deps}
      */
     filterDeps() {
