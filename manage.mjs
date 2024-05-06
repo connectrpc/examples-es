@@ -40,7 +40,7 @@ function main() {
             console.error("Usage: (list | ci | upgrade | update) <projects>...");
             console.error("'list' lists all projects in the repository.");
             console.error("'ci' installs dependencies, then runs the script 'ci' for each project.");
-            console.error("'upgrade' updates all dependencies to their latest version, for each project.");
+            console.error("'upgrade' updates all dependencies to their latest version, for each project. The command may print warnings at the end, for example when a major upgrade was installed, and you need to look out for breaking changes.");
             console.error("'update' runs 'npm update' / 'yarn up' / 'pnpm update' for each project.");
             console.error("If no projects are given, the command runs for all projects.");
             process.exit(1);
