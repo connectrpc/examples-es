@@ -37,7 +37,7 @@ function main() {
             }
             break;
         default:
-            console.error("Usage: (list | test | upgrade | update) <projects>...");
+            console.error("Usage: (list | ci | upgrade | update) <projects>...");
             console.error("'list' lists all projects in the repository.");
             console.error("'ci' installs dependencies, then runs the script 'ci' for each project.");
             console.error("'upgrade' updates all dependencies to their latest version, for each project.");
