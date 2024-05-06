@@ -93,14 +93,25 @@ function tryGetPackage(dir) {
 
 class UpgradeStats {
 
-    statCache = {};
+    statTypes = ["skipped", "breaking", "unrecognized"];
+    summary = {};
 
-    cache(stat, pkg, dependency, oldConstraint = null, newConstraint = null) {
-      const blah = statCache[pkg];
-      if (!blah) {
-        statCache[pkg] = []
+    cache(statType, pkg, dependency, oldConstraint = null, newConstraint = null) {
+      if (!this.statTypes.includes(statType)) {
+        throw new Error(`invalid stat type: ${statType}`);
       }
-      statCache[pkg][stat].push({
+      const pkgStats = this.summary[pkg];
+      // Package does not yet exist in the summary
+      // Create an entry for all stats and initialize to empty arrays
+      if (!pkgStats) {
+        this.summary[pkg] = this.statTypes.reduce((map, val) => {
+            map[val] = [];
+            return map;
+          }, {},
+        );
+      }
+
+      this.summary[pkg][statType].push({
         dependency, 
         oldConstraint, 
         newConstraint
@@ -108,7 +119,33 @@ class UpgradeStats {
     }
 
     printSummary() {
-      warn(statCache);
+        const issues = Object.entries(this.summary);
+        if (issues.length === 0) {
+            this.warn("No issues found");
+            return;
+        }
+        this.warn("Issues found");
+        for (const [key, value] of issues) {
+            // Key represents the package name and value is an object containing
+            // status for all stat types
+            this.warn(`\n${key}:\n`);
+            this.statTypes.forEach((statType) => {
+                const stats = value[statType];
+                if (stats.length > 0) {
+                    this.warn(`${statType} dependencies:`);
+                    stats.forEach((stat) => {
+                        let msg = `-- ${stat.dependency}`;
+                        if (stat.oldConstraint) {
+                            msg += ` from v${stat.oldConstraint}`;
+                        }
+                        if (stat.newConstraint) {
+                            msg += ` to v${stat.newConstraint}`;
+                        }
+                        this.warn(msg);
+                    });
+                }
+            });
+        }
     }
 
 
@@ -117,8 +154,8 @@ class UpgradeStats {
      * @param {string} dependency
      */
     skipPinned(pkg, dependency) {
-        cache("pinned", pkg, dependency);
-        warn(`Skipping upgrade of pinned dependency ${dependency} for ${pkg.toString()}.`);
+        this.cache("skipped", pkg, dependency);
+        this.warn(`Skipping upgrade of pinned dependency ${dependency} for ${pkg.toString()}.`);
     }
 
     /**
@@ -128,8 +165,8 @@ class UpgradeStats {
      * @param {string} newConstraint
      */
     breaking(pkg, dependency, oldConstraint, newConstraint) {
-        cache("breaking", pkg, dependency, oldConstraint, newConstraint);
-        warn(`Potential breaking change upgrading ${dependency} from v${oldConstraint} to v${newConstraint} in ${pkg.toString()}.`);
+        this.cache("breaking", pkg, dependency, oldConstraint, newConstraint);
+        this.warn(`Potential breaking change upgrading ${dependency} from v${oldConstraint} to v${newConstraint} in ${pkg.toString()}.`);
     }
 
     /**
@@ -139,15 +176,15 @@ class UpgradeStats {
      * @param {string} newConstraint
      */
     unrecognized(pkg, dependency, oldConstraint, newConstraint) {
-        cache("unrecognized", pkg, dependency, oldConstraint, newConstraint);
-        warn(`Found unrecognized dependency ${dependency} for ${pkg.toString()} while trying to upgrade from v${oldConstraint} to v${newConstraint}.`)
+        this.cache("unrecognized", pkg, dependency, oldConstraint, newConstraint);
+        this.warn(`Found unrecognized dependency ${dependency} for ${pkg.toString()} while trying to upgrade from v${oldConstraint} to v${newConstraint}.`)
     }
 
     /**
      * @param {string} text
      */
     warn(text) {
-        console.log('\x1b[33m%s\x1b[0m', `WARNING: ${text}`);
+        console.log('\x1b[33m%s\x1b[0m', text);
     }
 }
 
