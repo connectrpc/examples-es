@@ -100,8 +100,8 @@ class UpgradeStats {
      * @param {string} statType
      * @param {string} pkg
      * @param {string} dependency
-     * @param {string} oldConstraint
-     * @param {string} newConstraint
+     * @param {string} [oldConstraint]
+     * @param {string} [newConstraint]
      */
     cache(statType, pkg, dependency, oldConstraint = null, newConstraint = null) {
       if (!this.statTypes.includes(statType)) {
