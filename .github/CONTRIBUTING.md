@@ -61,21 +61,34 @@ We're much more likely to approve your changes if you:
 - Maintain backward compatibility.
 
 
-## Updating dependencies
+## Upgrading dependencies
 
-You can update all dependencies in this project with a single command:
+You can upgrade all dependencies in this project with a single command:
 
 ```console
-./manage.mjs update
+./manage.mjs upgrade
 ```
 
-Note that this will only update dependencies within their version constraints.
-To upgrade all `@connectrpc` and other well-known dependencies to the latest 
-available version, use `./manage.mjs forceupdateknown`. 
+Dependencies pinned to an exact version will not be updated. 
+Note that this command may print warnings at the end, for example when a major 
+upgrade was installed or a dependency was skipped due to being pinned. 
+Be sure to keep a look out for these messages in the event something fails during the upgrade.
+
+It is usually necessary to follow the framework's upgrade guide for major releases. For example, frameworks such as
+[Angular][angular-guide], [React][react-guide],
+[Svelte][svelte-guide], [Remix][remix-guide], and 
+[Astro][astro-guide] all have guides for handling upgrades. In addition, React
+Native publishes the [React Native Upgrade Helper][react-native-guide]
+for managing these upgrades.
  
-After updating dependencies, make sure to run tests with `./manage.mjs test`.
+After updating dependencies, make sure to run all tests and checks with `./manage.mjs ci`.
 
-
+[angular-guide]: https://update.angular.io/?v=16.0-17.0)
+[react-guide]: https://react.dev/blog/2022/03/08/react-18-upgrade-guide)
+[svelte-guide]: https://svelte.dev/docs/v4-migration-guide)
+[remix-guide]: https://remix.run/docs/en/main/start/v2)
+[astro-guide]: https://docs.astro.build/en/guides/upgrade-to/v4/)
+[react-native-guide]: https://react-native-community.github.io/upgrade-helper/)
 [fork]: https://github.com/connectrpc/examples-es/fork
 [open-issue]: https://github.com/connectrpc/examples-es/issues/new
 [cla]: https://cla-assistant.io/connectrpc/examples-es

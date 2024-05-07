@@ -6,26 +6,6 @@ import assert from "node:assert";
 import process from "node:process";
 import { spawnSync } from "node:child_process";
 
-
-const knownDependencies = [
-    // github.com/connectrpc/connect-es
-    "@connectrpc/connect",
-    "@connectrpc/connect-web",
-    "@connectrpc/connect-node",
-    "@connectrpc/connect-next",
-    "@connectrpc/connect-fastify",
-    "@connectrpc/connect-express",
-    "@connectrpc/protoc-gen-connect-es",
-    // github.com/connectrpc/connect-query-es
-    "@connectrpc/connect-query",
-    // github.com/connectrpc/connect-playwright-es
-    "@connectrpc/connect-playwright",
-    // github.com/bufbuild
-    "@bufbuild/protobuf",
-    "@bufbuild/protoc-gen-es",
-    "@bufbuild/buf",
-];
-
 function main() {
     const command = process.argv[2];
     const onlyPackages = process.argv.splice(3);
@@ -44,23 +24,12 @@ function main() {
                 pkg.update();
             }
             break;
-        case "forceupdateall":
+        case "upgrade":
+            const stats = new UpgradeStats();
             for (const pkg of packages) {
-                pkg.forceUpdate();
+                pkg.upgrade(stats);
             }
-            break;
-        case "forceupdateknown":
-            for (const pkg of packages) {
-                pkg.forceUpdate(knownDependencies);
-            }
-            break;
-        case "test":
-            for (const pkg of packages) {
-                pkg.install();
-                pkg.runScript("generate");
-                pkg.runScript("build");
-                pkg.runScript("test");
-            }
+            stats.printSummary();
             break;
         case "ci":
             for (const pkg of packages) {
@@ -69,13 +38,12 @@ function main() {
             }
             break;
         default:
-            console.error("Usage: (list | test | update | forceupdateknown | forceupdateall) <packages>...");
-            console.error("'list' lists all packages in the repository.");
-            console.error("'test' installs dependencies, then runs the 'generate', 'build', and 'test' scripts.");
-            console.error("'update' updates all deps to the latest version allowed by the dependency constraints.");
-            console.error("'forceupdateknown' updates all known deps to the latest version, regardless of constraints.");
-            console.error("'forceupdateall' updates all deps to the latest version, regardless of constraints.");
-            console.error("If no packages are given, the command runs for all packages.");
+            console.error("Usage: (list | ci | upgrade | update) <projects>...");
+            console.error("'list' lists all projects in the repository.");
+            console.error("'ci' installs dependencies, then runs the script 'ci' for each project.");
+            console.error("'upgrade' updates all dependencies to their latest version, for each project. The command may print warnings at the end, for example when a major upgrade was installed, and you need to look out for breaking changes.");
+            console.error("'update' runs 'npm update' / 'yarn up' / 'pnpm update' for each project.");
+            console.error("If no projects are given, the command runs for all projects.");
             process.exit(1);
     }
 }
@@ -123,6 +91,109 @@ function tryGetPackage(dir) {
 }
 
 
+class UpgradeStats {
+
+    #statTypes = ["skipped", "breaking", "unrecognized"];
+    #summary = [];
+  
+    /**
+     * @param {string} statType
+     * @param {PackageEnt} pkg
+     * @param {string} dependency
+     * @param {string} [oldConstraint]
+     * @param {string} [newConstraint]
+     */
+    #cache(statType, pkg, dependency, oldConstraint = null, newConstraint = null) {
+        if (!this.#statTypes.includes(statType)) {
+            throw new Error(`invalid stat type: ${statType}`);
+        }
+        this.#summary.push({
+            statType,
+            pkg,
+            dependency,
+            oldConstraint,
+            newConstraint,
+        });
+    }
+
+    printSummary() {
+        if (this.#summary.length > 0) {
+            // If a summary exists, sort by pkg name, then statType, then dependency
+            this.#summary.sort((a, b) => {
+                if (a.pkg.name < b.pkg.name) return -1;
+                if (a.pkg.name > b.pkg.name) return 1;
+                if (a.statType < b.statType) return -1;
+                if (a.statType > b.statType) return 1;
+                if (a.dependency < b.dependency) return -1;
+                if (a.dependency > b.dependency) return 1;
+                return 0;
+            });
+
+            this.#warn("Issues found while upgrading dependencies:");
+            let lastPkg = "";
+            let lastType = "";
+            this.#summary.forEach((stat) => {
+                if (stat.pkg.name !== lastPkg) {
+                    this.#warn(`\n-----------------\n`);
+                    this.#warn(`${stat.pkg.toString()}:`);
+                    lastPkg = stat.pkg.name;
+                    lastType = "";
+                }
+                if (stat.statType !== lastType) {
+                    this.#warn(`\n${stat.statType} dependencies:`);
+                    lastType = stat.statType;
+                }
+                let msg = `* ${stat.dependency}`;
+                if (stat.oldConstraint) {
+                    msg += ` from ${stat.oldConstraint}`;
+                }
+                if (stat.newConstraint) {
+                    msg += ` to ${stat.newConstraint}`;
+                }
+                this.#warn(msg);
+            });
+        }
+    }
+
+    /**
+     * @param {string} text
+     */
+    #warn(text) {
+        console.log('\x1b[33m%s\x1b[0m', text);
+    }
+
+    /**
+     * @param {PackageEnt} pkg
+     * @param {string} dependency
+     */
+    skipPinned(pkg, dependency) {
+        this.#cache("skipped", pkg, dependency);
+        this.#warn(`Skipping upgrade of pinned dependency ${dependency} for ${pkg}.`);
+    }
+
+    /**
+     * @param {PackageEnt} pkg
+     * @param {string} dependency
+     * @param {string} oldConstraint
+     * @param {string} newConstraint
+     */
+    breaking(pkg, dependency, oldConstraint, newConstraint) {
+        this.#cache("breaking", pkg, dependency, oldConstraint, newConstraint);
+        this.#warn(`Potential breaking change upgrading ${dependency} from ${oldConstraint} to ${newConstraint} in ${pkg.toString()}.`);
+    }
+
+    /**
+     * @param {PackageEnt} pkg
+     * @param {string} dependency
+     * @param {string} oldConstraint
+     * @param {string} newConstraint
+     */
+    unrecognized(pkg, dependency, oldConstraint, newConstraint) {
+        this.#cache("unrecognized", pkg, dependency, oldConstraint, newConstraint);
+        this.#warn(`Found unrecognized dependency ${dependency} for ${pkg.toString()} while trying to upgrade from ${oldConstraint} to ${newConstraint}.`)
+    }
+}
+
 class PackageEnt {
 
     /**
@@ -131,9 +202,6 @@ class PackageEnt {
      */
     constructor(pkgPath, isNpmWorkspace = false) {
         const dir = path.dirname(pkgPath);
-        const pkgJson = JSON.parse(readFileSync(pkgPath, "utf-8"));
-        assert(typeof pkgJson === "object" && pkgJson !== null);
-        assert(typeof pkgJson.name === "string");
         let packageManager = undefined;
         if (existsSync(path.join(dir, "pnpm-lock.yaml"))) {
             packageManager = "pnpm";
@@ -143,19 +211,27 @@ class PackageEnt {
             packageManager = "yarn";
         }
         assert(typeof packageManager === "string");
+        this.pkgPath = pkgPath;
+        this.reloadPackageJson();
         this.path = dir;
-        this.name = pkgJson.name;
-        this.packageJson = pkgJson;
+        this.name = this.packageJson.name;
         this.packageManager = packageManager;
         this.workspaces = [];
         // If this is a package with workspaces, create a PackageEnt for each
         // and store it as part of the main package
-        if (packageManager === "npm" && pkgJson.workspaces) {
-            this.workspaces = pkgJson.workspaces.map((ws) => {
+        if (packageManager === "npm" && this.packageJson.workspaces) {
+            this.workspaces = this.packageJson.workspaces.map((ws) => {
                 const pkgPath = path.join(dir, ws, "package.json");
                 return new PackageEnt(pkgPath, true);
             });
         }
+    }
+
+    reloadPackageJson() {
+        const pkgJson = JSON.parse(readFileSync(this.pkgPath, "utf-8"));
+        assert(typeof pkgJson === "object" && pkgJson !== null);
+        assert(typeof pkgJson.name === "string");
+        this.packageJson = pkgJson;
     }
 
     /**
@@ -232,18 +308,18 @@ class PackageEnt {
     }
 
     /**
-     * @param {Array<string>} [packageNames] - Specific package names to forcibly update.
-     * If this list is empty, all dependencies will be updated.
+     * @param {UpgradeStats} stats
      */
-    forceUpdate(packageNames = []) {
-        let directDeps = Object.keys(this.packageJson.dependencies ?? {});
-        let devDeps = Object.keys(this.packageJson.devDependencies ?? {});
-        if (packageNames.length > 0) {
-            directDeps = directDeps.filter(name => packageNames.includes(name));
-            devDeps = devDeps.filter(name => packageNames.includes(name));
+    upgrade(stats) {
+        const { directNames, devNames, versions, skippedPinnedDeps } = this.filterDeps();
+        for (const name of skippedPinnedDeps) {
+          if (typeof name !== "string") throw new Error("yikes");
+          if (typeof name != "string") throw new Error("oops");
+            stats.skipPinned(this, name)
         }
-        if ((directDeps.length + devDeps.length) > 0) {
-            const deps = [...directDeps, ...devDeps].join(" ");
+
+        if ((directNames.length + devNames.length) > 0) {
+            const deps = [...directNames, ...devNames].join(" ");
             switch (this.packageManager) {
                 case "yarn":
                     this.run(`yarn remove ${deps}`);
@@ -258,8 +334,8 @@ class PackageEnt {
                     throw `unknown package manager ${this.packageManager}`;
             }
         }
-        if (directDeps.length > 0) {
-            const deps = directDeps.join(" ");
+        if (directNames.length > 0) {
+            const deps = directNames.join(" ");
             switch (this.packageManager) {
                 case "npm":
                     this.run(`npm install ${deps}`);
@@ -274,8 +350,8 @@ class PackageEnt {
                     throw `unknown package manager ${this.packageManager}`;
             }
         }
-        if (devDeps.length > 0) {
-            const deps = devDeps.join(" ");
+        if (devNames.length > 0) {
+            const deps = devNames.join(" ");
             switch (this.packageManager) {
                 case "npm":
                     this.run(`npm install --save-dev ${deps}`);
@@ -291,15 +367,82 @@ class PackageEnt {
             }
         }
 
-        // Loop through any workspaces and call their forceupdate
-        // Note that forceUpdate removes deps first and then re-installs so packages
+        this.reloadPackageJson();
+        const newVersions = this.filterDeps().versions;
+        const rePrereleaseConstraint = /^\^0\.(\d+)\.\d+$/;
+        const reStableConstraint = /^\^([1-9]\d*)\.\d+\.\d+$/;
+        for (const [key, oldConstraint] of Object.entries(versions)) {
+            const newConstraint = newVersions[key];
+            if (reStableConstraint.test(oldConstraint)) {
+                const [, oldMajorStr] = oldConstraint.match(reStableConstraint);
+                if (reStableConstraint.test(newConstraint)) {
+                    const [, newMajorStr] = newConstraint.match(reStableConstraint);
+                    if (parseInt(newMajorStr) > parseInt(oldMajorStr)) {
+                        stats.breaking(this, key, oldConstraint, newConstraint);
+                    }
+                    continue;
+                }
+            } else if (rePrereleaseConstraint.test(oldConstraint)) {
+                const [, oldMinorStr] = oldConstraint.match(rePrereleaseConstraint);
+                if (rePrereleaseConstraint.test(newConstraint)) {
+                    const [, newMinorStr] = newConstraint.match(rePrereleaseConstraint);
+                    if (parseInt(newMinorStr) > parseInt(oldMinorStr)) {
+                        stats.breaking(this, key, oldConstraint, newConstraint);
+                    }
+                    continue;
+                }
+            }
+            stats.unrecognized(this, key, oldConstraint, newConstraint);
+        }
+
+        // Loop through any workspaces and call their `upgrade` method.
+        // Note that `upgrade` removes deps first and then re-installs so packages
         // get the latest version. However, this might have issues updating all
-        // versions to latest in some situations due to the vagaries of how NPM handles 
+        // versions to latest in some situations due to the vagaries of how NPM handles
         // workspaces.
         for (const ws of this.workspaces) {
-            ws.forceUpdate(packageNames);
+            ws.upgrade(stats);
         }
     }
+
+    /**
+     * @typedef {Object} Deps
+     * @property {string[]} skippedPinnedDeps
+     * @property {string[]} directNames
+     * @property {string[]} devNames
+     * @property {Record<string, string>} versions
+     * @return {Deps}
+     */
+    filterDeps() {
+        const rePinned = /^\d+\.\d+\.\d+$/; // e.g. "1.2.3" or "0.2.3"
+        const skippedPinnedDeps = [];
+        const directNames = [];
+        const devNames = [];
+        const versions = {};
+        for (const [key, val] of Object.entries(this.packageJson.dependencies ?? {})) {
+            if (rePinned.test(val)) {
+                skippedPinnedDeps.push(`${key}@${val}`);
+                continue;
+            }
+            versions[key] = val;
+            directNames.push(key);
+        }
+        for (const [key, val] of Object.entries(this.packageJson.devDependencies ?? {})) {
+            if (rePinned.test(val)) {
+                skippedPinnedDeps.push(`${key}@${val}`);
+                continue;
+            }
+            versions[key] = val;
+            devNames.push(key);
+        }
+        return {
+            skippedPinnedDeps,
+            directNames,
+            devNames,
+            versions,
+        }
+    }
+
 }
 
 main();
