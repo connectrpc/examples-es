@@ -93,7 +93,7 @@ function tryGetPackage(dir) {
 
 class UpgradeStats {
 
-    statTypes = ["skipped", "breaking", "unrecognized"];
+    #statTypes = ["skipped", "breaking", "unrecognized"];
     summary = {};
 
     /**
