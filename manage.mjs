@@ -189,7 +189,7 @@ class UpgradeStats {
     /**
      * @param {string} text
      */
-    warn(text) {
+    #warn(text) {
         console.log('\x1b[33m%s\x1b[0m', text);
     }
 }
