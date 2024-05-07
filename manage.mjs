@@ -98,27 +98,27 @@ class UpgradeStats {
 
     /**
      * @param {string} statType
-     * @param {string} pkg
+     * @param {string} pkgName
      * @param {string} dependency
      * @param {string} [oldConstraint]
      * @param {string} [newConstraint]
      */
-    cache(statType, pkg, dependency, oldConstraint = null, newConstraint = null) {
+    cache(statType, pkgName, dependency, oldConstraint = null, newConstraint = null) {
       if (!this.statTypes.includes(statType)) {
         throw new Error(`invalid stat type: ${statType}`);
       }
-      const pkgStats = this.summary[pkg];
+      const pkgStats = this.summary[pkgName];
       // Package does not yet exist in the summary
       // Create an entry for all stats and initialize to empty arrays
       if (!pkgStats) {
-        this.summary[pkg] = this.statTypes.reduce((map, val) => {
+        this.summary[pkgName] = this.statTypes.reduce((map, val) => {
             map[val] = [];
             return map;
           }, {},
         );
       }
 
-      this.summary[pkg][statType].push({
+      this.summary[pkgName][statType].push({
         dependency, 
         oldConstraint, 
         newConstraint
@@ -127,63 +127,61 @@ class UpgradeStats {
 
     printSummary() {
         const issues = Object.entries(this.summary);
-        if (issues.length === 0) {
-            this.warn("No issues found");
-            return;
-        }
-        this.warn("Issues found");
-        for (const [key, value] of issues) {
-            // Key represents the package name and value is an object containing
-            // status for all stat types
-            this.warn(`\n${key}:\n`);
-            this.statTypes.forEach((statType) => {
-                const stats = value[statType];
-                if (stats.length > 0) {
-                    this.warn(`${statType} dependencies:`);
-                    stats.forEach((stat) => {
-                        let msg = `-- ${stat.dependency}`;
-                        if (stat.oldConstraint) {
-                            msg += ` from v${stat.oldConstraint}`;
-                        }
-                        if (stat.newConstraint) {
-                            msg += ` to v${stat.newConstraint}`;
-                        }
-                        this.warn(msg);
-                    });
-                }
-            });
+        if (issues.length > 0) {
+            this.warn("Issues found");
+            for (const [key, value] of issues) {
+                // Key represents the package name and value is an object containing
+                // status for all stat types
+                this.warn(`\n${key}:\n`);
+                this.statTypes.forEach((statType) => {
+                    const stats = value[statType];
+                    if (stats.length > 0) {
+                        this.warn(`${statType} dependencies:`);
+                        stats.forEach((stat) => {
+                            let msg = `-- ${stat.dependency}`;
+                            if (stat.oldConstraint) {
+                                msg += ` from v${stat.oldConstraint}`;
+                            }
+                            if (stat.newConstraint) {
+                                msg += ` to v${stat.newConstraint}`;
+                            }
+                            this.warn(msg);
+                        });
+                    }
+                });
+            }
         }
     }
 
     /**
-     * @param {PackageEnt} pkg
+     * @param {string} pkgName
      * @param {string} dependency
      */
-    skipPinned(pkg, dependency) {
-        this.cache("skipped", pkg, dependency);
-        this.warn(`Skipping upgrade of pinned dependency ${dependency} for ${pkg.toString()}.`);
+    skipPinned(pkgName, dependency) {
+        this.cache("skipped", pkgName, dependency);
+        this.warn(`Skipping upgrade of pinned dependency ${dependency} for ${pkgName}.`);
     }
 
     /**
-     * @param {PackageEnt} pkg
+     * @param {string} pkgName
      * @param {string} dependency
      * @param {string} oldConstraint
      * @param {string} newConstraint
      */
-    breaking(pkg, dependency, oldConstraint, newConstraint) {
-        this.cache("breaking", pkg, dependency, oldConstraint, newConstraint);
-        this.warn(`Potential breaking change upgrading ${dependency} from v${oldConstraint} to v${newConstraint} in ${pkg.toString()}.`);
+    breaking(pkgName, dependency, oldConstraint, newConstraint) {
+        this.cache("breaking", pkgName, dependency, oldConstraint, newConstraint);
+        this.warn(`Potential breaking change upgrading ${dependency} from v${oldConstraint} to v${newConstraint} in ${pkgName}.`);
     }
 
     /**
-     * @param {PackageEnt} pkg
+     * @param {string} pkgName
      * @param {string} dependency
      * @param {string} oldConstraint
      * @param {string} newConstraint
      */
-    unrecognized(pkg, dependency, oldConstraint, newConstraint) {
-        this.cache("unrecognized", pkg, dependency, oldConstraint, newConstraint);
-        this.warn(`Found unrecognized dependency ${dependency} for ${pkg.toString()} while trying to upgrade from v${oldConstraint} to v${newConstraint}.`)
+    unrecognized(pkgName, dependency, oldConstraint, newConstraint) {
+        this.cache("unrecognized", pkgName, dependency, oldConstraint, newConstraint);
+        this.warn(`Found unrecognized dependency ${dependency} for ${pkgName} while trying to upgrade from v${oldConstraint} to v${newConstraint}.`)
     }
 
     /**
