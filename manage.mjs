@@ -94,7 +94,7 @@ function tryGetPackage(dir) {
 class UpgradeStats {
 
     #statTypes = ["skipped", "breaking", "unrecognized"];
-    summary = {};
+    #summary = {};
 
     /**
      * @param {string} statType
@@ -104,21 +104,21 @@ class UpgradeStats {
      * @param {string} [newConstraint]
      */
     cache(statType, pkgName, dependency, oldConstraint = null, newConstraint = null) {
-      if (!this.statTypes.includes(statType)) {
+      if (!this.#statTypes.includes(statType)) {
         throw new Error(`invalid stat type: ${statType}`);
       }
-      const pkgStats = this.summary[pkgName];
+      const pkgStats = this.#summary[pkgName];
       // Package does not yet exist in the summary
       // Create an entry for all stats and initialize to empty arrays
       if (!pkgStats) {
-        this.summary[pkgName] = this.statTypes.reduce((map, val) => {
+        this.#summary[pkgName] = this.#statTypes.reduce((map, val) => {
             map[val] = [];
             return map;
           }, {},
         );
       }
 
-      this.summary[pkgName][statType].push({
+      this.#summary[pkgName][statType].push({
         dependency, 
         oldConstraint, 
         newConstraint
@@ -126,17 +126,17 @@ class UpgradeStats {
     }
 
     printSummary() {
-        const issues = Object.entries(this.summary);
+        const issues = Object.entries(this.#summary);
         if (issues.length > 0) {
-            this.warn("Issues found");
+            this.#warn("Issues found");
             for (const [key, value] of issues) {
                 // Key represents the package name and value is an object containing
                 // status for all stat types
-                this.warn(`\n${key}:\n`);
-                this.statTypes.forEach((statType) => {
+                this.#warn(`\n${key}:\n`);
+                this.#statTypes.forEach((statType) => {
                     const stats = value[statType];
                     if (stats.length > 0) {
-                        this.warn(`${statType} dependencies:`);
+                        this.#warn(`${statType} dependencies:`);
                         stats.forEach((stat) => {
                             let msg = `-- ${stat.dependency}`;
                             if (stat.oldConstraint) {
@@ -145,7 +145,7 @@ class UpgradeStats {
                             if (stat.newConstraint) {
                                 msg += ` to ${stat.newConstraint}`;
                             }
-                            this.warn(msg);
+                            this.#warn(msg);
                         });
                     }
                 });
@@ -159,7 +159,7 @@ class UpgradeStats {
      */
     skipPinned(pkgName, dependency) {
         this.cache("skipped", pkgName, dependency);
-        this.warn(`Skipping upgrade of pinned dependency ${dependency} for ${pkgName}.`);
+        this.#warn(`Skipping upgrade of pinned dependency ${dependency} for ${pkgName}.`);
     }
 
     /**
@@ -170,7 +170,7 @@ class UpgradeStats {
      */
     breaking(pkgName, dependency, oldConstraint, newConstraint) {
         this.cache("breaking", pkgName, dependency, oldConstraint, newConstraint);
-        this.warn(`Potential breaking change upgrading ${dependency} from ${oldConstraint} to ${newConstraint} in ${pkgName}.`);
+        this.#warn(`Potential breaking change upgrading ${dependency} from ${oldConstraint} to ${newConstraint} in ${pkgName}.`);
     }
 
     /**
@@ -181,7 +181,7 @@ class UpgradeStats {
      */
     unrecognized(pkgName, dependency, oldConstraint, newConstraint) {
         this.cache("unrecognized", pkgName, dependency, oldConstraint, newConstraint);
-        this.warn(`Found unrecognized dependency ${dependency} for ${pkgName} while trying to upgrade from ${oldConstraint} to ${newConstraint}.`)
+        this.#warn(`Found unrecognized dependency ${dependency} for ${pkgName} while trying to upgrade from ${oldConstraint} to ${newConstraint}.`)
     }
 
     /**
