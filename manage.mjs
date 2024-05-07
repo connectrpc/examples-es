@@ -98,18 +98,18 @@ class UpgradeStats {
   
     /**
      * @param {string} statType
-     * @param {string} pkgName
+     * @param {PackageEnt} pkg
      * @param {string} dependency
      * @param {string} [oldConstraint]
      * @param {string} [newConstraint]
      */
-    #cache(statType, pkgName, dependency, oldConstraint = null, newConstraint = null) {
+    #cache(statType, pkg, dependency, oldConstraint = null, newConstraint = null) {
         if (!this.#statTypes.includes(statType)) {
             throw new Error(`invalid stat type: ${statType}`);
         }
         this.#summary.push({
             statType,
-            pkgName,
+            pkg,
             dependency,
             oldConstraint,
             newConstraint,
@@ -118,10 +118,10 @@ class UpgradeStats {
 
     printSummary() {
         if (this.#summary.length > 0) {
-            // If a summary exists, sort by pkgName, then statType, then dependency
+            // If a summary exists, sort by pkg name, then statType, then dependency
             this.#summary.sort((a, b) => {
-                if (a.pkgName < b.pkgName) return -1;
-                if (a.pkgName > b.pkgName) return 1;
+                if (a.pkg.name < b.pkg.name) return -1;
+                if (a.pkg.name > b.pkg.name) return 1;
                 if (a.statType < b.statType) return -1;
                 if (a.statType > b.statType) return 1;
                 if (a.dependency < b.dependency) return -1;
@@ -133,10 +133,10 @@ class UpgradeStats {
             let lastPkg = "";
             let lastType = "";
             this.#summary.forEach((stat) => {
-                if (stat.pkgName !== lastPkg) {
+                if (stat.pkg.name !== lastPkg) {
                     this.#warn(`\n-----------------\n`);
-                    this.#warn(`${stat.pkgName}:`);
-                    lastPkg = stat.pkgName;
+                    this.#warn(`${stat.pkg.toString()}:`);
+                    lastPkg = stat.pkg.name;
                     lastType = "";
                 }
                 if (stat.statType !== lastType) {
@@ -163,34 +163,34 @@ class UpgradeStats {
     }
 
     /**
-     * @param {string} pkgName
+     * @param {PackageEnt} pkg
      * @param {string} dependency
      */
-    skipPinned(pkgName, dependency) {
-        this.#cache("skipped", pkgName, dependency);
-        this.#warn(`Skipping upgrade of pinned dependency ${dependency} for ${pkgName}.`);
+    skipPinned(pkg, dependency) {
+        this.#cache("skipped", pkg, dependency);
+        this.#warn(`Skipping upgrade of pinned dependency ${dependency} for ${pkg}.`);
     }
 
     /**
-     * @param {string} pkgName
+     * @param {PackageEnt} pkg
      * @param {string} dependency
      * @param {string} oldConstraint
      * @param {string} newConstraint
      */
-    breaking(pkgName, dependency, oldConstraint, newConstraint) {
-        this.#cache("breaking", pkgName, dependency, oldConstraint, newConstraint);
-        this.#warn(`Potential breaking change upgrading ${dependency} from ${oldConstraint} to ${newConstraint} in ${pkgName}.`);
+    breaking(pkg, dependency, oldConstraint, newConstraint) {
+        this.#cache("breaking", pkg, dependency, oldConstraint, newConstraint);
+        this.#warn(`Potential breaking change upgrading ${dependency} from ${oldConstraint} to ${newConstraint} in ${pkg.toString()}.`);
     }
 
     /**
-     * @param {string} pkgName
+     * @param {PackageEnt} pkg
      * @param {string} dependency
      * @param {string} oldConstraint
      * @param {string} newConstraint
      */
-    unrecognized(pkgName, dependency, oldConstraint, newConstraint) {
-        this.#cache("unrecognized", pkgName, dependency, oldConstraint, newConstraint);
-        this.#warn(`Found unrecognized dependency ${dependency} for ${pkgName} while trying to upgrade from ${oldConstraint} to ${newConstraint}.`)
+    unrecognized(pkg, dependency, oldConstraint, newConstraint) {
+        this.#cache("unrecognized", pkg, dependency, oldConstraint, newConstraint);
+        this.#warn(`Found unrecognized dependency ${dependency} for ${pkg.toString()} while trying to upgrade from ${oldConstraint} to ${newConstraint}.`)
     }
 }
 
@@ -313,6 +313,8 @@ class PackageEnt {
     upgrade(stats) {
         const { directNames, devNames, versions, skippedPinnedDeps } = this.filterDeps();
         for (const name of skippedPinnedDeps) {
+          if (typeof name !== "string") throw new Error("yikes");
+          if (typeof name != "string") throw new Error("oops");
             stats.skipPinned(this, name)
         }
 
