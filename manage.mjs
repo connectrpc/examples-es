@@ -140,10 +140,10 @@ class UpgradeStats {
                         stats.forEach((stat) => {
                             let msg = `-- ${stat.dependency}`;
                             if (stat.oldConstraint) {
-                                msg += ` from v${stat.oldConstraint}`;
+                                msg += ` from ${stat.oldConstraint}`;
                             }
                             if (stat.newConstraint) {
-                                msg += ` to v${stat.newConstraint}`;
+                                msg += ` to ${stat.newConstraint}`;
                             }
                             this.warn(msg);
                         });
@@ -170,7 +170,7 @@ class UpgradeStats {
      */
     breaking(pkgName, dependency, oldConstraint, newConstraint) {
         this.cache("breaking", pkgName, dependency, oldConstraint, newConstraint);
-        this.warn(`Potential breaking change upgrading ${dependency} from v${oldConstraint} to v${newConstraint} in ${pkgName}.`);
+        this.warn(`Potential breaking change upgrading ${dependency} from ${oldConstraint} to ${newConstraint} in ${pkgName}.`);
     }
 
     /**
@@ -181,7 +181,7 @@ class UpgradeStats {
      */
     unrecognized(pkgName, dependency, oldConstraint, newConstraint) {
         this.cache("unrecognized", pkgName, dependency, oldConstraint, newConstraint);
-        this.warn(`Found unrecognized dependency ${dependency} for ${pkgName} while trying to upgrade from v${oldConstraint} to v${newConstraint}.`)
+        this.warn(`Found unrecognized dependency ${dependency} for ${pkgName} while trying to upgrade from ${oldConstraint} to ${newConstraint}.`)
     }
 
     /**
