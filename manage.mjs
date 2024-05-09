@@ -313,8 +313,6 @@ class PackageEnt {
     upgrade(stats) {
         const { directNames, devNames, versions, skippedPinnedDeps } = this.filterDeps();
         for (const name of skippedPinnedDeps) {
-          if (typeof name !== "string") throw new Error("yikes");
-          if (typeof name != "string") throw new Error("oops");
             stats.skipPinned(this, name)
         }
 
