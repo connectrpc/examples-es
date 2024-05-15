@@ -187,12 +187,12 @@ export function createXHRGrpcWebTransport(
             throw "missing message";
           }
 
-          return <UnaryResponse<I, O>>{
+          return {
             stream: false,
             header: response.headers,
             message,
             trailer,
-          };
+          } as UnaryResponse<I, O>;
         },
       });
     },

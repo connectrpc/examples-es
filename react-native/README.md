@@ -2,7 +2,7 @@
 
 This project was created using the [Expo CLI](https://docs.expo.dev/workflow/expo-cli/) with the command:
 
-`expo init <project-name>`
+`npx create-expo-app react-native`
 
 ## Prerequisites:
 
@@ -33,4 +33,3 @@ Use `buf` to generate the compiled protos via protobuf-es
 ### `npm run web`
 
 Starts the app in Expo's `web` mode, which will allow you to see it running in a browser.
-

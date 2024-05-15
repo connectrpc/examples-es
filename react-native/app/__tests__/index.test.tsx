@@ -1,8 +1,8 @@
 import { expect, test } from '@jest/globals'
 import { createPromiseClient } from '@connectrpc/connect'
 import { createConnectTransport } from '@connectrpc/connect-web'
-import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_connect.js'
-import { IntroduceRequest } from './gen/connectrpc/eliza/v1/eliza_pb.js'
+import { ElizaService } from '../../gen/connectrpc/eliza/v1/eliza_connect.js'
+import { IntroduceRequest } from '../../gen/connectrpc/eliza/v1/eliza_pb.js'
 
 test('imports ElizaService correctly', () => {
     expect(ElizaService).toBeDefined()
