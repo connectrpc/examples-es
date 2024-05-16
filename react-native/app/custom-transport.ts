@@ -192,7 +192,7 @@ export function createXHRGrpcWebTransport(
             header: response.headers,
             message,
             trailer,
-          } as UnaryResponse<I, O>;
+          } satisfies UnaryResponse<I, O>;
         },
       });
     },
