@@ -10,10 +10,11 @@ import {
 } from "react-native";
 import { createPromiseClient, Code, ConnectError } from "@connectrpc/connect";
 import { createXHRGrpcWebTransport } from "./custom-transport";
-import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect.js";
-import { IntroduceRequest } from "./gen/connectrpc/eliza/v1/eliza_pb.js";
-import "fast-text-encoding";
+import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
+import { IntroduceRequest } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
 import { Platform } from "react-native";
+// Needed to polyfill TextEncoder/ TextDecoder
+import "fast-text-encoding";
 
 // Polyfill async.Iterator. For some reason, the Babel presets and plugins are not doing the trick.
 // Code from here: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-3.html#caveats
@@ -31,7 +32,7 @@ interface Response {
   sender: "eliza" | "user";
 }
 
-function App() {
+function Index() {
   const [statement, setStatement] = useState<string>("");
   const [introFinished, setIntroFinished] = useState<boolean>(false);
   const [responses, setResponses] = useState<Response[]>([
@@ -139,7 +140,7 @@ function App() {
   );
 }
 
-export default App;
+export default Index;
 
 const styles = StyleSheet.create({
   h1: {
