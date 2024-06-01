@@ -28,7 +28,7 @@
     "@angular-devkit/build-angular": "^17.3.6",
     "@angular/cli": "^17.3.6",
     "@angular/compiler-cli": "^17.3.6",
-    "@bufbuild/buf": "^1.31.0",
+    "@bufbuild/buf": "^1.32.2",
     "@bufbuild/protobuf": "^1.9.0",
     "@bufbuild/protoc-gen-es": "^1.9.0",
     "@connectrpc/connect": "^1.4.0",
