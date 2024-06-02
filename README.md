@@ -4,7 +4,7 @@ examples-es
 [![Build](https://github.com/connectrpc/examples-es/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/connectrpc/examples-es/actions/workflows/ci.yaml)
 
 `examples-es` is a repository of example projects using Connect with various TypeScript web frameworks and tooling.
-It provides numerous examples for integrating Connect into a project, using both Connect for Web and Connect for Node.
+It provides numerous examples for integrating Connect into a project, using both Connect for Web and Connect for Node.js.
 
 ## Web
 
