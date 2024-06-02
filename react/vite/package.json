@@ -14,22 +14,22 @@
     "dependencies": {
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
-        "web-vitals": "^3.5.2"
+        "web-vitals": "^4.0.1"
     },
     "devDependencies": {
-        "@bufbuild/buf": "^1.31.0",
-        "@bufbuild/protobuf": "^1.9.0",
-        "@bufbuild/protoc-gen-es": "^1.9.0",
+        "@bufbuild/buf": "^1.32.2",
+        "@bufbuild/protobuf": "^1.10.0",
+        "@bufbuild/protoc-gen-es": "^1.10.0",
         "@connectrpc/connect": "^1.4.0",
         "@connectrpc/connect-web": "^1.4.0",
         "@connectrpc/protoc-gen-connect-es": "^1.4.0",
-        "@types/react": "^18.3.1",
+        "@types/react": "^18.3.3",
         "@types/react-dom": "^18.3.0",
-        "@vitejs/plugin-react": "^4.2.1",
-        "@vitest/coverage-v8": "^1.5.3",
-        "jsdom": "^24.0.0",
+        "@vitejs/plugin-react": "^4.3.0",
+        "@vitest/coverage-v8": "^1.6.0",
+        "jsdom": "^24.1.0",
         "typescript": "^5.4.5",
-        "vite": "^5.2.10",
-        "vitest": "^1.5.3"
+        "vite": "^5.2.12",
+        "vitest": "^1.6.0"
     }
 }
