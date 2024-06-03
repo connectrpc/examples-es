@@ -1454,11 +1454,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 20.13.0
-  resolution: "@types/node@npm:20.13.0"
+  version: 20.14.0
+  resolution: "@types/node@npm:20.14.0"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 82f0e999078fa5e251de002c755d18f63c47ff09c192fdd1381ca91774327563ad778244ab51f52304a9432b5ba678c1328585ef5e92ffdc5eed8e950a6ad1b9
+  checksum: 49b332fbf8aee4dc4f61cc1f1f6e130632510f795dd7b274e55894516feaf4bec8a3d13ea764e2443e340a64ce9bbeb006d14513bf6ccdd4f21161eccc7f311e
   languageName: node
   linkType: hard
 
@@ -1935,9 +1935,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001587":
-  version: 1.0.30001626
-  resolution: "caniuse-lite@npm:1.0.30001626"
-  checksum: 6cea95e340625f17349d5669f5758f7ce0913ab3c3581c130e00243adbd3b1916eade8caac93a1a5a7cb4b3c81dcfe4e49700dd4f9207010ef19009d42672311
+  version: 1.0.30001627
+  resolution: "caniuse-lite@npm:1.0.30001627"
+  checksum: 4f8c702da49549a194b175ea426edcb88bcf968db9de86075eea78d1345d793f0dff58928bb603bcdbf8f9ecf980acac4f00b259fd1f69f9113b5d4bf68c6121
   languageName: node
   linkType: hard
 
