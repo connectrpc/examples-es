@@ -19,14 +19,14 @@
     "@connectrpc/connect-web": "^1.4.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "tsx": "^4.11.0"
+    "tsx": "^4.11.2"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.32.2",
     "@bufbuild/protoc-gen-es": "^1.10.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
     "@types/cors": "^2.8.17",
-    "@types/node": "^20.13.0",
+    "@types/node": "^20.14.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }
