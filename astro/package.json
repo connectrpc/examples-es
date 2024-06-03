@@ -11,24 +11,24 @@
     "ci": "npm run generate && npm run build && npm run test"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/react": "^3.3.1",
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/react": "^3.4.0",
     "@nanostores/react": "^0.7.2",
-    "@types/react": "^18.3.1",
+    "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "astro": "^4.7.0",
+    "astro": "^4.9.2",
     "nanostores": "^0.10.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.31.0",
-    "@bufbuild/protobuf": "^1.9.0",
-    "@bufbuild/protoc-gen-es": "^1.9.0",
+    "@bufbuild/buf": "^1.32.2",
+    "@bufbuild/protobuf": "^1.10.0",
+    "@bufbuild/protoc-gen-es": "^1.10.0",
     "@connectrpc/connect": "^1.4.0",
     "@connectrpc/connect-web": "^1.4.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
-    "@playwright/test": "^1.43.1",
+    "@playwright/test": "^1.44.1",
     "typescript": "^5.4.5"
   }
 }

@@ -14,10 +14,10 @@
     "@connectrpc/connect-node": "^1.4.0"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.31.0",
-    "@bufbuild/protoc-gen-es": "^1.9.0",
+    "@bufbuild/buf": "^1.32.2",
+    "@bufbuild/protoc-gen-es": "^1.10.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
-    "@types/node": "^20.12.7",
+    "@types/node": "^20.13.0",
     "ts-node": "^10.9.2"
   }
 }
