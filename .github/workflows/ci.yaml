@@ -39,6 +39,7 @@ jobs:
             buf-vanilla-node: vanilla-node/**
             buf-vue: vue/**
             buf-cloudflare-workers: cloudflare-workers/**
+            buf-vercel-edge-functions: vercel/edge-functions/**
             buf-custom-client: custom-client/**
             bundle-size: bundle-size/**
   ci:
