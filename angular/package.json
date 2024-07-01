@@ -27,7 +27,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.0.2",
     "@angular/cli": "^18.0.2",
-    "@angular/compiler-cli": "^18.0.1",
+    "@angular/compiler-cli": "^18.0.5",
     "@bufbuild/buf": "^1.32.2",
     "@bufbuild/protobuf": "^1.10.0",
     "@bufbuild/protoc-gen-es": "^1.10.0",
