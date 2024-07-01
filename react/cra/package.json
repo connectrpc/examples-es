@@ -56,6 +56,6 @@
     "prettier": "^3.3.0",
     "react-app-rewired": "^2.2.1",
     "resolve-typescript-plugin": "^2.0.1",
-    "ts-jest": "^29.1.4"
+    "ts-jest": "^29.1.5"
   }
 }
