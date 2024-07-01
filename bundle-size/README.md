@@ -23,8 +23,8 @@ The results are:
 | parcel (ts) | 39,680 bytes | dist/ts/index.dc635180.js |
 | rollup (js) | 145,863 bytes | dist/js/index.js |
 | rollup (ts) | 158,086 bytes | dist/ts/index.js |
-| vite (js) | 55,247 bytes | dist/js/consumer-vite.js |
-| vite (ts) | 59,205 bytes | dist/ts/consumer-vite.js |
+| vite (js) | 55,237 bytes | dist/js/consumer-vite.js |
+| vite (ts) | 59,195 bytes | dist/ts/consumer-vite.js |
 | webpack (js) | 34,342 bytes | dist/js/main.js |
 | webpack (ts) | 38,111 bytes | dist/ts/main.js |
 <!--- RESULTS-END -->
