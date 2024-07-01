@@ -23,7 +23,7 @@
     "@connectrpc/connect": "^1.4.0",
     "@connectrpc/connect-web": "^1.4.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
-    "@playwright/test": "^1.44.1",
+    "@playwright/test": "^1.45.0",
     "@sveltejs/adapter-auto": "^3.2.1",
     "@sveltejs/kit": "^2.5.10",
     "@testing-library/jest-dom": "^6.4.5",
