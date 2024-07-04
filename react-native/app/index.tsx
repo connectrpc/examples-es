@@ -12,20 +12,9 @@ import { createPromiseClient, Code, ConnectError } from "@connectrpc/connect";
 import { createXHRGrpcWebTransport } from "./custom-transport";
 import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
 import { IntroduceRequest } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
-import { Platform } from "react-native";
-// Needed to polyfill TextEncoder/ TextDecoder
-import "fast-text-encoding";
+import { polyfills } from "./polyfills";
 
-// Polyfill async.Iterator. For some reason, the Babel presets and plugins are not doing the trick.
-// Code from here: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-3.html#caveats
-(Symbol as any).asyncIterator =
-  Symbol.asyncIterator || Symbol.for("Symbol.asyncIterator");
-
-// Import polyfills if not running on web.  Attempting to import these in web mode will result in numerous errors
-// trying to access react-native APIs
-if (Platform.OS !== "web") {
-  require("react-native-polyfill-globals");
-}
+polyfills();
 
 interface Response {
   text: string;
