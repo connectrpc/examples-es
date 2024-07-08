@@ -3,8 +3,8 @@ import './index.css'
 import './App.css'
 import { createPromiseClient } from '@connectrpc/connect'
 import { createConnectTransport } from '@connectrpc/connect-web'
-import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_connect.js'
-import { IntroduceRequest } from './gen/connectrpc/eliza/v1/eliza_pb.js'
+import { ElizaService, IntroduceRequestSchema } from './gen/connectrpc/eliza/v1/eliza_pb.js'
+import { create } from '@bufbuild/protobuf'
 
 interface Response {
     text: string
@@ -43,7 +43,7 @@ function App() {
                 { text: response.sentence, sender: 'eliza' },
             ])
         } else {
-            const request = new IntroduceRequest({
+            const request = create(IntroduceRequestSchema, {
                 name: sentence,
             })
 
