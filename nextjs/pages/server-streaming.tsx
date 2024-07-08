@@ -2,7 +2,7 @@ import React, { useState, FC, useCallback, FormEvent } from "react";
 import styles from "../styles/Eliza.module.css";
 import { createPromiseClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
-import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect";
+import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_pb";
 import Link from "next/link";
 
 const client = createPromiseClient(
