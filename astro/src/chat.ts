@@ -4,10 +4,11 @@ import { createConnectTransport } from "@connectrpc/connect-web";
 import type { PromiseClient } from "@connectrpc/connect";
 
 /* local dependencies */
-import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect";
-import { IntroduceRequest } from "./gen/connectrpc/eliza/v1/eliza_pb";
+import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_pb";
+import { IntroduceRequestSchema } from "./gen/connectrpc/eliza/v1/eliza_pb";
 
 import { addMessage } from "./chatStore";
+import { create } from "@bufbuild/protobuf";
 
 const client: PromiseClient<typeof ElizaService> = createPromiseClient(
   ElizaService,
@@ -45,7 +46,7 @@ async function sendMessage(statement: string) {
 }
 
 async function sendIntroductionMessage(statement: string) {
-  const request = new IntroduceRequest({
+  const request = create(IntroduceRequestSchema, {
     name: statement,
   });
   author = statement;
