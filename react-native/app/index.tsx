@@ -12,9 +12,9 @@ import { createPromiseClient, Code, ConnectError } from "@connectrpc/connect";
 import { createXHRGrpcWebTransport } from "./custom-transport";
 import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
 import { IntroduceRequest } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
-import { polyfills } from "./polyfills";
+// import { polyfills } from "./polyfills";
 
-polyfills();
+// polyfills();
 
 interface Response {
   text: string;
