@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo } from "react";
-import { ServiceType } from "@bufbuild/protobuf";
+import { DescService } from "@bufbuild/protobuf";
 import { createPromiseClient, PromiseClient, Transport } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
 
@@ -14,7 +14,7 @@ export const TransportContext = createContext<Transport>(defaultTransport);
 /**
  * Get a promise client for the given service.
  */
-export function useClient<T extends ServiceType>(service: T): PromiseClient<T> {
+export function useClient<T extends DescService>(service: T): PromiseClient<T> {
     const transport = useContext(TransportContext);
     // We memoize the client, so that we only create one instance per service.
     return useMemo(
