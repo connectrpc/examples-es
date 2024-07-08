@@ -14,7 +14,7 @@
 
 import { createPromiseClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-node";
-import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect.js";
+import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_pb.js";
 import { stdin, stdout } from "process";
 import * as readline from "node:readline/promises";
 
@@ -36,7 +36,7 @@ void (async () => {
     rl.write(res.sentence + "\n");
   }
 
-  for (;;) {
+  for (; ;) {
     const sentence = await rl.question("> ");
     const res = await client.say({ sentence });
     rl.write(res.sentence + "\n");
