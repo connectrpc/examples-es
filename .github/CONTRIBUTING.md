@@ -85,12 +85,12 @@ for managing these upgrades.
  
 After updating dependencies, make sure to run all tests and checks with `./manage.mjs ci`.
 
-[angular-guide]: https://update.angular.io/?v=16.0-17.0)
-[react-guide]: https://react.dev/blog/2022/03/08/react-18-upgrade-guide)
-[svelte-guide]: https://svelte.dev/docs/v4-migration-guide)
-[remix-guide]: https://remix.run/docs/en/main/start/v2)
-[astro-guide]: https://docs.astro.build/en/guides/upgrade-to/v4/)
-[react-native-guide]: https://react-native-community.github.io/upgrade-helper/)
+[angular-guide]: https://update.angular.io/?v=16.0-17.0
+[react-guide]: https://react.dev/blog/2022/03/08/react-18-upgrade-guide
+[svelte-guide]: https://svelte.dev/docs/v4-migration-guide
+[remix-guide]: https://remix.run/docs/en/main/start/v2
+[astro-guide]: https://docs.astro.build/en/guides/upgrade-to/v4/
+[react-native-guide]: https://react-native-community.github.io/upgrade-helper/
 [fork]: https://github.com/connectrpc/examples-es/fork
 [open-issue]: https://github.com/connectrpc/examples-es/issues/new
 [dco]: https://developercertificate.org
