@@ -3,7 +3,7 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm run generate && expo start",
+    "start": "npm run generate && expo start --go",
     "build": "tsc --noEmit",
     "web": "npm run generate && expo start --web",
     "test": "jest",
@@ -26,6 +26,7 @@
     "expo-status-bar": "^1.12.1",
     "expo-system-ui": "^3.0.6",
     "expo-web-browser": "^13.0.3",
+    "fast-text-encoding": "^1.0.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.1",
