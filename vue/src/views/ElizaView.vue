@@ -2,9 +2,12 @@
 import { defineComponent, inject } from "vue";
 import { createPromiseClient } from "@connectrpc/connect";
 import type { PromiseClient, Transport } from "@connectrpc/connect";
-import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect";
-import { IntroduceRequest } from "../gen/connectrpc/eliza/v1/eliza_pb";
+import {
+  ElizaService,
+  IntroduceRequestSchema,
+} from "../gen/connectrpc/eliza/v1/eliza_pb";
 import { transportKey } from "../keys";
+import { create } from "@bufbuild/protobuf";
 
 interface Response {
   text: string;
@@ -62,7 +65,7 @@ export default defineComponent({
             sender: "eliza",
           });
         } else {
-          const request = new IntroduceRequest({
+          const request = create(IntroduceRequestSchema, {
             name: this.statement,
           });
           this.statement = "";
