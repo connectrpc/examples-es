@@ -1,9 +1,9 @@
 <script lang="ts">
   import { createPromiseClient } from "@connectrpc/connect";
   import type { Transport } from "@connectrpc/connect";
-  import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
-  import { IntroduceRequest } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
+  import { ElizaService, IntroduceRequestSchema } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
   import { getContext } from 'svelte';
+  import { create } from "@bufbuild/protobuf";
 
   interface Response {
     text: string;
@@ -37,7 +37,7 @@
 
       responses = [...responses, { text: response.sentence, sender: "eliza" }];
     } else {
-      const request = new IntroduceRequest({
+      const request = create(IntroduceRequestSchema, {
         name: statement,
       });
       statement = "";

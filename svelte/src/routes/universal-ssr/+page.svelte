@@ -1,12 +1,13 @@
 <script lang="ts">
-  import { SayRequest, SayResponse } from "../../gen/connectrpc/eliza/v1/eliza_pb";
+  import { create } from "@bufbuild/protobuf";
+  import { SayRequestSchema, SayResponseSchema } from "../../gen/connectrpc/eliza/v1/eliza_pb.js";
   import type { PageData } from "./$types";
 
   export let data: PageData = {
-    request: new SayRequest({
+    request: create(SayRequestSchema, {
       sentence: "uninitialized",
     }),
-    response: new SayResponse({
+    response: create(SayResponseSchema, {
       sentence: "uninitialized",
     }),
   };
@@ -33,9 +34,9 @@
     <div class="pre-container">
       <div>
         Request sentence: <code data-testid="request-sentence">{data.request.sentence}</code><br>
-        Request type: <code data-testid="request-type">{data.request.getType().typeName}</code><br>
+        Request type: <code data-testid="request-type">{data.request.$typeName}</code><br>
         Response sentence: <code data-testid="response-sentence">{data.response.sentence}</code><br>
-        Response type: <code data-testid="response-type">{data.response.getType().typeName}</code>
+        Response type: <code data-testid="response-type">{data.response.$typeName}</code>
       </div>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
