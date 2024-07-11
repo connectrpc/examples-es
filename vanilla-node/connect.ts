@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import { ConnectRouter } from '@connectrpc/connect'
-import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_connect.js'
+import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_pb.js'
 import type {
     SayRequest,
     IntroduceRequest,
