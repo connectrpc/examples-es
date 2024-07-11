@@ -3,19 +3,22 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm run generate && expo start",
+    "start": "npm run generate && expo start --go",
     "build": "tsc --noEmit",
     "web": "npm run generate && expo start --web",
     "test": "jest",
     "lint": "expo lint",
     "generate": "buf generate buf.build/connectrpc/eliza",
-    "ci": "npm run generate && npm run build && npm run test"
+    "ci": "npm run generate && npm run build && npm run test",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
     "@react-navigation/native": "^6.1.17",
     "expo": "^51.0.17",
     "expo-constants": "^16.0.2",
+    "expo-dev-client": "^4.0.19",
     "expo-font": "^12.0.7",
     "expo-linking": "^6.3.1",
     "expo-router": "^3.5.17",
@@ -23,6 +26,7 @@
     "expo-status-bar": "^1.12.1",
     "expo-system-ui": "^3.0.6",
     "expo-web-browser": "^13.0.3",
+    "fast-text-encoding": "^1.0.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.1",
