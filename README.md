@@ -2,6 +2,7 @@ examples-es
 ===========
 
 [![Build](https://github.com/connectrpc/examples-es/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/connectrpc/examples-es/actions/workflows/ci.yaml)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fconnectrpc%2Fexamples-es.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fconnectrpc%2Fexamples-es?ref=badge_shield)
 
 `examples-es` is a repository of example projects using Connect with various TypeScript web frameworks and tooling.
 It provides numerous examples for integrating Connect into a project, using both Connect for Web and Connect for Node.
@@ -95,3 +96,7 @@ The [custom-client](custom-client) directory contains an example demonstrating h
 Offered under the [Apache 2 license][license].
 
 [license]: https://github.com/connectrpc/examples-es/blob/main/LICENSE.txt
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fconnectrpc%2Fexamples-es.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fconnectrpc%2Fexamples-es?ref=badge_large)
