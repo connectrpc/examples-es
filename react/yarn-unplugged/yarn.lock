@@ -485,38 +485,38 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:2.0.0-beta.2, @bufbuild/protobuf@npm:^2.0.0-beta.2":
-  version: 2.0.0-beta.2
-  resolution: "@bufbuild/protobuf@npm:2.0.0-beta.2"
-  checksum: b91140cff6a06c18ccdbf5691b5f21b3b860d48ba49cfbcf006a53eaa10fbd9c978d065b204d0b64c8db36485e1463085160819a9af63e0887793a51513d527f
+"@bufbuild/protobuf@npm:2.0.0-beta.3, @bufbuild/protobuf@npm:^2.0.0-beta.3":
+  version: 2.0.0-beta.3
+  resolution: "@bufbuild/protobuf@npm:2.0.0-beta.3"
+  checksum: e619338689147d5dcad3c251b9e9d83e545f9328c022903885caf32e0b9c6ddc9dd8f8944847cb4a6f31e6794558303a4bcf40118c7c4a75b7d781b908deaf85
   languageName: node
   linkType: hard
 
-"@bufbuild/protoc-gen-es@npm:^2.0.0-beta.2":
-  version: 2.0.0-beta.2
-  resolution: "@bufbuild/protoc-gen-es@npm:2.0.0-beta.2"
+"@bufbuild/protoc-gen-es@npm:^2.0.0-beta.3":
+  version: 2.0.0-beta.3
+  resolution: "@bufbuild/protoc-gen-es@npm:2.0.0-beta.3"
   dependencies:
-    "@bufbuild/protobuf": ^2.0.0-beta.2
-    "@bufbuild/protoplugin": 2.0.0-beta.2
+    "@bufbuild/protobuf": ^2.0.0-beta.3
+    "@bufbuild/protoplugin": 2.0.0-beta.3
   peerDependencies:
-    "@bufbuild/protobuf": 2.0.0-beta.2
+    "@bufbuild/protobuf": 2.0.0-beta.3
   peerDependenciesMeta:
     "@bufbuild/protobuf":
       optional: true
   bin:
     protoc-gen-es: bin/protoc-gen-es
-  checksum: d0b805fd72372b02d63662fa558dcf7db67db6572fd043c065f636cb54196e13d85624a940da83cf09d25f23937fa675cc73a69a6d62f5781a9d4dbeaba1aef6
+  checksum: 933be7c0aad8e22c61f4845042957bc2524d15ac0e70798133291f2e69311fdf9f20c693583ad05768645fbbaddf224e4574598013e43401e37e7490059c407e
   languageName: node
   linkType: hard
 
-"@bufbuild/protoplugin@npm:2.0.0-beta.2":
-  version: 2.0.0-beta.2
-  resolution: "@bufbuild/protoplugin@npm:2.0.0-beta.2"
+"@bufbuild/protoplugin@npm:2.0.0-beta.3":
+  version: 2.0.0-beta.3
+  resolution: "@bufbuild/protoplugin@npm:2.0.0-beta.3"
   dependencies:
-    "@bufbuild/protobuf": 2.0.0-beta.2
+    "@bufbuild/protobuf": 2.0.0-beta.3
     "@typescript/vfs": ^1.5.2
     typescript: 5.4.5
-  checksum: 5d7088f64405cfdbcdaab6454b05f8cc5d959fb8a798a2a8d3535295c177638bf4c9de374b8fd6d14fc5c136fa4155931f1c40370398681a058c2809527a6367
+  checksum: 79d5611280f60ef479d5edccf284689645838cf6b62afd6795f047a537cc92c07fac46840eca6a7f7131a9b8575f1689ea4f31ec7abf03b10b693a8b4e2d4952
   languageName: node
   linkType: hard
 
@@ -1459,8 +1459,8 @@ __metadata:
   resolution: "buf-yarn-unplugged@workspace:."
   dependencies:
     "@bufbuild/buf": ^1.34.0
-    "@bufbuild/protobuf": ^2.0.0-beta.2
-    "@bufbuild/protoc-gen-es": ^2.0.0-beta.2
+    "@bufbuild/protobuf": ^2.0.0-beta.3
+    "@bufbuild/protoc-gen-es": ^2.0.0-beta.3
     "@connectrpc/connect": ^2.0.0-alpha.1
     "@connectrpc/connect-web": ^2.0.0-alpha.1
     "@types/react": ^18.3.3
