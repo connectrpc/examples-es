@@ -29,17 +29,17 @@ devDependencies:
     specifier: ^1.34.0
     version: 1.34.0
   '@bufbuild/protobuf':
-    specifier: ^2.0.0-beta.1
-    version: 2.0.0-beta.1
+    specifier: ^2.0.0-beta.2
+    version: 2.0.0-beta.2
   '@bufbuild/protoc-gen-es':
-    specifier: ^2.0.0-beta.1
-    version: 2.0.0-beta.1(@bufbuild/protobuf@2.0.0-beta.1)
+    specifier: ^2.0.0-beta.2
+    version: 2.0.0-beta.2(@bufbuild/protobuf@2.0.0-beta.2)
   '@connectrpc/connect':
     specifier: ^2.0.0-alpha.1
-    version: 2.0.0-alpha.1(@bufbuild/protobuf@2.0.0-beta.1)
+    version: 2.0.0-alpha.1(@bufbuild/protobuf@2.0.0-beta.2)
   '@connectrpc/connect-web':
     specifier: ^2.0.0-alpha.1
-    version: 2.0.0-alpha.1(@bufbuild/protobuf@2.0.0-beta.1)(@connectrpc/connect@2.0.0-alpha.1)
+    version: 2.0.0-alpha.1(@bufbuild/protobuf@2.0.0-beta.2)(@connectrpc/connect@2.0.0-alpha.1)
   '@remix-run/dev':
     specifier: ^2.10.0
     version: 2.10.0(@remix-run/react@2.10.0)(@remix-run/serve@2.10.0)(typescript@5.5.2)
@@ -662,52 +662,52 @@ packages:
       '@bufbuild/buf-win32-x64': 1.34.0
     dev: true
 
-  /@bufbuild/protobuf@2.0.0-beta.1:
-    resolution: {integrity: sha512-EpQGGk7Dc3dZKQHC6mxssaBDmd/otuGk7RR25lXFFEw0NPE5u8OUDar0Np4E+8AoSaQWzGmVrl2fozt3VIi60w==}
+  /@bufbuild/protobuf@2.0.0-beta.2:
+    resolution: {integrity: sha512-lt6sN5KjToflDcMyprMlR3mVu1BWjdEMVbgqk0vwIjczo2Ke2x+bM3rW1N37kg7XnTvZ3HbkuuuLFJi4VCSUUQ==}
     dev: true
 
-  /@bufbuild/protoc-gen-es@2.0.0-beta.1(@bufbuild/protobuf@2.0.0-beta.1):
-    resolution: {integrity: sha512-L4xEc0wbosicbDsUEHs8hHGPSp8PBrNVn3CtgLBz37Z+kuzOn5ckqJfkKUGK/opCkw09CuMyGTfMHepU+fKOLQ==}
+  /@bufbuild/protoc-gen-es@2.0.0-beta.2(@bufbuild/protobuf@2.0.0-beta.2):
+    resolution: {integrity: sha512-nGNEYjK73EZFKIBh2idfmIO3In3+N72Hu180LBePe3VM8qp5m/mx5US7md0xfxcnfeweGGUDgOZ92YzhD5LDGQ==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
-      '@bufbuild/protobuf': 2.0.0-beta.1
+      '@bufbuild/protobuf': 2.0.0-beta.2
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
     dependencies:
-      '@bufbuild/protobuf': 2.0.0-beta.1
-      '@bufbuild/protoplugin': 2.0.0-beta.1
+      '@bufbuild/protobuf': 2.0.0-beta.2
+      '@bufbuild/protoplugin': 2.0.0-beta.2
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@bufbuild/protoplugin@2.0.0-beta.1:
-    resolution: {integrity: sha512-xHjPnNMx5Z9lKBM75s5zA2a1/M0zFSdPPkVTVaqL8F2gt1530aKONeItQKPcCfwnCRXGIcKWPmLCNof3OQx9zQ==}
+  /@bufbuild/protoplugin@2.0.0-beta.2:
+    resolution: {integrity: sha512-4S1wGEEJFtUy7KQhMKFZ8lbwa2A7bKs7t4UFOzTZftzbu8JEHndZEnmQylnflx5DEvX0VaOz3aWjF4t1I558sA==}
     dependencies:
-      '@bufbuild/protobuf': 2.0.0-beta.1
+      '@bufbuild/protobuf': 2.0.0-beta.2
       '@typescript/vfs': 1.6.0(typescript@5.4.5)
       typescript: 5.4.5
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@connectrpc/connect-web@2.0.0-alpha.1(@bufbuild/protobuf@2.0.0-beta.1)(@connectrpc/connect@2.0.0-alpha.1):
+  /@connectrpc/connect-web@2.0.0-alpha.1(@bufbuild/protobuf@2.0.0-beta.2)(@connectrpc/connect@2.0.0-alpha.1):
     resolution: {integrity: sha512-Mj/mTulRuFppcy8kRyIbyXP5Pm31Pe6br2ExCyJkk47FtsBL6iarbBAUOoeEv9GLdJlkuLngZoQb4xK86VAp5Q==}
     peerDependencies:
       '@bufbuild/protobuf': ^2.0.0-beta.2
       '@connectrpc/connect': 2.0.0-alpha.1
     dependencies:
-      '@bufbuild/protobuf': 2.0.0-beta.1
-      '@connectrpc/connect': 2.0.0-alpha.1(@bufbuild/protobuf@2.0.0-beta.1)
+      '@bufbuild/protobuf': 2.0.0-beta.2
+      '@connectrpc/connect': 2.0.0-alpha.1(@bufbuild/protobuf@2.0.0-beta.2)
     dev: true
 
-  /@connectrpc/connect@2.0.0-alpha.1(@bufbuild/protobuf@2.0.0-beta.1):
+  /@connectrpc/connect@2.0.0-alpha.1(@bufbuild/protobuf@2.0.0-beta.2):
     resolution: {integrity: sha512-eAjezEy1m+7bDtWt/TeXY2qIayq7R+WW8Jqwq3p8Q7ZTHpFJu0SBQivhRGQbNXSYR+QmqMk+j/FLAVlgB6CfHA==}
     peerDependencies:
       '@bufbuild/protobuf': ^2.0.0-beta.2
     dependencies:
-      '@bufbuild/protobuf': 2.0.0-beta.1
+      '@bufbuild/protobuf': 2.0.0-beta.2
     dev: true
 
   /@emotion/hash@0.9.1:

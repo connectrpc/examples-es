@@ -485,14 +485,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:2.0.0-beta.2, @bufbuild/protobuf@npm:^2.0.0-beta.1, @bufbuild/protobuf@npm:^2.0.0-beta.2":
+"@bufbuild/protobuf@npm:2.0.0-beta.2, @bufbuild/protobuf@npm:^2.0.0-beta.2":
   version: 2.0.0-beta.2
   resolution: "@bufbuild/protobuf@npm:2.0.0-beta.2"
   checksum: b91140cff6a06c18ccdbf5691b5f21b3b860d48ba49cfbcf006a53eaa10fbd9c978d065b204d0b64c8db36485e1463085160819a9af63e0887793a51513d527f
   languageName: node
   linkType: hard
 
-"@bufbuild/protoc-gen-es@npm:^2.0.0-beta.1":
+"@bufbuild/protoc-gen-es@npm:^2.0.0-beta.2":
   version: 2.0.0-beta.2
   resolution: "@bufbuild/protoc-gen-es@npm:2.0.0-beta.2"
   dependencies:
@@ -1459,8 +1459,8 @@ __metadata:
   resolution: "buf-yarn-unplugged@workspace:."
   dependencies:
     "@bufbuild/buf": ^1.34.0
-    "@bufbuild/protobuf": ^2.0.0-beta.1
-    "@bufbuild/protoc-gen-es": ^2.0.0-beta.1
+    "@bufbuild/protobuf": ^2.0.0-beta.2
+    "@bufbuild/protoc-gen-es": ^2.0.0-beta.2
     "@connectrpc/connect": ^2.0.0-alpha.1
     "@connectrpc/connect-web": ^2.0.0-alpha.1
     "@types/react": ^18.3.3

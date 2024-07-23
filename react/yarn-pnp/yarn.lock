@@ -507,14 +507,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:2.0.0-beta.2, @bufbuild/protobuf@npm:^2.0.0-beta.1, @bufbuild/protobuf@npm:^2.0.0-beta.2":
+"@bufbuild/protobuf@npm:2.0.0-beta.2, @bufbuild/protobuf@npm:^2.0.0-beta.2":
   version: 2.0.0-beta.2
   resolution: "@bufbuild/protobuf@npm:2.0.0-beta.2"
   checksum: acd97da70c239061b1db2b0e058763ec1185a82c596557f3983697ed40887a16a4d2eb846dc14f6aa1b51dad422e26cfe401f5ef0b64db7d3c1208a02dbe3c9d
   languageName: node
   linkType: hard
 
-"@bufbuild/protoc-gen-es@npm:^2.0.0-beta.1":
+"@bufbuild/protoc-gen-es@npm:^2.0.0-beta.2":
   version: 2.0.0-beta.2
   resolution: "@bufbuild/protoc-gen-es@npm:2.0.0-beta.2"
   dependencies:
@@ -1855,8 +1855,8 @@ __metadata:
   resolution: "buf-yarn-pnp@workspace:."
   dependencies:
     "@bufbuild/buf": "npm:^1.34.0"
-    "@bufbuild/protobuf": "npm:^2.0.0-beta.1"
-    "@bufbuild/protoc-gen-es": "npm:^2.0.0-beta.1"
+    "@bufbuild/protobuf": "npm:^2.0.0-beta.2"
+    "@bufbuild/protoc-gen-es": "npm:^2.0.0-beta.2"
     "@connectrpc/connect": "npm:^2.0.0-alpha.1"
     "@connectrpc/connect-web": "npm:^2.0.0-alpha.1"
     "@types/react": "npm:^18.3.3"
