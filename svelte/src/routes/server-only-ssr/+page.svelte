@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { SayResponse } from "../../gen/connectrpc/eliza/v1/eliza_pb";
+  import { fromJson } from "@bufbuild/protobuf";
+  import { SayResponseSchema } from "../../gen/connectrpc/eliza/v1/eliza_pb.js";
   import type { PageData } from "./$types";
 
   export let data: PageData = {
@@ -12,7 +13,7 @@
 
   // If you wish to revive the response type, you can do so like this, by calling `.fromJson` on the Response class
   // provided by protobuf-es.
-  const sayResponse = SayResponse.fromJson(data.fullResponseJson);
+  const sayResponse = fromJson(SayResponseSchema, data.fullResponseJson);
 
   console.log("server-only-ssr +page.svelte", data, sayResponse);
 </script>
@@ -34,7 +35,7 @@
         <div>
             Request sentence: <code data-testid="request-sentence">{data.request.sentence}</code><br>
             Response sentence: <code data-testid="response-sentence">{sayResponse.sentence}</code><br>
-            Response type: <code data-testid="response-type">{sayResponse.getType().typeName}</code>
+            Response type: <code data-testid="response-type">{sayResponse.$typeName}</code>
         </div>
         <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>

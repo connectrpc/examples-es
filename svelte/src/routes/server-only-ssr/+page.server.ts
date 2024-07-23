@@ -1,8 +1,12 @@
-import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_connect";
-import { SayRequest } from "../../gen/connectrpc/eliza/v1/eliza_pb";
+import {
+  ElizaService,
+  SayRequestSchema,
+  SayResponseSchema,
+} from "../../gen/connectrpc/eliza/v1/eliza_pb";
 import { createGrpcWebTransport } from "@connectrpc/connect-web";
 import { createPromiseClient } from "@connectrpc/connect";
 import type { PageServerLoad } from "./$types";
+import { create, toJson } from "@bufbuild/protobuf";
 
 /**
  * This load function always runs on the server. The data it returns is
@@ -28,7 +32,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
     sentence: "hi from the server",
   };
 
-  const response = await client.say(new SayRequest(request));
+  const response = await client.say(create(SayRequestSchema, request));
 
   /**
    * The values on `response` (such as `sentence`) are JSON serializable
@@ -46,7 +50,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
    * The downside to this approach is that you lose all type information and get `JsonValue`.
    * (but you can get it right back! see `SayResponse.fromJson` in +page.svelte)
    */
-  const fullResponseJson = response.toJson();
+  const fullResponseJson = toJson(SayResponseSchema, response);
 
   return {
     request,

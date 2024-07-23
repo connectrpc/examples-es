@@ -1,7 +1,7 @@
 import { after, it } from 'node:test';
 import assert from 'node:assert';
 import { Miniflare } from 'miniflare';
-import { UrlShortenerService } from './gen/urlshortener/v1/urlshortener_connect.js';
+import { UrlShortenerService } from './gen/urlshortener/v1/urlshortener_pb.js';
 import { createConnectTransport } from '@connectrpc/connect-node';
 import { createPromiseClient } from '@connectrpc/connect';
 

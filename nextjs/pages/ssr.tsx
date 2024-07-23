@@ -1,10 +1,13 @@
 import { createPromiseClient } from "@connectrpc/connect";
 import { InferGetServerSidePropsType } from "next";
 import Link from "next/link";
-import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect";
+import {
+  ElizaService,
+  SayResponseSchema,
+} from "../gen/connectrpc/eliza/v1/eliza_pb";
 import { createConnectTransport } from "@connectrpc/connect-web";
 import styles from "../styles/Eliza.module.css";
-import { SayResponse } from "../gen/connectrpc/eliza/v1/eliza_pb";
+import { fromJson, toJson } from "@bufbuild/protobuf";
 
 export const getServerSideProps = async () => {
   const transport = createConnectTransport({
@@ -25,7 +28,7 @@ export const getServerSideProps = async () => {
 
       // However, if we want to pass the entire response, we call `.toJson()` since what's passed through the SSR boundary must be plain JSON.
       // The downside to this approach is that you lose all type information (but you can get it right back! see `SayResponse.fromJson` below).
-      response: response.toJson(),
+      response: toJson(SayResponseSchema, response),
     },
   };
 };
@@ -39,7 +42,7 @@ function Ssr({
 }: // ^?
 // The type of `sentence` here is correctly inferred as `string` without any further work.
 InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const sayResponse = SayResponse.fromJson(response);
+  const sayResponse = fromJson(SayResponseSchema, response);
   //    ^?
   //    Now `sayResponse` is a full `SayResponse` class with all the normal `Message` methods.
 

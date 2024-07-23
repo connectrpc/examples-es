@@ -1,14 +1,13 @@
 import { createPromiseClient } from '@connectrpc/connect'
 import { createConnectTransport } from '@connectrpc/connect-web'
-import { ElizaService } from '../gen/connectrpc/eliza/v1/eliza_connect.js'
-import { IntroduceRequest } from '../gen/connectrpc/eliza/v1/eliza_pb.js'
+import { ElizaService, IntroduceRequestSchema } from '../gen/connectrpc/eliza/v1/eliza_pb.js'
 
 test('imports ElizaService correctly', () => {
     expect(ElizaService).toBeDefined()
 })
 
 test('imports messages correctly', () => {
-    expect(IntroduceRequest).toBeDefined()
+    expect(IntroduceRequestSchema).toBeDefined()
 })
 
 test('creates a promise client', () => {

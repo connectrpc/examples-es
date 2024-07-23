@@ -10,11 +10,14 @@ import {
 } from "react-native";
 import { createPromiseClient, Code, ConnectError } from "@connectrpc/connect";
 import { createXHRGrpcWebTransport } from "./custom-transport";
-import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
-import { IntroduceRequest } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
+import {
+  ElizaService,
+  IntroduceRequestSchema,
+} from "../gen/connectrpc/eliza/v1/eliza_pb.js";
 import { Platform } from "react-native";
 // Needed to polyfill TextEncoder/ TextDecoder
 import "fast-text-encoding";
+import { create } from "@bufbuild/protobuf";
 
 // Polyfill async.Iterator. For some reason, the Babel presets and plugins are not doing the trick.
 // Code from here: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-3.html#caveats
@@ -65,7 +68,7 @@ function Index() {
       ]);
     } else {
       try {
-        const request = new IntroduceRequest({
+        const request = create(IntroduceRequestSchema, {
           name: statement,
         });
 

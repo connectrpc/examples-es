@@ -5,14 +5,15 @@ import type { ComponentType } from "svelte";
 import { render, fireEvent, screen } from "@testing-library/svelte";
 import { createRouterTransport } from "@connectrpc/connect";
 import type { ConnectRouter } from "@connectrpc/connect";
-import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
 import {
-  IntroduceRequest,
-  SayRequest,
-  SayResponse,
+  ElizaService,
+  SayResponseSchema,
+  type IntroduceRequest,
+  type SayRequest,
 } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
 import ElizaPage from "../routes/+page.svelte";
 import TestPage from "./Test.svelte";
+import { create } from "@bufbuild/protobuf";
 
 function renderWithMockRoutes(
   component: ComponentType,
@@ -33,7 +34,7 @@ test("against a mocked service", async () => {
     service(ElizaService, {
       say(req: SayRequest) {
         expect(req.sentence).toEqual("Goodbye");
-        return new SayResponse({
+        return create(SayResponseSchema, {
           sentence: "This is a mock response to say.",
         });
       },

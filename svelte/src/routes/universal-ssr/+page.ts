@@ -1,8 +1,11 @@
-import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_connect";
-import { SayRequest } from "../../gen/connectrpc/eliza/v1/eliza_pb";
+import {
+  ElizaService,
+  SayRequestSchema,
+} from "../../gen/connectrpc/eliza/v1/eliza_pb";
 import { createConnectTransport } from "@connectrpc/connect-web";
 import { createPromiseClient } from "@connectrpc/connect";
 import type { PageLoad } from "./$types";
+import { create } from "@bufbuild/protobuf";
 
 /**
  * This load function runs on the server on first page load. The fetch call it
@@ -35,7 +38,7 @@ export const load: PageLoad = async ({ fetch }) => {
 
   const client = createPromiseClient(ElizaService, transport);
 
-  const request = new SayRequest({
+  const request = create(SayRequestSchema, {
     sentence: "hi from the server",
   });
 

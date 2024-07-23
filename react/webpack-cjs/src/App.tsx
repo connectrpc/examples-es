@@ -1,11 +1,12 @@
+
 require('./index.css'); 
 require('./App.css'); 
 
 const React = require('react');
 const {createPromiseClient} = require('@connectrpc/connect');
 const {createConnectTransport} = require('@connectrpc/connect-web');
-const { ElizaService } = require('./gen/connectrpc/eliza/v1/eliza_connect.js');
-const { IntroduceRequest } = require('./gen/connectrpc/eliza/v1/eliza_pb.js');
+const {create} = require('@bufbuild/protobuf');
+const { ElizaService, IntroduceRequestSchema } = require('./gen/connectrpc/eliza/v1/eliza_pb.js');
 
 interface Response {
     text: string
@@ -44,7 +45,7 @@ function App() {
                 { text: response.sentence, sender: 'eliza' },
             ])
         } else {
-            const request = new IntroduceRequest({
+            const request = create(IntroduceRequestSchema, {
                 name: sentence,
             })
 

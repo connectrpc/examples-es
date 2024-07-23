@@ -12,7 +12,7 @@ import assert from "node:assert";
 import * as readline from "node:readline/promises";
 import http from "http";
 import { setupTestServer } from "./setup-test-server.js";
-import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect.js";
+import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_pb.js";
 import routes from "./connect.js";
 
 
@@ -48,13 +48,13 @@ describe("unit testing an eliza app with a mocked server", () => {
             question: t.mock.fn<readline.Interface["question"]>(undefined, () => Promise.resolve("Joe")),
             write: t.mock.fn<readline.Interface["write"]>()
         };
-        const introduce = t.mock.fn<MethodImpl<typeof ElizaService.methods.introduce>>(
+        const introduce = t.mock.fn<MethodImpl<typeof ElizaService.method.introduce>>(
             async function* introduce() {
                 //
             }
         );
         const transport = createRouterTransport(({ rpc }) => {
-            rpc(ElizaService, ElizaService.methods.introduce, introduce);
+            rpc(ElizaService.method.introduce, introduce);
         });
 
         await new ElizaApp(io, transport).run();
@@ -71,7 +71,7 @@ describe("unit testing an eliza app with a mocked server", () => {
             write: t.mock.fn<readline.Interface["write"]>()
         };
         const transport = createRouterTransport(({ rpc }) => {
-            rpc(ElizaService, ElizaService.methods.introduce, async function* () {
+            rpc(ElizaService.method.introduce, async function* () {
                 yield { sentence: "a" };
                 yield { sentence: "b" };
                 yield { sentence: "c" };
@@ -93,7 +93,7 @@ describe("unit testing an eliza app with a mocked server", () => {
             write: t.mock.fn<readline.Interface["write"]>()
         };
         const transport = createRouterTransport(({ rpc }) => {
-            rpc(ElizaService, ElizaService.methods.introduce, async function* () {
+            rpc(ElizaService.method.introduce, async function* () {
                 throw new ConnectError("out of words", Code.Unavailable);
             });
         });
