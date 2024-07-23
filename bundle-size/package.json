@@ -14,7 +14,6 @@
     "./vite",
     "./webpack"
   ],
-  "//": "parcel adds the dep on process",
   "@parcel/resolver-default": {
     "packageExports": true
   },
