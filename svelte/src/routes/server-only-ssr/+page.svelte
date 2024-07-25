@@ -1,21 +1,18 @@
 <script lang="ts">
-  import { fromJson } from "@bufbuild/protobuf";
-  import { SayResponseSchema } from "../../gen/connectrpc/eliza/v1/eliza_pb.js";
+  import { create, fromJson } from "@bufbuild/protobuf";
+  import { SayRequestSchema, SayResponseSchema } from "../../gen/connectrpc/eliza/v1/eliza_pb.js";
+  import { PayloadSchema } from "../../gen/payload_pb";
   import type { PageData } from "./$types";
 
   export let data: PageData = {
-    fullResponseJson: {},
-    plainProperty: "uninitialized",
-    request: {
-      sentence: "uninitialized",
-    },
+    request: create(SayRequestSchema),
+    response: create(SayResponseSchema),
+    payloadJson: {},
   };
 
-  // If you wish to revive the response type, you can do so like this, by calling `.fromJson` on the Response class
-  // provided by protobuf-es.
-  const sayResponse = fromJson(SayResponseSchema, data.fullResponseJson);
+  const payload = fromJson(PayloadSchema, data.payloadJson); // Now `payload` is a full `Payload` message.
 
-  console.log("server-only-ssr +page.svelte", data, sayResponse);
+  console.log("server-only-ssr +page.svelte", data);
 </script>
 
 <div>
@@ -32,12 +29,12 @@
   <div class="container">
     <h3>Server (only) Rendered Data</h3>
     <div class="pre-container">
-        <div>
-            Request sentence: <code data-testid="request-sentence">{data.request.sentence}</code><br>
-            Response sentence: <code data-testid="response-sentence">{sayResponse.sentence}</code><br>
-            Response type: <code data-testid="response-type">{sayResponse.$typeName}</code>
-        </div>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <h5>Request</h5>
+        <pre data-testid="data-request">{JSON.stringify(data.request, null, 2)}</pre>
+        <h5>Response</h5>
+        <pre data-testid="data-response">{JSON.stringify(data.response, null, 2)}</pre>
+        <h5>Payload&apos;s large number</h5>
+        <pre data-testid="data-largeNum">{payload.largeNumber.toString()}</pre>
     </div>
   </div>
 </div>

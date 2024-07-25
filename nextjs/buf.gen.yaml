@@ -8,4 +8,4 @@ plugins:
     out: gen
     opt:
       - target=ts
-      - import_extension=none
+#      - json_types=true

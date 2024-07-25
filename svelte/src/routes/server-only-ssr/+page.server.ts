@@ -1,12 +1,12 @@
-import {
-  ElizaService,
-  SayRequestSchema,
-  SayResponseSchema,
-} from "../../gen/connectrpc/eliza/v1/eliza_pb";
+import { create, toJson } from "@bufbuild/protobuf";
 import { createGrpcWebTransport } from "@connectrpc/connect-web";
 import { createPromiseClient } from "@connectrpc/connect";
 import type { PageServerLoad } from "./$types";
-import { create, toJson } from "@bufbuild/protobuf";
+import {
+  ElizaService,
+  SayRequestSchema,
+} from "../../gen/connectrpc/eliza/v1/eliza_pb";
+import { PayloadSchema } from "../../gen/payload_pb";
 
 /**
  * This load function always runs on the server. The data it returns is
@@ -28,33 +28,35 @@ export const load: PageServerLoad = async ({ fetch }) => {
 
   const client = createPromiseClient(ElizaService, transport);
 
-  const request = {
+  const request = create(SayRequestSchema, {
     sentence: "hi from the server",
-  };
+  });
 
-  const response = await client.say(create(SayRequestSchema, request));
+  const response = await client.say(request);
 
-  /**
-   * The values on `response` (such as `sentence`) are JSON serializable
-   * JavaScript values. This means that we can easily pass them directly.
-   *
-   * The nice thing about doing this is that you retain full typing for `sentence: string`.
-   */
-  const plainProperty = response.sentence;
-
-  /**
-   * However, if we want to pass the entire response, we call `.toJson()` since
-   * what's passed through the SSR boundary must be plain JSON.
-   *
-   * You may also need to do this if you use BigInts or byte array (byte arrays use UInt8Array).
-   * The downside to this approach is that you lose all type information and get `JsonValue`.
-   * (but you can get it right back! see `SayResponse.fromJson` in +page.svelte)
-   */
-  const fullResponseJson = toJson(SayResponseSchema, response);
+  const payload = create(PayloadSchema, {
+    str: "abc",
+    double: Number.POSITIVE_INFINITY,
+    largeNumber: 123n,
+    bytes: new Uint8Array([0, 1, 2]),
+  });
 
   return {
+    // The messages `SayRequest` and `SayResponse` are simple proto3 messages.
+    // They are plain objects in JavaScript, and Svelte can serialize them to JSON
+    // to ship the server side props to the client.
     request,
-    plainProperty,
-    fullResponseJson,
+    response,
+
+    // The message `Payload` uses values that Svelte cannot serialize and embed -
+    // bigint, Infinity, and typed arrays. proto2 messages use the prototype
+    // chain to track field presence, which also isn't supported in Svelte.
+    //
+    // If you encounter such a case, you have the following options:
+    // - If BigInt is the issue, consider to add the field option `[jstype = JS_STRING]`
+    //   in Protobuf.
+    // - Serialize to JSON and reparse using the schema.
+    // - Use the plugin option `json_types=true` to get typed JSON from toJson().
+    payloadJson: toJson(PayloadSchema, payload),
   };
 };
