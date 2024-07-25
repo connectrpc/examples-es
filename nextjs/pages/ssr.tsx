@@ -1,13 +1,13 @@
 import { createPromiseClient } from "@connectrpc/connect";
 import { InferGetServerSidePropsType } from "next";
 import Link from "next/link";
-import {
-  ElizaService,
-  SayResponseSchema,
-} from "../gen/connectrpc/eliza/v1/eliza_pb";
-import { createConnectTransport } from "@connectrpc/connect-web";
 import styles from "../styles/Eliza.module.css";
-import { fromJson, toJson } from "@bufbuild/protobuf";
+import { createConnectTransport } from "@connectrpc/connect-web";
+import { create, fromJson, toJson } from "@bufbuild/protobuf";
+import {
+    ElizaService, SayRequestSchema,
+} from "../gen/connectrpc/eliza/v1/eliza_pb";
+import { PayloadSchema } from "../gen/payload_pb";
 
 export const getServerSideProps = async () => {
   const transport = createConnectTransport({
@@ -15,42 +15,45 @@ export const getServerSideProps = async () => {
     baseUrl: "https://demo.connectrpc.com",
   });
   const client = createPromiseClient(ElizaService, transport);
-  const request = { sentence: "hi (from the server)" };
+  const request = create(SayRequestSchema, { sentence: "hi (from the server)" });
   const response = await client.say(request);
+  const payload = create(PayloadSchema, {
+    str: "abc",
+    double: Number.POSITIVE_INFINITY,
+    largeNumber: 123n,
+    bytes: new Uint8Array([0, 1, 2]),
+  });
 
   return {
     props: {
+      // The messages SayRequest and SayResponse are simple proto3 messages.
+      // They are plain objects in JavaScript, and Next.js can serialize them to JSON
+      // to ship the server side props to the client.
       request,
-      // The values on `response` (such as `sentence`) are regular JavaScript values.
-      // This means that we can easily pass them below in `props` directly.
-      // The nice thing about doing this is that you retain full typing for `sentence: string`.
-      sentence: response.sentence,
+      response,
 
-      // However, if we want to pass the entire response, we call `.toJson()` since what's passed through the SSR boundary must be plain JSON.
-      // The downside to this approach is that you lose all type information (but you can get it right back! see `SayResponse.fromJson` below).
-      response: toJson(SayResponseSchema, response),
+      // The message Payload uses values that Next.js cannot serialize to JSON -
+      // bigint, Infinity, and typed arrays. proto2 messages use the prototype
+      // chain to track field presence, which also isn't supported in Next.js.
+      // If you encounter such a case, you can serialize to JSON yourself.
+      // The downside to this approach is that you lose all type information
+      // (but you can get it right back! see `fromJson` below).
+      payloadJson: toJson(PayloadSchema, payload),
     },
   };
 };
 
 function Ssr({
-  request,
-  response,
-  // ^?
-  // The type of `response` is `JsonValue`, so we need to revive it below.
-  sentence,
-}: // ^?
-// The type of `sentence` here is correctly inferred as `string` without any further work.
-InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const sayResponse = fromJson(SayResponseSchema, response);
-  //    ^?
-  //    Now `sayResponse` is a full `SayResponse` class with all the normal `Message` methods.
+  request, // type is `SayRequest`
+  response, // type is `SayResponse`
+  payloadJson, // type is `JsonValue` - we revive it below
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const payload = fromJson(PayloadSchema, payloadJson); // Now `payload` is a full `Payload` message.
 
   const data = {
     request,
     response,
-    sentence,
-    sayResponse,
+    payload,
   };
 
   console.log(data);
@@ -71,10 +74,15 @@ InferGetServerSidePropsType<typeof getServerSideProps>) {
         </div>
       </header>
 
-      <div className={styles.ssr}>
-        <h4>Server Rendered Data</h4>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      </div>
+        <div className={styles.ssr}>
+            <h4>Server Rendered Data</h4>
+            <h5>Request</h5>
+            <pre>{JSON.stringify(data.request, null, 2)}</pre>
+            <h5>Response</h5>
+            <pre>{JSON.stringify(data.response, null, 2)}</pre>
+            <h5>Payload&apos;s large number</h5>
+            <pre>{data.payload.largeNumber.toString()}</pre>
+        </div>
     </div>
   );
 }

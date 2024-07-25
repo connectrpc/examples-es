@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+message Payload {
+  string str = 1;
+  double double = 2;
+  uint64 large_number = 3;
+  bytes bytes = 4;
+}
