@@ -1,11 +1,12 @@
+import { create } from "@bufbuild/protobuf";
+import { createConnectTransport } from "@connectrpc/connect-web";
+import { createPromiseClient } from "@connectrpc/connect";
+import type { PageLoad } from "./$types";
 import {
   ElizaService,
   SayRequestSchema,
 } from "../../gen/connectrpc/eliza/v1/eliza_pb";
-import { createConnectTransport } from "@connectrpc/connect-web";
-import { createPromiseClient } from "@connectrpc/connect";
-import type { PageLoad } from "./$types";
-import { create } from "@bufbuild/protobuf";
+import { PayloadSchema } from "../../gen/payload_pb";
 
 /**
  * This load function runs on the server on first page load. The fetch call it
@@ -14,8 +15,9 @@ import { create } from "@bufbuild/protobuf";
  * does not hit the network, and returns the serialized and embedded response
  * instead.
  *
- * This load function always returns type-safe data, and does not require you to
- * go through JSON, like server-only load functions do.
+ * This load function always returns type-safe data, even if your messages use
+ * bigint, typed arrays, or field presence (which is tracked by the prototype
+ * chain).
  *
  * Note that your have to use the Connect transport for universal load functions.
  * With gRPC-web or any other binary data (this includes the protobuf binary
@@ -44,8 +46,16 @@ export const load: PageLoad = async ({ fetch }) => {
 
   const response = await client.say(request);
 
+  const payload = create(PayloadSchema, {
+    str: "abc",
+    double: Number.POSITIVE_INFINITY,
+    largeNumber: 123n,
+    bytes: new Uint8Array([0, 1, 2]),
+  });
+
   return {
     request,
     response,
+    payload,
   };
 };

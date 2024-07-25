@@ -1,21 +1,17 @@
 <script lang="ts">
   import { create } from "@bufbuild/protobuf";
   import { SayRequestSchema, SayResponseSchema } from "../../gen/connectrpc/eliza/v1/eliza_pb.js";
+  import { PayloadSchema } from "../../gen/payload_pb";
   import type { PageData } from "./$types";
 
   export let data: PageData = {
-    request: create(SayRequestSchema, {
-      sentence: "uninitialized",
-    }),
-    response: create(SayResponseSchema, {
-      sentence: "uninitialized",
-    }),
+    request: create(SayRequestSchema),
+    response: create(SayResponseSchema),
+    payload: create(PayloadSchema),
   };
 
+  // Note that the Payload message was able to pass through the SSR boundary in universal-ssr mode
   console.log("universal-ssr +page.svelte", data);
-
-  // Note that the full SayResponse Message type was able to pass through the SSR boundary in universal-ssr mode
-  data.response;
 </script>
 
 <div>
@@ -32,13 +28,12 @@
   <div class="container">
     <h3>Universal SSR Rendered Data</h3>
     <div class="pre-container">
-      <div>
-        Request sentence: <code data-testid="request-sentence">{data.request.sentence}</code><br>
-        Request type: <code data-testid="request-type">{data.request.$typeName}</code><br>
-        Response sentence: <code data-testid="response-sentence">{data.response.sentence}</code><br>
-        Response type: <code data-testid="response-type">{data.response.$typeName}</code>
-      </div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <h5>Request</h5>
+      <pre data-testid="data-request">{JSON.stringify(data.request, null, 2)}</pre>
+      <h5>Response</h5>
+      <pre data-testid="data-response">{JSON.stringify(data.response, null, 2)}</pre>
+      <h5>Payload&apos;s large number</h5>
+      <pre data-testid="data-largeNum">{data.payload.largeNumber.toString()}</pre>
     </div>
   </div>
 </div>

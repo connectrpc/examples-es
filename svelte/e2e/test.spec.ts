@@ -33,17 +33,14 @@ test("/universal-ssr", async ({ page }) => {
   const title = page.locator("h1");
   await expect(title).toHaveText("Eliza with Svelte");
 
-  const requestSentence = page.getByTestId("request-sentence");
-  await expect(requestSentence).toHaveText("hi from the server");
+  const request = page.getByTestId("data-request");
+  await expect(request).toHaveText(/.*hi from the server.*/);
 
-  const requestType = page.getByTestId("request-type");
-  await expect(requestType).toHaveText("connectrpc.eliza.v1.SayRequest");
+  const response = page.getByTestId("data-response");
+  await expect(response).toHaveText(/.+/);
 
-  const responseSentence = page.getByTestId("response-sentence");
-  await expect(responseSentence).toHaveText(/.+/);
-
-  const responseType = page.getByTestId("response-type");
-  await expect(responseType).toHaveText("connectrpc.eliza.v1.SayResponse");
+  const largeNum = page.getByTestId("data-largeNum");
+  await expect(largeNum).toHaveText("123");
 });
 
 test("/server-only-ssr", async ({ page }) => {
@@ -57,12 +54,12 @@ test("/server-only-ssr", async ({ page }) => {
   const title = page.locator("h1");
   await expect(title).toHaveText("Eliza with Svelte");
 
-  const requestSentence = page.getByTestId("request-sentence");
-  await expect(requestSentence).toHaveText("hi from the server");
+  const request = page.getByTestId("data-request");
+  await expect(request).toHaveText(/.*hi from the server.*/);
 
-  const responseSentence = page.getByTestId("response-sentence");
-  await expect(responseSentence).toHaveText(/.+/);
+  const response = page.getByTestId("data-response");
+  await expect(response).toHaveText(/.+/);
 
-  const responseType = page.getByTestId("response-type");
-  await expect(responseType).toHaveText("connectrpc.eliza.v1.SayResponse");
+  const largeNum = page.getByTestId("data-largeNum");
+  await expect(largeNum).toHaveText("123");
 });
