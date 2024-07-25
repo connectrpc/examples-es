@@ -43,7 +43,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 
   return {
     // The messages `SayRequest` and `SayResponse` are simple proto3 messages.
-    // They are plain objects in JavaScript, and Next.js can serialize them to JSON
+    // They are plain objects in JavaScript, and Svelte can serialize them to JSON
     // to ship the server side props to the client.
     request,
     response,
