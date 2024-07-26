@@ -17,17 +17,13 @@ export default function RootLayout({
       <body>
         <header className={styles.appHeader}>
           <h1 className={styles.headline}>Connect with Next.js</h1>
-          <h4 className={styles.subtitle}>
-            React Server Components with Server actions
-          </h4>
           <div className={styles.links}>
             Choose an example:
             <Link href="/">Unary Calls</Link>
             <Link href="/server-streaming">Server Streaming Calls</Link>
             <Link href="/ssr">SSR</Link>
-            <Link href="/react-server-actions">
-              React Server Components with Server actions
-            </Link>
+            <Link href="/react-server-actions">Server actions</Link>
+            <Link href="/boundary">Boundary</Link>
           </div>
         </header>
         <div className={styles.container}>{children}</div>
