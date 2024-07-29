@@ -2,9 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  experimental: {
-    serverActions: true,
-  },
   // Allow the .js extension in import paths when importing TypeScript files.
   // It is the standard for ECMAScript modules, but not all bundlers have
   // caught up yet.

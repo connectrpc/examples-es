@@ -1,5 +1,6 @@
 import styles from "../../styles/Eliza.module.css";
 import { revalidateTag, unstable_cache } from "next/cache";
+import { cookies } from "next/headers";
 import { createPromiseClient } from "@connectrpc/connect";
 import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
@@ -23,7 +24,8 @@ export default async function Page() {
     await addMessage(response.sentence, "eliza");
     revalidateTag("my-messages");
   }
-  const messages = await getMessagesCached();
+  const cookie = cookies().get("messages");
+  const messages = await getMessagesCached(cookie);
   return (
     <div>
       {messages.map((resp, i) => {

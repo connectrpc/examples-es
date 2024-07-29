@@ -8,8 +8,7 @@ interface ChatMessage {
   sender: "eliza" | "user";
 }
 
-export async function getMessages(): Promise<ChatMessage[]> {
-  const cookie = cookies().get("messages");
+export async function getMessages(cookie: any): Promise<ChatMessage[]> {
   if (cookie) {
     return JSON.parse(cookie.value) as ChatMessage[];
   }
@@ -17,7 +16,8 @@ export async function getMessages(): Promise<ChatMessage[]> {
 }
 
 export async function addMessage(text: string, sender: ChatMessage["sender"]) {
-  const messages = [...(await getMessages()), { text, sender }];
+  const cookie = cookies().get("messages");
+  const messages = [...(await getMessages(cookie)), { text, sender }];
   cookies().set("messages", JSON.stringify(messages), {
     httpOnly: true,
   });
