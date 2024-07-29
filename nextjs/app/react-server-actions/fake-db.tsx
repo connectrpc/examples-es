@@ -8,7 +8,13 @@ interface ChatMessage {
   sender: "eliza" | "user";
 }
 
-export async function getMessages(cookie: any): Promise<ChatMessage[]> {
+// Next.js does not expose the RequestCookie type returned from cookies.get()
+// so we're defining our own custom type here.
+interface Cookie {
+    value: string;
+}
+
+export async function getMessages(cookie: Cookie | undefined): Promise<ChatMessage[]> {
   if (cookie) {
     return JSON.parse(cookie.value) as ChatMessage[];
   }
