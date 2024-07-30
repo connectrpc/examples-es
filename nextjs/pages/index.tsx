@@ -1,15 +1,15 @@
 import React, { useState, FC, useCallback, FormEvent } from "react";
-import styles from "../styles/Eliza.module.css";
+import styles from "@/styles/Eliza.module.css";
 import { createPromiseClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
-import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect";
+import { ElizaService } from "@/gen/connectrpc/eliza/v1/eliza_connect";
 import Link from "next/link";
 
 const elizaClient = createPromiseClient(
   ElizaService,
   createConnectTransport({
     baseUrl: "/api",
-  })
+  }),
 );
 
 interface ChatMessage {
@@ -38,7 +38,7 @@ const UnaryExample: FC = () => {
         { text: response.sentence, sender: "eliza" },
       ]);
     },
-    [inputValue]
+    [inputValue],
   );
 
   return (

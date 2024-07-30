@@ -13,12 +13,12 @@
 // limitations under the License.
 
 import { ConnectRouter } from "@connectrpc/connect";
-import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect";
+import { ElizaService } from "@/gen/connectrpc/eliza/v1/eliza_connect";
 import type {
   SayRequest,
   IntroduceRequest,
   ConverseRequest,
-} from "./gen/connectrpc/eliza/v1/eliza_pb";
+} from "@/gen/connectrpc/eliza/v1/eliza_pb";
 
 export default (router: ConnectRouter) =>
   router.service(ElizaService, {

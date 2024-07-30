@@ -1,15 +1,15 @@
 import React, { useState, FC, useCallback, FormEvent } from "react";
-import styles from "../styles/Eliza.module.css";
+import styles from "@/styles/Eliza.module.css";
 import { createPromiseClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
-import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect";
+import { ElizaService } from "@/gen/connectrpc/eliza/v1/eliza_connect";
 import Link from "next/link";
 
 const client = createPromiseClient(
   ElizaService,
   createConnectTransport({
     baseUrl: "/api",
-  })
+  }),
 );
 
 const NewPage: FC = () => {
@@ -26,7 +26,7 @@ const NewPage: FC = () => {
         setResponses((resp) => [...resp, response.sentence]);
       }
     },
-    [userName]
+    [userName],
   );
 
   return (

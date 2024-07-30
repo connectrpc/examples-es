@@ -1,6 +1,6 @@
 # Eliza
 
-This project was bootstrapped as a [Next.js](https://nextjs.org) project with the command `npx create-next-app buf-nextjs --use-npm --ts` and all suggested defaults.
+This project was bootstrapped as a [Next.js](https://nextjs.org) project with the command `npx create-next-app buf-nextjs --use-npm --ts` and all suggested defaults (except for Tailwind for CSS).
 
 Note that this example uses Connect full-stack. It makes use of the server-side [https://www.npmjs.com/package/@connectrpc/connect-next](@connectrpc/connect-next) package to serve endpoints to the frontend.
 
