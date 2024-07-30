@@ -28,13 +28,13 @@
     }
   },
   "dependencies": {
-    "@bufbuild/protobuf": "^2.0.0-beta.3",
+    "@bufbuild/protobuf": "^2.0.0",
     "@connectrpc/connect": "^2.0.0-alpha.1",
     "typescript": "^5.5.2"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.34.0",
-    "@bufbuild/protoc-gen-es": "^2.0.0-beta.3",
+    "@bufbuild/protoc-gen-es": "^2.0.0",
     "parcel": "^2.12.0"
   }
 }
