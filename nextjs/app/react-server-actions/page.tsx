@@ -1,7 +1,7 @@
-import styles from "../../styles/Eliza.module.css";
+import styles from "@/styles/Eliza.module.css";
 import { revalidateTag, unstable_cache } from "next/cache";
 import { createPromiseClient } from "@connectrpc/connect";
-import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_connect";
+import { ElizaService } from "@/gen/connectrpc/eliza/v1/eliza_connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
 import { getMessages, addMessage } from "./fake-db";
 
@@ -47,7 +47,7 @@ export default async function Page() {
           name="chat-message"
         />
         <button className={styles.button} type="submit">
-          Send
+          Snend
         </button>
       </form>
     </div>
