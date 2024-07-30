@@ -1,6 +1,5 @@
 import styles from "../../styles/Eliza.module.css";
 import { revalidateTag, unstable_cache } from "next/cache";
-import { cookies } from "next/headers";
 import { createPromiseClient } from "@connectrpc/connect";
 import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
