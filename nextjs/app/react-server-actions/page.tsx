@@ -24,8 +24,7 @@ export default async function Page() {
     await addMessage(response.sentence, "eliza");
     revalidateTag("my-messages");
   }
-  const cookie = cookies().get("messages");
-  const messages = await getMessagesCached(cookie);
+  const messages = await getMessagesCached();
   return (
     <div>
       {messages.map((resp, i) => {
