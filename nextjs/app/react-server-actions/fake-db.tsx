@@ -1,30 +1,29 @@
-// The following is a very naive implementation of using cookies to store
+// The following is a very naive implementation of using a file to store
 // messages probably best stored in a database.
-
-import { cookies } from "next/headers";
+import { existsSync, writeFileSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 
 interface ChatMessage {
   text: string;
   sender: "eliza" | "user";
 }
 
-// Next.js does not expose the RequestCookie type returned from cookies.get()
-// so we're defining our own custom type here.
-interface Cookie {
-    value: string;
-}
+const historyPath = join(
+  new URL(import.meta.url).pathname,
+  "../chat-history.json",
+);
 
-export async function getMessages(cookie: Cookie | undefined): Promise<ChatMessage[]> {
-  if (cookie) {
-    return JSON.parse(cookie.value) as ChatMessage[];
-  }
-  return [];
+export async function getMessages(): Promise<ChatMessage[]> {
+  return existsSync(historyPath)
+    ? JSON.parse(readFileSync(historyPath, "utf-8"))
+    : [];
 }
 
 export async function addMessage(text: string, sender: ChatMessage["sender"]) {
-  const cookie = cookies().get("messages");
-  const messages = [...(await getMessages(cookie)), { text, sender }];
-  cookies().set("messages", JSON.stringify(messages), {
-    httpOnly: true,
+  const history = await getMessages();
+  history.push({
+    text,
+    sender,
   });
+  writeFileSync(historyPath, JSON.stringify(history));
 }
