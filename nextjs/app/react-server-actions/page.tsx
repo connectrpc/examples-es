@@ -47,7 +47,7 @@ export default async function Page() {
           name="chat-message"
         />
         <button className={styles.button} type="submit">
-          Snend
+          Send
         </button>
       </form>
     </div>
