@@ -2,6 +2,7 @@
   "name": "buf-yarn-pnp",
   "packageManager": "yarn@4.0.2",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "vite --port 3000",
     "build": "tsc && vite build",
