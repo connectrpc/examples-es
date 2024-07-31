@@ -1,6 +1,7 @@
 {
   "name": "buf-vue",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "start": "vite",
     "build": "run-p type-check build-only",
