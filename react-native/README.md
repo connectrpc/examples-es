@@ -37,4 +37,4 @@ Starts the app in Expo's `web` mode, which will allow you to see it running in a
 ## Metro
 
 Connect-ES and Protobuf-ES use package exports. If you use [metro](https://github.com/facebook/metro), 
-make sure to [enable them](https://metrobundler.dev/docs/configuration/#unstable_enablepackageexports-experimental).
+make sure to [enable them](https://metrobundler.dev/docs/package-exports/).
