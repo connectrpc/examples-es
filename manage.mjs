@@ -311,17 +311,10 @@ class PackageEnt {
      * @param {UpgradeStats} stats
      */
     upgrade(stats) {
-        let { directNames, devNames, versions, skippedPinnedDeps } = this.filterDeps();
+        const { directNames, devNames, versions, skippedPinnedDeps } = this.filterDeps();
         for (const name of skippedPinnedDeps) {
             stats.skipPinned(this, name)
         }
-
-      directNames = directNames.filter((name) => {
-            return name !== "@bufbuild/protobuf" && name !== "@bufbuild/protoc-gen-es" && name !== "@bufbuild/protoplugin";
-      });
-      devNames = devNames.filter((name) => {
-            return name !== "@bufbuild/protobuf" && name !== "@bufbuild/protoc-gen-es" && name !== "@bufbuild/protoplugin";
-      });
 
         if ((directNames.length + devNames.length) > 0) {
             const deps = [...directNames, ...devNames].join(" ");
