@@ -14,7 +14,7 @@
   console.log("universal-ssr +page.svelte", data);
 
   // Note that the full SayResponse Message type was able to pass through the SSR boundary in universal-ssr mode
-  data.response;
+  // data.response;
 </script>
 
 <div>
