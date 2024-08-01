@@ -12,6 +12,7 @@
     "check": "tsc --noEmit",
     "ci": "npm run generate && npm run check && npm run build && npm run test"
   },
+  "//": "Required for parcel at the root package.json - see https://parceljs.org/features/dependency-resolution/#package-exports",
   "@parcel/resolver-default": {
     "packageExports": true
   },

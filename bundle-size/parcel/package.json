@@ -13,7 +13,7 @@
     "ts": "dist/ts/index.dc635180.js"
   },
   "type": "module",
-  "//": "otherwise, parcel shakes everything away",
+  "//": "Required for parcel at the root package.json - see https://parceljs.org/features/dependency-resolution/#package-exports",
   "@parcel/resolver-default": {
     "packageExports": true
   },
