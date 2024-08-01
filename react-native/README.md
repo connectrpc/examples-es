@@ -33,3 +33,8 @@ Use `buf` to generate the compiled protos via protobuf-es
 ### `npm run web`
 
 Starts the app in Expo's `web` mode, which will allow you to see it running in a browser.
+
+## Metro
+
+Connect-ES and Protobuf-ES use package exports. If you use [metro](https://github.com/facebook/metro), 
+make sure to [enable them](https://metrobundler.dev/docs/configuration/#unstable_enablepackageexports-experimental).
