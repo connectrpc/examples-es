@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@remix-run/node": "^2.10.3",
-    "@remix-run/react": "^2.10.3",
+    "@remix-run/react": "^2.11.0",
     "@remix-run/serve": "^2.10.3",
     "@types/jest": "^29.5.12",
     "react": "^18.3.1",
