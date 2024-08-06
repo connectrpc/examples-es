@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package geolocation.v1;
+
+// Geolocation describes the location of the client IP.
+message GeoLocation {
+  // The city the request originated from.
+  string city = 1;
+  // The country the request originated from.
+  string country = 2;
+  // The flag emoji for the country the request originated from
+  string flag = 3;
+  // The latitude of the client IP.
+  string latitude = 4;
+  // The longitude of the client IP.
+  string longitude = 5;
+  // The region part of the ISO 3166-2 code of the client IP.
+  string country_region = 6;
+}
+
+// GeoLocationService provides methods for shortening and expanding URLs.
+service GeoLocationService {
+  // GetGeoLocation returns the geolocation of the client IP.
+  rpc GetGeoLocation(GetGeoLocationRequest) returns (GetGeoLocationResponse);
+}
+
+message GetGeoLocationRequest {}
+
+message GetGeoLocationResponse {
+  GeoLocation geo_location = 1;
+}
