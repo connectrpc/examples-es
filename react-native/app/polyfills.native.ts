@@ -15,7 +15,13 @@ export function polyfills() {
     polyfillGlobal("TextEncoder", () => TextEncoder);
   }
   polyfillGlobal("ReadableStream", () => ReadableStream);
-  polyfillGlobal("fetch", () => fetch);
+  polyfillGlobal(
+    "fetch", () => (...args: any[]) => fetch(args[0], {
+      ...args[1],
+      // Inject textStreaming: https://github.com/react-native-community/fetch/issues/15
+      reactNative: { textStreaming: true }
+    }),
+  );
   polyfillGlobal("Headers", () => Headers);
   polyfillGlobal("Request", () => Request);
   polyfillGlobal("Response", () => Response);
