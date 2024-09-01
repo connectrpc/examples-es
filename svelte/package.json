@@ -30,7 +30,7 @@
     "@sveltejs/kit": "^2.5.19",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/svelte": "^5.2.1",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.1.0",
