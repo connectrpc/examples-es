@@ -22,10 +22,10 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.35.1",
+    "@bufbuild/buf": "^1.39.0",
     "@bufbuild/protoc-gen-es": "^1.10.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "rollup": "^4.19.2"
+    "rollup": "^4.21.2"
   }
 }

@@ -33,7 +33,7 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.35.1",
+    "@bufbuild/buf": "^1.39.0",
     "@bufbuild/protoc-gen-es": "^1.10.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
     "parcel": "^2.12.0"
