@@ -10,10 +10,10 @@
     "ci": "npm run generate && npm run build && npm run test"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.35.1",
+    "@bufbuild/buf": "^1.39.0",
     "@bufbuild/protoc-gen-es": "^1.10.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
-    "@types/node": "^22.0.2",
+    "@types/node": "^22.5.2",
     "ts-node": "^10.9.2"
   },
   "dependencies": {

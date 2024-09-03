@@ -418,6 +418,9 @@ class PackageEnt {
         const devNames = [];
         const versions = {};
         for (const [key, val] of Object.entries(this.packageJson.dependencies ?? {})) {
+          if (key === "@bufbuild/protobuf" || key === "@bufbuild/protoc-gen-es" || key.startsWith("@angular/") || key.startsWith("zone.js")) {
+            continue;
+          }
             if (rePinned.test(val)) {
                 skippedPinnedDeps.push(`${key}@${val}`);
                 continue;
@@ -426,6 +429,9 @@ class PackageEnt {
             directNames.push(key);
         }
         for (const [key, val] of Object.entries(this.packageJson.devDependencies ?? {})) {
+          if (key === "@bufbuild/protobuf" || key === "@bufbuild/protoc-gen-es" || key.startsWith("@angular/") || key.startsWith("zone.js")) {
+            continue;
+          }
             if (rePinned.test(val)) {
                 skippedPinnedDeps.push(`${key}@${val}`);
                 continue;
