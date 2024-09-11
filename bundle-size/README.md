@@ -17,10 +17,10 @@ The results are:
 <!--- RESULTS-START -->
 | Name | Size | Artifact |
 |------|-----:|----------|
-| esbuild (js) | 84,032 bytes | dist/js/index.js |
-| esbuild (ts) | 90,548 bytes | dist/ts/index.js |
-| parcel (js) | 37,343 bytes | dist/js/index.cf4251ac.js |
-| parcel (ts) | 39,680 bytes | dist/ts/index.dc635180.js |
+| esbuild (js) | 85,758 bytes | dist/js/index.js |
+| esbuild (ts) | 92,274 bytes | dist/ts/index.js |
+| parcel (js) | 37,437 bytes | dist/js/index.cf4251ac.js |
+| parcel (ts) | 39,670 bytes | dist/ts/index.dc635180.js |
 | rollup (js) | 145,863 bytes | dist/js/index.js |
 | rollup (ts) | 158,086 bytes | dist/ts/index.js |
 | vite (js) | 55,237 bytes | dist/js/consumer-vite.js |
