@@ -1,11 +1,12 @@
-import { createPromiseClient } from "@connectrpc/connect";
+import { createClient } from "@connectrpc/connect";
 import { InferGetServerSidePropsType } from "next";
 import Link from "next/link";
 import styles from "../styles/Eliza.module.css";
 import { createConnectTransport } from "@connectrpc/connect-web";
 import { create, fromJson, toJson } from "@bufbuild/protobuf";
 import {
-    ElizaService, SayRequestSchema,
+  ElizaService,
+  SayRequestSchema,
 } from "../gen/connectrpc/eliza/v1/eliza_pb";
 import { PayloadSchema } from "../gen/payload_pb";
 
@@ -14,8 +15,10 @@ export const getServerSideProps = async () => {
     // Note: you cannot use a relative path like `/api` here because SSR requires absolute URLs.
     baseUrl: "https://demo.connectrpc.com",
   });
-  const client = createPromiseClient(ElizaService, transport);
-  const request = create(SayRequestSchema, { sentence: "hi (from the server)" });
+  const client = createClient(ElizaService, transport);
+  const request = create(SayRequestSchema, {
+    sentence: "hi (from the server)",
+  });
   const response = await client.say(request);
   const payload = create(PayloadSchema, {
     str: "abc",
@@ -51,7 +54,6 @@ function Ssr({
   response, // type is `SayResponse`
   payloadJson, // type is `JsonValue` - we revive it below
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-
   const data = {
     request,
     response,
@@ -75,15 +77,15 @@ function Ssr({
         </div>
       </header>
 
-        <div className={styles.ssr}>
-            <h4>Server Rendered Data</h4>
-            <h5>Request</h5>
-            <pre>{JSON.stringify(data.request, null, 2)}</pre>
-            <h5>Response</h5>
-            <pre>{JSON.stringify(data.response, null, 2)}</pre>
-            <h5>Payload&apos;s large number</h5>
-            <pre>{data.payload.largeNumber.toString()}</pre>
-        </div>
+      <div className={styles.ssr}>
+        <h4>Server Rendered Data</h4>
+        <h5>Request</h5>
+        <pre>{JSON.stringify(data.request, null, 2)}</pre>
+        <h5>Response</h5>
+        <pre>{JSON.stringify(data.response, null, 2)}</pre>
+        <h5>Payload&apos;s large number</h5>
+        <pre>{data.payload.largeNumber.toString()}</pre>
+      </div>
     </div>
   );
 }

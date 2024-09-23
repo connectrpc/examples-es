@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { createPromiseClient } from '@connectrpc/connect'
+import { createClient } from '@connectrpc/connect'
 import { createConnectTransport } from '@connectrpc/connect-web'
 import { ElizaService, IntroduceRequestSchema } from './gen/connectrpc/eliza/v1/eliza_pb.js'
 import { create } from '@bufbuild/protobuf'
@@ -20,7 +20,7 @@ function App() {
     ])
 
     // Make the Eliza Service client
-    const client = createPromiseClient(
+    const client = createClient(
         ElizaService,
         createConnectTransport({
             baseUrl: 'https://demo.connectrpc.com',

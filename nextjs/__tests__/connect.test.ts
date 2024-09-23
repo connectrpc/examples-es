@@ -1,5 +1,5 @@
 import { describe, it, expect } from "@jest/globals";
-import { createPromiseClient, createRouterTransport, ServiceImpl } from "@connectrpc/connect";
+import { createClient, createRouterTransport, ServiceImpl } from "@connectrpc/connect";
 import { ElizaService, SayRequestSchema } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
 import { ConverseRequest, IntroduceRequest, SayRequest } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
 import routes from "../connect.js";
@@ -10,7 +10,7 @@ describe("testing the eliza service with an in-memory server", () => {
     it("say should repeat what we said", async () => {
         // Create an in-memory transport with the routes from connect.ts
         const transport = createRouterTransport(routes);
-        const client = createPromiseClient(ElizaService, transport);
+        const client = createClient(ElizaService, transport);
         const { sentence } = await client.say({ sentence: "hello" });
         expect(sentence).toBe("You said hello");
     });

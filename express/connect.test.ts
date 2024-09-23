@@ -1,4 +1,4 @@
-import { createPromiseClient, createRouterTransport, ServiceImpl } from "@connectrpc/connect";
+import { createClient, createRouterTransport, ServiceImpl } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-node";
 import { describe, it } from "node:test";
 import assert from "node:assert";
@@ -13,7 +13,7 @@ describe("testing the eliza service with an in-memory server", () => {
     it("say should repeat what we said", async () => {
         // Create an in-memory transport with the routes from connect.ts
         const transport = createRouterTransport(routes);
-        const client = createPromiseClient(ElizaService, transport);
+        const client = createClient(ElizaService, transport);
         const { sentence } = await client.say({ sentence: "hello" });
         assert.strictEqual(sentence, "You said hello");
     });
@@ -27,7 +27,7 @@ describe("testing the eliza service with a full HTTP server", () => {
     it("say should repeat what we said", async () => {
         // create a transport for the test server
         const transport = createConnectTransport(serverInfo());
-        const client = createPromiseClient(ElizaService, transport);
+        const client = createClient(ElizaService, transport);
         const { sentence } = await client.say({ sentence: "hello" });
         assert.strictEqual(sentence, "You said hello");
     });

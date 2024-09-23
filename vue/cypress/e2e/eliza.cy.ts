@@ -1,5 +1,5 @@
 import { createConnectTransport } from "@connectrpc/connect-web";
-import { createPromiseClient } from "@connectrpc/connect";
+import { createClient } from "@connectrpc/connect";
 import {
   ElizaService,
   IntroduceRequestSchema,
@@ -11,7 +11,7 @@ describe("Eliza Testing", () => {
     expect(IntroduceRequestSchema).to.not.be.undefined;
   });
   it("creates a promise client", () => {
-    const client = createPromiseClient(
+    const client = createClient(
       ElizaService,
       createConnectTransport({
         baseUrl: "https://demo.connectrpc.com",

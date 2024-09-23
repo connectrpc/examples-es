@@ -3,7 +3,7 @@ import assert from 'node:assert';
 import { Miniflare } from 'miniflare';
 import { UrlShortenerService } from './gen/urlshortener/v1/urlshortener_pb.js';
 import { createConnectTransport } from '@connectrpc/connect-node';
-import { createPromiseClient } from '@connectrpc/connect';
+import { createClient } from '@connectrpc/connect';
 
 it('should shorten and expand', async () => {
 	const mf = new Miniflare({
@@ -19,7 +19,7 @@ it('should shorten and expand', async () => {
 		httpVersion: '1.1',
 		useBinaryFormat: true,
 	});
-	const client = createPromiseClient(UrlShortenerService, transport);
+	const client = createClient(UrlShortenerService, transport);
 	const { url: shortUrl } = await client.shorten({ url: 'https://google.com' });
 	const { url: longUrl } = await client.expand({ url: shortUrl });
 	assert.strictEqual(longUrl, 'https://google.com');

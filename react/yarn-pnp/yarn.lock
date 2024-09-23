@@ -507,57 +507,57 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:2.0.0, @bufbuild/protobuf@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@bufbuild/protobuf@npm:2.0.0"
-  checksum: a46ed4d329ce14e162b0ffe0b7f7db7c21ea5174757b5c1ce7bd8a84509603932d5ba51efeaa895fb2ecbf4e10e8c10f4fbf65f880f9a5abe00929ebd850e18e
+"@bufbuild/protobuf@npm:2.1.0, @bufbuild/protobuf@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@bufbuild/protobuf@npm:2.1.0"
+  checksum: de780b67a36c1066c51cc1214eb15facb03619f08ec59f9c9ebff034ed7838069010739e615a2ee8f31b555127c554a1e6421f7d1d3d718dbcdd47c458cefef6
   languageName: node
   linkType: hard
 
-"@bufbuild/protoc-gen-es@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@bufbuild/protoc-gen-es@npm:2.0.0"
+"@bufbuild/protoc-gen-es@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@bufbuild/protoc-gen-es@npm:2.1.0"
   dependencies:
-    "@bufbuild/protobuf": "npm:^2.0.0"
-    "@bufbuild/protoplugin": "npm:2.0.0"
+    "@bufbuild/protobuf": "npm:^2.1.0"
+    "@bufbuild/protoplugin": "npm:2.1.0"
   peerDependencies:
-    "@bufbuild/protobuf": 2.0.0
+    "@bufbuild/protobuf": 2.1.0
   peerDependenciesMeta:
     "@bufbuild/protobuf":
       optional: true
   bin:
     protoc-gen-es: bin/protoc-gen-es
-  checksum: 9f55d08f380ab7cbfdac7f451af9f472d461639f67a4db9fb7b239955ee9e485219da22886db86dc83279e0b2942b330201946166868c7d4bb010785b4021607
+  checksum: a30d9e589c4e84f454c336c033101d1c8cbff89e2d717b34700651900202b437c20b220497fcbd1edc672d5709f33bc3784cb3ecfceebe427ee6a3629f3a13f0
   languageName: node
   linkType: hard
 
-"@bufbuild/protoplugin@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@bufbuild/protoplugin@npm:2.0.0"
+"@bufbuild/protoplugin@npm:2.1.0":
+  version: 2.1.0
+  resolution: "@bufbuild/protoplugin@npm:2.1.0"
   dependencies:
-    "@bufbuild/protobuf": "npm:2.0.0"
+    "@bufbuild/protobuf": "npm:2.1.0"
     "@typescript/vfs": "npm:^1.5.2"
     typescript: "npm:5.4.5"
-  checksum: 62785bab52c74bfb8aeb55696ad0c5762142ff276631c14ee5abae1cbb65376a95ec70129ded485f9348997a03efecd26fc81665ddd2a0a8adb7c54baf568a19
+  checksum: d5fd7bb0b179e449b22b94e8c9e808e343138449163a9153ee89dd4034daf67e9acd362cacd1a363f6034496300582902e650dd52f1d6440e291a2f84301db75
   languageName: node
   linkType: hard
 
-"@connectrpc/connect-web@npm:^2.0.0-alpha.1":
-  version: 2.0.0-alpha.1
-  resolution: "@connectrpc/connect-web@npm:2.0.0-alpha.1"
+"@connectrpc/connect-web@npm:^2.0.0-beta.1":
+  version: 2.0.0-beta.1
+  resolution: "@connectrpc/connect-web@npm:2.0.0-beta.1"
   peerDependencies:
-    "@bufbuild/protobuf": ^2.0.0-beta.2
-    "@connectrpc/connect": 2.0.0-alpha.1
-  checksum: 271c73ce3cc66cfdc3736672368a3af1881e41d2cfe6d0a5701fcd1d0cc6fcdc8fb9e21a8bc316d7c282f8270f9808367aad5c3bb8e67225d62afd5243c208f6
+    "@bufbuild/protobuf": ^2.1.0
+    "@connectrpc/connect": 2.0.0-beta.1
+  checksum: 95a63bbfb558ee038e0c94f92c78f5002a076da21311ed1c35f70bce7979327f2d2ffcb161ac6ccee4e57d5ec504263f6360d87057693093f4873631f916def4
   languageName: node
   linkType: hard
 
-"@connectrpc/connect@npm:^2.0.0-alpha.1":
-  version: 2.0.0-alpha.1
-  resolution: "@connectrpc/connect@npm:2.0.0-alpha.1"
+"@connectrpc/connect@npm:^2.0.0-beta.1":
+  version: 2.0.0-beta.1
+  resolution: "@connectrpc/connect@npm:2.0.0-beta.1"
   peerDependencies:
-    "@bufbuild/protobuf": ^2.0.0-beta.2
-  checksum: 241a30e90518d9b643105d6190773cdae52429319b496800cc12ab757f86a66aa927bc0099ab1e8dfc52e211d3f35458c537a1480872e136efcf6a53a7d77c0d
+    "@bufbuild/protobuf": ^2.1.0
+  checksum: ab47a8438655270ad4696ccbafa25c56f676bc1477cd0e374e0b97b45c2c110df1cf13b92fd073b5baea7d8a937c2b69e8b60a3f1d9d822e053bfa3db6652517
   languageName: node
   linkType: hard
 
@@ -1855,10 +1855,10 @@ __metadata:
   resolution: "buf-yarn-pnp@workspace:."
   dependencies:
     "@bufbuild/buf": "npm:^1.34.0"
-    "@bufbuild/protobuf": "npm:^2.0.0"
-    "@bufbuild/protoc-gen-es": "npm:^2.0.0"
-    "@connectrpc/connect": "npm:^2.0.0-alpha.1"
-    "@connectrpc/connect-web": "npm:^2.0.0-alpha.1"
+    "@bufbuild/protobuf": "npm:^2.1.0"
+    "@bufbuild/protoc-gen-es": "npm:^2.1.0"
+    "@connectrpc/connect": "npm:^2.0.0-beta.1"
+    "@connectrpc/connect-web": "npm:^2.0.0-beta.1"
     "@types/react": "npm:^18.3.3"
     "@types/react-dom": "npm:^18.3.0"
     "@vitejs/plugin-react": "npm:^4.3.1"

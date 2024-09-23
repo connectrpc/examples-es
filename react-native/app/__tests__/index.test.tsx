@@ -1,5 +1,5 @@
 import { expect, test } from '@jest/globals'
-import { createPromiseClient } from '@connectrpc/connect'
+import { createClient } from '@connectrpc/connect'
 import { createConnectTransport } from '@connectrpc/connect-web'
 import { ElizaService, IntroduceRequestSchema } from '../../gen/connectrpc/eliza/v1/eliza_pb.js'
 
@@ -12,7 +12,7 @@ test('imports messages correctly', () => {
 })
 
 test('creates a promise client', () => {
-    const client = createPromiseClient(
+    const client = createClient(
         ElizaService,
         createConnectTransport({
             baseUrl: 'https://demo.connectrpc.com',

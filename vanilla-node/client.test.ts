@@ -1,7 +1,7 @@
 import {
     Code,
     ConnectError,
-    createPromiseClient,
+    createClient,
     createRouterTransport,
     MethodImpl,
     Transport
@@ -24,7 +24,7 @@ class ElizaApp {
 
     async run() {
         const name = await this.io.question("What is your name?\n>");
-        const client = createPromiseClient(ElizaService, this.transport);
+        const client = createClient(ElizaService, this.transport);
         try {
             for await (const res of client.introduce({ name })) {
                 this.io.write(res.sentence + "\n");

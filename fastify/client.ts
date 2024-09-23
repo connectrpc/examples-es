@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { createPromiseClient } from '@connectrpc/connect';
+import { createClient } from '@connectrpc/connect';
 import { createConnectTransport } from '@connectrpc/connect-node';
 import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_pb.js';
 import { stdin, stdout } from 'process';
@@ -28,7 +28,7 @@ const transport = createConnectTransport({
 });
 
 void (async () => {
-    const client = createPromiseClient(ElizaService, transport);
+    const client = createClient(ElizaService, transport);
 
     const name = await rl.question('What is your name?\n> ');
 

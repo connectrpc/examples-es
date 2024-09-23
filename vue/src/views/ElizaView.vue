@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, inject } from "vue";
-import { createPromiseClient } from "@connectrpc/connect";
-import type { PromiseClient, Transport } from "@connectrpc/connect";
+import { createClient } from "@connectrpc/connect";
+import type { Client, Transport } from "@connectrpc/connect";
 import {
   ElizaService,
   IntroduceRequestSchema,
@@ -18,7 +18,7 @@ interface ElizaData {
   statement: string;
   responses: Response[];
   introFinished: boolean;
-  client: PromiseClient<typeof ElizaService> | undefined;
+  client: Client<typeof ElizaService> | undefined;
 }
 
 export default defineComponent({
@@ -45,7 +45,7 @@ export default defineComponent({
   },
   mounted() {
     // Make the Eliza Service client
-    this.client = createPromiseClient(ElizaService, this.transport);
+    this.client = createClient(ElizaService, this.transport);
   },
   methods: {
     async send() {
