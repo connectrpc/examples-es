@@ -1,4 +1,4 @@
-import { createPromiseClient } from "@connectrpc/connect";
+import { createClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
 import { IntroduceRequestSchema, ElizaService } from "./gen/connectrpc/eliza/v1/eliza_pb.js";
 import { create } from "@bufbuild/protobuf";
@@ -6,7 +6,7 @@ import { create } from "@bufbuild/protobuf";
 let introFinished = false;
 
 // Make the Eliza Service client
-const client = createPromiseClient(
+const client = createClient(
   ElizaService,
   createConnectTransport({
     baseUrl: "http://localhost:3000",

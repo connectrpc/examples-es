@@ -91,10 +91,7 @@ export function createXHRGrpcWebTransport(
           service: method.parent,
           method,
           url: createMethodUrl(options.baseUrl, method),
-          init: {
-            method: "POST",
-            mode: "cors",
-          },
+          requestMethod: "POST",
           header: requestHeader(useBinaryFormat, timeoutMs, header, false),
           contextValues: contextValues ?? createContextValues(),
           message,
@@ -104,7 +101,7 @@ export function createXHRGrpcWebTransport(
             return new Promise((resolve, reject) => {
               const xhr = new XMLHttpRequest();
 
-              xhr.open(req.init.method ?? "POST", req.url);
+              xhr.open(req.requestMethod, req.url);
 
               function onAbort() {
                 xhr.abort();

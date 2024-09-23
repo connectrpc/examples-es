@@ -8,7 +8,7 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { createPromiseClient, Code, ConnectError } from "@connectrpc/connect";
+import { createClient, Code, ConnectError } from "@connectrpc/connect";
 import { createXHRGrpcWebTransport } from "./custom-transport";
 import {
   ElizaService,
@@ -46,7 +46,7 @@ function Index() {
   ]);
 
   // Make the Eliza Service client
-  const client = createPromiseClient(
+  const client = createClient(
     ElizaService,
     createXHRGrpcWebTransport({
       baseUrl: "https://demo.connectrpc.com",

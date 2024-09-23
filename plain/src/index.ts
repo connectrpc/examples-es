@@ -1,5 +1,5 @@
 import {
-    createPromiseClient
+    createClient
 } from '@connectrpc/connect'
 import {
     createConnectTransport,
@@ -10,7 +10,7 @@ import { create } from '@bufbuild/protobuf';
 let introFinished = false;
 
 // Make the Eliza Service client
-const client = createPromiseClient(
+const client = createClient(
     ElizaService,
     createConnectTransport({
         baseUrl: 'https://demo.connectrpc.com',

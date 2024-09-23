@@ -1,8 +1,11 @@
 <script lang="ts">
-  import { createPromiseClient } from "@connectrpc/connect";
+  import { createClient } from "@connectrpc/connect";
   import type { Transport } from "@connectrpc/connect";
-  import { ElizaService, IntroduceRequestSchema } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
-  import { getContext } from 'svelte';
+  import {
+    ElizaService,
+    IntroduceRequestSchema,
+  } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
+  import { getContext } from "svelte";
   import { create } from "@bufbuild/protobuf";
 
   interface Response {
@@ -19,13 +22,10 @@
   ];
   let introFinished = false;
 
-  const transport: Transport = getContext('transport');
+  const transport: Transport = getContext("transport");
 
   // Make the Eliza Service client
-  const client = createPromiseClient(
-    ElizaService,
-    transport
-  );
+  const client = createClient(ElizaService, transport);
 
   const send = async () => {
     responses = [...responses, { text: statement, sender: "user" }];
@@ -78,7 +78,7 @@
           ? "eliza-resp-container"
           : "user-resp-container"}
       >
-      <p data-testid={`test${i}`} class="resp-text">{resp.text}</p>
+        <p data-testid={`test${i}`} class="resp-text">{resp.text}</p>
       </div>
     {/each}
     <div>

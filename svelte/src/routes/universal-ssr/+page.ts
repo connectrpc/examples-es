@@ -1,6 +1,6 @@
 import { create } from "@bufbuild/protobuf";
 import { createConnectTransport } from "@connectrpc/connect-web";
-import { createPromiseClient } from "@connectrpc/connect";
+import { createClient } from "@connectrpc/connect";
 import type { PageLoad } from "./$types";
 import {
   ElizaService,
@@ -38,7 +38,7 @@ export const load: PageLoad = async ({ fetch }) => {
     fetch,
   });
 
-  const client = createPromiseClient(ElizaService, transport);
+  const client = createClient(ElizaService, transport);
 
   const request = create(SayRequestSchema, {
     sentence: "hi from the server",

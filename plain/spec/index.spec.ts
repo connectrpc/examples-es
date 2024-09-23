@@ -1,5 +1,5 @@
 import {
-    createPromiseClient
+    createClient
 } from '@connectrpc/connect'
 import {
     createConnectTransport,
@@ -14,7 +14,7 @@ it('imports messages correctly', () => {
 })
 
 it('creates a promise client', () => {
-    const client = createPromiseClient(
+    const client = createClient(
         ElizaService,
         createConnectTransport({
             baseUrl: 'https://demo.connectrpc.com',
