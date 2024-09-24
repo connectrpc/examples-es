@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "../styles/Eliza.module.css";
-import "../styles/globals.css";
+import "@/styles/globals.css";
 
 export const metadata = {
   title: "Next.js",
@@ -9,9 +9,9 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
       <body>

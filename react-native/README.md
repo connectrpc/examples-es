@@ -38,3 +38,11 @@ Starts the app in Expo's `web` mode, which will allow you to see it running in a
 
 Connect-ES and Protobuf-ES use package exports. If you use [metro](https://github.com/facebook/metro), 
 make sure to [enable them](https://metrobundler.dev/docs/package-exports/).
+
+### `npm run ios`
+
+Runs the app locally in iOS using a Simulator. You will need Xcode and the Simulator configured to get up and running. See the [Expo docs](https://docs.expo.dev/workflow/ios-simulator/) for more info.
+
+### `npm run android`
+
+Runs the app locally in Android using an emulator. You will need Android Studio and an emulator configured to get up and running. See the [Expo docs](https://docs.expo.dev/workflow/android-studio-emulator/) for more info.

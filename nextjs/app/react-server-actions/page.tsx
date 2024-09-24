@@ -1,4 +1,4 @@
-import styles from "../../styles/Eliza.module.css";
+import styles from "@/styles/Eliza.module.css";
 import { revalidateTag, unstable_cache } from "next/cache";
 import { createClient } from "@connectrpc/connect";
 import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_pb";

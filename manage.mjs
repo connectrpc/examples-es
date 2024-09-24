@@ -281,7 +281,7 @@ class PackageEnt {
                 this.run(`yarn install`);
                 break;
             case "npm":
-                this.run(`npm i`);
+                this.run(`npm ci`);
                 break;
             case "pnpm":
                 this.run(`pnpm install`);

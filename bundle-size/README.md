@@ -17,8 +17,8 @@ The results are:
 <!--- RESULTS-START -->
 | Name | Size | Artifact |
 |------|-----:|----------|
-| esbuild (js) | 121,887 bytes | dist/js/index.js |
-| esbuild (ts) | 121,887 bytes | dist/ts/index.js |
+| esbuild (js) | 122,309 bytes | dist/js/index.js |
+| esbuild (ts) | 122,309 bytes | dist/ts/index.js |
 | parcel (js) | 63,662 bytes | dist/js/index.cf4251ac.js |
 | parcel (ts) | 63,855 bytes | dist/ts/index.dc635180.js |
 | rollup (js) | 191,801 bytes | dist/js/index.js |

@@ -1,14 +1,14 @@
 import { createClient } from "@connectrpc/connect";
 import { InferGetServerSidePropsType } from "next";
 import Link from "next/link";
-import styles from "../styles/Eliza.module.css";
+import styles from "@/styles/Eliza.module.css";
 import { createConnectTransport } from "@connectrpc/connect-web";
 import { create, fromJson, toJson } from "@bufbuild/protobuf";
 import {
   ElizaService,
   SayRequestSchema,
-} from "../gen/connectrpc/eliza/v1/eliza_pb";
-import { PayloadSchema } from "../gen/payload_pb";
+} from "@/gen/connectrpc/eliza/v1/eliza_pb";
+import { PayloadSchema } from "@/gen/payload_pb";
 
 export const getServerSideProps = async () => {
   const transport = createConnectTransport({
