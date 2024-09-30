@@ -19,14 +19,14 @@ The results are:
 |------|-----:|----------|
 | esbuild (js) | 122,309 bytes | dist/js/index.js |
 | esbuild (ts) | 122,309 bytes | dist/ts/index.js |
-| parcel (js) | 63,662 bytes | dist/js/index.cf4251ac.js |
-| parcel (ts) | 63,855 bytes | dist/ts/index.dc635180.js |
+| parcel (js) | 63,740 bytes | dist/js/index.cf4251ac.js |
+| parcel (ts) | 63,946 bytes | dist/ts/index.dc635180.js |
 | rollup (js) | 191,801 bytes | dist/js/index.js |
 | rollup (ts) | 193,007 bytes | dist/ts/index.js |
 | vite (js) | 81,129 bytes | dist/js/consumer-vite.js |
 | vite (ts) | 81,129 bytes | dist/ts/consumer-vite.js |
-| webpack (js) | 61,432 bytes | dist/js/main.js |
-| webpack (ts) | 61,636 bytes | dist/ts/main.js |
+| webpack (js) | 61,369 bytes | dist/js/main.js |
+| webpack (ts) | 61,573 bytes | dist/ts/main.js |
 <!--- RESULTS-END -->
 
 To run all tests, and update the table above:
