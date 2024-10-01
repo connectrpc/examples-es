@@ -26,7 +26,7 @@
     "@connectrpc/connect-web": "^1.4.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
     "@remix-run/dev": "^2.11.2",
-    "@remix-run/eslint-config": "^2.11.2",
+    "@remix-run/eslint-config": "^2.12.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "eslint": "^9.9.1",
