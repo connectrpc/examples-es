@@ -33,7 +33,7 @@
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.5.1",
     "cypress": "^13.14.1",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.1",
     "eslint-plugin-cypress": "^3.5.0",
     "eslint-plugin-vue": "^9.28.0",
     "jsdom": "^25.0.0",
