@@ -39,7 +39,7 @@
     "@connectrpc/connect-web": "^1.4.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
     "@testing-library/jest-dom": "^6.5.0",
-    "@types/jest": "^29.5.12",
+    "@types/jest": "^29.5.13",
     "prettier": "^3.3.3",
     "react-app-rewired": "^2.2.1",
     "resolve-typescript-plugin": "^2.0.1",
