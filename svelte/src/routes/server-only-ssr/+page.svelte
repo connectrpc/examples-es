@@ -1,16 +1,23 @@
 <script lang="ts">
-  import { create, fromJson } from "@bufbuild/protobuf";
-  import { SayRequestSchema, SayResponseSchema } from "../../gen/connectrpc/eliza/v1/eliza_pb.js";
+  import { create } from "@bufbuild/protobuf";
   import { PayloadSchema } from "../../gen/payload_pb";
+  import { SayResponseSchema } from "../../gen/connectrpc/eliza/v1/eliza_pb";
   import type { PageData } from "./$types";
 
   export let data: PageData = {
-    request: create(SayRequestSchema),
-    response: create(SayResponseSchema),
-    payloadJson: {},
+    sayResponse: create(SayResponseSchema),
+    payload: create(PayloadSchema),
   };
 
-  const payload = fromJson(PayloadSchema, data.payloadJson); // Now `payload` is a full `Payload` message.
+  function type(value: unknown): string {
+      if (value instanceof Uint8Array) {
+          return "Uint8Array";
+      }
+      if (Array.isArray(value)) {
+          return "Array";
+      }
+      return typeof value;
+  }
 
   console.log("server-only-ssr +page.svelte", data);
 </script>
@@ -29,12 +36,9 @@
   <div class="container">
     <h3>Server (only) Rendered Data</h3>
     <div class="pre-container">
-        <h5>Request</h5>
-        <pre data-testid="data-request">{JSON.stringify(data.request, null, 2)}</pre>
-        <h5>Response</h5>
-        <pre data-testid="data-response">{JSON.stringify(data.response, null, 2)}</pre>
-        <h5>Payload&apos;s large number</h5>
-        <pre data-testid="data-largeNum">{payload.largeNumber.toString()}</pre>
+      <pre>largeNumber: {data.payload.largeNumber.toString()} ({type(data.payload.largeNumber)})</pre>
+      <pre>double: {data.payload.double.toString()} ({type(data.payload.double)})</pre>
+      <pre>bytes: {data.payload.bytes.toString()} ({type(data.payload.bytes)})</pre>
     </div>
   </div>
 </div>

@@ -1,8 +1,6 @@
 # Eliza
 
-This project was bootstrapped as a [Svelte](https://svelte.dev/) project with the command:
-
-`npm create svelte eliza`
+This project was bootstrapped as a [Svelte](https://svelte.dev/) 5 project.
 
 All default tooling setup via the above command is used, which includes:
 
@@ -19,7 +17,7 @@ in action.
 
 ### `npm install`
 
-### `npm start`
+### `npm run dev`
 
 Runs the app in development mode.
 
@@ -59,11 +57,3 @@ Runs check against files for TypeScript errors.
 ### `npm run check:watch`
 
 Runs check and also watches for changes.
-
-### `npm run lint`
-
-Runs various lint tools (Prettier, eslint) against codebase.
-
-## `npm run format`
-
-Formats code via Prettier.
