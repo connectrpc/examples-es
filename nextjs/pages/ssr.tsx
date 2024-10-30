@@ -83,11 +83,23 @@ function Ssr({
         <pre>{JSON.stringify(data.request, null, 2)}</pre>
         <h5>Response</h5>
         <pre>{JSON.stringify(data.response, null, 2)}</pre>
-        <h5>Payload&apos;s large number</h5>
-        <pre>{data.payload.largeNumber.toString()}</pre>
+        <h5>Payload</h5>
+          <pre>largeNumber: {data.payload.largeNumber.toString()} ({type(data.payload.largeNumber)})</pre>
+          <pre>double: {data.payload.double.toString()} ({type(data.payload.double)})</pre>
+          <pre>bytes: {data.payload.bytes.toString()} ({type(data.payload.bytes)})</pre>
       </div>
     </div>
   );
 }
 
 export default Ssr;
+
+function type(value: unknown): string {
+  if (value instanceof Uint8Array) {
+    return "Uint8Array";
+  }
+  if (Array.isArray(value)) {
+    return "Array";
+  }
+  return typeof value;
+}

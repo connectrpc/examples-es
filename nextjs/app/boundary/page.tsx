@@ -8,9 +8,9 @@ export default function Page() {
   // We can pass the Protobuf message `Payload` to a client side component as a
   // prop.
   //
-  // Next.js can handle bigint, Infinity and typed arrays when crossing the
-  // serialization boundary, since they are serializable by React. For details,
-  // see https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns#passing-props-from-server-to-client-components-serialization
+  // Next.js can handle bigint, floating point values such as Infinity, and -
+  // with limitations - also typed arrays when crossing the serialization boundary.
+  // For details see https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns#passing-props-from-server-to-client-components-serialization
   //
   // Note that proto2 messages use the prototype chain to track field presence,
   // which Next.js does not support when crossing the boundary. If you encounter
