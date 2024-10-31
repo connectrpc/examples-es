@@ -36,7 +36,7 @@ export const getServerSideProps = async () => {
       response,
 
       // The message `Payload` uses values that Next.js cannot serialize to JSON -
-      // bigint, Infinity, and typed arrays. proto2 messages use the prototype
+      // BigInt, Infinity, and Uint8Array. proto2 messages use the prototype
       // chain to track field presence, which also isn't supported in Next.js.
       //
       // If you encounter such a case, you have the following options:

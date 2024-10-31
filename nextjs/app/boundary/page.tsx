@@ -6,11 +6,9 @@ import Client from "./client";
 export default function Page() {
 
   // We can pass the Protobuf message `Payload` to a client side component as a
-  // prop.
-  //
-  // Next.js can handle bigint, floating point values such as Infinity, and -
-  // with limitations - also typed arrays when crossing the serialization boundary.
-  // For details see https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns#passing-props-from-server-to-client-components-serialization
+  // prop. Next.js can handle BigInt, floating point values such as Infinity, and
+  // Uint8Array. Any Protobuf message with syntax proto3 (or the Editions equivalent)
+  // can cross the boundary.
   //
   // Note that proto2 messages use the prototype chain to track field presence,
   // which Next.js does not support when crossing the boundary. If you encounter
