@@ -1,11 +1,11 @@
 import { makeAnyClient, CallOptions, Transport } from '@connectrpc/connect'
 import { createAsyncIterable } from '@connectrpc/connect/protocol'
 import {
-    Message,
-    DescService,
-    DescMessage,
-    MessageInitShape,
-    MessageShape,
+  Message,
+  DescService,
+  DescMessage,
+  MessageInitShape,
+  MessageShape, DescMethodStreaming, DescMethodUnary,
 } from '@bufbuild/protobuf'
 import { Observable } from 'rxjs'
 import { MethodInfoServerStreaming, MethodInfoUnary } from './types'
@@ -25,7 +25,7 @@ export function createObservableClient<T extends DescService>(
     service: T,
     transport: Transport
 ) {
-    return makeAnyClient(service, (method) => {
+    return makeAnyClient(service, (method: DescMethodUnary | DescMethodStreaming) => {
         switch (method.methodKind) {
             case "unary":
                 return createUnaryFn(transport, method)
