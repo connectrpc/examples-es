@@ -16,11 +16,11 @@
     "ci": "npm run generate && npm run lint && npm run build && npm run test && npm run test:e2e:ci"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.39.0",
-    "@bufbuild/protobuf": "^2.1.0",
-    "@bufbuild/protoc-gen-es": "^2.1.0",
-    "@connectrpc/connect": "^2.0.0-beta.1",
-    "@connectrpc/connect-web": "^2.0.0-beta.1",
+    "@bufbuild/buf": "^1.46.0",
+    "@bufbuild/protobuf": "^2.2.1",
+    "@bufbuild/protoc-gen-es": "^2.2.1",
+    "@connectrpc/connect": "^2.0.0-rc.2",
+    "@connectrpc/connect-web": "^2.0.0-rc.2",
     "@cypress/webpack-preprocessor": "^6.0.2",
     "@rushstack/eslint-patch": "^1.10.4",
     "@types/jsdom": "^21.1.7",
