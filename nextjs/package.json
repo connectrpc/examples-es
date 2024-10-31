@@ -23,7 +23,7 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.39.0",
+    "@bufbuild/buf": "^1.46.0",
     "@bufbuild/protoc-gen-es": "^2.2.1",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
