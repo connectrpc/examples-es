@@ -1,26 +1,25 @@
 <script lang="ts">
-  import { createClient } from "@connectrpc/connect";
+  import { createClient, type Transport } from "@connectrpc/connect";
   import { createConnectTransport } from "@connectrpc/connect-web";
   import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
+  import { getContext } from "svelte";
 
   interface Response {
     text: string;
     sender: "eliza" | "user";
   }
 
-  let statement = "";
-  let responses: Response[] = [
+  let statement = $state("");
+  let responses: Response[] = $state([
     {
       text: "What is your name?",
       sender: "eliza",
     },
-  ];
-  let introFinished = false;
+  ]);
+  let introFinished = $state(false);
 
-  // Make the Eliza Service client
-  const transport = createConnectTransport({
-    baseUrl: "https://demo.connectrpc.com",
-  });
+  // Get the transport out of context
+  const transport: Transport = getContext('transport');
   const client = createClient(ElizaService, transport);
 
   const send = async () => {
@@ -82,10 +81,10 @@
                     id="statement-input"
                     type="text"
                     class="text-input"
-                    on:keyup|preventDefault={handleKeyup}
+                    onkeyup={handleKeyup}
                     bind:value={statement}
             />
-            <button id="send-button" on:click={send}>Send</button>
+            <button id="send-button" onclick={send}>Send</button>
         </div>
     </div>
 </div>

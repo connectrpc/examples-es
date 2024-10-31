@@ -8,18 +8,22 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"test:unit": "vitest",
+		"test:unit": "vitest run",
 		"test": "npm run test:unit -- --run && npm run test:e2e",
 		"test:e2e": "playwright test",
 		"pretest:e2e": "playwright install",
 		"generate": "buf generate",
-		"ci": "npm run generate && npm run check && npm run build && npm run test && npm run test:e2e"
+		"ci": "npm run generate && npm run check && npm run build && npm run test"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.45.3",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"@testing-library/svelte": "^5.2.4",
+		"@types/node": "^22.8.5",
+		"flush-promises": "^1.0.2",
+		"jsdom": "^25.0.1",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
 		"typescript": "^5.0.0",
@@ -30,8 +34,8 @@
 		"@bufbuild/buf": "^1.46.0",
 		"@bufbuild/protobuf": "^2.2.1",
 		"@bufbuild/protoc-gen-es": "^2.2.1",
-		"@connectrpc/connect": "^2.0.0-rc.1",
-		"@connectrpc/connect-web": "^2.0.0-rc.1",
+		"@connectrpc/connect": "^2.0.0-rc.2",
+		"@connectrpc/connect-web": "^2.0.0-rc.2",
 		"prettier": "^3.3.3"
 	}
 }
