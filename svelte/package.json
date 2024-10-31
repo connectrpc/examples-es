@@ -1,5 +1,5 @@
 {
-	"name": "svelte",
+	"name": "buf-svelte",
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
@@ -10,10 +10,10 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run && npm run test:e2e",
-    "test:e2e": "playwright test",
-    "pretest:e2e": "playwright install",
-    "generate": "buf generate",
-    "ci": "npm run generate && npm run check && npm run build && npm run test && npm run test:e2e"
+		"test:e2e": "playwright test",
+		"pretest:e2e": "playwright install",
+		"generate": "buf generate",
+		"ci": "npm run generate && npm run check && npm run build && npm run test && npm run test:e2e"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.45.3",
@@ -31,6 +31,7 @@
 		"@bufbuild/protobuf": "^2.2.1",
 		"@bufbuild/protoc-gen-es": "^2.2.1",
 		"@connectrpc/connect": "^2.0.0-rc.1",
-		"@connectrpc/connect-web": "^2.0.0-rc.1"
+		"@connectrpc/connect-web": "^2.0.0-rc.1",
+		"prettier": "^3.3.3"
 	}
 }
