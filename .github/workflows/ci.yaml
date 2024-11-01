@@ -31,8 +31,6 @@ jobs:
             buf-vite: react/vite/**
             buf-webpack: react/webpack/**
             buf-webpack-cjs: react/webpack-cjs/**
-            buf-yarn-pnp: react/yarn-pnp/**
-            buf-yarn-unplugged: react/yarn-unplugged/**
             buf-react-native: react-native/**
             buf-remix: remix/**
             buf-svelte: svelte/**
