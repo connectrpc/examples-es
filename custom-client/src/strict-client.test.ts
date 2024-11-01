@@ -1,11 +1,12 @@
 import { test } from "node:test";
 import { createStrictClient } from "./strict-client.js";
-import { ElizaService } from "./gen/connectrpc/eliza/v1/eliza_connect.js";
-import { createConnectTransport } from "@connectrpc/connect-node";
 import {
-  IntroduceRequest,
-  SayRequest,
-} from "./gen/connectrpc/eliza/v1/eliza_pb.js";
+  ElizaService,
+  IntroduceRequestSchema,
+  SayRequestSchema,
+} from "./gen/connectrpc/eliza/v1/eliza_pb";
+import { createConnectTransport } from "@connectrpc/connect-node";
+import { create } from "@bufbuild/protobuf";
 
 test("strict client", async () => {
   const client = createStrictClient(
@@ -13,7 +14,7 @@ test("strict client", async () => {
     createConnectTransport({
       baseUrl: "https://demo.connectrpc.com",
       httpVersion: "2",
-    })
+    }),
   );
   // Note that these are just type errors, not a runtime error.
   // @ts-expect-error - missing required field
@@ -23,9 +24,9 @@ test("strict client", async () => {
   // @ts-expect-error - doesn't allow undefined
   await client.say({ sentence: undefined });
   // @ts-expect-error - wrong type even though it has the exact same fields
-  await client.say(new IntroduceRequest({}));
+  await client.say(create(IntroduceRequestSchema));
   // Only accepts precise types.
   await client.say({ sentence: "foo" });
   // Can get back old behaviour by using the Message
-  await client.say(new SayRequest({}));
+  await client.say(create(SayRequestSchema));
 });
