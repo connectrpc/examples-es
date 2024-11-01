@@ -1,9 +1,9 @@
-import {create} from "@bufbuild/protobuf";
-import type {PageServerLoad} from "./$types";
-import {type Payload, PayloadSchema} from "../../gen/payload_pb";
-import {createConnectTransport} from "@connectrpc/connect-web";
-import {createClient} from "@connectrpc/connect";
-import {ElizaService} from "../../gen/connectrpc/eliza/v1/eliza_pb";
+import { create } from "@bufbuild/protobuf";
+import type { PageServerLoad } from "./$types";
+import { type Payload, PayloadSchema } from "../../gen/payload_pb";
+import { createConnectTransport } from "@connectrpc/connect-web";
+import { createClient } from "@connectrpc/connect";
+import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_pb";
 
 /**
  * This load function always runs on the server. The data it returns is
