@@ -25,7 +25,7 @@
     "@bufbuild/protoc-gen-es": "^2.2.1",
     "@connectrpc/connect": "^2.0.0-rc.2",
     "@connectrpc/connect-web": "^2.0.0-rc.2",
-    "@types/react": "^18.3.5",
+    "@types/react": "^18.3.12",
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
     "parcel": "^2.12.0",

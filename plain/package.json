@@ -18,13 +18,13 @@
   "devDependencies": {
     "@bufbuild/buf": "^1.46.0",
     "@bufbuild/protobuf": "^2.2.1",
-    "@bufbuild/protoc-gen-es": "^2.2.1",
+    "@bufbuild/protoc-gen-es": "^2.2.2",
     "@connectrpc/connect": "^2.0.0-rc.2",
     "@connectrpc/connect-web": "^2.0.0-rc.2",
     "@types/jasmine": "^5.1.4",
     "esbuild": "^0.23.1",
-    "jasmine": "^5.2.0",
+    "jasmine": "^5.4.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.3"
   }
 }

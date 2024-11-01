@@ -16,7 +16,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@bufbuild/protobuf": "^2.2.1",
+    "@bufbuild/protobuf": "^2.2.2",
     "@connectrpc/connect": "^2.0.0-rc.2"
   },
   "devDependencies": {
