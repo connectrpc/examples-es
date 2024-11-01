@@ -24,9 +24,9 @@
     "@bufbuild/protoc-gen-es": "^2.2.1",
     "@connectrpc/connect": "^2.0.0-rc.2",
     "@connectrpc/connect-web": "^2.0.0-rc.2",
-    "@remix-run/dev": "^2.11.2",
-    "@remix-run/eslint-config": "^2.11.2",
-    "@types/react": "^18.3.5",
+    "@remix-run/dev": "^2.13.1",
+    "@remix-run/eslint-config": "^2.13.1",
+    "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "eslint": "^8.57.1",
     "jest": "^29.7.0",
@@ -37,7 +37,7 @@
     "@remix-run/node": "^2.13.1",
     "@remix-run/react": "^2.13.1",
     "@remix-run/serve": "^2.13.1",
-    "@types/jest": "^29.5.12",
+    "@types/jest": "^29.5.14",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }
