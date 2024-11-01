@@ -12,24 +12,23 @@
         "ci": "npm run generate && npm run build && npm run test"
     },
     "devDependencies": {
-        "@bufbuild/buf": "^1.39.0",
-        "@bufbuild/protobuf": "^1.10.0",
-        "@bufbuild/protoc-gen-es": "^1.10.0",
-        "@connectrpc/connect": "^1.4.0",
-        "@connectrpc/connect-web": "^1.4.0",
-        "@connectrpc/protoc-gen-connect-es": "^1.4.0",
+        "@bufbuild/buf": "^1.46.0",
+        "@bufbuild/protobuf": "^2.2.1",
+        "@bufbuild/protoc-gen-es": "^2.2.2",
+        "@connectrpc/connect": "^2.0.0-rc.2",
+        "@connectrpc/connect-web": "^2.0.0-rc.2",
         "@types/react": "^18.3.5",
         "@types/react-dom": "^18.3.0",
         "@vitejs/plugin-react": "^4.3.1",
         "@vitest/coverage-v8": "^2.0.5",
         "jsdom": "^25.0.0",
         "typescript": "^5.5.4",
-        "vite": "^5.4.7",
+        "vite": "^5.4.10",
         "vitest": "^2.0.5"
     },
     "dependencies": {
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
-        "web-vitals": "^4.2.3"
+        "web-vitals": "^4.2.4"
     }
 }

@@ -1,10 +1,10 @@
 import { Provider } from "@angular/core";
 import { Transport } from "@connectrpc/connect";
-import { ServiceType } from "@bufbuild/protobuf";
+import { DescService } from "@bufbuild/protobuf";
 import { createObservableClient } from "./observable-client";
 import { TRANSPORT } from "./transport.token";
 
-export function provideClient<T extends ServiceType>(service: T): Provider {
+export function provideClient<T extends DescService>(service: T): Provider {
   return {
     provide: service,
     useFactory: (transport: Transport) => {

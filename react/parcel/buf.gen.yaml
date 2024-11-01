@@ -4,6 +4,3 @@ plugins:
   - name: es
     out: src/gen
     # Note that opt: target=ts is not supported
-  - name: connect-es
-    out: src/gen
-    # Note that opt: target=ts is not supported

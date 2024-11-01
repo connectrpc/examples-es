@@ -14,7 +14,7 @@
     "./vite",
     "./webpack"
   ],
-  "//": "parcel adds the dep on process",
+  "//": "Required for parcel - see https://parceljs.org/features/dependency-resolution/#package-exports",
   "@parcel/resolver-default": {
     "packageExports": true
   },

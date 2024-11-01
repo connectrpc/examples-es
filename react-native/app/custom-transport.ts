@@ -1,11 +1,5 @@
-import { Message } from "@bufbuild/protobuf";
 
-import type {
-  AnyMessage,
-  MethodInfo,
-  PartialMessage,
-  ServiceType,
-} from "@bufbuild/protobuf";
+import type { DescMessage, DescMethod, MessageInitShape, MessageShape } from "@bufbuild/protobuf";
 
 import type { ContextValues, UnaryRequest } from "@connectrpc/connect";
 import { Code, ConnectError, createContextValues } from "@connectrpc/connect";
@@ -72,15 +66,14 @@ export function createXHRGrpcWebTransport(
   const useBinaryFormat = options.useBinaryFormat ?? true;
   return {
     async unary<
-      I extends Message<I> = AnyMessage,
-      O extends Message<O> = AnyMessage,
+      I extends DescMessage,
+      O extends DescMessage,
     >(
-      service: ServiceType,
-      method: MethodInfo<I, O>,
+      method: DescMethod & { methodKind: "unary"; input: I; output: O },
       signal: AbortSignal | undefined,
       timeoutMs: number | undefined,
       header: Headers,
-      message: PartialMessage<I>,
+      message: MessageInitShape<I>,
       contextValues?: ContextValues,
     ): Promise<UnaryResponse<I, O>> {
       const { serialize, parse } = createClientMethodSerializers(
@@ -95,13 +88,10 @@ export function createXHRGrpcWebTransport(
         interceptors: options.interceptors,
         req: {
           stream: false,
-          service,
+          service: method.parent,
           method,
-          url: createMethodUrl(options.baseUrl, service, method),
-          init: {
-            method: "POST",
-            mode: "cors",
-          },
+          url: createMethodUrl(options.baseUrl, method),
+          requestMethod: "POST",
           header: requestHeader(useBinaryFormat, timeoutMs, header, false),
           contextValues: contextValues ?? createContextValues(),
           message,
@@ -111,7 +101,7 @@ export function createXHRGrpcWebTransport(
             return new Promise((resolve, reject) => {
               const xhr = new XMLHttpRequest();
 
-              xhr.open(req.init.method ?? "POST", req.url);
+              xhr.open(req.requestMethod, req.url);
 
               function onAbort() {
                 xhr.abort();
@@ -155,7 +145,7 @@ export function createXHRGrpcWebTransport(
           const chunks = extractDataChunks(response.body);
 
           let trailer: Headers | undefined;
-          let message: O | undefined;
+          let message: MessageShape<O> | undefined;
 
           chunks.forEach(({ flags, data }) => {
             if (flags === trailerFlag) {
@@ -192,7 +182,7 @@ export function createXHRGrpcWebTransport(
             header: response.headers,
             message,
             trailer,
-            service,
+            service: method.parent,
             method,
           } satisfies UnaryResponse<I, O>;
         },

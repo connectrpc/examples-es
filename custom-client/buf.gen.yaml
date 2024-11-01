@@ -1,9 +1,9 @@
 # This template is to generate connect-web artifacts for the Eliza demo.
-version: v1
+version: v2
+clean: true
+inputs:
+  - module: buf.build/connectrpc/eliza
 plugins:
-  - name: es
-    out: src/gen
-    opt: target=ts
-  - name: connect-es
+  - local: protoc-gen-es
     out: src/gen
     opt: target=ts

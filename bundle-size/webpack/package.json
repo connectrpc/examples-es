@@ -16,15 +16,14 @@
   },
   "type": "module",
   "dependencies": {
-    "@bufbuild/protobuf": "^1.10.0",
-    "@connectrpc/connect": "^1.4.0",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.5.4"
+    "@bufbuild/protobuf": "^2.2.2",
+    "@connectrpc/connect": "^2.0.0-rc.2"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.39.0",
-    "@bufbuild/protoc-gen-es": "^1.10.0",
-    "@connectrpc/protoc-gen-connect-es": "^1.4.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.4",
+    "@bufbuild/buf": "^1.46.0",
+    "@bufbuild/protoc-gen-es": "^2.2.2",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4"
   }

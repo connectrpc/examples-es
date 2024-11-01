@@ -1,15 +1,16 @@
 import { describe, it, expect } from "@jest/globals";
-import { createPromiseClient, createRouterTransport, ServiceImpl } from "@connectrpc/connect";
-import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
+import { createClient, createRouterTransport, ServiceImpl } from "@connectrpc/connect";
+import { ElizaService, SayRequestSchema } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
 import { ConverseRequest, IntroduceRequest, SayRequest } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
 import routes from "../connect.js";
+import { create } from "@bufbuild/protobuf";
 
 
 describe("testing the eliza service with an in-memory server", () => {
     it("say should repeat what we said", async () => {
         // Create an in-memory transport with the routes from connect.ts
         const transport = createRouterTransport(routes);
-        const client = createPromiseClient(ElizaService, transport);
+        const client = createClient(ElizaService, transport);
         const { sentence } = await client.say({ sentence: "hello" });
         expect(sentence).toBe("You said hello");
     });
@@ -40,7 +41,7 @@ describe("unit testing the eliza service", () => {
 
     it("say should repeat what we said", async () => {
         const eliza = new Eliza();
-        const { sentence } = await eliza.say(new SayRequest({ sentence: "hello" }));
+        const { sentence } = await eliza.say(create(SayRequestSchema, { sentence: "hello" }));
         expect(sentence).toBe("You said hello");
     });
 });
