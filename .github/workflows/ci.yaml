@@ -24,7 +24,6 @@ jobs:
             buf-fastify: fastify/**
             buf-nextjs: nextjs/**
             buf-plain: plain/**
-            buf-cra: react/cra/**
             buf-esbuild: react/esbuild/**
             buf-parcel: react/parcel/**
             buf-rollup: react/rollup/**

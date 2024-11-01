@@ -32,7 +32,6 @@ The [Plain](plain) application was built from scratch with no frameworks at all 
 All applications underneath this directory use [React](https://reactjs.org) as the framework.  Each is divided by the various
 tooling differences the related projects were constructed with:
 
-* [cra](react/cra) - Generated with [Create React App](https://github.com/facebook/create-react-app) and all associated defaults.
 * [esbuild](react/esbuild) - Built from scratch with [esbuild](https://esbuild.github.io) as the bundler.
 * [parcel](react/parcel) - Built from scratch with [Parcel](https://parceljs.org) as the bundler.
 * [rollup](react/rollup) - Built from scratch with [Rollup](https://rollupjs.org) as the bundler.
