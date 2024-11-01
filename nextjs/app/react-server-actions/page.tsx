@@ -1,7 +1,7 @@
 import styles from "@/styles/Eliza.module.css";
 import { revalidateTag, unstable_cache } from "next/cache";
-import { createPromiseClient } from "@connectrpc/connect";
-import { ElizaService } from "@/gen/connectrpc/eliza/v1/eliza_connect";
+import { createClient } from "@connectrpc/connect";
+import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_pb";
 import { createConnectTransport } from "@connectrpc/connect-web";
 import { getMessages, addMessage } from "./fake-db";
 
@@ -11,7 +11,7 @@ export default async function Page() {
   // This action runs on the server
   async function submitForm(formData: FormData) {
     "use server";
-    const elizaClient = createPromiseClient(
+    const elizaClient = createClient(
       ElizaService,
       createConnectTransport({
         baseUrl: "https://demo.connectrpc.com",

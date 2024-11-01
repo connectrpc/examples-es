@@ -4,6 +4,3 @@ plugins:
   - name: es
     out: app/gen
     opt: target=ts
-  - name: connect-es
-    out: app/gen
-    opt: target=ts
