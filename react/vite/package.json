@@ -16,7 +16,7 @@
         "@bufbuild/protobuf": "^1.10.0",
         "@bufbuild/protoc-gen-es": "^1.10.0",
         "@connectrpc/connect": "^1.4.0",
-        "@connectrpc/connect-web": "^1.4.0",
+        "@connectrpc/connect-web": "^1.6.1",
         "@connectrpc/protoc-gen-connect-es": "^1.4.0",
         "@types/react": "^18.3.5",
         "@types/react-dom": "^18.3.0",
