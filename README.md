@@ -6,6 +6,10 @@ examples-es
 `examples-es` is a repository of example projects using Connect with various TypeScript web frameworks and tooling.
 It provides numerous examples for integrating Connect into a project, using both Connect for Web and Connect for Node.
 
+> [!IMPORTANT]  
+> All examples in this branch use Connect packages in version 1.
+> For examples for version 2, see [main](https://github.com/connectrpc/examples-es/).
+
 ## Web
 
 ### Angular
