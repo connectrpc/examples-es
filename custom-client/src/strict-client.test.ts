@@ -4,7 +4,7 @@ import {
   ElizaService,
   IntroduceRequestSchema,
   SayRequestSchema,
-} from "./gen/connectrpc/eliza/v1/eliza_pb";
+} from "./gen/connectrpc/eliza/v1/eliza_pb.js";
 import { createConnectTransport } from "@connectrpc/connect-node";
 import { create } from "@bufbuild/protobuf";
 
