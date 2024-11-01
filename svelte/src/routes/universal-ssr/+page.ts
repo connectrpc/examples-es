@@ -18,14 +18,6 @@ import { PayloadSchema } from "../../gen/payload_pb";
  * This load function always returns type-safe data, even if your messages use
  * bigint, typed arrays, or field presence (which is tracked by the prototype
  * chain).
- *
- * Note that your have to use the Connect transport for universal load functions.
- * With gRPC-web or any other binary data (this includes the protobuf binary
- * format and all streaming RPCs), Svelte falls back to always run the function
- * in the browser. For details, see https://github.com/sveltejs/kit/issues/8302
- *
- * To learn about the distinction between universal load functions and
- * this server load function, see https://kit.svelte.dev/docs/load#universal-vs-server
  */
 export const load: PageLoad = async ({ fetch }) => {
   const transport = createConnectTransport({
@@ -40,11 +32,9 @@ export const load: PageLoad = async ({ fetch }) => {
 
   const client = createClient(ElizaService, transport);
 
-  const request = create(SayRequestSchema, {
-    sentence: "hi from the server",
+  const sayResponse = await client.say({
+    sentence: "hi",
   });
-
-  const response = await client.say(request);
 
   const payload = create(PayloadSchema, {
     str: "abc",
@@ -54,8 +44,7 @@ export const load: PageLoad = async ({ fetch }) => {
   });
 
   return {
-    request,
-    response,
+    sayResponse,
     payload,
   };
 };

@@ -1,16 +1,24 @@
 <script lang="ts">
   import { create } from "@bufbuild/protobuf";
-  import { SayRequestSchema, SayResponseSchema } from "../../gen/connectrpc/eliza/v1/eliza_pb.js";
+  import { SayResponseSchema } from "../../gen/connectrpc/eliza/v1/eliza_pb.js";
   import { PayloadSchema } from "../../gen/payload_pb";
   import type { PageData } from "./$types";
 
   export let data: PageData = {
-    request: create(SayRequestSchema),
-    response: create(SayResponseSchema),
+    sayResponse: create(SayResponseSchema),
     payload: create(PayloadSchema),
   };
 
-  // Note that the Payload message was able to pass through the SSR boundary in universal-ssr mode
+  function type(value: unknown): string {
+    if (value instanceof Uint8Array) {
+      return "Uint8Array";
+    }
+    if (Array.isArray(value)) {
+      return "Array";
+    }
+    return typeof value;
+  }
+
   console.log("universal-ssr +page.svelte", data);
 </script>
 
@@ -28,12 +36,9 @@
   <div class="container">
     <h3>Universal SSR Rendered Data</h3>
     <div class="pre-container">
-      <h5>Request</h5>
-      <pre data-testid="data-request">{JSON.stringify(data.request, null, 2)}</pre>
-      <h5>Response</h5>
-      <pre data-testid="data-response">{JSON.stringify(data.response, null, 2)}</pre>
-      <h5>Payload&apos;s large number</h5>
-      <pre data-testid="data-largeNum">{data.payload.largeNumber.toString()}</pre>
+      <pre>largeNumber: {data.payload.largeNumber.toString()} ({type(data.payload.largeNumber)})</pre>
+      <pre>double: {data.payload.double.toString()} ({type(data.payload.double)})</pre>
+      <pre>bytes: {data.payload.bytes.toString()} ({type(data.payload.bytes)})</pre>
     </div>
   </div>
 </div>
