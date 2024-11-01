@@ -34,6 +34,11 @@ Use `buf` to generate the compiled protos via protobuf-es
 
 Starts the app in Expo's `web` mode, which will allow you to see it running in a browser.
 
+## Metro
+
+Connect-ES and Protobuf-ES use package exports. If you use [metro](https://github.com/facebook/metro), 
+make sure to [enable them](https://metrobundler.dev/docs/package-exports/).
+
 ### `npm run ios`
 
 Runs the app locally in iOS using a Simulator. You will need Xcode and the Simulator configured to get up and running. See the [Expo docs](https://docs.expo.dev/workflow/ios-simulator/) for more info.

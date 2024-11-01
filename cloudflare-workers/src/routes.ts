@@ -1,5 +1,5 @@
 import { Code, ConnectError, HandlerContext, type ConnectRouter } from '@connectrpc/connect';
-import { UrlShortenerService } from './gen/urlshortener/v1/urlshortener_connect';
+import { UrlShortenerService } from './gen/urlshortener/v1/urlshortener_pb';
 import { kStore } from './store-context';
 
 function validateUrl(url: string) {

@@ -3,7 +3,7 @@ import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { provideClient } from "src/connect/client.provider";
 import { ConnectModule } from "src/connect/connect.module";
-import { ElizaService } from "src/gen/connectrpc/eliza/v1/eliza_connect";
+import { ElizaService } from "src/gen/connectrpc/eliza/v1/eliza_pb";
 
 describe("AppComponent", () => {
   beforeEach(async () => {

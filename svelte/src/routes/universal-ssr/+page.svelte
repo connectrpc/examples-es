@@ -1,17 +1,24 @@
 <script lang="ts">
-  import { SayRequest, SayResponse } from "../../gen/connectrpc/eliza/v1/eliza_pb";
+  import { create } from "@bufbuild/protobuf";
+  import { SayResponseSchema } from "../../gen/connectrpc/eliza/v1/eliza_pb.js";
+  import { PayloadSchema } from "../../gen/payload_pb";
   import type { PageData } from "./$types";
 
   export let data: PageData = {
-    request: new SayRequest({
-      sentence: "uninitialized",
-    }),
-    response: new SayResponse({
-      sentence: "uninitialized",
-    }),
+    sayResponse: create(SayResponseSchema),
+    payload: create(PayloadSchema),
   };
 
-  // Note that the full SayResponse Message type was able to pass through the SSR boundary in universal-ssr mode
+  function type(value: unknown): string {
+    if (value instanceof Uint8Array) {
+      return "Uint8Array";
+    }
+    if (Array.isArray(value)) {
+      return "Array";
+    }
+    return typeof value;
+  }
+
   console.log("universal-ssr +page.svelte", data);
 </script>
 
@@ -29,13 +36,9 @@
   <div class="container">
     <h3>Universal SSR Rendered Data</h3>
     <div class="pre-container">
-      <div>
-        Request sentence: <code data-testid="request-sentence">{data.request.sentence}</code><br>
-        Request type: <code data-testid="request-type">{data.request.getType().typeName}</code><br>
-        Response sentence: <code data-testid="response-sentence">{data.response.sentence}</code><br>
-        Response type: <code data-testid="response-type">{data.response.getType().typeName}</code>
-      </div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <pre>largeNumber: {data.payload.largeNumber.toString()} ({type(data.payload.largeNumber)})</pre>
+      <pre>double: {data.payload.double.toString()} ({type(data.payload.double)})</pre>
+      <pre>bytes: {data.payload.bytes.toString()} ({type(data.payload.bytes)})</pre>
     </div>
   </div>
 </div>

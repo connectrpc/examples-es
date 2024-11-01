@@ -1,10 +1,13 @@
 <script lang="ts">
 import { defineComponent, inject } from "vue";
-import { createPromiseClient } from "@connectrpc/connect";
-import type { PromiseClient, Transport } from "@connectrpc/connect";
-import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect";
-import { IntroduceRequest } from "../gen/connectrpc/eliza/v1/eliza_pb";
+import { createClient } from "@connectrpc/connect";
+import type { Client, Transport } from "@connectrpc/connect";
+import {
+  ElizaService,
+  IntroduceRequestSchema,
+} from "../gen/connectrpc/eliza/v1/eliza_pb";
 import { transportKey } from "../keys";
+import { create } from "@bufbuild/protobuf";
 
 interface Response {
   text: string;
@@ -15,7 +18,7 @@ interface ElizaData {
   statement: string;
   responses: Response[];
   introFinished: boolean;
-  client: PromiseClient<typeof ElizaService> | undefined;
+  client: Client<typeof ElizaService> | undefined;
 }
 
 export default defineComponent({
@@ -42,7 +45,7 @@ export default defineComponent({
   },
   mounted() {
     // Make the Eliza Service client
-    this.client = createPromiseClient(ElizaService, this.transport);
+    this.client = createClient(ElizaService, this.transport);
   },
   methods: {
     async send() {
@@ -62,7 +65,7 @@ export default defineComponent({
             sender: "eliza",
           });
         } else {
-          const request = new IntroduceRequest({
+          const request = create(IntroduceRequestSchema, {
             name: this.statement,
           });
           this.statement = "";

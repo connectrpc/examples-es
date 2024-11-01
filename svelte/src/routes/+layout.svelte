@@ -8,6 +8,8 @@
   });
 
   setContext('transport', transport);
+
+  let { children } = $props();
 </script>
 
-<slot />
+{@render children()}

@@ -1,20 +1,25 @@
 <script lang="ts">
-  import { SayResponse } from "../../gen/connectrpc/eliza/v1/eliza_pb";
+  import { create } from "@bufbuild/protobuf";
+  import { PayloadSchema } from "../../gen/payload_pb";
+  import { SayResponseSchema } from "../../gen/connectrpc/eliza/v1/eliza_pb";
   import type { PageData } from "./$types";
 
   export let data: PageData = {
-    fullResponseJson: {},
-    plainProperty: "uninitialized",
-    request: {
-      sentence: "uninitialized",
-    },
+    sayResponse: create(SayResponseSchema),
+    payload: create(PayloadSchema),
   };
 
-  // If you wish to revive the response type, you can do so like this, by calling `.fromJson` on the Response class
-  // provided by protobuf-es.
-  const sayResponse = SayResponse.fromJson(data.fullResponseJson);
+  function type(value: unknown): string {
+      if (value instanceof Uint8Array) {
+          return "Uint8Array";
+      }
+      if (Array.isArray(value)) {
+          return "Array";
+      }
+      return typeof value;
+  }
 
-  console.log("server-only-ssr +page.svelte", data, sayResponse);
+  console.log("server-only-ssr +page.svelte", data);
 </script>
 
 <div>
@@ -31,12 +36,9 @@
   <div class="container">
     <h3>Server (only) Rendered Data</h3>
     <div class="pre-container">
-        <div>
-            Request sentence: <code data-testid="request-sentence">{data.request.sentence}</code><br>
-            Response sentence: <code data-testid="response-sentence">{sayResponse.sentence}</code><br>
-            Response type: <code data-testid="response-type">{sayResponse.getType().typeName}</code>
-        </div>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+      <pre>largeNumber: {data.payload.largeNumber.toString()} ({type(data.payload.largeNumber)})</pre>
+      <pre>double: {data.payload.double.toString()} ({type(data.payload.double)})</pre>
+      <pre>bytes: {data.payload.bytes.toString()} ({type(data.payload.bytes)})</pre>
     </div>
   </div>
 </div>
