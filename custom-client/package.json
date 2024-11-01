@@ -12,7 +12,7 @@
   "devDependencies": {
     "@bufbuild/buf": "^1.46.0",
     "@bufbuild/protoc-gen-es": "^2.2.1",
-    "@types/node": "^22.5.2",
+    "@types/node": "^22.8.6",
     "ts-node": "^10.9.2"
   },
   "dependencies": {
