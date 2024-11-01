@@ -20,7 +20,7 @@
     "@bufbuild/protoc-gen-es": "^1.10.0",
     "@connectrpc/connect": "^1.4.0",
     "@connectrpc/connect-web": "^1.4.0",
-    "@connectrpc/protoc-gen-connect-es": "^1.4.0",
+    "@connectrpc/protoc-gen-connect-es": "^1.6.1",
     "@types/react": "^18.3.5",
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
