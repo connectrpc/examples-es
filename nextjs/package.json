@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.46.0",
-    "@bufbuild/protoc-gen-es": "^2.2.1",
+    "@bufbuild/protoc-gen-es": "^2.2.2",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "@types/node": "^22",
