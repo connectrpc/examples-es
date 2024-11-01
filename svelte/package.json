@@ -34,7 +34,7 @@
     "@typescript-eslint/parser": "^8.4.0",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-svelte": "^2.43.0",
+    "eslint-plugin-svelte": "^2.46.0",
     "flush-promises": "^1.0.2",
     "globals": "^15.9.0",
     "jsdom": "^25.0.0",
