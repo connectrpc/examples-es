@@ -1,22 +1,20 @@
 import { makeAnyClient, CallOptions, Transport } from '@connectrpc/connect'
 import { createAsyncIterable } from '@connectrpc/connect/protocol'
 import {
-  Message,
   DescService,
   DescMessage,
   MessageInitShape,
-  MessageShape, DescMethodStreaming, DescMethodUnary,
+  MessageShape, DescMethodStreaming, DescMethodUnary, DescMethodServerStreaming,
 } from '@bufbuild/protobuf'
 import { Observable } from 'rxjs'
-import { MethodInfoServerStreaming, MethodInfoUnary } from './types'
 
 export type ObservableClient<T extends DescService> = {
-    [P in keyof T['method']]: T['method'][P] extends MethodInfoUnary<
+    [P in keyof T['method']]: T['method'][P] extends DescMethodUnary<
         infer I,
         infer O
     >
     ? UnaryFn<I, O>
-    : T['method'][P] extends MethodInfoServerStreaming<infer I, infer O>
+    : T['method'][P] extends DescMethodServerStreaming<infer I, infer O>
     ? ServerStreamingFn<I, O>
     : never
 }
@@ -44,7 +42,7 @@ type UnaryFn<I extends DescMessage, O extends DescMessage> = (
 
 function createUnaryFn<I extends DescMessage, O extends DescMessage>(
     transport: Transport,
-    method: MethodInfoUnary<I, O>,
+    method: DescMethodUnary<I, O>,
 ): UnaryFn<I, O> {
     return function (requestMessage, options) {
         return new Observable<MessageShape<O>>((subscriber) => {
@@ -82,7 +80,7 @@ export function createServerStreamingFn<
     I extends DescMessage, O extends DescMessage
 >(
     transport: Transport,
-    method: MethodInfoServerStreaming<I, O>
+    method: DescMethodServerStreaming<I, O>
 ): ServerStreamingFn<I, O> {
     return function (input, options) {
         return new Observable<MessageShape<O>>((subscriber) => {
