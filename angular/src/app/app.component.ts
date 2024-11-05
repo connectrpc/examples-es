@@ -1,6 +1,6 @@
 import { Component, Inject } from "@angular/core";
 import { ObservableClient } from "src/connect/observable-client";
-import { ElizaService } from "src/gen/connectrpc/eliza/v1/eliza_connect";
+import { ElizaService } from "src/gen/connectrpc/eliza/v1/eliza_pb";
 
 interface Response {
   text: string;
@@ -37,7 +37,7 @@ export class AppComponent {
       ...this.responses,
       { text: this.statement, sender: "user" },
     ];
-    if (this.introFinished) {
+    if (this.introFinished) {      
       this.client.say({ sentence: this.statement }).subscribe((next) => {
         this.responses = [
           ...this.responses,

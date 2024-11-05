@@ -1,58 +1,53 @@
 import { makeAnyClient, CallOptions, Transport } from '@connectrpc/connect'
 import { createAsyncIterable } from '@connectrpc/connect/protocol'
 import {
-    ServiceType,
-    PartialMessage,
-    MethodInfoServerStreaming,
-    MethodInfo,
-    MethodInfoUnary,
-    MethodKind,
-    Message,
+  DescService,
+  DescMessage,
+  MessageInitShape,
+  MessageShape, DescMethodStreaming, DescMethodUnary, DescMethodServerStreaming,
 } from '@bufbuild/protobuf'
 import { Observable } from 'rxjs'
 
-export type ObservableClient<T extends ServiceType> = {
-    [P in keyof T['methods']]: T['methods'][P] extends MethodInfoUnary<
+export type ObservableClient<T extends DescService> = {
+    [P in keyof T['method']]: T['method'][P] extends DescMethodUnary<
         infer I,
         infer O
     >
-        ? UnaryFn<I, O>
-        : T['methods'][P] extends MethodInfoServerStreaming<infer I, infer O>
-        ? ServerStreamingFn<I, O>
-        : never
+    ? UnaryFn<I, O>
+    : T['method'][P] extends DescMethodServerStreaming<infer I, infer O>
+    ? ServerStreamingFn<I, O>
+    : never
 }
 
-export function createObservableClient<T extends ServiceType>(
+export function createObservableClient<T extends DescService>(
     service: T,
     transport: Transport
 ) {
-    return makeAnyClient(service, (method) => {
-        switch (method.kind) {
-            case MethodKind.Unary:
-                return createUnaryFn(transport, service, method)
-            case MethodKind.ServerStreaming:
-                return createServerStreamingFn(transport, service, method)
+    return makeAnyClient(service, (method: DescMethodUnary | DescMethodStreaming) => {
+        switch (method.methodKind) {
+            case "unary":
+                return createUnaryFn(transport, method)
+            case "server_streaming":
+                return createServerStreamingFn(transport, method)
             default:
                 return null
         }
     }) as ObservableClient<T>
 }
 
-type UnaryFn<I extends Message<I>, O extends Message<O>> = (
-    request: PartialMessage<I>,
+type UnaryFn<I extends DescMessage, O extends DescMessage> = (
+    request: MessageInitShape<I>,
     options?: CallOptions
-) => Observable<O>
+) => Observable<MessageShape<O>>
 
-function createUnaryFn<I extends Message<I>, O extends Message<O>>(
+function createUnaryFn<I extends DescMessage, O extends DescMessage>(
     transport: Transport,
-    service: ServiceType,
-    method: MethodInfo<I, O>
+    method: DescMethodUnary<I, O>,
 ): UnaryFn<I, O> {
     return function (requestMessage, options) {
-        return new Observable<O>((subscriber) => {
+        return new Observable<MessageShape<O>>((subscriber) => {
             transport
                 .unary(
-                    service,
                     method,
                     options?.signal,
                     options?.timeoutMs,
@@ -76,24 +71,21 @@ function createUnaryFn<I extends Message<I>, O extends Message<O>>(
     }
 }
 
-type ServerStreamingFn<I extends Message<I>, O extends Message<O>> = (
-    request: PartialMessage<I>,
+type ServerStreamingFn<I extends DescMessage, O extends DescMessage> = (
+    request: MessageInitShape<I>,
     options?: CallOptions
-) => Observable<O>
+) => Observable<MessageShape<O>>
 
 export function createServerStreamingFn<
-    I extends Message<I>,
-    O extends Message<O>
+    I extends DescMessage, O extends DescMessage
 >(
     transport: Transport,
-    service: ServiceType,
-    method: MethodInfo<I, O>
+    method: DescMethodServerStreaming<I, O>
 ): ServerStreamingFn<I, O> {
     return function (input, options) {
-        return new Observable<O>((subscriber) => {
+        return new Observable<MessageShape<O>>((subscriber) => {
             transport
                 .stream<I, O>(
-                    service,
                     method,
                     options?.signal,
                     options?.timeoutMs,

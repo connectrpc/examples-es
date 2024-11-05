@@ -26,7 +26,7 @@ git fetch upstream
 ```
 
 You will need the latest stable LTS version of Node.js installed. To run tests
-in all examples in the repository, run `./manage.mjs test`. To learn more about
+in all examples in the repository, run `./manage.mjs ci`. To learn more about
 the script, run `./manage.mjs`.
 
 

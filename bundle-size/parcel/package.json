@@ -13,7 +13,7 @@
     "ts": "dist/ts/index.dc635180.js"
   },
   "type": "module",
-  "//": "otherwise, parcel shakes everything away",
+  "//": "Required for parcel at the root package.json - see https://parceljs.org/features/dependency-resolution/#package-exports",
   "@parcel/resolver-default": {
     "packageExports": true
   },
@@ -28,14 +28,11 @@
     }
   },
   "dependencies": {
-    "@bufbuild/protobuf": "^1.10.0",
-    "@connectrpc/connect": "^1.4.0",
-    "typescript": "^5.5.4"
+    "@bufbuild/protobuf": "^2.2.2",
+    "@connectrpc/connect": "^2.0.0-rc.2"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.39.0",
-    "@bufbuild/protoc-gen-es": "^1.10.0",
-    "@connectrpc/protoc-gen-connect-es": "^1.4.0",
+    "typescript": "^5.5.4",
     "parcel": "^2.12.0"
   }
 }

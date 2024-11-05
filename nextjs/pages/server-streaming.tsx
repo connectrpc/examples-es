@@ -1,11 +1,11 @@
 import React, { useState, FC, useCallback, FormEvent } from "react";
 import styles from "@/styles/Eliza.module.css";
-import { createPromiseClient } from "@connectrpc/connect";
+import { createClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
-import { ElizaService } from "@/gen/connectrpc/eliza/v1/eliza_connect";
+import { ElizaService } from "@/gen/connectrpc/eliza/v1/eliza_pb";
 import Link from "next/link";
 
-const client = createPromiseClient(
+const client = createClient(
   ElizaService,
   createConnectTransport({
     baseUrl: "/api",
@@ -39,9 +39,8 @@ const NewPage: FC = () => {
           <Link href="/">Unary Calls</Link>
           <Link href="/server-streaming">Server Streaming Calls</Link>
           <Link href="/ssr">SSR</Link>
-          <Link href="/react-server-actions">
-            React Server Components with Server actions
-          </Link>
+          <Link href="/react-server-actions">Server actions</Link>
+          <Link href="/boundary">Boundary</Link>
         </div>
       </header>
       <div className={styles.container}>

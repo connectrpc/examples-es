@@ -1,16 +1,17 @@
 import t from "tap";
 import { build } from "../server.js";
-import { ElizaService } from "../gen/connectrpc/eliza/v1/eliza_connect.js";
-import { ConverseRequest, IntroduceRequest, SayRequest, SayResponse } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
+import { ElizaService, SayResponseSchema } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
+import { ConverseRequest, IntroduceRequest, SayRequest, SayRequestSchema, SayResponse } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
 import { createConnectTransport } from "@connectrpc/connect-node";
-import { createPromiseClient, createRouterTransport, ServiceImpl } from "@connectrpc/connect";
+import { createClient, createRouterTransport, ServiceImpl } from "@connectrpc/connect";
 import routes from "../connect.js";
 import assert from "node:assert";
+import { create, fromJsonString } from "@bufbuild/protobuf";
 
 t.test("testing the eliza service with an in-memory server", async () => {
     // Create an in-memory transport with the routes from connect.ts
     const transport = createRouterTransport(routes);
-    const client = createPromiseClient(ElizaService, transport);
+    const client = createClient(ElizaService, transport);
     const { sentence } = await client.say({ sentence: "hello" });
     t.equal(sentence, "You said hello");
 });
@@ -24,8 +25,8 @@ t.test("testing the eliza service with a running server", async (t) => {
         httpVersion: "1.1",
     });
 
-    const client = createPromiseClient(ElizaService, transport);
-    const res = await client.say({sentence: "hello"});
+    const client = createClient(ElizaService, transport);
+    const res = await client.say({ sentence: "hello" });
     t.same(res.sentence, "You said hello");
 });
 
@@ -37,15 +38,15 @@ t.test("testing the eliza service with fastify.inject()", async (t) => {
     const app = await build();
     const res = await app.inject({
         method: "POST",
-        url: `${ElizaService.typeName}/${ElizaService.methods.say.name}`,
-        body: new SayRequest({sentence: "hello"}),
+        url: `${ElizaService.typeName}/${ElizaService.method.say.name}`,
+        body: create(SayRequestSchema, { sentence: "hello" }),
         headers: {
             "content-type": "application/json"
         },
     });
     t.same(res.statusCode, 200);
     t.same(res.headers["content-type"], "application/json");
-    const sayRes = SayResponse.fromJsonString(res.body);
+    const sayRes = fromJsonString(SayResponseSchema, res.body);
     t.same(sayRes.sentence, "You said hello");
 });
 
@@ -73,6 +74,6 @@ t.test("unit testing the eliza service", async (t) => {
     }
 
     const eliza = new Eliza();
-    const { sentence } = await eliza.say(new SayRequest({ sentence: "hello" }));
+    const { sentence } = await eliza.say(create(SayRequestSchema, { sentence: "hello" }));
     assert.strictEqual(sentence, "You said hello");
 });
