@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
-    "@react-native-community/cli": "^15.0.1",
     "@react-native/metro-config": "^0.76.1",
     "@react-navigation/native": "^6.1.18",
     "expo": "^51.0.31",
