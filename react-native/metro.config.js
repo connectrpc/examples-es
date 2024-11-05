@@ -12,8 +12,8 @@ const config = {
   },
   resolver: {
     unstable_enablePackageExports: true,
-    assetExts: assetExts.filter((ext) => ext !== "svg"),
-    sourceExts: [...sourceExts, "svg"],
+    // assetExts: assetExts.filter((ext) => ext !== "svg"),
+    // sourceExts: [...sourceExts, "svg"],
   },
 };
 
