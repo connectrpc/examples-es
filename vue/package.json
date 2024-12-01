@@ -47,7 +47,7 @@
     "vue-tsc": "^2.1.4"
   },
   "dependencies": {
-    "pinia": "^2.2.2",
+    "pinia": "^2.2.8",
     "vue": "^3.5.0",
     "vue-router": "^4.4.5"
   }
