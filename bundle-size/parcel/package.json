@@ -32,7 +32,7 @@
     "@connectrpc/connect": "^2.0.0-rc.2"
   },
   "devDependencies": {
-    "typescript": "^5.5.4",
+    "typescript": "^5.7.2",
     "parcel": "^2.12.0"
   }
 }
