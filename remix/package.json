@@ -23,7 +23,7 @@
     "@bufbuild/protobuf": "^2.2.2",
     "@bufbuild/protoc-gen-es": "^2.2.2",
     "@connectrpc/connect": "2.0.0-rc.2",
-    "@connectrpc/connect-web": "2.0.0-rc.2",
+    "@connectrpc/connect-web": "2.0.0",
     "@remix-run/dev": "^2.13.1",
     "@remix-run/eslint-config": "^2.13.1",
     "@types/react": "^18.3.12",
