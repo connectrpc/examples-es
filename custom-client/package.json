@@ -16,7 +16,7 @@
     "ts-node": "^10.9.2"
   },
   "dependencies": {
-    "@connectrpc/connect": "^2.0.0-rc.2",
+    "@connectrpc/connect": "^2.0.0",
     "@connectrpc/connect-node": "^2.0.0-rc.2"
   }
 }
