@@ -16,7 +16,7 @@
     "@connectrpc/connect": "^2.0.0-rc.3",
     "@connectrpc/connect-express": "^2.0.0-rc.3",
     "@connectrpc/connect-node": "^2.0.0-rc.3",
-    "@connectrpc/connect-web": "^2.0.0-rc.3",
+    "@connectrpc/connect-web": "^2.0.0",
     "cors": "^2.8.5",
     "express": "^5.0.1",
     "tsx": "^4.19.0"
