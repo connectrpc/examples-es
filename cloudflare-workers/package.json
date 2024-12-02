@@ -20,7 +20,7 @@
 		"miniflare": "^3.20241022.0",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.6.3",
-		"wrangler": "^3.84.1"
+		"wrangler": "^3.91.0"
 	},
 	"dependencies": {
 		"@connectrpc/connect": "^2.0.0"
