@@ -22,7 +22,7 @@
     "tsx": "^4.19.0"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.46.0",
+    "@bufbuild/buf": "^1.47.2",
     "@bufbuild/protoc-gen-es": "^2.2.2",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
