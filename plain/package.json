@@ -16,7 +16,7 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "@bufbuild/buf": "^1.46.0",
+    "@bufbuild/buf": "^1.47.2",
     "@bufbuild/protobuf": "^2.2.1",
     "@bufbuild/protoc-gen-es": "^2.2.2",
     "@connectrpc/connect": "^2.0.0",
