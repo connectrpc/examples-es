@@ -15,7 +15,7 @@
 		"@bufbuild/buf": "^1.46.0",
 		"@bufbuild/protoc-gen-es": "^2.2.1",
 		"@cloudflare/workers-types": "^4.20241022.0",
-		"@connectrpc/connect-node": "^2.0.0-rc.2",
+		"@connectrpc/connect-node": "^2.0.0",
 		"@types/node": "^22.8.6",
 		"miniflare": "^3.20241022.0",
 		"ts-node": "^10.9.2",
@@ -23,6 +23,6 @@
 		"wrangler": "^3.84.1"
 	},
 	"dependencies": {
-		"@connectrpc/connect": "^2.0.0-rc.2"
+		"@connectrpc/connect": "^2.0.0"
 	}
 }

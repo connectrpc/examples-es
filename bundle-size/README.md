@@ -20,7 +20,7 @@ The results are:
 | esbuild (js) | 122,309 bytes | dist/js/index.js |
 | esbuild (ts) | 122,309 bytes | dist/ts/index.js |
 | parcel (js) | 63,740 bytes | dist/js/index.cf4251ac.js |
-| parcel (ts) | 63,946 bytes | dist/ts/index.dc635180.js |
+| parcel (ts) | 63,753 bytes | dist/ts/index.dc635180.js |
 | rollup (js) | 191,801 bytes | dist/js/index.js |
 | rollup (ts) | 193,007 bytes | dist/ts/index.js |
 | vite (js) | 81,129 bytes | dist/js/consumer-vite.js |
