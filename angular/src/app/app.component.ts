@@ -8,6 +8,7 @@ interface Response {
 }
 
 @Component({
+  standalone: false,
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
@@ -26,7 +27,7 @@ export class AppComponent {
 
   constructor(
     @Inject(ElizaService)
-    private client: ObservableClient<typeof ElizaService>
+    private client: ObservableClient<typeof ElizaService>,
   ) {}
 
   onSend(event?: MouseEvent) {
@@ -37,7 +38,7 @@ export class AppComponent {
       ...this.responses,
       { text: this.statement, sender: "user" },
     ];
-    if (this.introFinished) {      
+    if (this.introFinished) {
       this.client.say({ sentence: this.statement }).subscribe((next) => {
         this.responses = [
           ...this.responses,
@@ -55,7 +56,7 @@ export class AppComponent {
         (err) => console.log(err),
         () => {
           this.introFinished = true;
-        }
+        },
       );
     }
     this.statement = "";
