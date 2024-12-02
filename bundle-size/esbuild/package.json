@@ -20,8 +20,8 @@
     "@connectrpc/connect": "^2.0.0"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.46.0",
-    "@bufbuild/protoc-gen-es": "^2.2.1",
+    "@bufbuild/buf": "^1.47.2",
+    "@bufbuild/protoc-gen-es": "^2.2.2",
     "esbuild": "^0.24.0"
   }
 }

@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "eliza:build:production"
+              "buildTarget": "eliza:build:production"
             },
             "development": {
-              "browserTarget": "eliza:build:development"
+              "buildTarget": "eliza:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "eliza:build"
+            "buildTarget": "eliza:build"
           }
         },
         "test": {

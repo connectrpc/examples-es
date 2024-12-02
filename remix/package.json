@@ -18,27 +18,27 @@
     "node": ">=16"
   },
   "packageManager": "pnpm@8.6.11",
+  "dependencies": {
+    "@remix-run/node": "^2.15.0",
+    "@remix-run/react": "^2.15.0",
+    "@remix-run/serve": "^2.15.0",
+    "@types/jest": "^29.5.14",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "devDependencies": {
-    "@bufbuild/buf": "^1.46.0",
+    "@bufbuild/buf": "^1.47.2",
     "@bufbuild/protobuf": "^2.2.2",
     "@bufbuild/protoc-gen-es": "^2.2.2",
     "@connectrpc/connect": "^2.0.0",
     "@connectrpc/connect-web": "^2.0.0",
-    "@remix-run/dev": "^2.13.1",
-    "@remix-run/eslint-config": "^2.13.1",
+    "@remix-run/dev": "^2.15.0",
+    "@remix-run/eslint-config": "^2.15.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "eslint": "^8.57.1",
+    "eslint": "^9.16.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
-    "typescript": "^5.6.3"
-  },
-  "dependencies": {
-    "@remix-run/node": "^2.13.1",
-    "@remix-run/react": "^2.13.1",
-    "@remix-run/serve": "^2.13.1",
-    "@types/jest": "^29.5.14",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "typescript": "^5.7.2"
   }
 }

@@ -11,18 +11,18 @@
 		"test": "node --loader ts-node/esm --no-warnings --test src/url-shortener.test.ts",
 		"ci": "npm run generate && npm run build && npm run test"
 	},
-	"devDependencies": {
-		"@bufbuild/buf": "^1.46.0",
-		"@bufbuild/protoc-gen-es": "^2.2.1",
-		"@cloudflare/workers-types": "^4.20241022.0",
-		"@connectrpc/connect-node": "^2.0.0",
-		"@types/node": "^22.8.6",
-		"miniflare": "^3.20241022.0",
-		"ts-node": "^10.9.2",
-		"typescript": "^5.6.3",
-		"wrangler": "^3.84.1"
-	},
 	"dependencies": {
 		"@connectrpc/connect": "^2.0.0"
+	},
+	"devDependencies": {
+		"@bufbuild/buf": "^1.47.2",
+		"@bufbuild/protoc-gen-es": "^2.2.2",
+		"@cloudflare/workers-types": "^4.20241127.0",
+		"@connectrpc/connect-node": "^2.0.0",
+		"@types/node": "^22.10.1",
+		"miniflare": "^3.20241106.1",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.7.2",
+		"wrangler": "^3.91.0"
 	}
 }
