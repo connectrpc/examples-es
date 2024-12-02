@@ -21,7 +21,7 @@
     "@bufbuild/protoc-gen-es": "^2.2.2",
     "@connectrpc/connect": "^2.0.0",
     "@connectrpc/connect-web": "^2.0.0",
-    "@types/jasmine": "^5.1.4",
+    "@types/jasmine": "^5.1.5",
     "esbuild": "^0.23.1",
     "jasmine": "^5.4.0",
     "ts-node": "^10.9.2",
