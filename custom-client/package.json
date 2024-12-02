@@ -10,7 +10,7 @@
     "ci": "npm run generate && npm run build && npm run test"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.46.0",
+    "@bufbuild/buf": "^1.47.2",
     "@bufbuild/protoc-gen-es": "^2.2.1",
     "@types/node": "^22.8.6",
     "ts-node": "^10.9.2"
