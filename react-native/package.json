@@ -17,7 +17,7 @@
     "@expo/vector-icons": "^14.0.4",
     "@react-native/metro-config": "^0.76.3",
     "@react-navigation/native": "^7.0.13",
-    "expo": "^52.0.11",
+    "expo": "^52.0.12",
     "expo-constants": "^17.0.3",
     "expo-dev-client": "^5.0.4",
     "expo-font": "^13.0.1",
