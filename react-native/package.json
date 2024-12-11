@@ -17,7 +17,7 @@
     "@expo/vector-icons": "^14.0.4",
     "@react-native/metro-config": "^0.76.0",
     "@react-navigation/native": "^7.0.0",
-    "expo": "^52.0.18",
+    "expo": "~52.0.18",
     "expo-constants": "^17.0.3",
     "expo-dev-client": "~5.0.6",
     "expo-font": "^13.0.1",
@@ -30,8 +30,7 @@
     "fast-text-encoding": "^1.0.6",
     "react": "18.3.1",
     "react-dom": "^18.3.1",
-    "react-native": "^0.76.0",
-    "react-native-fast-encoder": "^0.1.12",
+    "react-native": "0.76.5",
     "react-native-fetch-api": "^3.0.0",
     "react-native-gesture-handler": "^2.20.0",
     "react-native-reanimated": "^3.16.1",
@@ -60,5 +59,18 @@
     "ts-jest": "^29.2.5",
     "typescript": "^5.7.2"
   },
-  "private": true
+  "private": true,
+  "expo": {
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "exclude": [
+          "@react-native/metro-config",
+          "fast-text-encoding",
+          "react-native-fetch-api",
+          "web-streams-polyfill"
+        ]
+      }
+    }
+  },
+  "packageManager": "yarn@3.6.3+sha512.d432ab8b22b89cb8b46649ebaf196159b0c1870904224771d75fdf8b55490aaa5de4d9f028deb0425f1513bff7843e97b9d117103795a23b12d2e7c1cedcf50f"
 }

@@ -1,5 +1,4 @@
 import Constants from "expo-constants";
-import TextEncoder from "react-native-fast-encoder";
 // @ts-expect-error -- missing type declarations
 import { polyfillGlobal } from "react-native/Libraries/Utilities/PolyfillFunctions";
 // @ts-expect-error -- missing type declarations
@@ -10,9 +9,6 @@ export function polyfills() {
   const isExpoGo = Constants.appOwnership === "expo";
   if (isExpoGo) {
     require("fast-text-encoding");
-  } else {
-    polyfillGlobal("TextDecoder", () => TextEncoder);
-    polyfillGlobal("TextEncoder", () => TextEncoder);
   }
   polyfillGlobal("ReadableStream", () => ReadableStream);
   polyfillGlobal(
