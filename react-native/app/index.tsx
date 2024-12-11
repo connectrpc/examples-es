@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { fetch } from "expo/fetch";
 import {
   Button,
   Dimensions,
@@ -9,7 +10,10 @@ import {
   View,
 } from "react-native";
 import { createClient, Code, ConnectError } from "@connectrpc/connect";
-import { createXHRGrpcWebTransport } from "./custom-transport";
+import {
+  createConnectTransport,
+  createGrpcWebTransport,
+} from "@connectrpc/connect-web";
 import {
   ElizaService,
   IntroduceRequestSchema,
@@ -39,8 +43,16 @@ function Index() {
   // Make the Eliza Service client
   const client = createClient(
     ElizaService,
-    createXHRGrpcWebTransport({
+    createConnectTransport({
       baseUrl: "https://demo.connectrpc.com",
+      fetch: (input, init) => {
+        return fetch(input.toString(), {
+          ...init,
+          body: init?.body ?? undefined,
+          credentials: init?.credentials ?? undefined,
+          signal: init?.signal ?? undefined,
+        });
+      },
     }),
   );
 
