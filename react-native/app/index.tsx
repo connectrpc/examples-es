@@ -40,26 +40,17 @@ function Index() {
     // createGrpcWebTransport({
     createConnectTransport({
       baseUrl: "https://demo.connectrpc.com",
-      // Customize fetch with the the Expo fetch implementation
+      // Customize fetch with the Expo fetch implementation
       fetch: (input, init) => {
-        return fetch(input.toString(), {
+        if (typeof input !== "string") {
+          throw new Error("expo/fetch requires the first argument to be a string URL");
+        }
+        return fetch(input, {
           ...init,
           body: init?.body ?? undefined,
           credentials: init?.credentials ?? undefined,
           signal: init?.signal ?? undefined,
-        });
-        // TODO - Need to return a type of Response here instead of Expo's FetchResponse
-        // otherwise it fails compilation
-        // return new Promise<Response>((resolve) => {
-        //   fetch(input.toString(), {
-        //     ...init,
-        //     body: init?.body ?? undefined,
-        //     credentials: init?.credentials ?? undefined,
-        //     signal: init?.signal ?? undefined,
-        //   }).then((resp) => {
-        //     resolve(new Response(resp.body));
-        //   });
-        // });
+        }) as unknown as Promise<Response>;
       },
     }),
   );
