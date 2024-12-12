@@ -9,7 +9,7 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { createClient, Code, ConnectError } from "@connectrpc/connect";
+import { createClient, ConnectError } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
 import {
   ElizaService,
@@ -81,7 +81,7 @@ function Index() {
       } catch (err) {
         let text = "";
         if (err instanceof ConnectError) {
-          text = `A Connect error has occurred: ${err.code} - ${err.message}`;
+          text = `A Connect error has occurred: ${err.message}`;
         } else {
           text = `An error has occurred: ${err}`;
         }
