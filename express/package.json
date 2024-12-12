@@ -18,7 +18,7 @@
     "@connectrpc/connect-node": "^2.0.0",
     "@connectrpc/connect-web": "^2.0.0",
     "cors": "^2.8.5",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "tsx": "^4.19.2"
   },
   "devDependencies": {
