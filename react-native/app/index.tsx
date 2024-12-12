@@ -37,7 +37,6 @@ function Index() {
     ElizaService,
     createConnectTransport({
       baseUrl: "https://demo.connectrpc.com",
-      useBinaryFormat: true,
       // Customize fetch with the Expo fetch implementation
       fetch: (input, init) => {
         if (typeof input !== "string") {
