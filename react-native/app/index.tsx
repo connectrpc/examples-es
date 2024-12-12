@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { fetch } from "expo/fetch";
+import { fetch, FetchRequestInit } from "expo/fetch";
 import {
   Button,
   Dimensions,
@@ -44,7 +44,10 @@ function Index() {
             "expo/fetch requires the first argument to be a string URL",
           );
         }
-        return fetch(input, init) as unknown as Promise<Response>;
+        return fetch(
+          input,
+          init as unknown as FetchRequestInit,
+        ) as unknown as Promise<Response>;
       },
     }),
   );
