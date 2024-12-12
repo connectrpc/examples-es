@@ -86,13 +86,7 @@ function Index() {
       } catch (err) {
         let text = "";
         if (err instanceof ConnectError) {
-          if (err.code === Code.Unimplemented) {
-            text = `Hi, ${statement}.  Streaming is not supported in React Native currently.`;
-          } else if (err.code === Code.Canceled) {
-            text = "Stream cancelled";
-          } else {
-            text = `A Connect error has occurred: ${err.code} - ${err.message}`;
-          }
+          text = `A Connect error has occurred: ${err.code} - ${err.message}`;
         } else {
           text = `An error has occurred: ${err}`;
         }
