@@ -44,12 +44,7 @@ function Index() {
             "expo/fetch requires the first argument to be a string URL",
           );
         }
-        return fetch(input, {
-          ...init,
-          body: init?.body ?? undefined,
-          credentials: init?.credentials ?? undefined,
-          signal: init?.signal ?? undefined,
-        }) as unknown as Promise<Response>;
+        return fetch(input, init) as unknown as Promise<Response>;
       },
     }),
   );
