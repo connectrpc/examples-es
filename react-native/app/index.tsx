@@ -32,18 +32,18 @@ function Index() {
     },
   ]);
 
-  const abort = new AbortController();
-
   // Make the Eliza Service client using grpc-web transport.
   const client = createClient(
     ElizaService,
-    // createGrpcWebTransport({
     createConnectTransport({
       baseUrl: "https://demo.connectrpc.com",
+      useBinaryFormat: true,
       // Customize fetch with the Expo fetch implementation
       fetch: (input, init) => {
         if (typeof input !== "string") {
-          throw new Error("expo/fetch requires the first argument to be a string URL");
+          throw new Error(
+            "expo/fetch requires the first argument to be a string URL",
+          );
         }
         return fetch(input, {
           ...init,
@@ -74,17 +74,15 @@ function Index() {
           name: statement,
         });
 
-        let resps = 0;
-        let stream = client.introduce(request, { signal: abort.signal });
+        // Note that cancelling streams does not currently work with
+        // React Native Expo v52.
+        // See https://github.com/expo/expo/issues/33549 for more context.
+        let stream = client.introduce(request);
         for await (const response of stream) {
           setResponses((resps) => [
             ...resps,
             { text: response.sentence, sender: "eliza" },
           ]);
-          resps++;
-          // if (resps === 2) {
-          //   abort.abort();
-          // }
         }
       } catch (err) {
         let text = "";

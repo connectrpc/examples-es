@@ -17,10 +17,6 @@ phone while hitting a server running on your computer.
 Starts the server locally using Expo.  You should then be able to see it running on a phone provided you have the above
 app downloaded and configured.
 
-Note that React-Native does not fully support the Fetch API when running on mobile and as a result, the Connect
-transport does not work properly in that environment. Instead, we create a custom XHR transport for use in that
-circumstance.
-
 To update the React Native project, you have to check the 
 [React Native Upgrade Helper](https://react-native-community.github.io/upgrade-helper/) for guidance.
 
