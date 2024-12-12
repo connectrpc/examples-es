@@ -10,10 +10,7 @@ import {
   View,
 } from "react-native";
 import { createClient, Code, ConnectError } from "@connectrpc/connect";
-import {
-  createConnectTransport,
-  createGrpcWebTransport,
-} from "@connectrpc/connect-web";
+import { createConnectTransport } from "@connectrpc/connect-web";
 import {
   ElizaService,
   IntroduceRequestSchema,
@@ -94,9 +91,9 @@ function Index() {
             { text: response.sentence, sender: "eliza" },
           ]);
           resps++;
-          if (resps === 2) {
-            abort.abort();
-          }
+          // if (resps === 2) {
+          //   abort.abort();
+          // }
         }
       } catch (err) {
         let text = "";
