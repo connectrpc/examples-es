@@ -1,5 +1,6 @@
 {
   "expo": {
+    "sdkVersion": "52.0.0",
     "name": "eliza",
     "slug": "eliza",
     "version": "1.0.0",
@@ -7,6 +8,7 @@
     "icon": "./assets/images/icon.png",
     "scheme": "eliza",
     "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",

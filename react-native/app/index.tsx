@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { fetch, FetchRequestInit } from "expo/fetch";
 import {
   Button,
   Dimensions,
@@ -8,20 +9,15 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { createClient, Code, ConnectError } from "@connectrpc/connect";
-import { createXHRGrpcWebTransport } from "./custom-transport";
+import { createClient, ConnectError } from "@connectrpc/connect";
+import { createConnectTransport } from "@connectrpc/connect-web";
 import {
   ElizaService,
   IntroduceRequestSchema,
 } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
-// Needed to polyfill TextEncoder/ TextDecoder
-import "fast-text-encoding";
 import { create } from "@bufbuild/protobuf";
-import { polyfills } from "./polyfills";
 
-polyfills();
-
-interface Response {
+interface ConvoResponse {
   text: string;
   sender: "eliza" | "user";
 }
@@ -29,18 +25,30 @@ interface Response {
 function Index() {
   const [statement, setStatement] = useState<string>("");
   const [introFinished, setIntroFinished] = useState<boolean>(false);
-  const [responses, setResponses] = useState<Response[]>([
+  const [responses, setResponses] = useState<ConvoResponse[]>([
     {
       text: "What is your name?",
       sender: "eliza",
     },
   ]);
 
-  // Make the Eliza Service client
+  // Make the Eliza Service client using grpc-web transport.
   const client = createClient(
     ElizaService,
-    createXHRGrpcWebTransport({
+    createConnectTransport({
       baseUrl: "https://demo.connectrpc.com",
+      // Customize fetch with the Expo fetch implementation
+      fetch: (input, init) => {
+        if (typeof input !== "string") {
+          throw new Error(
+            "expo/fetch requires the first argument to be a string URL",
+          );
+        }
+        return fetch(
+          input,
+          init as unknown as FetchRequestInit,
+        ) as unknown as Promise<Response>;
+      },
     }),
   );
 
@@ -63,6 +71,9 @@ function Index() {
           name: statement,
         });
 
+        // Note that cancelling streams does not currently work with
+        // React Native Expo v52.
+        // See https://github.com/expo/expo/issues/33549 for more context.
         let stream = client.introduce(request);
         for await (const response of stream) {
           setResponses((resps) => [
@@ -73,11 +84,7 @@ function Index() {
       } catch (err) {
         let text = "";
         if (err instanceof ConnectError) {
-          if (err.code === Code.Unimplemented) {
-            text = `Hi, ${statement}.  Streaming is not supported in React Native currently.`;
-          } else {
-            text = `A Connect error has occurred: ${err.code} - ${err.message}`;
-          }
+          text = `A Connect error has occurred: ${err.message}`;
         } else {
           text = `An error has occurred: ${err}`;
         }
