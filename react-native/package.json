@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "expo lint",
     "generate": "buf generate buf.build/connectrpc/eliza",
-    "ci": "npm run generate && npm run build && npm run test",
+    "ci": "npm run generate && npm run lint && npm run build && npm run test",
     "android": "expo run:android",
     "ios": "expo run:ios"
   },
@@ -18,7 +18,6 @@
     "@react-native/metro-config": "^0.76.0",
     "@react-navigation/native": "^7.0.0",
     "expo": "~52.0.18",
-    "expo-constants": "^17.0.3",
     "expo-dev-client": "~5.0.6",
     "expo-font": "^13.0.1",
     "expo-linking": "^7.0.3",

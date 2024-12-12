@@ -18,14 +18,9 @@ import {
   ElizaService,
   IntroduceRequestSchema,
 } from "../gen/connectrpc/eliza/v1/eliza_pb.js";
-// Needed to polyfill TextEncoder/ TextDecoder
-import "fast-text-encoding";
 import { create } from "@bufbuild/protobuf";
-import { polyfills } from "./polyfills";
 
-polyfills();
-
-interface Response {
+interface ConvoResponse {
   text: string;
   sender: "eliza" | "user";
 }
@@ -33,18 +28,22 @@ interface Response {
 function Index() {
   const [statement, setStatement] = useState<string>("");
   const [introFinished, setIntroFinished] = useState<boolean>(false);
-  const [responses, setResponses] = useState<Response[]>([
+  const [responses, setResponses] = useState<ConvoResponse[]>([
     {
       text: "What is your name?",
       sender: "eliza",
     },
   ]);
 
-  // Make the Eliza Service client
+  const abort = new AbortController();
+
+  // Make the Eliza Service client using grpc-web transport.
   const client = createClient(
     ElizaService,
+    // createGrpcWebTransport({
     createConnectTransport({
       baseUrl: "https://demo.connectrpc.com",
+      // Customize fetch with the the Expo fetch implementation
       fetch: (input, init) => {
         return fetch(input.toString(), {
           ...init,
@@ -52,6 +51,18 @@ function Index() {
           credentials: init?.credentials ?? undefined,
           signal: init?.signal ?? undefined,
         });
+        // TODO - Need to return a type of Response here instead of Expo's FetchResponse
+        // otherwise it fails compilation
+        // return new Promise<Response>((resolve) => {
+        //   fetch(input.toString(), {
+        //     ...init,
+        //     body: init?.body ?? undefined,
+        //     credentials: init?.credentials ?? undefined,
+        //     signal: init?.signal ?? undefined,
+        //   }).then((resp) => {
+        //     resolve(new Response(resp.body));
+        //   });
+        // });
       },
     }),
   );
@@ -75,18 +86,25 @@ function Index() {
           name: statement,
         });
 
-        let stream = client.introduce(request);
+        let resps = 0;
+        let stream = client.introduce(request, { signal: abort.signal });
         for await (const response of stream) {
           setResponses((resps) => [
             ...resps,
             { text: response.sentence, sender: "eliza" },
           ]);
+          resps++;
+          if (resps === 2) {
+            abort.abort();
+          }
         }
       } catch (err) {
         let text = "";
         if (err instanceof ConnectError) {
           if (err.code === Code.Unimplemented) {
             text = `Hi, ${statement}.  Streaming is not supported in React Native currently.`;
+          } else if (err.code === Code.Canceled) {
+            text = "Stream cancelled";
           } else {
             text = `A Connect error has occurred: ${err.code} - ${err.message}`;
           }
