@@ -10,8 +10,9 @@ interface Response {
   sender: "eliza" | "user";
 }
 
+// Note that with Angular v19, standalone components are the default so no
+// need for standalone: true here.
 @Component({
-  standalone: true,
   imports: [CommonModule, FormsModule],
   selector: "app-root",
   templateUrl: "./app.component.html",
