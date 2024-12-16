@@ -41,6 +41,6 @@ describe("AppComponent", () => {
   it("should correctly inject the ElizaService", () => {
     const service = TestBed.inject(ELIZA);
     expect(service.say).toBeDefined();
-    // expect(service.method.introduce).toBeDefined();
+    expect(service.introduce).toBeDefined();
   });
 });
