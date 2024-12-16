@@ -1,6 +1,9 @@
 import { Component, Inject } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 import { ObservableClient } from "src/connect/observable-client";
 import { ElizaService } from "src/gen/connectrpc/eliza/v1/eliza_pb";
+import { ELIZA } from "../connect/tokens";
 
 interface Response {
   text: string;
@@ -8,7 +11,8 @@ interface Response {
 }
 
 @Component({
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
@@ -26,7 +30,7 @@ export class AppComponent {
   introFinished: boolean = false;
 
   constructor(
-    @Inject(ElizaService)
+    @Inject(ELIZA)
     private client: ObservableClient<typeof ElizaService>,
   ) {}
 
