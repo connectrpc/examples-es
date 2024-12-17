@@ -1,21 +1,18 @@
 import { TestBed } from "@angular/core/testing";
 import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
-import { ElizaProvider } from "src/connect/client.provider";
+import { provideConnect } from "src/connect/connect.module";
 import { ELIZA } from "src/connect/tokens";
-import { ConnectModule } from "src/connect/connect.module";
 
 describe("AppComponent", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [ElizaProvider],
-      imports: [
-        AppComponent,
-        FormsModule,
-        ConnectModule.forRoot({
+      providers: [
+        provideConnect({
           baseUrl: "https://demo.connectrpc.com",
         }),
       ],
+      imports: [AppComponent, FormsModule],
     }).compileComponents();
   });
 
