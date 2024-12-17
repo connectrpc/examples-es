@@ -1,8 +1,8 @@
-import {inject, InjectionToken, Provider} from "@angular/core";
-import {Interceptor, Transport} from "@connectrpc/connect";
-import {createConnectTransport, createGrpcWebTransport} from "@connectrpc/connect-web";
-import {DescService} from "@bufbuild/protobuf";
-import {createObservableClient, ObservableClient} from "./observable-client";
+import { inject, InjectionToken, Provider } from "@angular/core";
+import { Interceptor, Transport } from "@connectrpc/connect";
+import { createConnectTransport, createGrpcWebTransport } from "@connectrpc/connect-web";
+import { DescService } from "@bufbuild/protobuf";
+import { createObservableClient, ObservableClient } from "./observable-client";
 
 export const TRANSPORT = new InjectionToken<Transport>("connect.transport");
 
