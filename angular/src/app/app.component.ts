@@ -1,8 +1,6 @@
-import { Component, Inject } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-import { ObservableClient } from "src/connect/observable-client";
-import { ElizaService } from "src/gen/connectrpc/eliza/v1/eliza_pb";
 import { ELIZA } from "../connect/tokens";
 
 interface Response {
@@ -10,15 +8,14 @@ interface Response {
   sender: "eliza" | "user";
 }
 
-// Note that with Angular v19, standalone components are the default so no
-// need for standalone: true here.
 @Component({
-  imports: [CommonModule, FormsModule],
   selector: "app-root",
-  templateUrl: "./app.component.html",
+  imports: [CommonModule, FormsModule],
   styleUrls: ["./app.component.css"],
+  templateUrl: "./app.component.html",
 })
 export class AppComponent {
+  client = inject(ELIZA);
   title = "Eliza";
   project = "Angular";
   statement: string = "";
@@ -28,12 +25,7 @@ export class AppComponent {
       sender: "eliza",
     },
   ];
-  introFinished: boolean = false;
-
-  constructor(
-    @Inject(ELIZA)
-    private client: ObservableClient<typeof ElizaService>,
-  ) {}
+  introFinished = false;
 
   onSend(event?: MouseEvent) {
     if (event) {
