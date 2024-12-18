@@ -1,21 +1,18 @@
 import { TestBed } from "@angular/core/testing";
 import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
-import { provideClient } from "src/connect/client.provider";
-import { ConnectModule } from "src/connect/connect.module";
-import { ElizaService } from "src/gen/connectrpc/eliza/v1/eliza_pb";
+import { provideConnect } from "src/connect/connect.module";
+import { ELIZA } from "src/connect/tokens";
 
 describe("AppComponent", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent],
-      providers: [provideClient(ElizaService)],
-      imports: [
-        FormsModule,
-        ConnectModule.forRoot({
+      providers: [
+        provideConnect({
           baseUrl: "https://demo.connectrpc.com",
         }),
       ],
+      imports: [AppComponent, FormsModule],
     }).compileComponents();
   });
 
@@ -39,7 +36,7 @@ describe("AppComponent", () => {
   });
 
   it("should correctly inject the ElizaService", () => {
-    const service = TestBed.get(ElizaService);
+    const service = TestBed.inject(ELIZA);
     expect(service.say).toBeDefined();
     expect(service.introduce).toBeDefined();
   });

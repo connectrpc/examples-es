@@ -1,6 +1,7 @@
-import { Component, Inject } from "@angular/core";
-import { ObservableClient } from "src/connect/observable-client";
-import { ElizaService } from "src/gen/connectrpc/eliza/v1/eliza_pb";
+import { Component, inject } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { ELIZA } from "../connect/tokens";
 
 interface Response {
   text: string;
@@ -8,12 +9,13 @@ interface Response {
 }
 
 @Component({
-  standalone: false,
   selector: "app-root",
-  templateUrl: "./app.component.html",
+  imports: [CommonModule, FormsModule],
   styleUrls: ["./app.component.css"],
+  templateUrl: "./app.component.html",
 })
 export class AppComponent {
+  client = inject(ELIZA);
   title = "Eliza";
   project = "Angular";
   statement: string = "";
@@ -23,12 +25,7 @@ export class AppComponent {
       sender: "eliza",
     },
   ];
-  introFinished: boolean = false;
-
-  constructor(
-    @Inject(ElizaService)
-    private client: ObservableClient<typeof ElizaService>,
-  ) {}
+  introFinished = false;
 
   onSend(event?: MouseEvent) {
     if (event) {
