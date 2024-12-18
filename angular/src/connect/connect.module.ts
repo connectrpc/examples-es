@@ -9,9 +9,12 @@ import { createObservableClient, ObservableClient } from "./observable-client";
 
 const TRANSPORT = new InjectionToken<Transport>("connect.transport");
 
-const INTERCEPTORS = new InjectionToken<Interceptor[]>("connect.interceptors", {
-  factory: () => [],
-});
+export const INTERCEPTORS = new InjectionToken<Interceptor[]>(
+  "connect.interceptors",
+  {
+    factory: () => [],
+  },
+);
 
 export function createClientToken<T extends DescService>(
   service: T,
