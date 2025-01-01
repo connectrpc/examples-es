@@ -21,7 +21,7 @@
     "@babel/preset-react": "^7.25.9",
     "@bufbuild/buf": "^1.47.2",
     "@bufbuild/protobuf": "^2.2.2",
-    "@bufbuild/protoc-gen-es": "^2.2.2",
+    "@bufbuild/protoc-gen-es": "^2.2.3",
     "@connectrpc/connect": "^2.0.0",
     "@connectrpc/connect-web": "^2.0.0",
     "@rollup/plugin-babel": "^6.0.4",
