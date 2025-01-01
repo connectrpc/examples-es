@@ -16,7 +16,7 @@
 	},
 	"devDependencies": {
 		"@bufbuild/buf": "^1.47.2",
-		"@bufbuild/protoc-gen-es": "^2.2.2",
+		"@bufbuild/protoc-gen-es": "^2.2.3",
 		"@cloudflare/workers-types": "^4.20241127.0",
 		"@connectrpc/connect-node": "^2.0.0",
 		"@types/node": "^22.10.1",
