@@ -39,7 +39,7 @@
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@bufbuild/buf": "^1.47.2",
-    "@bufbuild/protobuf": "^2.2.2",
+    "@bufbuild/protobuf": "^2.2.3",
     "@bufbuild/protoc-gen-es": "^2.2.2",
     "@connectrpc/connect": "^2.0.0",
     "@connectrpc/connect-web": "^2.0.0",
