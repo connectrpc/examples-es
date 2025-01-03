@@ -12,22 +12,22 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/react": "^3.6.3",
-    "@nanostores/react": "^0.8.2",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "astro": "^4.16.18",
+    "@astrojs/react": "^4.1.2",
+    "@nanostores/react": "^0.8.4",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "astro": "^5.1.2",
     "nanostores": "^0.11.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.47.2",
-    "@bufbuild/protobuf": "^2.2.2",
-    "@bufbuild/protoc-gen-es": "^2.2.2",
+    "@bufbuild/buf": "^1.48.0",
+    "@bufbuild/protobuf": "^2.2.3",
+    "@bufbuild/protoc-gen-es": "^2.2.3",
     "@connectrpc/connect": "^2.0.0",
     "@connectrpc/connect-web": "^2.0.0",
-    "@playwright/test": "^1.49.0",
+    "@playwright/test": "^1.49.1",
     "typescript": "^5.7.2"
   }
 }

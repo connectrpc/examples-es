@@ -14,9 +14,9 @@
     "@connectrpc/connect-node": "^2.0.0"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.47.2",
-    "@bufbuild/protoc-gen-es": "^2.2.2",
-    "@types/node": "^22.10.1",
+    "@bufbuild/buf": "^1.48.0",
+    "@bufbuild/protoc-gen-es": "^2.2.3",
+    "@types/node": "^22.10.3",
     "ts-node": "^10.9.2"
   }
 }
