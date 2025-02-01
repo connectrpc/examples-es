@@ -20,7 +20,7 @@
     "@connectrpc/connect": "^2.0.0"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.48.0",
+    "@bufbuild/buf": "^1.50.0",
     "@bufbuild/protoc-gen-es": "^2.2.3",
     "ts-loader": "^9.5.1",
     "typescript": "^5.7.2",
