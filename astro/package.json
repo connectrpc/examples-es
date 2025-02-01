@@ -28,6 +28,6 @@
     "@connectrpc/connect": "^2.0.0",
     "@connectrpc/connect-web": "^2.0.0",
     "@playwright/test": "^1.49.1",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   }
 }
