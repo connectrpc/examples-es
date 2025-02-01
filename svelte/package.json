@@ -34,7 +34,7 @@
     "flush-promises": "^1.0.2",
     "jsdom": "^25.0.1",
     "svelte": "^5.16.0",
-    "svelte-check": "^4.1.1",
+    "svelte-check": "^4.1.4",
     "typescript": "^5.7.2",
     "vite": "^5.0.3",
     "vitest": "^2.1.8"
