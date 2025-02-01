@@ -30,7 +30,7 @@
     "@bufbuild/protoc-gen-es": "^2.2.3",
     "@connectrpc/connect": "^2.0.0",
     "@connectrpc/connect-web": "^2.0.0",
-    "@parcel/watcher": "^2.5.0",
+    "@parcel/watcher": "^2.5.1",
     "@types/react": "^19.0.2",
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
