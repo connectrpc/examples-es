@@ -23,7 +23,7 @@
     "@bufbuild/protobuf": "^2.2.3",
     "@bufbuild/protoc-gen-es": "^2.2.3",
     "@connectrpc/connect": "^2.0.0",
-    "@connectrpc/connect-web": "^2.0.0",
+    "@connectrpc/connect-web": "^2.0.1",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-node-resolve": "^16.0.0",
