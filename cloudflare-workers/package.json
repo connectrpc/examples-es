@@ -20,7 +20,7 @@
 		"@cloudflare/workers-types": "^4.20241230.0",
 		"@connectrpc/connect-node": "^2.0.0",
 		"@types/node": "^22.13.0",
-		"miniflare": "^3.20241218.0",
+		"miniflare": "^3.20250129.0",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.7.3",
 		"wrangler": "^3.99.0"
