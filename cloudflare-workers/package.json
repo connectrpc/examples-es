@@ -23,6 +23,6 @@
 		"miniflare": "^3.20241218.0",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.7.3",
-		"wrangler": "^3.99.0"
+		"wrangler": "^3.107.2"
 	}
 }
