@@ -17,11 +17,11 @@
   "type": "module",
   "dependencies": {
     "@bufbuild/protobuf": "^2.2.3",
-    "@connectrpc/connect": "^2.0.0"
+    "@connectrpc/connect": "^2.0.1"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.48.0",
+    "@bufbuild/buf": "^1.50.0",
     "@bufbuild/protoc-gen-es": "^2.2.3",
-    "vite": "^6.0.6"
+    "vite": "^6.0.11"
   }
 }
