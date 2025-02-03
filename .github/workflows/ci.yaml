@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 jobs:
   changes:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     permissions:
       pull-requests: read
     outputs:
@@ -44,7 +44,7 @@ jobs:
     strategy:
       matrix:
         project: ${{ fromJSON(needs.changes.outputs.projects) }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
