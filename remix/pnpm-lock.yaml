@@ -50,8 +50,8 @@ devDependencies:
     specifier: ^19.0.8
     version: 19.0.8
   '@types/react-dom':
-    specifier: ^19.0.2
-    version: 19.0.2(@types/react@19.0.8)
+    specifier: ^19.0.3
+    version: 19.0.3(@types/react@19.0.8)
   eslint:
     specifier: ^9.17.0
     version: 9.17.0
@@ -2169,8 +2169,8 @@ packages:
     dependencies:
       undici-types: 6.20.0
 
-  /@types/react-dom@19.0.2(@types/react@19.0.8):
-    resolution: {integrity: sha512-c1s+7TKFaDRRxr1TxccIX2u7sfCnc3RxkVyBIUA2lCpyqCF+QoAwQ/CBg7bsMdVwP120HEH143VQezKtef5nCg==}
+  /@types/react-dom@19.0.3(@types/react@19.0.8):
+    resolution: {integrity: sha512-0Knk+HJiMP/qOZgMyNFamlIjw9OFCsyC2ZbigmEEyXXixgre6IQpm/4V+r3qH4GC1JPvRJKInw+on2rV6YZLeA==}
     peerDependencies:
       '@types/react': ^19.0.0
     dependencies:
