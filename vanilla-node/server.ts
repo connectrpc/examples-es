@@ -19,7 +19,7 @@ import routes from "./connect.js";
 import * as esbuild from "esbuild";
 import http from "node:http";
 import { readFileSync } from "node:fs";
-import {createLoggingInterceptor} from "./interceptor";
+import {createLoggingInterceptor} from "./interceptor.js";
 
 if (process.argv[1] === new URL(import.meta.url).pathname) {
   const PORT = parseInt(process.argv[2] ?? 3000);
