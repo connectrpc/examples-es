@@ -17,14 +17,16 @@ import { createConnectTransport } from '@connectrpc/connect-node';
 import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_pb.js';
 import { stdin, stdout } from 'process';
 import * as readline from 'node:readline/promises';
+import {createLoggingInterceptor} from "./interceptor";
 
 const rl = readline.createInterface(stdin, stdout);
 
 // Alternatively, use createGrpcTransport or createGrpcWebTransport here
 // to use one of the other supported protocols.
 const transport = createConnectTransport({
-    httpVersion: '1.1',
-    baseUrl: 'http://localhost:3000',
+  httpVersion: '1.1',
+  baseUrl: 'http://localhost:3000',
+  interceptors: [createLoggingInterceptor()],
 });
 
 void (async () => {
