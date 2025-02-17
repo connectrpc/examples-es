@@ -17,7 +17,7 @@ import { createConnectTransport } from '@connectrpc/connect-node';
 import { ElizaService } from './gen/connectrpc/eliza/v1/eliza_pb.js';
 import { stdin, stdout } from 'process';
 import * as readline from 'node:readline/promises';
-import {createLoggingInterceptor} from "./interceptor.js";
+import { createLoggingInterceptor } from "./interceptor.js";
 
 const rl = readline.createInterface(stdin, stdout);
 
