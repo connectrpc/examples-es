@@ -19,6 +19,7 @@ import routes from "./connect.js";
 import * as esbuild from "esbuild";
 import http from "node:http";
 import { readFileSync } from "node:fs";
+import { createLoggingInterceptor } from "./interceptor.js";
 
 if (process.argv[1] === new URL(import.meta.url).pathname) {
   const PORT = parseInt(process.argv[2] ?? 3000);
@@ -32,6 +33,7 @@ export function build() {
   // The adapter turns our RPC routes into as Node.js request handler.
   const handler = connectNodeAdapter({
     routes,
+    interceptors: [createLoggingInterceptor()],
     // If none of the RPC routes match, this handler is called.
     // We serve our web interface here:
     fallback(req, res) {
