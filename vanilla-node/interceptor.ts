@@ -3,6 +3,7 @@ import {Interceptor, StreamRequest, StreamResponse, UnaryRequest, UnaryResponse}
 
 
 export type RequestLogger = {
+  onRequestHeader?(header: Headers): void;
   onRequestMessage?(message: Message): void;
   onResponseHeader?(header: Headers): void;
   onResponseMessage?(message: Message): void;
@@ -12,8 +13,10 @@ export type RequestLogger = {
 
 function defaultRequestLogger(req: UnaryRequest | StreamRequest): RequestLogger {
   const name = `${req.method.methodKind} ${req.method.toString()}`;
-  console.log(name, "request header", req.header);
   return {
+    onRequestHeader(header: Headers) {
+      console.log(name, "request header", header);
+    },
     onRequestMessage(message: Message) {
       console.log(name, "request message", message);
     },
@@ -54,6 +57,7 @@ function interceptRequest<R extends UnaryRequest | StreamRequest>(
   req: R,
   logger: RequestLogger,
 ): R {
+  logger.onRequestHeader?.(req.header);
   if (req.stream) {
     return {
       ...req,
