@@ -23,7 +23,7 @@
     "@bufbuild/protobuf": "^2.2.3",
     "@bufbuild/protoc-gen-es": "^2.2.3",
     "@connectrpc/connect": "^2.0.1",
-    "@connectrpc/connect-web": "^2.0.1",
+    "@connectrpc/connect-web": "^2.0.2",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "esbuild": "^0.25.0",
