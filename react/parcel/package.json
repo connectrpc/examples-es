@@ -31,7 +31,7 @@
     "@connectrpc/connect": "^2.0.1",
     "@connectrpc/connect-web": "^2.0.1",
     "@parcel/watcher": "^2.5.1",
-    "@types/react": "^19.0.8",
+    "@types/react": "^19.0.10",
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
     "parcel": "^2.13.3",
