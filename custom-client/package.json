@@ -10,7 +10,7 @@
     "ci": "npm run generate && npm run build && npm run test"
   },
   "dependencies": {
-    "@connectrpc/connect": "^2.0.1",
+    "@connectrpc/connect": "^2.0.2",
     "@connectrpc/connect-node": "^2.0.1"
   },
   "devDependencies": {
