@@ -29,7 +29,7 @@
     "@sveltejs/adapter-auto": "^4.0.0",
     "@sveltejs/kit": "^2.16.1",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
-    "@testing-library/svelte": "^5.2.6",
+    "@testing-library/svelte": "^5.2.7",
     "@types/node": "^22.13.0",
     "flush-promises": "^1.0.2",
     "jsdom": "^26.0.0",
