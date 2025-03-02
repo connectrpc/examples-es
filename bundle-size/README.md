@@ -19,12 +19,12 @@ The results are:
 |------|-----:|----------|
 | esbuild (js) | 122,309 bytes | dist/js/index.js |
 | esbuild (ts) | 122,309 bytes | dist/ts/index.js |
-| parcel (js) | 63,672 bytes | dist/js/index.cf4251ac.js |
-| parcel (ts) | 63,672 bytes | dist/ts/index.dc635180.js |
-| rollup (js) | 192,082 bytes | dist/js/index.js |
-| rollup (ts) | 193,288 bytes | dist/ts/index.js |
-| vite (js) | 81,535 bytes | dist/js/consumer-vite.js |
-| vite (ts) | 81,535 bytes | dist/ts/consumer-vite.js |
+| parcel (js) | 63,785 bytes | dist/js/index.cf4251ac.js |
+| parcel (ts) | 63,785 bytes | dist/ts/index.dc635180.js |
+| rollup (js) | 191,800 bytes | dist/js/index.js |
+| rollup (ts) | 193,006 bytes | dist/ts/index.js |
+| vite (js) | 81,578 bytes | dist/js/consumer-vite.js |
+| vite (ts) | 81,578 bytes | dist/ts/consumer-vite.js |
 | webpack (js) | 61,369 bytes | dist/js/main.js |
 | webpack (ts) | 61,573 bytes | dist/ts/main.js |
 <!--- RESULTS-END -->

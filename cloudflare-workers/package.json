@@ -12,17 +12,17 @@
 		"ci": "npm run generate && npm run build && npm run test"
 	},
 	"dependencies": {
-		"@connectrpc/connect": "^2.0.0"
+		"@connectrpc/connect": "^2.0.2"
 	},
 	"devDependencies": {
-		"@bufbuild/buf": "^1.48.0",
+		"@bufbuild/buf": "^1.50.0",
 		"@bufbuild/protoc-gen-es": "^2.2.3",
-		"@cloudflare/workers-types": "^4.20241230.0",
-		"@connectrpc/connect-node": "^2.0.0",
-		"@types/node": "^22.13.0",
-		"miniflare": "^3.20241218.0",
+		"@cloudflare/workers-types": "^4.20250224.0",
+		"@connectrpc/connect-node": "^2.0.2",
+		"@types/node": "^22.13.8",
+		"miniflare": "^3.20250214.1",
 		"ts-node": "^10.9.2",
-		"typescript": "^5.7.3",
-		"wrangler": "^3.107.2"
+		"typescript": "^5.8.2",
+		"wrangler": "^3.111.0"
 	}
 }
