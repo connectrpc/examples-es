@@ -20,23 +20,23 @@
     "@bufbuild/buf": "^1.50.0",
     "@bufbuild/protobuf": "^2.2.3",
     "@bufbuild/protoc-gen-es": "^2.2.3",
-    "@connectrpc/connect": "^2.0.1",
-    "@connectrpc/connect-web": "^2.0.1",
-    "prettier": "^3.4.2"
+    "@connectrpc/connect": "^2.0.2",
+    "@connectrpc/connect-web": "^2.0.2",
+    "prettier": "^3.5.2"
   },
   "devDependencies": {
     "@playwright/test": "^1.50.1",
     "@sveltejs/adapter-auto": "^4.0.0",
-    "@sveltejs/kit": "^2.16.1",
+    "@sveltejs/kit": "^2.17.3",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
-    "@testing-library/svelte": "^5.2.6",
-    "@types/node": "^22.13.0",
+    "@testing-library/svelte": "^5.2.7",
+    "@types/node": "^22.13.8",
     "flush-promises": "^1.0.2",
     "jsdom": "^26.0.0",
-    "svelte": "^5.19.6",
+    "svelte": "^5.20.5",
     "svelte-check": "^4.1.4",
-    "typescript": "^5.7.3",
-    "vite": "^6.0.11",
-    "vitest": "^3.0.4"
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0",
+    "vitest": "^3.0.7"
   }
 }

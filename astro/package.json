@@ -12,12 +12,12 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/react": "^4.2.0",
+    "@astrojs/react": "^4.2.1",
     "@nanostores/react": "^0.8.4",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
-    "astro": "^5.2.3",
-    "nanostores": "^0.11.3",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "astro": "^5.4.1",
+    "nanostores": "^0.11.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -25,9 +25,9 @@
     "@bufbuild/buf": "^1.50.0",
     "@bufbuild/protobuf": "^2.2.3",
     "@bufbuild/protoc-gen-es": "^2.2.3",
-    "@connectrpc/connect": "^2.0.1",
-    "@connectrpc/connect-web": "^2.0.1",
+    "@connectrpc/connect": "^2.0.2",
+    "@connectrpc/connect-web": "^2.0.2",
     "@playwright/test": "^1.50.1",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   }
 }
