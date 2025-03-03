@@ -53,7 +53,7 @@
     "prettier": "^3.5.2",
     "react-test-renderer": "18.3.1",
     "ts-jest": "^29.2.6",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   },
   "private": true,
   "expo": {
