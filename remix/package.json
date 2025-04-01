@@ -20,7 +20,7 @@
   "packageManager": "pnpm@8.6.11",
   "dependencies": {
     "@remix-run/node": "^2.16.0",
-    "@remix-run/react": "^2.16.0",
+    "@remix-run/react": "^2.16.4",
     "@remix-run/serve": "^2.16.0",
     "@types/jest": "^29.5.14",
     "react": "^19.0.0",
