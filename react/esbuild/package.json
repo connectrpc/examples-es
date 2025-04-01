@@ -21,7 +21,7 @@
   "devDependencies": {
     "@bufbuild/buf": "^1.50.0",
     "@bufbuild/protobuf": "^2.2.3",
-    "@bufbuild/protoc-gen-es": "^2.2.3",
+    "@bufbuild/protoc-gen-es": "^2.2.5",
     "@connectrpc/connect": "^2.0.2",
     "@connectrpc/connect-web": "^2.0.2",
     "@types/react": "^19.0.10",
