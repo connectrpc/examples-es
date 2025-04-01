@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.50.0",
-    "@bufbuild/protoc-gen-es": "^2.2.3",
+    "@bufbuild/protoc-gen-es": "^2.2.5",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.8",
