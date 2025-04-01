@@ -27,7 +27,7 @@
     "@connectrpc/connect": "^2.0.2",
     "@connectrpc/connect-web": "^2.0.2",
     "@cypress/webpack-preprocessor": "^6.0.2",
-    "@rushstack/eslint-patch": "^1.10.5",
+    "@rushstack/eslint-patch": "^1.11.0",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^22.13.8",
     "@vitejs/plugin-vue": "^5.2.1",
