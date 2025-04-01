@@ -24,7 +24,7 @@
     "@bufbuild/protoc-gen-es": "^2.2.3",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-typescript": "^12.1.2",
-    "rollup": "^4.34.9",
+    "rollup": "^4.38.0",
     "typescript": "^5.8.2"
   }
 }
