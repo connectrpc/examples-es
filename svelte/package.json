@@ -30,7 +30,7 @@
     "@sveltejs/kit": "^2.20.2",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@testing-library/svelte": "^5.2.7",
-    "@types/node": "^22.13.16",
+    "@types/node": "^22.13.17",
     "flush-promises": "^1.0.2",
     "jsdom": "^26.0.0",
     "svelte": "^5.25.6",
