@@ -26,7 +26,7 @@
     "@bufbuild/protoc-gen-es": "^2.2.3",
     "@connectrpc/connect": "^2.0.2",
     "@connectrpc/connect-web": "^2.0.2",
-    "@cypress/webpack-preprocessor": "^6.0.2",
+    "@cypress/webpack-preprocessor": "^6.0.4",
     "@rushstack/eslint-patch": "^1.10.5",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^22.13.8",
