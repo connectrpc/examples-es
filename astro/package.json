@@ -19,7 +19,7 @@
     "astro": "^5.4.1",
     "nanostores": "^0.11.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.50.0",
