@@ -16,12 +16,12 @@
   },
   "type": "module",
   "dependencies": {
-    "@bufbuild/protobuf": "^2.2.3",
+    "@bufbuild/protobuf": "^2.2.5",
     "@connectrpc/connect": "^2.0.2"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.50.0",
-    "@bufbuild/protoc-gen-es": "^2.2.3",
+    "@bufbuild/buf": "^1.51.0",
+    "@bufbuild/protoc-gen-es": "^2.2.5",
     "ts-loader": "^9.5.2",
     "typescript": "^5.8.2",
     "webpack": "^5.98.0",
