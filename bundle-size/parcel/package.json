@@ -5,12 +5,12 @@
     "generate": "npx buf generate ../proto --template ../buf.gen.yaml",
     "build": "parcel build --log-level error --no-cache --no-content-hash",
     "test": "npm run test:js && npm run test:ts",
-    "test:js": "node dist/js/index.cf4251ac.js",
-    "test:ts": "node dist/ts/index.dc635180.js"
+    "test:js": "node dist/js/js.cf4251ac.js",
+    "test:ts": "node dist/ts/ts.dc635180.js"
   },
   "testOutputPaths": {
-    "js": "dist/js/index.cf4251ac.js",
-    "ts": "dist/ts/index.dc635180.js"
+    "js": "dist/js/js.cf4251ac.js",
+    "ts": "dist/ts/ts.dc635180.js"
   },
   "type": "module",
   "//": "Required for parcel at the root package.json - see https://parceljs.org/features/dependency-resolution/#package-exports",
@@ -28,11 +28,11 @@
     }
   },
   "dependencies": {
-    "@bufbuild/protobuf": "^2.2.3",
+    "@bufbuild/protobuf": "^2.2.5",
     "@connectrpc/connect": "^2.0.2"
   },
   "devDependencies": {
-    "parcel": "^2.13.3",
+    "parcel": "^2.14.4",
     "typescript": "^5.8.2"
   }
 }
