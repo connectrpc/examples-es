@@ -31,6 +31,7 @@ export default defineConfigWithVueTs(
   vueTsConfigs.recommended,
 
   {
+    // See https://github.com/cypress-io/eslint-plugin-cypress?tab=readme-ov-file#cypress-and-chai-recommended
     ...pluginCypress.configs.recommended,
     ...pluginChaiFriendly.configs.recommendedFlat,
     files: [
