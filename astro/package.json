@@ -27,7 +27,7 @@
     "@bufbuild/protoc-gen-es": "^2.2.5",
     "@connectrpc/connect": "^2.0.2",
     "@connectrpc/connect-web": "^2.0.2",
-    "@playwright/test": "^1.51.1",
+    "@playwright/test": "^1.52.0",
     "typescript": "^5.8.2"
   }
 }
