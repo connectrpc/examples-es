@@ -17,14 +17,14 @@
     "@connectrpc/connect-node": "^2.0.2",
     "@connectrpc/connect-web": "^2.0.2",
     "cors": "^2.8.5",
-    "tsx": "^4.19.3"
+    "tsx": "^4.19.4"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.51.0",
+    "@bufbuild/buf": "^1.53.0",
     "@bufbuild/protoc-gen-es": "^2.2.5",
     "@types/cors": "^2.8.17",
-    "@types/node": "^22.13.16",
+    "@types/node": "^22.15.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   }
 }
