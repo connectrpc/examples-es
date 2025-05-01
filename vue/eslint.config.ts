@@ -4,7 +4,10 @@ import {
   vueTsConfigs,
 } from "@vue/eslint-config-typescript";
 import pluginVue from "eslint-plugin-vue";
-import skipFormatting from "@vue/eslint-config-prettier/skip-formatting";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import pluginCypress from "eslint-plugin-cypress/flat";
+import pluginChaiFriendly from "eslint-plugin-chai-friendly";
 
 // To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
 // import { configureVueProject } from '@vue/eslint-config-typescript'
@@ -17,9 +20,27 @@ export default defineConfigWithVueTs(
     files: ["**/*.{ts,mts,tsx,vue}"],
   },
 
-  globalIgnores(["**/dist/**", "**/dist-ssr/**", "**/coverage/**"]),
+  globalIgnores([
+    "**/dist/**",
+    "**/dist-ssr/**",
+    "**/coverage/**",
+    "cypress/support/",
+  ]),
 
   pluginVue.configs["flat/essential"],
   vueTsConfigs.recommended,
-  skipFormatting,
+
+  {
+    ...pluginCypress.configs.recommended,
+    ...pluginChaiFriendly.configs.recommendedFlat,
+    files: [
+      "**/__tests__/*.{cy,spec}.{js,ts,jsx,tsx}",
+      "cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}",
+      "cypress/support/**/*.{js,ts,jsx,tsx}",
+    ],
+    rules: {
+      "@typescript-eslint/no-unused-expressions": "off", // disable original rule
+      "chai-friendly/no-unused-expressions": "error",
+    },
+  },
 );
