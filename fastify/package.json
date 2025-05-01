@@ -24,7 +24,7 @@
   "devDependencies": {
     "@bufbuild/buf": "^1.51.0",
     "@bufbuild/protoc-gen-es": "^2.2.5",
-    "@types/node": "^22.13.17",
+    "@types/node": "^22.15.3",
     "tap": "^21.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
