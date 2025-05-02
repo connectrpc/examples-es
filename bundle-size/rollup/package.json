@@ -20,11 +20,11 @@
     "@connectrpc/connect": "^2.0.2"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.51.0",
+    "@bufbuild/buf": "^1.53.0",
     "@bufbuild/protoc-gen-es": "^2.2.5",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.2",
-    "rollup": "^4.38.0",
-    "typescript": "^5.8.2"
+    "rollup": "^4.40.1",
+    "typescript": "^5.8.3"
   }
 }
