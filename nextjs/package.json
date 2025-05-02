@@ -18,7 +18,7 @@
     "@connectrpc/connect-next": "^2.0.2",
     "@connectrpc/connect-node": "^2.0.2",
     "@connectrpc/connect-web": "^2.0.2",
-    "next": "15.2.4",
+    "next": "15.3.1",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
