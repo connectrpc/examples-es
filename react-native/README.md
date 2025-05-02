@@ -2,7 +2,7 @@
 
 This project was created using the [Expo CLI](https://docs.expo.dev/workflow/expo-cli/) with the command:
 
-`npx create-expo-app react-native`
+`npx create-expo-app react-native --template`
 
 ## Prerequisites:
 
