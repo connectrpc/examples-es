@@ -11,7 +11,8 @@
     "generate": "buf generate buf.build/connectrpc/eliza",
     "ci": "npm run generate && npm run lint && npm run build && npm run test",
     "android": "expo run:android",
-    "ios": "expo run:ios"
+    "ios": "expo run:ios",
+    "expo:prebuild": "expo prebuild --clean"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
