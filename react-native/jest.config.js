@@ -1,15 +1,14 @@
 module.exports = {
   transform: {
     "^.+\\.(ts|tsx)$": [
-      'ts-jest',
+      "ts-jest",
       {
         useESM: true,
       },
     ],
-    "^.+\\.(js|jsx)$": "babel-jest"
+    "^.+\\.(js|jsx)$": "babel-jest",
   },
   moduleNameMapper: {
     "(.+)\\.js": "$1",
   },
-}
-
+};

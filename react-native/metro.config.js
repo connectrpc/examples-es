@@ -4,16 +4,11 @@ const { mergeConfig } = require("metro-config");
 const defaultConfig = getDefaultConfig(__dirname);
 
 const config = {
-  transformer: {
-    babelTransformerPath: require.resolve("react-native-svg-transformer"),
-    unstable_allowRequireContext: true,
-  },
   resolver: {
-    // Connect-ES and Protobuf-ES use package exports
-    // (https://nodejs.org/docs/latest-v12.x/api/packages.html#packages_exports).
-    //
-    // We need to enable support for them in Metro. See https://metrobundler.dev/docs/package-exports/
-    unstable_enablePackageExports: true,
+    // Connect-ES and Protobuf-ES use package exports (https://nodejs.org/docs/latest-v12.x/api/packages.html#packages_exports).
+    // We no longer need `unstable_enablePackageExports: true` because
+    // they are now enabled by default.
+    // See https://expo.dev/changelog/sdk-53#the-packagejsonexports-field-is-now-enabled-by-default-in-metro-bundler
   },
 };
 
