@@ -130,7 +130,6 @@ class UpgradeStats {
 
     #statTypes = ["skipped", "breaking", "unrecognized"];
     #summary = [];
-
     /**
      * @param {string} statType
      * @param {PackageEnt} pkg
