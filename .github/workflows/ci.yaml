@@ -64,4 +64,11 @@ jobs:
         id: checkdiff
         run: |
           [[ -z $(git status --porcelain | tee /dev/stderr) ]] || exit 1
-
+  update-dependabot-yml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: node manage.mjs update-dependabot-yml
+      - name: Check Diff
+        run: |
+          [[ -z $(git status --porcelain | tee /dev/stderr) ]] || exit 1
