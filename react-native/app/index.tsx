@@ -14,7 +14,7 @@ import { createConnectTransport } from "@connectrpc/connect-web";
 import {
   ElizaService,
   IntroduceRequestSchema,
-} from "../gen/connectrpc/eliza/v1/eliza_pb.js";
+} from "../gen/connectrpc/eliza/v1/eliza_pb";
 import { create } from "@bufbuild/protobuf";
 
 interface ConvoResponse {
