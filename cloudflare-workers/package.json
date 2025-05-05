@@ -6,7 +6,7 @@
 	"scripts": {
 		"deploy": "wrangler deploy",
 		"start": "wrangler dev",
-		"generate": "buf generate ./proto",
+		"generate": "buf generate",
 		"build": "wrangler deploy --dry-run --outdir=dist",
 		"test": "node --loader ts-node/esm --no-warnings --test src/url-shortener.test.ts",
 		"ci": "npm run generate && npm run build && npm run test"

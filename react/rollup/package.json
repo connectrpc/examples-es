@@ -8,7 +8,7 @@
     "start": "npm run generate && rollup -c rollup.config.js -w --environment NODE_ENV:development --silent",
     "build": "rollup -c rollup.config.js --silent",
     "test": "jest",
-    "generate": "buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate",
     "ci": "npm run generate && npm run build && npm run test"
   },
   "author": "",

@@ -1,5 +1,6 @@
-# This template is to generate connect-web artifacts for the Eliza demo.
+# Learn more: https://buf.build/docs/configuration/v2/buf-gen-yaml
 version: v2
+clean: true
 inputs:
   - directory: "proto"
   - module: buf.build/connectrpc/eliza
@@ -8,4 +9,3 @@ plugins:
     out: src/gen
     opt:
       - target=ts
-#      - json_types=true

@@ -5,7 +5,7 @@
   "scripts": {
     "start": "astro dev",
     "build": "astro check && tsc --noEmit && astro build",
-    "generate": "buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate",
     "test": "npm run playwright:install && playwright test",
     "playwright:install": "playwright install",
     "ci": "npm run generate && npm run build && npm run test"

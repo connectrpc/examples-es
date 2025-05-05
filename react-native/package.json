@@ -8,7 +8,7 @@
     "web": "npm run generate && expo start --web",
     "test": "jest",
     "lint": "expo lint",
-    "generate": "buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate",
     "ci": "npm run generate && npm run lint && npm run build && npm run test",
     "android": "expo run:android",
     "ios": "expo run:ios",

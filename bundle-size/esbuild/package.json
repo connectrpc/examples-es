@@ -2,7 +2,7 @@
   "name": "consumer-esbuild",
   "scripts": {
     "pregenerate": "rm -rf dist",
-    "generate": "npx buf generate ../proto --template ../buf.gen.yaml",
+    "generate": "buf generate ../proto --template ../buf.gen.yaml",
     "build": "npm run build:js && npm run build:ts",
     "build:js": "esbuild --log-level=error ./src/js/index.js --bundle --outfile=dist/js/index.js",
     "build:ts": "esbuild --log-level=error ./src/ts/index.ts --bundle --outfile=dist/ts/index.js",

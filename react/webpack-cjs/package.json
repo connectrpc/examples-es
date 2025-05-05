@@ -7,7 +7,7 @@
     "start": "npm run build && webpack serve --mode development",
     "build": "webpack",
     "test": "jest",
-    "generate": "buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate",
     "ci": "npm run generate && npm run build && npm run test"
   },
   "author": "",
