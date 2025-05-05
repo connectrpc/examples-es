@@ -2,7 +2,7 @@
   "name": "consumer-webpack",
   "scripts": {
     "pregenerate": "rm -rf dist",
-    "generate": "npx buf generate ../proto --template ../buf.gen.yaml",
+    "generate": "buf generate ../proto --template ../buf.gen.yaml",
     "build": "npm run build:js && npm run build:ts",
     "build:js": "webpack --no-stats --entry ./src/js/index.js -o dist/js",
     "build:ts": "webpack --no-stats --entry ./src/ts/index.ts -o dist/ts --config src/webpack.config.cjs",

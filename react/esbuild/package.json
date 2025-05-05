@@ -9,7 +9,7 @@
     "build": "esbuild src/index.tsx --bundle --outfile=dist/out.js",
     "typecheck": "tsc --noEmit",
     "test": "jest",
-    "generate": "buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate",
     "ci": "npm run generate && npm run typecheck && npm run build && npm run test"
   },
   "author": "",

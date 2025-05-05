@@ -8,7 +8,7 @@
     "build": "parcel build src/index.html --log-level error",
     "test": "jest",
     "pregenerate": "rm -rf src/gen/*",
-    "generate": "buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate",
     "check": "tsc --noEmit",
     "ci": "npm run generate && npm run check && npm run build && npm run test"
   },

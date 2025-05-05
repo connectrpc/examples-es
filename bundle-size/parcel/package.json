@@ -2,7 +2,7 @@
   "name": "consumer-parcel",
   "scripts": {
     "pregenerate": "rm -rf dist",
-    "generate": "npx buf generate ../proto --template ../buf.gen.yaml",
+    "generate": "buf generate ../proto --template ../buf.gen.yaml",
     "build": "parcel build --log-level error --no-cache --no-content-hash",
     "test": "npm run test:js && npm run test:ts",
     "test:js": "node dist/js/js.cf4251ac.js",

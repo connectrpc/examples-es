@@ -11,7 +11,7 @@
     "build": "remix build",
     "typecheck": "tsc",
     "test": "jest",
-    "generate": "buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate",
     "ci": "pnpm run generate && pnpm run typecheck && pnpm run build && pnpm run test"
   },
   "engines": {

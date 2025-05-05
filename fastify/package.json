@@ -6,7 +6,7 @@
   "scripts": {
     "start": "tsx server.ts",
     "client": "tsx client.ts",
-    "generate": "buf generate buf.build/connectrpc/eliza",
+    "generate": "buf generate",
     "build": "tsc --noEmit",
     "test": "tap --typecheck --allow-empty-coverage --disable-coverage",
     "ci": "npm run generate && npm run build && npm run test"
