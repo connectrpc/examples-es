@@ -6,3 +6,5 @@ inputs:
 plugins:
   - local: protoc-gen-es
     out: gen
+    opt:
+      - target=ts
