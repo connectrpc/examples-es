@@ -4,6 +4,6 @@ inputs:
   - module: buf.build/connectrpc/eliza
 plugins:
   - local: protoc-gen-es
-    out: gen
+    out: src/gen
     opt:
       - target=ts
