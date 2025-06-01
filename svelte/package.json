@@ -17,26 +17,26 @@
     "ci": "npm run generate && npm run format && npm run check && npm run build && npm run test"
   },
   "dependencies": {
-    "@bufbuild/buf": "^1.53.0",
-    "@bufbuild/protobuf": "^2.2.5",
-    "@bufbuild/protoc-gen-es": "^2.2.5",
+    "@bufbuild/buf": "^1.54.0",
+    "@bufbuild/protobuf": "^2.5.1",
+    "@bufbuild/protoc-gen-es": "^2.5.1",
     "@connectrpc/connect": "^2.0.2",
     "@connectrpc/connect-web": "^2.0.2",
     "prettier": "^3.5.3"
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
-    "@sveltejs/adapter-auto": "^6.0.0",
-    "@sveltejs/kit": "^2.20.8",
+    "@sveltejs/adapter-auto": "^6.0.1",
+    "@sveltejs/kit": "^2.21.1",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
-    "@testing-library/svelte": "^5.2.7",
-    "@types/node": "^22.15.3",
+    "@testing-library/svelte": "^5.2.8",
+    "@types/node": "^22.15.29",
     "flush-promises": "^1.0.2",
     "jsdom": "^26.1.0",
-    "svelte": "^5.28.2",
-    "svelte-check": "^4.1.6",
+    "svelte": "^5.33.11",
+    "svelte-check": "^4.2.1",
     "typescript": "^5.8.3",
-    "vite": "^6.3.4",
-    "vitest": "^3.1.2"
+    "vite": "^6.3.5",
+    "vitest": "^3.1.4"
   }
 }
