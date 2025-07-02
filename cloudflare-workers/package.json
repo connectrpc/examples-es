@@ -19,7 +19,7 @@
 		"@bufbuild/protoc-gen-es": "^2.6.0",
 		"@cloudflare/workers-types": "^4.20250701.0",
 		"@connectrpc/connect-node": "^2.0.2",
-		"@types/node": "^24.0.8",
+		"@types/node": "^24.0.10",
 		"miniflare": "^4.20250617.4",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.8.3",
