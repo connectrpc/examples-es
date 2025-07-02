@@ -22,6 +22,6 @@
   "devDependencies": {
     "@bufbuild/buf": "^1.55.1",
     "@bufbuild/protoc-gen-es": "^2.6.0",
-    "vite": "^6.3.5"
+    "vite": "^7.0.0"
   }
 }
