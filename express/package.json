@@ -12,21 +12,21 @@
     "ci": "npm run generate && npm run build && npm run test"
   },
   "dependencies": {
-    "@bufbuild/protobuf": "^2.5.1",
+    "@bufbuild/protobuf": "^2.6.0",
     "@connectrpc/connect": "^2.0.2",
     "@connectrpc/connect-express": "^2.0.2",
     "@connectrpc/connect-node": "^2.0.2",
     "@connectrpc/connect-web": "^2.0.2",
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "tsx": "^4.19.4"
+    "tsx": "^4.20.3"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.54.0",
-    "@bufbuild/protoc-gen-es": "^2.5.1",
-    "@types/cors": "^2.8.18",
-    "@types/express": "^5.0.2",
-    "@types/node": "^22.15.29",
+    "@bufbuild/buf": "^1.55.1",
+    "@bufbuild/protoc-gen-es": "^2.6.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.8",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
