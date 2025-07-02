@@ -23,7 +23,7 @@
     "@bufbuild/buf": "^1.55.1",
     "@bufbuild/protoc-gen-es": "^2.6.0",
     "@types/cors": "^2.8.19",
-    "@types/node": "^24.0.8",
+    "@types/node": "^24.0.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
