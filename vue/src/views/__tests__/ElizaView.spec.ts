@@ -39,7 +39,7 @@ test("against a mocked service", async () => {
 
   let fi = wrapper.findAll(".eliza-resp-container p");
 
-  expect(fi.at(0)?.text()).toContain("What is your name?");
+  expect(fi[0]?.text()).toContain("What is your name?");
 
   // Enter a name in the input and click send
   await input.setValue("Steve");
@@ -48,7 +48,7 @@ test("against a mocked service", async () => {
   // Wait for the introduce response from our mocked Eliza and verify it is our mocked response
   await flushPromises();
   fi = wrapper.findAll(".eliza-resp-container p");
-  expect(fi.at(1)?.text()).toContain(
+  expect(fi[1]?.text()).toContain(
     "Hi Steve, this is a mock response to introduce.",
   );
 
@@ -59,5 +59,5 @@ test("against a mocked service", async () => {
   // Wait for the say response from our mocked Eliza and verify it is our mocked response
   await flushPromises();
   fi = wrapper.findAll(".eliza-resp-container p");
-  expect(fi.at(2)?.text()).toContain("This is a mock response to say");
+  expect(fi[2]?.text()).toContain("This is a mock response to say");
 });
