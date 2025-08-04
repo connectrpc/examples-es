@@ -3,7 +3,9 @@
   "scripts": {
     "pregenerate": "rm -rf dist",
     "generate": "buf generate ../proto --template ../buf.gen.yaml",
-    "build": "parcel build --log-level error --no-cache --no-content-hash",
+    "build": "npm run build:js && npm run build:ts",
+    "build:js": "parcel build --log-level error --no-cache --no-content-hash --target=js",
+    "build:ts": "parcel build --log-level error --no-cache --no-content-hash --target=ts",
     "test": "npm run test:js && npm run test:ts",
     "test:js": "node dist/js/js.cf4251ac.js",
     "test:ts": "node dist/ts/ts.dc635180.js"
@@ -28,11 +30,11 @@
     }
   },
   "dependencies": {
-    "@bufbuild/protobuf": "^2.6.0",
-    "@connectrpc/connect": "^2.0.2"
+    "@bufbuild/protobuf": "^2.6.2",
+    "@connectrpc/connect": "^2.0.3"
   },
   "devDependencies": {
     "parcel": "^2.15.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   }
 }
