@@ -29,8 +29,8 @@
     "@angular/cli": "^20.1.4",
     "@angular/compiler-cli": "^20.1.4",
     "@bufbuild/buf": "^1.56.0",
-    "@bufbuild/protobuf": "^2.6.2",
-    "@bufbuild/protoc-gen-es": "^2.6.2",
+    "@bufbuild/protobuf": "^2.6.3",
+    "@bufbuild/protoc-gen-es": "^2.6.3",
     "@connectrpc/connect": "^2.0.3",
     "@connectrpc/connect-web": "^2.0.3",
     "@types/jasmine": "^5.1.8",
@@ -41,6 +41,6 @@
     "karma-jasmine": "^5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
     "prettier": "^3.6.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   }
 }
