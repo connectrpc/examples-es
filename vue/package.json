@@ -47,7 +47,7 @@
     "resolve-typescript-plugin": "^2.0.1",
     "start-server-and-test": "^2.0.12",
     "ts-loader": "^9.5.2",
-    "typescript": "^5.9.2",
+    "typescript": "^5.8.3",
     "vite": "^7.0.6",
     "vitest": "^3.2.4",
     "vue-tsc": "^3.0.4"
