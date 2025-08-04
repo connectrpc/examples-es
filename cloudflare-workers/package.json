@@ -16,10 +16,10 @@
 	},
 	"devDependencies": {
 		"@bufbuild/buf": "^1.56.0",
-		"@bufbuild/protoc-gen-es": "^2.6.2",
-		"@cloudflare/workers-types": "^4.20250801.0",
+		"@bufbuild/protoc-gen-es": "^2.6.3",
+		"@cloudflare/workers-types": "^4.20250803.0",
 		"@connectrpc/connect-node": "^2.0.3",
-		"@types/node": "^24.1.0",
+		"@types/node": "^24.2.0",
 		"miniflare": "^4.20250730.0",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.9.2",
