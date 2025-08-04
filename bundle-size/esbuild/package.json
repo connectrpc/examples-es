@@ -16,12 +16,12 @@
   },
   "type": "module",
   "dependencies": {
-    "@bufbuild/protobuf": "^2.6.2",
+    "@bufbuild/protobuf": "^2.6.3",
     "@connectrpc/connect": "^2.0.3"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.56.0",
-    "@bufbuild/protoc-gen-es": "^2.6.2",
+    "@bufbuild/protoc-gen-es": "^2.6.3",
     "esbuild": "^0.25.8"
   }
 }
