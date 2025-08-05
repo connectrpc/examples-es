@@ -17,16 +17,16 @@ The results are:
 <!--- RESULTS-START -->
 | Name | Size | Artifact |
 |------|-----:|----------|
-| esbuild (js) | 135,295 bytes | dist/js/index.js |
-| esbuild (ts) | 135,295 bytes | dist/ts/index.js |
-| parcel (js) | 66,980 bytes | dist/js/js.cf4251ac.js |
-| parcel (ts) | 66,980 bytes | dist/ts/ts.dc635180.js |
-| rollup (js) | 208,546 bytes | dist/js/index.js |
-| rollup (ts) | 209,752 bytes | dist/ts/index.js |
-| vite (js) | 90,648 bytes | dist/js/consumer-vite.js |
-| vite (ts) | 90,648 bytes | dist/ts/consumer-vite.js |
-| webpack (js) | 67,147 bytes | dist/js/main.js |
-| webpack (ts) | 67,351 bytes | dist/ts/main.js |
+| esbuild (js) | 135,316 bytes | dist/js/index.js |
+| esbuild (ts) | 135,316 bytes | dist/ts/index.js |
+| parcel (js) | 66,984 bytes | dist/js/js.cf4251ac.js |
+| parcel (ts) | 66,984 bytes | dist/ts/ts.dc635180.js |
+| rollup (js) | 208,778 bytes | dist/js/index.js |
+| rollup (ts) | 209,984 bytes | dist/ts/index.js |
+| vite (js) | 90,655 bytes | dist/js/consumer-vite.js |
+| vite (ts) | 90,655 bytes | dist/ts/consumer-vite.js |
+| webpack (js) | 67,151 bytes | dist/js/main.js |
+| webpack (ts) | 67,355 bytes | dist/ts/main.js |
 <!--- RESULTS-END -->
 
 To run all tests, and update the table above:
