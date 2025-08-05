@@ -30,7 +30,7 @@
     }
   },
   "dependencies": {
-    "@bufbuild/protobuf": "^2.6.2",
+    "@bufbuild/protobuf": "^2.6.3",
     "@connectrpc/connect": "^2.0.3"
   },
   "devDependencies": {
