@@ -16,15 +16,15 @@
   },
   "type": "module",
   "dependencies": {
-    "@bufbuild/protobuf": "^2.6.3",
-    "@connectrpc/connect": "^2.0.3"
+    "@bufbuild/protobuf": "^2.9.0",
+    "@connectrpc/connect": "^2.1.0"
   },
   "devDependencies": {
-    "@bufbuild/buf": "^1.56.0",
-    "@bufbuild/protoc-gen-es": "^2.6.3",
+    "@bufbuild/buf": "^1.57.2",
+    "@bufbuild/protoc-gen-es": "^2.9.0",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.4",
-    "rollup": "^4.46.2",
-    "typescript": "^5.9.2"
+    "rollup": "^4.52.3",
+    "typescript": "^5.9.3"
   }
 }
