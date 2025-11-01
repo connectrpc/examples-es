@@ -30,11 +30,11 @@
     }
   },
   "dependencies": {
-    "@bufbuild/protobuf": "^2.6.3",
-    "@connectrpc/connect": "^2.0.3"
+    "@bufbuild/protobuf": "^2.10.0",
+    "@connectrpc/connect": "^2.1.0"
   },
   "devDependencies": {
-    "parcel": "^2.15.4",
-    "typescript": "^5.9.2"
+    "parcel": "^2.16.0",
+    "typescript": "^5.9.3"
   }
 }
