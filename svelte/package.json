@@ -33,7 +33,7 @@
     "@types/node": "^24.1.0",
     "flush-promises": "^1.0.2",
     "jsdom": "^26.1.0",
-    "svelte": "^5.37.2",
+    "svelte": "^5.53.2",
     "svelte-check": "^4.3.0",
     "typescript": "^5.9.2",
     "vite": "^7.0.6",
