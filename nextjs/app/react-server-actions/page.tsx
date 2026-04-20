@@ -5,7 +5,9 @@ import { ElizaService } from "../../gen/connectrpc/eliza/v1/eliza_pb";
 import { createConnectTransport } from "@connectrpc/connect-web";
 import { getMessages, addMessage } from "./fake-db";
 
-const getMessagesCached = unstable_cache(getMessages, ["my-messages"]);
+const getMessagesCached = unstable_cache(getMessages, ["my-messages"], {
+  tags: ["my-messages"],
+});
 
 export default async function Page() {
   // This action runs on the server
