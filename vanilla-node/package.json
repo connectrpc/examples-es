@@ -17,7 +17,7 @@
     "@connectrpc/connect-node": "^2.0.3",
     "@connectrpc/connect-web": "^2.0.3",
     "cors": "^2.8.5",
-    "tsx": "^4.20.3"
+    "tsx": "^4.22.4"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.56.0",
