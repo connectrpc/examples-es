@@ -22,7 +22,7 @@
     "@connectrpc/connect": "^2.0.3",
     "@connectrpc/connect-web": "^2.0.3",
     "@types/jasmine": "^5.1.8",
-    "esbuild": "^0.25.8",
+    "esbuild": "^0.28.1",
     "jasmine": "^5.9.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
