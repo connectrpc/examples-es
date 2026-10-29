@@ -1,6 +1,6 @@
 # Eliza
 
-This directory shows examples of Connect for Node.js using the [Fastify](https://fastify.io) framework.
+This directory shows examples of Connect for Node.js using the [Fastify](https://fastify.dev) framework.
 
 ## Server
 
@@ -31,7 +31,6 @@ This example comes with tests. We are using [tap](https://node-tap.org/) - the
 test framework used by Fastify.
 
 Run `npm test` to run all tests.
-
 
 ## Other helpful commands
 

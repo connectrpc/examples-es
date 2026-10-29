@@ -2,7 +2,7 @@
 
 This project was bootstrapped as a [Next.js](https://nextjs.org) project with the command `npx create-next-app buf-nextjs --use-npm --ts` and all suggested defaults (except for Tailwind for CSS).
 
-Note that this example uses Connect full-stack. It makes use of the server-side [https://www.npmjs.com/package/@connectrpc/connect-next](@connectrpc/connect-next) package to serve endpoints to the frontend.
+Note that this example uses Connect full-stack. It makes use of the server-side [@connectrpc/connect-next](https://www.npmjs.com/package/@connectrpc/connect-next) package to serve endpoints to the frontend.
 
 Other tools used:
 
@@ -24,7 +24,7 @@ Build the app using Webpack.
 
 ### `npm run generate`
 
-Use `buf` to generate the compiled protos via protobuf-es.
+Use `buf` to generate the compiled protos via Protobuf-ES.
 
 ### `npm run start:production`
 
@@ -33,4 +33,3 @@ Previews a built application on port 3000.
 ### `npm run lint`
 
 Lints application using eslint.
-

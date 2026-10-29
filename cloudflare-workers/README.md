@@ -1,6 +1,6 @@
 # UrlShortener
 
-This project was created using `npm create cloudflare@2`. It uses the [`wrangler`](https://developers.cloudflare.com/workers/wrangler/) cli tool to manage the project.
+This project was created using `npm create cloudflare@2`. It uses the [`wrangler`](https://developers.cloudflare.com/workers/wrangler/) CLI tool to manage the project.
 
 ## Server
 
@@ -10,7 +10,7 @@ To start the server, run `npm start`. This starts a local development server.
 
 ### `npm run test`
 
-Run the unit tests via node. They also showcase the worker in action. See [`url-shortener.spec.ts`](src/url-shortener.test.ts) for more details.
+Run the unit tests via node. They also showcase the worker in action. See [`url-shortener.test.ts`](src/url-shortener.test.ts) for more details.
 
 ## Other helpful commands
 

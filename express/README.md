@@ -29,7 +29,7 @@ triggering CORS.
 
 ### `npm run test`
 
-Run the unit tests via Jasmine.
+Run the unit tests via the Node.js built-in test runner.
 
 ### `npm run generate`
 

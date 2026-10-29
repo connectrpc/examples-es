@@ -6,7 +6,7 @@ This project was bootstrapped as a [Remix](https://remix.run) project with the c
 
 Other tools used:
 
-* [Rollup](https://rollupjs.org/) (Bundler)
+* [esbuild](https://esbuild.github.io/) (Bundler)
 * [pnpm](https://pnpm.io/) (Package Manager)
 
 ## Getting Started
@@ -20,11 +20,11 @@ This starts your app in development mode, rebuilding assets on file changes.
 
 ### `pnpm run generate`
 
-Use `buf` to generate the compiled protos via protobuf-es
+Use `buf` to generate the compiled protos via Protobuf-ES
 
 ### `pnpm run build`
 
-Build the app using Rollup.
+Build the app using esbuild.
 
 ### `pnpm run start:production`
 
@@ -34,7 +34,7 @@ Run the app in production mode.
 
 Ensure that you've got corepack enabled:
 
-```console
+```bash
 corepack enable
 ```
 

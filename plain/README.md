@@ -1,6 +1,6 @@
 # Eliza
 
-This project was created from scratch using no UI frameworks at all.  Its only dependencies are:
+This project was created from scratch using no UI frameworks at all. Its only dependencies are:
 
 - Connect-ES
 - Protobuf-ES
@@ -24,5 +24,4 @@ Build the app using esbuild.
 
 ### `npm run generate`
 
-Use `buf` to generate the compiled protos via protobuf-es
-
+Use `buf` to generate the compiled protos via Protobuf-ES

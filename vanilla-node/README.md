@@ -25,7 +25,6 @@ To see the CORS setup in action, run `npm start 3001` and then visit [http://loc
 in a browser. The browser client will send requests to localhost:3000,
 triggering CORS.
 
-
 ## Tests
 
 This example comes with tests. We are using the Node.js [built in test runner](https://nodejs.org/api/test.html)
@@ -36,8 +35,6 @@ Run `npm test` to run all tests.
 
 - [connect.test.ts](./connect.test.ts) shows testing a service.
 - [client.test.ts](./client.test.ts) shows testing a client application.
-
-
 
 ## Other helpful commands
 
