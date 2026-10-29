@@ -5,12 +5,12 @@ This directory is meant for testing only and is not intended to illustrate examp
 using Connect-ES. The purpose of this directory is to build a bundle with various bundlers
 to test the effect of changes to Connect-ES and how those changes impact bundle size.
 
-For our bundle size tests, we import two symbols to get effective coverage:
+For our bundle size tests, we import three symbols to get effective coverage:
 
-* `compressedFlag` from `@connectrpc/connect/protocol`, which is a simple numeric constant. However, the file it is 
+* `compressedFlag` from `@connectrpc/connect/protocol`, which is a simple numeric constant. However, the file it is
 defined in contains other symbols as well. We are intentionally importing from a subpath, because this requires bundlers
 to honor the `exports` fields.
-* `SayRequest` from code generated from the Eliza protos. This allows us to test tree-shaking with generated code.
+* `SayRequestSchema` and `SayVolumeSchema` from code generated from the Eliza protos. This allows us to test tree-shaking with generated code.
 
 The results are:
 
@@ -32,8 +32,8 @@ The results are:
 To run all tests, and update the table above:
 
 ```bash
-$ npm ci
-$ npm run generate && npm run build && npm run test
+npm ci
+npm run generate && npm run build && npm run test
 ```
 
 ### Testing regressions with local changes
@@ -52,7 +52,7 @@ npm pack
 
 The above `pack` command will generate a tarball in the `packages/connect` directory named something like
 
-```
+```text
 connectrpc-connect-<CONNECT_VERSION>.tgz
 ```
 
@@ -67,7 +67,7 @@ mv package node_modules/@connectrpc/connect
 Run the tests again:
 
 ```bash
-$ npm run generate && npm run build && npm run test
+npm run generate && npm run build && npm run test
 ```
 
 Verify that the bundle sizes have not changed significantly. It is possible that the bundle sizes have changed slightly

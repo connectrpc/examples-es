@@ -4,10 +4,10 @@ This project was bootstrapped as a [Svelte](https://svelte.dev/) 5 project.
 
 All default tooling setup via the above command is used, which includes:
 
-- [Vite](https://vitejs.dev) (Module Loader)
+- [Vite](https://vite.dev) (Module Loader)
 - [Vitest](https://vitest.dev) (Unit Test Framework)
 - [Playwright](https://playwright.dev) (e2e Testing Framework)
-- [Svelte Kit](https://kit.svelte.dev/) (Application Framework)
+- [SvelteKit](https://svelte.dev/docs/kit) (Application Framework)
 
 The example includes server side rendering via a universal load function in [src/routes/universal-ssr](./src/routes/universal-ssr),
 and a server-only load function in [src/routes/server-only-ssr](./src/routes/server-only-ssr). Run the app to see them
@@ -32,7 +32,7 @@ Build the app using Vite.
 
 ### `npm run test`
 
-Run unit tests via the Vitest framework and Svelte Testing Library.
+Run unit tests via the Vitest framework and Svelte Testing Library, then e2e tests via Playwright.
 
 ### `npm run test:e2e`
 
@@ -40,7 +40,7 @@ Run e2e tests via the Playwright framework.
 
 ### `npm run generate`
 
-Use `buf` to generate the compiled protos via protobuf-es.
+Use `buf` to generate the compiled protos via Protobuf-ES.
 
 ## Bonus Commands
 
@@ -48,7 +48,7 @@ The following commands are also available via the Svelte starter project:
 
 ### `npm run preview`
 
-Previews a built application on port 3000. Note that `npm run build` must be run initially or an error will occur.
+Previews a built application on port 4173. Note that `npm run build` must be run initially or an error will occur.
 
 ### `npm run check`
 

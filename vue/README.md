@@ -6,7 +6,7 @@ This project was bootstrapped as a [Vue](https://vuejs.org/) project with the co
 
 All default tooling setup via the above command is used, which includes:
 
-* [Vite](https://vitejs.dev) (Module Loader)
+* [Vite](https://vite.dev) (Module Loader)
 * [Vitest](https://vitest.dev) (Unit Test Framework)
 * [Cypress](https://www.cypress.io/) (e2e Test Framework)
 
@@ -28,11 +28,11 @@ Type-check using vue-tsc and build the app using Vite.
 
 ### `npm run test`
 
-Run unit tests via the Vitest framework and Vue Testing Library.
+Run unit tests via the Vitest framework and Vue Test Utils.
 
 ### `npm run generate`
 
-Use `buf` to generate the compiled protos via protobuf-es.
+Use `buf` to generate the compiled protos via Protobuf-ES.
 
 ## Bonus Commands
 
@@ -61,5 +61,3 @@ Runs type-check using vue-tsc.
 ### `npm run lint`
 
 Runs eslint against codebase.
-
-
