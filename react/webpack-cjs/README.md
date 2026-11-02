@@ -22,5 +22,4 @@ Run unit tests.
 
 ### `npm run generate`
 
-Use `buf` to generate the compiled protos via protobuf-es
-
+Use `buf` to generate the compiled protos via Protobuf-ES

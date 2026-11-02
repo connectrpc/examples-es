@@ -10,7 +10,7 @@ It provides numerous examples for integrating Connect into a project, using both
 
 ### Angular
 
-The [Angular](https://angular.io) application was generated with the [Angular CLI](https://github.com/angular/angular-cli).
+The [Angular](angular) application was generated with the [Angular CLI](https://github.com/angular/angular-cli).
 
 ### Astro
 
@@ -26,7 +26,7 @@ The [Plain](plain) application was built from scratch with no frameworks at all 
 
 ### React
 
-All applications underneath this directory use [React](https://reactjs.org) as the framework.  Each is divided by the various
+All applications underneath this directory use [React](https://react.dev) as the framework. Each is divided by the various
 tooling differences the related projects were constructed with:
 
 * [esbuild](react/esbuild) - Built from scratch with [esbuild](https://esbuild.github.io) as the bundler.
@@ -36,7 +36,7 @@ tooling differences the related projects were constructed with:
 * [webpack](react/webpack) - Built from scratch with [Webpack](https://webpack.js.org) as the bundler.
 * [webpack-cjs](react/webpack-cjs) - Built from scratch with [Webpack](https://webpack.js.org) as the bundler, using CommonJS import syntax.
 
-Each project also uses various tools for testing, linting, etc.  These variances are noted in each project README.
+Each project also uses various tools for testing, linting, etc. These variances are noted in each project README.
 
 ### Remix
 
@@ -69,7 +69,7 @@ framework.
 
 ### Fastify
 
-The [fastify](fastify) directory contains an example involving Connect for Node.js with the [Fastify](https://fastify.io)
+The [fastify](fastify) directory contains an example involving Connect for Node.js with the [Fastify](https://fastify.dev)
 framework.
 
 ### Vanilla Node.js
@@ -79,7 +79,7 @@ the `http` package.
 
 ### Cloudflare Workers
 
-The [cloudflare-workers](cloudflare-workers) directory contains an example involving Connect running on [Cloudflare Workers](https://workers.cloudflare.com).
+The [cloudflare-workers](cloudflare-workers) directory contains an example involving Connect running on [Cloudflare Workers](https://www.cloudflare.com/products/workers/).
 
 ## Misc
 
@@ -91,4 +91,4 @@ The [custom-client](custom-client) directory contains an example demonstrating h
 
 Offered under the [Apache 2 license][license].
 
-[license]: https://github.com/connectrpc/examples-es/blob/main/LICENSE.txt
+[license]: https://github.com/connectrpc/examples-es/blob/main/LICENSE

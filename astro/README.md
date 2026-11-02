@@ -8,7 +8,7 @@ All default tooling setup via the above command is used, which includes:
 
 * [Nano Stores](https://github.com/nanostores/nanostores)
 * [Playwright](https://playwright.dev) (Testing Framework)
-* [React](https://reactjs.org/)
+* [React](https://react.dev/)
 
 ## Getting Started
 
@@ -16,7 +16,7 @@ All default tooling setup via the above command is used, which includes:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:4321](http://localhost:4321) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
@@ -29,7 +29,7 @@ Build the app using Astro.
 
 ### `npm run generate`
 
-Use `buf` to generate the compiled protos via protobuf-es.
+Use `buf` to generate the compiled protos via Protobuf-ES.
 
 ### `npm run test`
 

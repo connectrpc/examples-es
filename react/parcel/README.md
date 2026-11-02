@@ -21,9 +21,9 @@ Build the app using Parcel.
 
 ### `npm run generate`
 
-Use `buf` to generate the compiled protos via protobuf-es
+Use `buf` to generate the compiled protos via Protobuf-ES
 
 ### Gotcha
 
-Connect-ES and Protobuf-ES use package exports. To support them with Parcel, we 
+Connect-ES and Protobuf-ES use package exports. To support them with Parcel, we
 enable them in package.json. See https://parceljs.org/features/dependency-resolution/#enabling-package-exports
